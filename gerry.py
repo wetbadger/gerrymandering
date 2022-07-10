@@ -92,10 +92,13 @@ class Graph():
                     if self.winning_path:
                         return True
                     new_path = [x if ind<pos else -1 for ind, x in enumerate(path) ]
+                    
+                    
+
                     if self.can_visit(v, pos, new_path):
                         new_path[pos] = v
                         self.ham_util(new_path, pos+1)
-                    return path
+                    return True
                 path[pos] = -1
 
         return False
@@ -125,29 +128,38 @@ def gerrymander(G):
 
 tests = {}
 test_no = 0
-def generate_random(size=5):
+def generate_random(size=3, set=['O','O','X','X','X'], limit=(4,5)):
     
-    result = ""
+    test = ""
+    tally1 = 0
+    tally2 = 0
     for x in range(size):
         for y in range(size):
-            if bool(random.getrandbits(1)):
-                result+='O'
+            if tally1 >= limit[0]:
+                result = set[-1]
+            elif tally2 >= limit[1]:
+                result = set[0]
             else:
-                result+='X'
+                result=random.choice(set)
+                if result==set[0]:
+                    tally1+=1
+                else:
+                    tally2+=1
+            test+=result
         if x < size-1:
-            result+='\n'
-    print(result)
+            test+='\n'
+    print(test)
     print(".....")
-    
-    return result
+    return test
 
 if __name__ == "__main__":
     begin_time = time.time()
     #G = 'OOXXX\nOOXXX\nOOXXX\nOOXXX\nOOXXX'
     #print(gerrymander(G))
+    test_file = "tests.json"
     use_json = True
     if use_json:
-        with open("tests.json", 'r') as f:
+        with open(test_file, 'r') as f:
             tests = json.loads(f.read())
     for n in range(25):
         start_time = time.time()
@@ -168,6 +180,6 @@ if __name__ == "__main__":
     if not use_json:
         sentinel = input("Save tests? (y/n)")
         if sentinel.lower() == 'y':
-            with open("tests.json", 'w') as f:
+            with open(test_file, 'w') as f:
                 f.write(json.dumps(tests))
     
