@@ -17,7 +17,7 @@ func _input(event: InputEvent) -> void:
 	if not Input.is_mouse_button_pressed(BUTTON_LEFT):
 		return
 		
-	#points.append(event.position)
+	points.append(event.position)
 	last_point = event.get_global_position()
 	update()
 	
@@ -35,24 +35,8 @@ func _draw() -> void:
 		district.set_name(selected_district)
 		add_child(district)
 		return
-		
-	var shape = district.get_node("Area2D").get_node("CollisionPolygon2D")
-	var local_last_point = glob_to_loc(district, last_point)
-	print(local_last_point)
-	print(shape.polygon)
-	expand_district(shape, local_last_point)
-	#district.get_node("Area2D").get_node("CollisionPolygon2D").polygon.push_back(last_point)
-	print()
-	
-func expand_district(shape, from_point):
-	var newPoly = PoolVector2Array() + shape.polygon
-	var i = 0
-	for point in newPoly:
-		if point.x - from_point.x < draw_size:
-			newPoly[i] = Vector2(from_point.x-draw_size,point.y)
-		i += 1
-	shape.polygon = newPoly
+	#print(points)
+	var point = PoolVector2Array( points )
+	var color = PoolColorArray( [district.color] )
+	draw_primitive(point, color, PoolVector2Array())
 
-func glob_to_loc(node, global_pos):
-	var local_pos = global_pos - node.get_global_position()
-	return local_pos
