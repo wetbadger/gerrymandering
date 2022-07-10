@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="UnnamedDistrict" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -33, -33, 33, -33, 33, 33, -33, 33 )
