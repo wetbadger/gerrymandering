@@ -23,6 +23,13 @@ class Graph():
         self.winning_path = None
         self.fair_map = None
 
+        #TODO: get reflected matrixes for path reflections
+        self.reflected_matrix_1 = self.reflect_matrix(rows=width, dir=1)
+        self.reflected_matrix_2 = self.reflect_matrix(rows=width, dir=-1)
+
+    def reflect_matrix(self, rows=3, dir=1):
+        pass
+
     def check_for_condition(self, candidate, path, won=True):
         s = self.width
         districts = [path[x:x+s] for x in range(0, len(path), s)]
@@ -78,6 +85,11 @@ class Graph():
                     if self.check_for_condition('O', rotated_path, won=True):
                         self.winning_path = rotated_path
                         self.draw_fair_map()
+                    elif False: #TODO: get rotated paths
+                        rotated_path = self.rotate_path(path, -1)
+                        if self.check_for_condition('O', rotated_path, won=True):
+                            self.winning_path = rotated_path
+                            self.draw_fair_map()
                 self.paths.append(path)
                 self.paths.append(self.rotate_path(path))
                 return True
@@ -113,11 +125,14 @@ class Graph():
 
         return self.winning_path
 
-    def rotate_path(self, path):
+    def rotate_path(self, path, dir=1):
         #a simple one liner rotates the path
-        return [(value + (self.width-1)*(value%(self.width+1))) if 
-                (value + (self.width-1)*(value%(self.width+1))) < self.size else 
-                (value + (self.width-1)*(value%(self.width+1))) - self.size + 1 for value in path]
+        rotation = [(value + (self.width-dir)*(value%(self.width+1))) if 
+                (value + (self.width-dir)*(value%(self.width+1))) < self.size else 
+                (value + (self.width-dir)*(value%(self.width+1))) - (self.size + dir) for value in path]
+        if dir == -1:
+            print()
+        return rotation
 
 def gerrymander(G):
     width = len(G.split("\n"))
