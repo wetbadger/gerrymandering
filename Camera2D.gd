@@ -1,5 +1,6 @@
 extends Camera2D
 
+#TODO: save zoom level and position after closing
 
 var zoom_min = Vector2(0.05, 0.05)
 var zoom_max = Vector2(1, 1)
@@ -18,7 +19,7 @@ func _ready():
 	current = true
 	rect = get_viewport_rect()
 	set_global_position(rect.size / 2)
-	set_zoom(zoom_max)
+	set_zoom(zoom_min) 
 	right_max = rect.size.x
 	bottom_max = rect.size.y
 
@@ -46,6 +47,10 @@ func _input(event):
 					
 				if zoom_speed < zoom_speed_max:
 					zoom_speed += zoom_factor
+					
+			if not event.button_index == BUTTON_LEFT:
+				#do some thing here or not, whatever man
+				pass
 				
 	if event is InputEventKey:
 		if event.is_pressed():
@@ -62,4 +67,7 @@ func _input(event):
 					set_global_position(Vector2(pos.x, pos.y+6))
 				
 			
-
+func _unhandled_input(event):
+	if event == InputEventMouseMotion:
+		if event.button_mask == BUTTON_MASK_MIDDLE:
+			position -= event.relative * zoom
