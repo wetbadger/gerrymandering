@@ -9,18 +9,23 @@ var last_point = Vector2()
 var selected_district = "DistrictA"
 var _district = load("Objects/District.tscn")
 var draw_size = 33
-# Called when the node enters the scene tree for the first time.
+
+onready var matrix = get_node("State").get_node("Matrix")
+
 func _ready():
-	pass # Replace with function body.
+	matrix.generate_houses(100)
+
 
 func _input(event: InputEvent) -> void:
 	if not Input.is_mouse_button_pressed(BUTTON_LEFT):
 		return
-		
+
 	points.append(event.position)
 	last_point = event.get_global_position()
-	update()
 	
+	print(Vector2(round(last_point.x/matrix.GRID_SIZE), round(last_point.y/matrix.GRID_SIZE)))
+	
+	update()
 
 func _draw() -> void:
 	#draw_colored_polygon(points, Color.red)
@@ -35,8 +40,6 @@ func _draw() -> void:
 		district.set_name(selected_district)
 		add_child(district)
 		return
-	#print(points)
-	var point = PoolVector2Array( points )
+
 	var color = PoolColorArray( [district.color] )
-	draw_primitive(point, color, PoolVector2Array())
 

@@ -4,7 +4,7 @@ The Good party always draws their district fairly. When they are in power, you n
 
 How many election cycles can you last? Draw the districts so your party wins, even when you are the least popular!
 
-There are n districts, which must be equal in area. The area is thus district.size / n. All districts must be connected to eachother.
+There are n districts, which must all be equal in number of houses. The area is thus district.size / n. All districts must be connected to eachother.
 
 Greater pressure on the touchscreen covers a greater area. (Add this once the tech gets invented lol :))
 
