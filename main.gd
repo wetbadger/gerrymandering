@@ -23,9 +23,17 @@ func _input(event: InputEvent) -> void:
 	points.append(event.position)
 	last_point = event.get_global_position()
 	
-	print(Vector2(round(last_point.x/matrix.GRID_SIZE), round(last_point.y/matrix.GRID_SIZE)))
+	print(get_grid_position(last_point))
+	
 	
 	update()
+func get_grid_position(point):
+	var cam = get_node("State").get_node("Camera2D")
+	var grid_point = Vector2(round(point.x/matrix.GRID_SIZE), round(point.y/matrix.GRID_SIZE))
+	
+	print("zoom: " + str(cam.zoom))
+	print("pos : " + str(cam.get_global_position()))
+	return grid_point
 
 func _draw() -> void:
 	#draw_colored_polygon(points, Color.red)
