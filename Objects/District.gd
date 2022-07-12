@@ -20,8 +20,21 @@ func highlight(grid_point):
 		if matrix.has(house_id):
 			if not matrix[house_id].has("district"):
 				matrix[house_id]["district"] = self.name
-				var highlight_new = highlight.instance()
-				highlight_new.set_position(grid_point*6-starting_vertex*6)
-				add_child(highlight_new)
+				var cell = (grid_point-starting_vertex)
+				var tm = get_node("TileMap")
+				var id = tm.get_cell(cell.x, cell.y)
+				tm.get_tileset().create_tile(cell.x* cell.y)
+				#this cannot be easily tracked
+#				var highlight_new = highlight.instance()
+#				highlight_new.set_position(grid_point*6-starting_vertex*6)
+#				add_child(highlight_new) 
 				if matrix[house_id]["type"] == "House":
 					house_count+=1
+					
+func erase(grid_point):
+	var house_id = str(grid_point.x*grid_point.y)
+	var matrix = get_tree().get_current_scene().matrix.vertices
+	if matrix.has(house_id):
+		if matrix[house_id].has("district"):
+			matrix[house_id].erase("district")
+			#TODO: unhighlight grid
