@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://themes/action.tres" type="Theme" id=1]
-[ext_resource path="res://Ui/ActionButton.gd" type="Script" id=2]
+[ext_resource path="res://UI/ActionButton.gd" type="Script" id=2]
 
 [node name="TextureButton" type="Button"]
 margin_right = 40.0

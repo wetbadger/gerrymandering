@@ -10,6 +10,11 @@ var _house = load("Objects/House.tscn")
 onready var rect = get_viewport_rect()
 enum {RIGHT, DOWN, LEFT, UP}
 var point
+
+export var show_traversal = false
+var tracker = null
+var circle = load("res://Misc/Tracker.tscn")
+
 func _ready():
 	
 	print(rect)
@@ -66,7 +71,7 @@ func place_house(direction, from_point, n):
 		#print("No make house")
 	else:
 		var new_house = _house.instance()
-		vertices[str(point.x*point.y)] = {"type":"House"}
+		vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false}
 		set(new_house, point)
 		add_child(new_house)
 	
