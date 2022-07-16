@@ -17,10 +17,10 @@ onready var matrix = get_node("State").get_node("Matrix")
 onready var mode_label = get_node("UI/Labels/ModeLabel")
 
 var population
-var width = 9
-var height = 9
-var n_districts = 3
-var max_size = 27
+var width
+var n_districts
+var max_size
+var min_size
 
 var can_recheck = true #can determine drawmode
 enum DRAW_MODES {ADD, ERASE}
@@ -33,7 +33,11 @@ func _ready():
 
 	settings = load_settings()
 	print(settings, "\t")
+	width = settings["width"]
 	population = matrix.generate_houses(width)
+	max_size = settings["max_size"]
+	min_size = settings["min_size"]
+	n_districts = settings["n_districts"]
 	district_colors = generate_colors(n_districts)
 	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors)
 
@@ -62,12 +66,15 @@ func create_default_settings():
 	file.store_line(to_json({
 		"contiguous" : true,
 		"diagonals" : false,
-		"limited_number" : "width",
-		"max_size" : "width",
-		"min_size" : "width",
+		"districts" : 3,
+		"max_size" : 3,
+		"min_size" : 3,
+		"width" : 3,
 		"empty_tiles" : false,
 		"empty_tiles_fillable" : false,
-		"size_based_on_houses" : true,
+		"auto_size": false,
+		"size_based_on" : "largest_factor",
+		"even_sizes": true,
 		"colors" : {
 			"blue" : [0.1,0.6,0.7],
 			"red" : [0.8,0.1,0.1],
@@ -81,7 +88,7 @@ func create_default_settings():
 			"teal" : [0.1,0.8,0.8],
 			"pink" : [0.8,0.1,0.7]
 		},
-		"none_selected_start_erasing" : true
+		"none_selected_start_erasing" : false
 	}))
 	file.close()
 
@@ -156,6 +163,22 @@ func _draw_district() -> void:
 		
 	var color = PoolColorArray( [district.color] )
 
+func _draw_district_flood(coords, exclude=null) -> void:
+	var district = get_district_selected(exclude)
+	if not district:
+		return
+	district.highlight(coords, exclude)
+
+func draw_district_flood(coords, exclude=null):
+	var temp1 = selected_district
+	#var temp2 = grid_point
+	selected_district = "Flood"
+	grid_point = coords
+	_draw_district_flood(coords, exclude)
+	selected_district = temp1
+	#grid_point = temp2
+	
+
 func determine_draw_mode():
 	var house_in_district = house_in_district()
 	if house_in_district:
@@ -185,18 +208,25 @@ func _remove_district() -> void:
 		
 	district.erase(grid_point)
 
-func get_district_selected():
+func get_district_selected(exclude=null):
 
 	if not has_node(selected_district):
+		
 		var district = _district.instance()
 		district.starting_vertex = grid_point
 		district.max_size = max_size
+		district.min_size = min_size
 		district.set_global_position(grid_point * matrix.GRID_SIZE)
 		district.set_name(selected_district)
-		var color = get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
+		var color
+		if selected_district == "Flood":
+			color = Color(1, 0, 0)
+			#district.squares_in_region.append(exclude)
+		else:
+			color = get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
 		district.get_node("TileMap").modulate = color
 		add_child(district)
-		district.highlight(grid_point)
+		district.highlight(grid_point, exclude)
 		return false
 	else:
 		var district = get_node(selected_district)

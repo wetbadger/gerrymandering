@@ -17,5 +17,14 @@ func _ready():
 
 
 func _on_TextureButton_button_up():
+	var scene = get_tree().get_current_scene()
+	var flood = scene.get_node("Flood")
+	var matrix = scene.matrix.vertices
+	var childs = scene.get_children()
+	print(childs)
+	for s in flood.squares:
+		matrix[s]["visited_empty"] = false
+		matrix[s].erase("district")
+	flood.queue_free()
 	var x = get_tree().get_current_scene().matrix.vertices
-	print(x)
+

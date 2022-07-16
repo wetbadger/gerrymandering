@@ -43,7 +43,7 @@ func generate_houses(n):
 			place_house(UP, point, i)
 		
 		switch = !switch
-	if n % 2:
+	if int(n) % 2:
 		place_house(RIGHT, point, n-1)
 	else:
 		place_house(LEFT, point, n-1)
@@ -71,7 +71,7 @@ func place_house(direction, from_point, n):
 		#print("No make house")
 	else:
 		var new_house = _house.instance()
-		vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false}
+		vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false, "visited_empty": false}
 		set(new_house, point)
 		add_child(new_house)
 	
