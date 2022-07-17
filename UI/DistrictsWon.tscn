@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/menu.tres" type="Theme" id=1]
+[ext_resource path="res://UI/DistrictsWon.gd" type="Script" id=2]
+[ext_resource path="res://themes/popularvote.tres" type="Theme" id=3]
+
+[node name="Districts" type="Control"]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 800.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 800, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 74.0
+theme = ExtResource( 1 )
+text = "Districts"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 78.0
+margin_right = 800.0
+margin_bottom = 78.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer"]
+margin_left = 400.0
+margin_right = 400.0
+theme = ExtResource( 3 )
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

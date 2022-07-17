@@ -8,13 +8,19 @@ var last_point
 var grid_point
 var selected_district = "A"
 var _district = load("Objects/District.tscn")
+var districts = []
 var draw_size = 33
 
 export var show_last_point = false
 var texture_missing = load("res://pics/target.png")
 
 onready var matrix = get_node("State").get_node("Matrix")
-onready var mode_label = get_node("UI/Labels/ModeLabel")
+onready var mode_label = get_node("UI/Debug/HBox/ModeLabel")
+onready var squares_filled_label = get_node("UI/Debug/HBox/SquaresFilledLabel")
+onready var popular_vote = get_node("UI/Victory/HBoxContainer/Totals")
+onready var district_tally = get_node("UI/Victory/HBoxContainer/Districts")
+onready var winner_label = get_node("UI/Victory/Winner")
+onready var victory_node = get_node("UI/Victory")
 
 var population
 var width
@@ -32,8 +38,9 @@ var recieve_input = true
 var district_colors = []
 
 var parties
+var filled_squares = 0
 
-
+var submit_button
 
 func _ready():
 
@@ -41,8 +48,11 @@ func _ready():
 	print(settings, "\t")
 	width = settings["width"]
 	parties = settings["parties"]
-	
+
 	population = matrix.generate_houses(width, parties)
+	
+	for p in parties:
+		popular_vote.add_party(p, parties[p]["voters"], parties[p]["voters"]/population*100)
 	
 	max_size = settings["max_size"]
 	min_size = settings["min_size"]
@@ -50,7 +60,13 @@ func _ready():
 	district_colors = generate_colors(n_districts)
 	
 	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors, max_size)
-
+	submit_button = get_node("UI/Submit")
+	
+	if settings["debug"]:
+		get_node("UI/Debug").visible = true
+	else:
+		get_node("UI/Debug").visible = false
+		
 func generate_colors(n):
 	var colors = []
 	var i = 0
@@ -81,8 +97,8 @@ func create_default_settings():
 		"min_size" : 5,
 		"width" : 5,
 		"parties" : {
-			"Red Party" : {"voters": 10, "asset": "red_house.png"},
-			"Blue Party" : {"voters": 15, "asset": "blue_house.png"}
+			"Red Party" : {"voters": 10, "asset": "pics/red_house.png"},
+			"Blue Party" : {"voters": 15, "asset": "pics/blue_house.png"}
 		},
 		"empty_tiles" : false,
 		"empty_tiles_fillable" : false,
@@ -102,7 +118,8 @@ func create_default_settings():
 			"teal" : [0.1,0.8,0.8],
 			"pink" : [0.8,0.1,0.7]
 		},
-		"none_selected_start_erasing" : false
+		"none_selected_start_erasing" : false,
+		"debug" : true
 	}))
 	file.close()
 
@@ -134,12 +151,20 @@ func _input(event: InputEvent) -> void:
 func _process(_delta):
 
 	if draw_mode == 0:
-		mode_label.set_text('+')
+		mode_label.set_text('Mode: +    ')
 	else:
-		mode_label.set_text('-')
+		mode_label.set_text('Mode: -    ')
+		
+	squares_filled_label.set_text("Squares: "+str(filled_squares)+"    ")
 		
 	if not can_recheck:
 		can_recheck = true
+		
+	if is_instance_valid(submit_button):
+		if filled_squares == population:
+			submit_button.disabled = false
+		else:
+			submit_button.disabled = true
 	
 func set_mouse_members(event):
 	#sets the variables realted to the mouse positions from a click
@@ -244,9 +269,12 @@ func get_district_selected(exclude=null):
 			#district.squares_in_region.append(exclude)
 		else:
 			color = get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
+			color.a = 0.65
 		district.get_node("TileMap").modulate = color
 		add_child(district)
 		district.highlight(grid_point, exclude)
+		if not ["Flood","Error"].has(selected_district):
+			districts.append(district)
 		return false
 	else:
 		var district = get_node(selected_district)
@@ -258,3 +286,53 @@ func measure_width_and_height():
 	
 func get_width():
 	return width
+	
+func submit():
+	print("Submitted")
+	#print(matrix.vertices)
+	var scores = []
+	for d in districts:
+		var score = {d.name:{}}
+		for id in d.squares:
+			if score[d.name].has(matrix.vertices[id]["allegiance"]):
+				score[d.name][matrix.vertices[id]["allegiance"]] += 1
+			else:
+				score[d.name][matrix.vertices[id]["allegiance"]] = 1
+		scores.append(score)
+
+	var results = []
+	for district in scores:
+		for d in district:
+			var most_votes = {null: 0}
+			for party in district[d]:
+				if district[d][party] > most_votes.values()[0]:
+					most_votes = {party: district[d][party]}
+				elif district[d][party] == most_votes.values()[0]:
+					most_votes = {null: district[d][party]} #tie
+			results.append(most_votes)
+			district_tally.add_district(most_votes.keys()[0], most_votes[most_votes.keys()[0]])
+
+	var winner = get_winner(results)
+	print(winner)
+	winner_label.set_text(winner.keys()[0]+" WINS!")
+	var color_name = settings["parties"][winner.keys()[0]]["color"]
+	var col_arr = settings["colors"][color_name]
+	var color = Color(col_arr[0],col_arr[1],col_arr[2])
+	winner_label.set_border_color(color)
+	victory_node.visible = true
+	recieve_input = false
+	submit_button.queue_free()
+	
+func get_winner(results):
+	var arr = []
+	for p in results:
+		for r in p:
+			arr.append(r)
+	var counter = 0
+	var winner
+	for elem in arr:
+		var count = arr.count(elem)
+		if count > counter:
+			counter = count
+			winner = elem
+	return {winner: arr.count(winner)}

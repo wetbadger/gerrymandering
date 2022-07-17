@@ -15,7 +15,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gerrymandered!"
-run/main_scene="res://main.tscn"
+run/main_scene="res://UI/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [display]

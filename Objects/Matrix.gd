@@ -96,7 +96,6 @@ func place_house(direction, from_point, n):
 	
 func get_random_allegiance():
 	var i = rng.randi_range(0, len(party_stacks)-1)
-	print(party_names[i])
 	var asset_path = parties[party_names[i]]["asset"]
 	var asset = load(asset_path)
 	party_stacks[party_names[i]].append(1)
@@ -109,7 +108,7 @@ func get_random_allegiance():
 		"asset" : asset
 	}
 	
-	if stack_len > voters:
+	if stack_len >= voters:
 		party_stacks.erase(party_names[i])
 		party_names.erase(party_names[i])
 		

@@ -44,7 +44,7 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="DynamicFont" id=6]
-size = 60
+size = 30
 font_data = ExtResource( 1 )
 
 [resource]

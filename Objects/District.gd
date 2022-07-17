@@ -16,11 +16,11 @@ var house_count = 0
 var visited = []
 onready var button = get_tree().get_current_scene().get_node("UI/DistrictButtons/" + name)
 onready var settings = get_tree().get_current_scene().settings
-onready var tiles_left_label = get_tree().get_current_scene().get_node("UI/Labels/TilesLeftLabel")
-onready var error_label = get_tree().get_current_scene().get_node("UI/ErrorLabel")
+onready var tiles_left_label = get_tree().get_current_scene().get_node("UI/Debug/HBox/TilesLeftLabel")
+onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 
 
-const flood_fill = preload("res://flood.gd")
+const flood_fill = preload("res://Main/flood.gd")
 
 var squares = []
 var district_sizes = []
@@ -35,7 +35,7 @@ func _ready():
 func _process(_delta):
 	if is_selected:
 		#print(str(max_size)+" - "+str(house_count))
-		tiles_left_label.set_text(str(max_size-house_count))
+		tiles_left_label.set_text("Tiles Left: "+str(max_size-house_count)+"    ")
 		if button:
 			button.text = str(max_size-house_count)
 
@@ -104,10 +104,10 @@ func highlight(grid_point, exclude=null, force=false):
 						scene.get_node("Flood").regions.append(scene.get_node("Flood").squares_in_region)
 						var ds = scene.get_node("Flood").district_sizes
 						var regions = scene.get_node("Flood").regions
-						for r in regions:
-							print(len(r))
-						print(ds)
-						print(regions)
+#						for r in regions:
+#							print(len(r))
+#						print(ds)
+#						print(regions)
 						free_flood()
 					
 						for r in regions:
@@ -115,6 +115,7 @@ func highlight(grid_point, exclude=null, force=false):
 								if max_size-house_count > len(r):
 									for house in r:
 										highlight(matrix[house]["coords"], null, true)
+									break
 										
 								else:
 									error_flash(matrix, scene, r)
@@ -128,11 +129,20 @@ func highlight(grid_point, exclude=null, force=false):
 				
 				if matrix[house_id]["type"] == "House":
 					house_count+=1
+					if not ["Error", "Flood"].has(name):
+						scene.filled_squares += 1
 
 				tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 				
 				squares.append(house_id)
+				
+				if house_count == max_size:
+					var next = scene.get_node("UI/DistrictButtons").get_node(char(ord(name) + 1))
+					if next:
+						next.pressed = true
+						next._on_Button_button_up()
+					
 			else:
 				error_label.set_text("ALREADY HOUSE")
 		else:
@@ -143,20 +153,27 @@ func highlight(grid_point, exclude=null, force=false):
 func error_flash(matrix, scene, region):
 	var error_shape = district_node.instance()
 	error_shape.starting_vertex = Vector2(-1,-1)
-	error_shape.get_node("TileMap").modulate = Color(1, 0, 0)
+	error_shape.get_node("TileMap").modulate = Color(1, 0, 0, 0.9)
+	error_shape.set_name("Error")
 	scene.add_child(error_shape)
 	error_shape.global_position.x += 3.5
 	for r in region:
 		error_shape.highlight(matrix[r]["coords"], [], true)
-	scene.stop_input(0.3)
-	yield(get_tree().create_timer(0.3), "timeout")
+	scene.stop_input(0.25)
+
+	yield(get_tree().create_timer(0.15), "timeout")
+	error_shape.visible = false
+	yield(get_tree().create_timer(0.05), "timeout")
+	error_shape.visible = true
+	yield(get_tree().create_timer(0.05), "timeout")
 	for s in error_shape.squares:
 		matrix[s].erase("district")
 	error_shape.queue_free()
 					
 func erase(grid_point):
 	var house_id = str(grid_point)
-	var matrix = get_tree().get_current_scene().matrix.vertices
+	var scene = get_tree().get_current_scene()
+	var matrix = scene.matrix.vertices
 	if matrix.has(house_id):
 		if matrix[house_id].has("district"):
 			if settings["contiguous"] and house_count > 2:
@@ -189,8 +206,12 @@ func erase(grid_point):
 
 				tm.set_cell(cell.x-1, cell.y-1, -1, false, false, false) #, Vector2(1,1))
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
-				house_count-=1
+				
 				squares.erase(house_id)
+				house_count-=1
+				scene.filled_squares-=1
+				
+					
 			else:
 				error_label.set_text("WRONG DISTRICT")
 		else:
