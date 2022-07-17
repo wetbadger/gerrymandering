@@ -15,7 +15,14 @@ export var show_traversal = false
 var tracker = null
 var circle = load("res://Misc/Tracker.tscn")
 
+var rng = RandomNumberGenerator.new()
+var party_stacks = {}
+var party_names = []
+var parties = {}
+
 func _ready():
+	
+	rng.randomize()
 	
 	print(rect)
 	var dimensions = rect.size
@@ -25,7 +32,14 @@ func _ready():
 	size.y = floor(size.y)
 	print(size)
 	
-func generate_houses(n):
+func generate_houses(n, _parties=null):
+	
+	if _parties:
+		self.parties = _parties
+		for p in _parties:
+			party_stacks[p] = []
+			party_names.append(p)
+
 	var starting_point = Vector2(floor(size.x/2), floor(size.y/2))
 	place_house(null, starting_point, 1)
 #	var new_house = _house.instance()
@@ -51,6 +65,7 @@ func generate_houses(n):
 	return house_count
 		
 func place_house(direction, from_point, n):
+	
 	if n <= 0:
 		return
 	match(direction):
@@ -70,14 +85,35 @@ func place_house(direction, from_point, n):
 		pass
 		#print("No make house")
 	else:
+		var allegiance = get_random_allegiance()
 		var new_house = _house.instance()
-		vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false, "visited_empty": false}
+		vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false, "allegiance" : allegiance["party"]}
 		set(new_house, point)
 		add_child(new_house)
+		new_house.set_asset(allegiance["asset"])
 	
 	place_house(direction, point, n-1)
 	
-			
+func get_random_allegiance():
+	var i = rng.randi_range(0, len(party_stacks)-1)
+	print(party_names[i])
+	var asset_path = parties[party_names[i]]["asset"]
+	var asset = load(asset_path)
+	party_stacks[party_names[i]].append(1)
+	var voters = parties[party_names[i]]["voters"]
+	var stack = party_stacks[party_names[i]]
+	var stack_len = len(stack)
+	
+	var allegiance = {
+		"party" : party_names[i],
+		"asset" : asset
+	}
+	
+	if stack_len > voters:
+		party_stacks.erase(party_names[i])
+		party_names.erase(party_names[i])
+		
+	return allegiance
 		
 func set(object, position):
 	house_count += 1

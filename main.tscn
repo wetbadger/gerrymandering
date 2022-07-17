@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Camera2D.gd" type="Script" id=2]
@@ -7,6 +7,10 @@
 [ext_resource path="res://Objects/Matrix.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/ActionButton.tscn" type="PackedScene" id=6]
 [ext_resource path="res://DistrictButtons.gd" type="Script" id=7]
+[ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 8 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -26,7 +30,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" parent="UI" instance=ExtResource( 6 )]
+[node name="DebugButton" parent="UI" instance=ExtResource( 6 )]
+visible = false
 margin_left = 68.0
 margin_top = 977.0
 margin_right = 288.0
@@ -39,14 +44,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ErrorLabel" type="Label" parent="UI/Labels"]
+[node name="ModeLabel" type="Label" parent="UI/Labels"]
 margin_bottom = 68.0
 theme = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ModeLabel" type="Label" parent="UI/Labels"]
+[node name="TilesLeftLabel" type="Label" parent="UI/Labels"]
 margin_left = 4.0
 margin_right = 4.0
 margin_bottom = 68.0
@@ -55,11 +60,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TilesLeftLabel" type="Label" parent="UI/Labels"]
-margin_left = 8.0
-margin_right = 8.0
-margin_bottom = 68.0
+[node name="ErrorLabel" type="Label" parent="UI"]
+margin_left = 787.0
+margin_top = 72.0
+margin_right = 955.0
+margin_bottom = 157.0
 theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -3,6 +3,9 @@ extends Node2D
 var color = Color(1, 1, 1, .5)
 var highlight = load("res://Objects/Highlight.tscn")
 var circle = load("res://Misc/Tracker.tscn")
+
+var district_node = load("res://Objects/District.tscn")
+
 var tracker = null
 export var show_traversal = false
 var starting_vertex
@@ -11,9 +14,11 @@ var min_size = 0
 var house_count = 0
 
 var visited = []
+onready var button = get_tree().get_current_scene().get_node("UI/DistrictButtons/" + name)
 onready var settings = get_tree().get_current_scene().settings
 onready var tiles_left_label = get_tree().get_current_scene().get_node("UI/Labels/TilesLeftLabel")
-onready var error_label = get_tree().get_current_scene().get_node("UI/Labels/ErrorLabel")
+onready var error_label = get_tree().get_current_scene().get_node("UI/ErrorLabel")
+
 
 const flood_fill = preload("res://flood.gd")
 
@@ -31,6 +36,8 @@ func _process(_delta):
 	if is_selected:
 		#print(str(max_size)+" - "+str(house_count))
 		tiles_left_label.set_text(str(max_size-house_count))
+		if button:
+			button.text = str(max_size-house_count)
 
 func set_starting_vertex(vertex):
 	starting_vertex = vertex
@@ -41,7 +48,6 @@ func free_flood():
 	var matrix = scene.matrix.vertices
 	var childs = scene.get_children()
 	for s in flood.squares:
-		matrix[s]["visited_empty"] = false
 		matrix[s].erase("district")
 	flood.queue_free()
 	
@@ -52,7 +58,7 @@ func highlight(grid_point, exclude=null, force=false):
 	if name == "Flood":
 		if len(squares_in_region) == 0:
 			squares_in_region.append(house_id)
-		if matrix[house_id]["visited_empty"] == false and not matrix[house_id].has("district") and house_id != exclude:
+		if not matrix[house_id].has("district") and house_id != exclude:
 			if len(squares) > 0:
 				var neighboring_squares = get_neighbors(matrix[house_id])
 
@@ -111,6 +117,7 @@ func highlight(grid_point, exclude=null, force=false):
 										highlight(matrix[house]["coords"], null, true)
 										
 								else:
+									error_flash(matrix, scene, r)
 									error_label.set_text("NO BLOCK REGION")
 									return
 						
@@ -132,7 +139,20 @@ func highlight(grid_point, exclude=null, force=false):
 			error_label.set_text("NO HOUSE THERE")
 	else:
 		error_label.set_text("TOO MANY HOUSE")
-				
+	
+func error_flash(matrix, scene, region):
+	var error_shape = district_node.instance()
+	error_shape.starting_vertex = Vector2(-1,-1)
+	error_shape.get_node("TileMap").modulate = Color(1, 0, 0)
+	scene.add_child(error_shape)
+	error_shape.global_position.x += 3.5
+	for r in region:
+		error_shape.highlight(matrix[r]["coords"], [], true)
+	scene.stop_input(0.3)
+	yield(get_tree().create_timer(0.3), "timeout")
+	for s in error_shape.squares:
+		matrix[s].erase("district")
+	error_shape.queue_free()
 					
 func erase(grid_point):
 	var house_id = str(grid_point)

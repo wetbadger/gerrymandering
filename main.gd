@@ -27,19 +27,29 @@ enum DRAW_MODES {ADD, ERASE}
 var draw_mode = DRAW_MODES.ADD
 
 var just_pressed = false
+var recieve_input = true
+
 var district_colors = []
+
+var parties
+
+
 
 func _ready():
 
 	settings = load_settings()
 	print(settings, "\t")
 	width = settings["width"]
-	population = matrix.generate_houses(width)
+	parties = settings["parties"]
+	
+	population = matrix.generate_houses(width, parties)
+	
 	max_size = settings["max_size"]
 	min_size = settings["min_size"]
 	n_districts = settings["n_districts"]
 	district_colors = generate_colors(n_districts)
-	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors)
+	
+	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors, max_size)
 
 func generate_colors(n):
 	var colors = []
@@ -66,10 +76,14 @@ func create_default_settings():
 	file.store_line(to_json({
 		"contiguous" : true,
 		"diagonals" : false,
-		"districts" : 3,
-		"max_size" : 3,
-		"min_size" : 3,
-		"width" : 3,
+		"n_districts" : 5,
+		"max_size" : 5,
+		"min_size" : 5,
+		"width" : 5,
+		"parties" : {
+			"Red Party" : {"voters": 10, "asset": "red_house.png"},
+			"Blue Party" : {"voters": 15, "asset": "blue_house.png"}
+		},
 		"empty_tiles" : false,
 		"empty_tiles_fillable" : false,
 		"auto_size": false,
@@ -92,24 +106,30 @@ func create_default_settings():
 	}))
 	file.close()
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_released("click"):
-		set_draw_mode(DRAW_MODES.ADD)
-		
-	if Input.is_action_just_pressed("click"):
-		just_pressed = true
-	else:
-		just_pressed = false
-		
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		set_mouse_members(event)
+func stop_input(t):
+	recieve_input = false
+	yield(get_tree().create_timer(t), "timeout")
+	recieve_input = true
 
-		_draw_district()
-		
-	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-		set_mouse_members(event)
-		
-		_remove_district()
+func _input(event: InputEvent) -> void:
+	if recieve_input:
+		if Input.is_action_just_released("click"):
+			set_draw_mode(DRAW_MODES.ADD)
+			
+		if Input.is_action_just_pressed("click"):
+			just_pressed = true
+		else:
+			just_pressed = false
+			
+		if Input.is_mouse_button_pressed(BUTTON_LEFT):
+			set_mouse_members(event)
+
+			_draw_district()
+			
+		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			set_mouse_members(event)
+			
+			_remove_district()
 
 func _process(_delta):
 

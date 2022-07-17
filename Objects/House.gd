@@ -10,3 +10,6 @@ func _ready():
 	rng.randomize()
 	var house = houses[rng.randi_range(0, 2)]
 	get_node("Sprite").texture = house
+	
+func set_asset(asset):
+	get_node("Sprite").texture = asset
