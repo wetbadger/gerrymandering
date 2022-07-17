@@ -71,16 +71,19 @@ __meta__ = {
 }
 
 [node name="TryAgain" parent="Buttons" instance=ExtResource( 5 )]
-margin_left = 153.0
-margin_right = 442.0
+margin_left = 9.0
+margin_right = 409.0
 margin_bottom = 181.0
+rect_min_size = Vector2( 400, 0 )
 
 [node name="NewPuzzle" parent="Buttons" instance=ExtResource( 7 )]
-margin_left = 522.0
-margin_right = 665.0
+margin_left = 489.0
+margin_right = 739.0
 margin_bottom = 181.0
+rect_min_size = Vector2( 250, 0 )
 
 [node name="GotoMenu" parent="Buttons" instance=ExtResource( 6 )]
-margin_left = 745.0
-margin_right = 1076.0
+margin_left = 819.0
+margin_right = 1219.0
 margin_bottom = 181.0
+rect_min_size = Vector2( 400, 0 )

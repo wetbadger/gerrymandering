@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/house3.png-809556112d4236e0ea063f0222395a25.stex"
+path="res://.import/house3.png-3c00e581747171507d7e1e2cbe01268c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pics/house3.png"
-dest_files=[ "res://.import/house3.png-809556112d4236e0ea063f0222395a25.stex" ]
+source_file="res://pics/sprites/house3.png"
+dest_files=[ "res://.import/house3.png-3c00e581747171507d7e1e2cbe01268c.stex" ]
 
 [params]
 

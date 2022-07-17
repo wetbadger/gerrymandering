@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://UI/MainMenu/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menus/MainMenu/MenuButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menus/MainMenu/MenuItems.gd" type="Script" id=2]
 
 [node name="MenuItems" type="VBoxContainer"]
 custom_constants/separation = 24
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -53,3 +55,5 @@ margin_right = 248.0
 margin_bottom = 690.0
 disabled = true
 text = "Editor"
+
+[connection signal="button_up" from="Custom" to="." method="_on_Custom_button_up"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/wheat.png-ac2829500b6315b4836e08f2855c76a1.stex"
+path="res://.import/river_straight.png-410a42d6da27d6592bac9c64266db329.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pics/wheat.png"
-dest_files=[ "res://.import/wheat.png-ac2829500b6315b4836e08f2855c76a1.stex" ]
+source_file="res://pics/sprites/river_straight.png"
+dest_files=[ "res://.import/river_straight.png-410a42d6da27d6592bac9c64266db329.stex" ]
 
 [params]
 

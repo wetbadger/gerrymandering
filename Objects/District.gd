@@ -14,13 +14,13 @@ var min_size = 0
 var house_count = 0
 
 var visited = []
-onready var button = get_tree().get_current_scene().get_node("UI/DistrictButtons/" + name)
+var button
 onready var settings = get_tree().get_current_scene().settings
 onready var tiles_left_label = get_tree().get_current_scene().get_node("UI/Debug/HBox/TilesLeftLabel")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 
 
-const flood_fill = preload("res://Main/flood.gd")
+const flood_fill = preload("res://Algorithms/flood.gd")
 
 var squares = []
 var district_sizes = []
@@ -30,7 +30,8 @@ var size_count = 1
 var is_selected = true
 
 func _ready():
-	pass # Replace with function body.
+	if not ["Flood", "Error"].has(name):
+		button = get_tree().get_current_scene().get_node("UI/DistrictButtons/" + name)
 
 func _process(_delta):
 	if is_selected:
@@ -110,17 +111,23 @@ func highlight(grid_point, exclude=null, force=false):
 #						print(regions)
 						free_flood()
 					
+						var houses_left = max_size-house_count
+						var regions_to_fill = []
 						for r in regions:
 							if len(r) < min_size:
-								if max_size-house_count > len(r):
-									for house in r:
-										highlight(matrix[house]["coords"], null, true)
-									break
-										
+								houses_left -= len(r)
+								if max_size-house_count > len(r) and houses_left > 0:
+									regions_to_fill.append(r)
+									
 								else:
+									regions_to_fill = []
 									error_flash(matrix, scene, r)
 									error_label.set_text("NO BLOCK REGION")
 									return
+							
+						for r in regions_to_fill:		
+							for house in r:
+								highlight(matrix[house]["coords"], null, true)
 						
 				matrix[house_id]["district"] = self.name
 				var cell = (grid_point-starting_vertex)
@@ -128,9 +135,9 @@ func highlight(grid_point, exclude=null, force=false):
 
 				
 				if matrix[house_id]["type"] == "House":
-					house_count+=1
-					if not ["Error", "Flood"].has(name):
-						scene.filled_squares += 1
+					house_count += 1
+#					if not ["Error", "Flood"].has(name):
+#						scene.filled_squares += 1
 
 				tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
@@ -138,10 +145,31 @@ func highlight(grid_point, exclude=null, force=false):
 				squares.append(house_id)
 				
 				if house_count == max_size:
-					var next = scene.get_node("UI/DistrictButtons").get_node(char(ord(name) + 1))
-					if next:
-						next.pressed = true
-						next._on_Button_button_up()
+					var next = null
+					if not ["Flood", "Error"].has(name):
+						#check if the button exists
+						var button_name = char(ord(name[0]) + 1)
+						if scene.district_button_names.has(button_name):
+							next = scene.get_node("UI/DistrictButtons").get_node(button_name)
+							if next:
+								for d in scene.districts:
+									#check if the district alraedy used all its houses
+									if d.name == char(ord(name[0]) + 1):
+										#if it did use all its houses pick a different district
+										if d.house_count == max_size:
+											for each in scene.districts:
+												if each.house_count < max_size:
+													button_name = char(ord(each.name[0]))
+													
+						else:
+							for each in scene.districts:
+								if each.house_count < max_size:
+									button_name = char(ord(each.name[0]))
+
+						next = scene.get_node("UI/DistrictButtons").get_node(button_name)
+						if next:
+							next.pressed = true
+							next._on_Button_button_up()
 					
 			else:
 				error_label.set_text("ALREADY HOUSE")
@@ -159,7 +187,7 @@ func error_flash(matrix, scene, region):
 	error_shape.global_position.x += 3.5
 	for r in region:
 		error_shape.highlight(matrix[r]["coords"], [], true)
-	scene.stop_input(0.25)
+	scene.stop_input()
 
 	yield(get_tree().create_timer(0.15), "timeout")
 	error_shape.visible = false
@@ -169,6 +197,7 @@ func error_flash(matrix, scene, region):
 	for s in error_shape.squares:
 		matrix[s].erase("district")
 	error_shape.queue_free()
+	scene.start_input()
 					
 func erase(grid_point):
 	var house_id = str(grid_point)
@@ -186,7 +215,13 @@ func erase(grid_point):
 					var x = ff.flood_fill(matrix, size, matrix[neighbor]["coords"], true_or_false, "district", matrix[house_id]["district"], "House", house_id)
 					ff.queue_free()
 					if len(x) < house_count - 1:
-						error_label.set_text("NO SPLITTING DISTRICTS")
+						error_label.set_text("NO SPLITTING DISTRICT "+str(matrix[house_id]["district"]))
+						if matrix[house_id]["district"] != self.name:
+							var button_name = matrix[house_id]["district"]
+							var next = scene.get_node("UI/DistrictButtons").get_node(button_name)
+							if next:
+								next.pressed = true
+								next._on_Button_button_up()
 						return
 				#print("TODO: need check for splitting of shape")
 				#TODO:
@@ -209,11 +244,17 @@ func erase(grid_point):
 				
 				squares.erase(house_id)
 				house_count-=1
-				scene.filled_squares-=1
+				#scene.filled_squares-=1
 				
 					
 			else:
 				error_label.set_text("WRONG DISTRICT")
+
+				if not ["Flood", "Error"].has(name):
+					var next = scene.get_node("UI/DistrictButtons").get_node(char(ord(matrix[house_id]["district"][0])))
+					if next:
+						next.pressed = true
+						next._on_Button_button_up()
 		else:
 			error_label.set_text("NO HOUSE DISTRICT")
 	else:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/river_confluence.png-62413288e5ff64f39609adfd0d4c2cff.stex"
+path="res://.import/house1.png-0e0686572457ea99afde1e1905646137.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pics/river_confluence.png"
-dest_files=[ "res://.import/river_confluence.png-62413288e5ff64f39609adfd0d4c2cff.stex" ]
+source_file="res://pics/sprites/house1.png"
+dest_files=[ "res://.import/house1.png-0e0686572457ea99afde1e1905646137.stex" ]
 
 [params]
 

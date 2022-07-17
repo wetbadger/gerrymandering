@@ -24,13 +24,12 @@ func _ready():
 	
 	rng.randomize()
 	
-	print(rect)
 	var dimensions = rect.size
-	print(dimensions)
+
 	size = dimensions / GRID_SIZE
 	size.x = floor(size.x)
 	size.y = floor(size.y)
-	print(size)
+
 	
 func generate_houses(n, _parties=null):
 	

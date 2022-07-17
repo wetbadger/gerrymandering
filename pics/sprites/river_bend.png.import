@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red_house.png-a77b07ef28b48e41e742b5f19f54cc69.stex"
+path="res://.import/river_bend.png-7bf8f2b6e03860e350399edbea0e33b0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pics/red_house.png"
-dest_files=[ "res://.import/red_house.png-a77b07ef28b48e41e742b5f19f54cc69.stex" ]
+source_file="res://pics/sprites/river_bend.png"
+dest_files=[ "res://.import/river_bend.png-7bf8f2b6e03860e350399edbea0e33b0.stex" ]
 
 [params]
 

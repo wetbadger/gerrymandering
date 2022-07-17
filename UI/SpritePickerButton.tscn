@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/SpritePicker.gd" type="Script" id=2]
+
+[node name="SpritePickerButton" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 10.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 10, 10 )
+rect_scale = Vector2( 10, 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Button" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

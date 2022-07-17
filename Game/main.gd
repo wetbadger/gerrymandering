@@ -9,6 +9,7 @@ var grid_point
 var selected_district = "A"
 var _district = load("Objects/District.tscn")
 var districts = []
+var district_button_names
 var draw_size = 33
 
 export var show_last_point = false
@@ -42,12 +43,20 @@ var filled_squares = 0
 
 var submit_button
 
+var map_name
+
 func _ready():
 
 	settings = load_settings()
-	print(settings, "\t")
 	width = settings["width"]
 	parties = settings["parties"]
+	
+	#override width
+	population = 0
+	for p in parties:
+		population += parties[p]["voters"]
+
+	width = int(sqrt(population))
 
 	population = matrix.generate_houses(width, parties)
 	
@@ -60,13 +69,21 @@ func _ready():
 	district_colors = generate_colors(n_districts)
 	
 	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors, max_size)
+	district_button_names = get_button_names()
 	submit_button = get_node("UI/Submit")
 	
 	if settings["debug"]:
 		get_node("UI/Debug").visible = true
 	else:
 		get_node("UI/Debug").visible = false
-		
+
+func get_button_names():
+	var bn = []
+	var children = get_node("UI/DistrictButtons").get_children()
+	for b in children:
+		bn.append(b.name)
+	return bn
+
 func generate_colors(n):
 	var colors = []
 	var i = 0
@@ -78,54 +95,24 @@ func generate_colors(n):
 	return colors
 
 func load_settings():
+	var globals = get_node("/root/Globals")
+	var map_name = ""
+	if globals.map_name:
+		map_name = globals.map_name
+		
 	var file = File.new()
-	if not file.file_exists("user://settings.json"):
-			create_default_settings()
-			return
-	file.open("user://settings.json", File.READ)
+	if not file.file_exists("user://"+map_name+"/settings.json"):
+			file.open("user://settings.json", File.READ)
+			var data = parse_json(file.get_as_text())
+			return data
+	file.open("user://"+map_name+"/settings.json", File.READ)
 	var data = parse_json(file.get_as_text())
 	return data
 
-func create_default_settings():
-	var file = File.new()
-	file.open("user://settings.json", File.WRITE)
-	file.store_line(to_json({
-		"contiguous" : true,
-		"diagonals" : false,
-		"n_districts" : 5,
-		"max_size" : 5,
-		"min_size" : 5,
-		"width" : 5,
-		"parties" : {
-			"Red Party" : {"voters": 10, "asset": "pics/red_house.png"},
-			"Blue Party" : {"voters": 15, "asset": "pics/blue_house.png"}
-		},
-		"empty_tiles" : false,
-		"empty_tiles_fillable" : false,
-		"auto_size": false,
-		"size_based_on" : "largest_factor",
-		"even_sizes": true,
-		"colors" : {
-			"blue" : [0.1,0.6,0.7],
-			"red" : [0.8,0.1,0.1],
-			"orange" : [0.8,0.4,0.1],
-			"green" : [0.2,0.8,0.1],
-			"purple" : [0.5,0.2,0.8],
-			"yellow" : [0.8,0.8,0.0],
-			"brown" : [0.2,0.2,0.3],
-			"white" : [1,1,1],
-			"gray" : [0.5,0.5,0.5],
-			"teal" : [0.1,0.8,0.8],
-			"pink" : [0.8,0.1,0.7]
-		},
-		"none_selected_start_erasing" : false,
-		"debug" : true
-	}))
-	file.close()
-
-func stop_input(t):
+func stop_input():
 	recieve_input = false
-	yield(get_tree().create_timer(t), "timeout")
+
+func start_input():
 	recieve_input = true
 
 func _input(event: InputEvent) -> void:
@@ -149,6 +136,12 @@ func _input(event: InputEvent) -> void:
 			_remove_district()
 
 func _process(_delta):
+
+	var count = 0
+	for d in districts:
+		count += d.house_count
+		
+	filled_squares = count
 
 	if draw_mode == 0:
 		mode_label.set_text('Mode: +    ')

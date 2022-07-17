@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/SpritePickerWindow.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="SpritePicker" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 25, 25 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 100.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 100, 50 )
+color = Color( 0.184314, 0.184314, 0.184314, 0.486275 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 10.0
+margin_bottom = 10.0
+theme = SubResource( 1 )
+columns = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
