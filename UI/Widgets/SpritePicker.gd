@@ -1,6 +1,6 @@
 extends Control
 
-var sprite_picker = load("res://UI/SpritePicker.tscn")
+var sprite_picker = load("res://UI/Widgets/SpritePicker.tscn")
 var sprite
 
 func _ready():

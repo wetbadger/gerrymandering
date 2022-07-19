@@ -8,8 +8,32 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Control",
+"class": "Pane",
+"language": "GDScript",
+"path": "res://UI/Classes/Pane.gd"
+}, {
+"base": "Control",
+"class": "Picker",
+"language": "GDScript",
+"path": "res://UI/Classes/Picker.gd"
+}, {
+"base": "Pane",
+"class": "SettingsPane",
+"language": "GDScript",
+"path": "res://UI/Classes/SettingsPane.gd"
+}, {
+"base": "Control",
+"class": "Window",
+"language": "GDScript",
+"path": "res://UI/Classes/Window.gd"
+} ]
 _global_script_class_icons={
+"Pane": "",
+"Picker": "",
+"SettingsPane": "",
+"Window": ""
 }
 
 [application]
@@ -27,6 +51,7 @@ Globals="*res://globals.gd"
 window/size/width=1920
 window/size/height=1080
 window/stretch/mode="2d"
+window/stretch/aspect="expand"
 
 [input]
 

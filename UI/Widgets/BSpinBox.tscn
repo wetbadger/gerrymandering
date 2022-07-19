@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Widgets/BThemeSpinBox.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Widgets/BSpinBox.gd" type="Script" id=2]
+[ext_resource path="res://UI/Widgets/SpinBox.gd" type="Script" id=3]
+
+[node name="Control" type="HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 520.0
+margin_right = 255.0
+margin_bottom = 559.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "This is a spinbox"
+
+[node name="SpinBox" type="SpinBox" parent="."]
+margin_left = 259.0
+margin_right = 359.0
+margin_bottom = 1080.0
+max_value = 1e+08
+script = ExtResource( 3 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
+[connection signal="mouse_entered" from="SpinBox" to="." method="_on_SpinBox_mouse_entered"]
+[connection signal="mouse_exited" from="SpinBox" to="." method="_on_SpinBox_mouse_exited"]

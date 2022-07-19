@@ -4,7 +4,7 @@ var color
 var color_val
 
 func _ready():
-	pass
+	set_focus_mode(1)
 
 
 func _on_Button_button_up():

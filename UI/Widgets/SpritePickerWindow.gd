@@ -1,8 +1,8 @@
 extends Control
 
 var sprites = []
-onready var grid = get_node("ColorRect/GridContainer")
-var sprite_selecter_button = load("res://UI/SpriteSelectorButton.tscn")
+onready var grid = get_node("GridContainer")
+var sprite_selecter_button = load("res://UI/Widgets/SpriteSelectorButton.tscn")
 
 func _ready():
 	var path = "res://pics/sprites/"

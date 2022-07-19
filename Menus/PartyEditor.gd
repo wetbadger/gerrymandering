@@ -2,7 +2,7 @@ extends Control
 
 onready var scene = get_tree().get_current_scene()
 onready var vbox = get_node("ScrollContainer/VBoxContainer")
-var sprite_picker = load("res://UI/SpritePickerButton.tscn")
+var sprite_picker = load("res://UI/Widgets/SpritePickerButton.tscn")
 var color_picker_btn = load("res://UI/MyColorPickerButton.tscn")
 var party_options
 var settings

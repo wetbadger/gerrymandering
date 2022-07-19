@@ -20,10 +20,12 @@ script = ExtResource( 7 )
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Submit" parent="UI" instance=ExtResource( 10 )]
-margin_left = 40.0
-margin_top = 860.0
-margin_right = 326.0
-margin_bottom = 1035.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 61.0
+margin_top = -229.0
+margin_right = 470.0
+margin_bottom = -54.0
 
 [node name="DistrictButtons" type="VBoxContainer" parent="UI"]
 margin_left = 1600.0

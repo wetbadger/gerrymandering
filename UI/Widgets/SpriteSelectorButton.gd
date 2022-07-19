@@ -19,4 +19,4 @@ func _ready():
 func _on_Control_button_up():
 	print(texture_normal.resource_path)
 	#get_tree().get_current_scene().sprite_picker.texture_normal = texture_normal
-	get_parent().get_parent().get_parent().queue_free()
+	get_parent().get_parent().queue_free()

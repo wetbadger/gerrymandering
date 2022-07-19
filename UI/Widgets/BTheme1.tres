@@ -1,0 +1,31 @@
+[gd_resource type="Theme" load_steps=8 format=2]
+
+[ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.14902, 0.14902, 0.14902, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.337255, 0.337255, 0.337255, 1 )
+
+[resource]
+Label/fonts/font = SubResource( 1 )
+Label/styles/normal = SubResource( 2 )
+LineEdit/fonts/font = SubResource( 3 )
+LineEdit/styles/focus = SubResource( 4 )
+LineEdit/styles/normal = SubResource( 5 )
+LineEdit/styles/read_only = SubResource( 6 )

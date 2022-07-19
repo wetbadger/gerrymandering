@@ -35,9 +35,9 @@ rect_min_size = Vector2( 800, 1000 )
 color = Color( 0.141176, 0.141176, 0.141176, 0.615686 )
 
 [node name="TabContainer" type="TabContainer" parent="CenterContainer"]
-margin_left = 278.0
+margin_left = 560.0
 margin_top = 40.0
-margin_right = 1642.0
+margin_right = 1360.0
 margin_bottom = 1040.0
 rect_min_size = Vector2( 800, 1000 )
 
@@ -50,8 +50,9 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Grid" type="GridContainer" parent="CenterContainer/TabContainer/Game"]
+margin_left = 123.0
 margin_top = 292.0
-margin_right = 1356.0
+margin_right = 669.0
 margin_bottom = 642.0
 theme = ExtResource( 3 )
 custom_constants/vseparation = 8
@@ -67,7 +68,7 @@ text = "Name"
 
 [node name="NameText" type="LineEdit" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_left = 346.0
-margin_right = 1356.0
+margin_right = 546.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 200, 60 )
 
@@ -82,7 +83,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 346.0
 margin_top = 68.0
-margin_right = 1356.0
+margin_right = 546.0
 margin_bottom = 107.0
 
 [node name="DistrictsLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
@@ -96,7 +97,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 346.0
 margin_top = 115.0
-margin_right = 1356.0
+margin_right = 546.0
 margin_bottom = 154.0
 
 [node name="LayoutLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
@@ -108,7 +109,7 @@ text = "Layout"
 [node name="Layouts" type="OptionButton" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_left = 346.0
 margin_top = 162.0
-margin_right = 1356.0
+margin_right = 546.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 0, 60 )
 
@@ -121,7 +122,7 @@ rect_min_size = Vector2( 0, 120 )
 [node name="Start" parent="CenterContainer/TabContainer/Game/Grid" instance=ExtResource( 6 )]
 margin_left = 346.0
 margin_top = 230.0
-margin_right = 1356.0
+margin_right = 546.0
 margin_bottom = 350.0
 
 [node name="Advanced" type="GridContainer" parent="CenterContainer/TabContainer"]

@@ -21,7 +21,7 @@ func load_settings():
 	var file = File.new()
 	if not file.file_exists("user://settings.json"):
 			create_default_settings()
-			return
+			return get_node("/root/Globals").default_settings
 	file.open("user://settings.json", File.READ)
 	var data = parse_json(file.get_as_text())
 	return data
