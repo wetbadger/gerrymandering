@@ -1,0 +1,1 @@
+Check when settings are loaded from file vs global (it should usually be from the file)

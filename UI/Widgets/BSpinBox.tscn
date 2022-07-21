@@ -14,20 +14,26 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_top = 520.0
-margin_right = 255.0
-margin_bottom = 559.0
+margin_top = 500.0
+margin_right = 433.0
+margin_bottom = 580.0
+rect_min_size = Vector2( 0, 80 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "This is a spinbox"
 
 [node name="SpinBox" type="SpinBox" parent="."]
-margin_left = 259.0
-margin_right = 359.0
+margin_left = 437.0
+margin_right = 609.0
 margin_bottom = 1080.0
 max_value = 1e+08
 script = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_Control_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_Control_mouse_exited"]
 [connection signal="mouse_entered" from="SpinBox" to="." method="_on_SpinBox_mouse_entered"]
 [connection signal="mouse_exited" from="SpinBox" to="." method="_on_SpinBox_mouse_exited"]
+[connection signal="value_changed" from="SpinBox" to="." method="_on_SpinBox_value_changed"]

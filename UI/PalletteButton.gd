@@ -1,7 +1,7 @@
 extends Button
 
-var color
 var color_val
+var can_right_click = false #right click to remove the district
 
 func _ready():
 	set_focus_mode(1)
@@ -22,19 +22,33 @@ func unselect_district(district_name):
 		state.get_node(district_name).is_selected = false
 
 
-func set_color(color_arr):
-	for one_key in color_arr:
-		color = one_key
+func set_color(color):
 	
-	color_val = Color(color_arr[color][0],color_arr[color][1],color_arr[color][2])
+	var color_from_str = get_node("/root/Globals").word2color(color)
+
 	var new_stylebox_normal = get_stylebox("normal").duplicate()
-	new_stylebox_normal.bg_color = color_val
+	new_stylebox_normal.bg_color = color_from_str
 	add_stylebox_override("normal", new_stylebox_normal)
 	
 	var new_stylebox_hover = get_stylebox("hover").duplicate()
-	new_stylebox_hover.bg_color = color_val
+	new_stylebox_hover.bg_color = color_from_str
 	add_stylebox_override("hover", new_stylebox_hover)
 	
 	var new_stylebox_pressed= get_stylebox("pressed").duplicate()
-	new_stylebox_pressed.bg_color = Color(color_arr[color][0]-.2,color_arr[color][1]-.2,color_arr[color][2]-.2)
+	
+	new_stylebox_pressed.bg_color = color_from_str #- Color(.2,.2,.2)
 	add_stylebox_override("pressed", new_stylebox_pressed)
+
+
+func _on_Button_mouse_entered():
+	can_right_click = true
+
+
+func _on_Button_mouse_exited():
+	can_right_click = false
+	
+func _input(event):
+	if can_right_click:
+		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			var n = get_tree().get_current_scene().remove_district(name)
+			text = str(n)

@@ -6,6 +6,9 @@
 margin_right = 39.0
 margin_bottom = 39.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 40.0

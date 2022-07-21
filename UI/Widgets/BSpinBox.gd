@@ -5,6 +5,9 @@ var mouseover_theme = load("res://UI/Widgets/BThemeSpinBoxHover.tres")
 
 var can_click = false
 
+func _ready():
+	get_node("Label").add_color_override("font_color", Color(1,1,1,1))
+
 func set_text(text):
 	get_node("Label").set_text(text)
 
@@ -47,3 +50,8 @@ func _input(_event):
 		if can_click:
 			get_node("SpinBox").get_line_edit().select_all()
 			get_node("SpinBox").get_line_edit().grab_focus()
+
+
+func _on_SpinBox_value_changed(value):
+	var parent_pane = get_parent().get_parent()
+	parent_pane.on_change()

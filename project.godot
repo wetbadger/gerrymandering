@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/Classes/SettingsPane.gd"
 }, {
-"base": "Control",
+"base": "Node2D",
 "class": "Window",
 "language": "GDScript",
 "path": "res://UI/Classes/Window.gd"
@@ -45,6 +45,10 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://globals.gd"
+
+[debug]
+
+settings/gdscript/max_call_stack=2048
 
 [display]
 

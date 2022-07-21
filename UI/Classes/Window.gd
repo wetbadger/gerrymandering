@@ -1,26 +1,20 @@
-extends Control
+extends Node2D
 
 class_name Window
 
-func add_element(elem):
+func _ready():
+	var windows_open = get_tree().get_current_scene().windows_open
+	if len(windows_open) >= get_tree().get_current_scene().max_windows_open:
+		queue_free()
+	else:
+		windows_open.append(self)
+
+func add_element(elem, scale=1):
 	get_node("PanelContainer").add_child(elem)
 	
 func set_title(text):
 	get_node("TitleBar").get_node("HBoxContainer/Bar/Label").set_text(text)
 	
-func position_window(viewport):
-	var mouse_pos = get_global_mouse_position()
-
-	var new_pos
-	if mouse_pos.x >= viewport.size.x / 2:
-		new_pos = Vector2(mouse_pos.x - 50, mouse_pos.y)
-	elif mouse_pos.x < viewport.size.x / 2:
-		new_pos = Vector2(mouse_pos.x + 50, mouse_pos.y)
-		
-	if mouse_pos.y >= viewport.size.y / 2:
-		new_pos.y -= 50
-	elif mouse_pos.y < viewport.size.y / 2:
-		new_pos.y += 50
-		
-	set_global_position(new_pos)
-
+func close_window():
+	get_tree().get_current_scene().windows_open.erase(self)
+	queue_free()

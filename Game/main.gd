@@ -6,7 +6,7 @@ var settings
 var points: Array = []
 var last_point
 var grid_point
-var selected_district = "A"
+var selected_district
 var _district = load("Objects/District.tscn")
 var districts = []
 var district_button_names
@@ -48,7 +48,7 @@ var map_name
 func _ready():
 
 	settings = load_settings()
-	width = settings["width"]
+	#width = settings["width"]
 	parties = settings["parties"]
 	
 	#override width
@@ -57,19 +57,26 @@ func _ready():
 		population += parties[p]["voters"]
 
 	width = int(sqrt(population))
+	
+	print(population)
 
-	population = matrix.generate_houses(width, parties)
+	population = matrix.generate_houses(population, parties)
+	
+	print(population)
 	
 	for p in parties:
-		popular_vote.add_party(p, parties[p]["voters"], parties[p]["voters"]/population*100)
+		popular_vote.add_party(p, parties[p]["voters"], stepify(parties[p]["voters"]/population, 0.001)*100)
 	
-	max_size = settings["max_size"]
-	min_size = settings["min_size"]
-	n_districts = settings["n_districts"]
-	district_colors = generate_colors(n_districts)
+	#max_size = settings["max_size"]
+	#min_size = settings["min_size"]
+	#n_districts = settings["n_districts"]
 	
-	get_node("UI/DistrictButtons").load_buttons(n_districts, district_colors, max_size)
+	n_districts = settings["districts"].size()
+	#district_colors = generate_colors(n_districts)
+	
+	get_node("UI/DistrictButtons").load_buttons(settings["districts"])
 	district_button_names = get_button_names()
+	selected_district = district_button_names[0]
 	submit_button = get_node("UI/Submit")
 	
 	if settings["debug"]:
@@ -201,18 +208,19 @@ func _draw_district() -> void:
 		
 	var color = PoolColorArray( [district.color] )
 
-func _draw_district_flood(coords, exclude=null) -> void:
-	var district = get_district_selected(exclude)
+func _draw_district_flood(coords, exclude=null, temp=null) -> void:
+	var district = get_district_selected(exclude, temp)
 	if not district:
 		return
 	district.highlight(coords, exclude)
 
 func draw_district_flood(coords, exclude=null):
+	
 	var temp1 = selected_district
 	#var temp2 = grid_point
 	selected_district = "Flood"
 	grid_point = coords
-	_draw_district_flood(coords, exclude)
+	_draw_district_flood(coords, exclude, temp1)
 	selected_district = temp1
 	#grid_point = temp2
 	
@@ -246,14 +254,19 @@ func _remove_district() -> void:
 		
 	district.erase(grid_point)
 
-func get_district_selected(exclude=null):
+func get_district_selected(exclude=null, temp=null):
 
 	if not has_node(selected_district):
 		
 		var district = _district.instance()
 		district.starting_vertex = grid_point
-		district.max_size = max_size
-		district.min_size = min_size
+		
+		if selected_district == "Flood":
+			district.max_size = settings["districts"][temp]["max_size"]
+			district.min_size = settings["districts"][temp]["min_size"]
+		else:
+			district.max_size = settings["districts"][selected_district]["max_size"]
+			district.min_size = settings["districts"][selected_district]["min_size"]
 		district.set_global_position(grid_point * matrix.GRID_SIZE)
 		district.set_name(selected_district)
 		var color
@@ -261,8 +274,11 @@ func get_district_selected(exclude=null):
 			color = Color(1, 0, 0)
 			#district.squares_in_region.append(exclude)
 		else:
-			color = get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
-			color.a = 0.65
+			var color_name = settings["districts"][selected_district]["color"] #get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
+			color = get_node("/root/Globals").word2color(color_name)
+
+			color.a = 0.85
+
 		district.get_node("TileMap").modulate = color
 		add_child(district)
 		district.highlight(grid_point, exclude)
@@ -287,10 +303,11 @@ func submit():
 	for d in districts:
 		var score = {d.name:{}}
 		for id in d.squares:
-			if score[d.name].has(matrix.vertices[id]["allegiance"]):
-				score[d.name][matrix.vertices[id]["allegiance"]] += 1
-			else:
-				score[d.name][matrix.vertices[id]["allegiance"]] = 1
+			if matrix.vertices[id].has("allegiance"):
+				if score[d.name].has(matrix.vertices[id]["allegiance"]):
+					score[d.name][matrix.vertices[id]["allegiance"]] += 1
+				else:
+					score[d.name][matrix.vertices[id]["allegiance"]] = 1
 		scores.append(score)
 
 	var results = []
@@ -315,6 +332,17 @@ func submit():
 	victory_node.visible = true
 	recieve_input = false
 	submit_button.queue_free()
+	
+func remove_district(district_name):
+	for d in districts:
+		if d.name == district_name:
+			var houses = d.squares.duplicate()
+			for house in houses:
+				d.erase(str2var("Vector2" + house), true)
+			#districts.erase(d)
+			var n = d.max_size
+			#d.queue_free()
+			return n
 	
 func get_winner(results):
 	var arr = []

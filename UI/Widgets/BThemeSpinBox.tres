@@ -3,7 +3,7 @@
 [ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="DynamicFont" id=1]
-size = 32
+size = 55
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
@@ -14,7 +14,8 @@ content_margin_bottom = 0.0
 bg_color = Color( 0.52549, 0.52549, 0.52549, 1 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 26
+size = 45
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
@@ -24,7 +25,7 @@ bg_color = Color( 1, 1, 1, 1 )
 bg_color = Color( 0.756863, 0.756863, 0.756863, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.337255, 0.337255, 0.337255, 1 )
+bg_color = Color( 0.756863, 0.756863, 0.756863, 1 )
 
 [resource]
 Label/fonts/font = SubResource( 1 )

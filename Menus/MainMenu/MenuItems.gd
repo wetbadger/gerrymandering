@@ -6,7 +6,7 @@ func _ready():
 	var pos = get_global_position()
 
 func _on_Custom_button_up():
-	get_tree().change_scene("res://Menus/GameSettings.tscn")
+	get_tree().change_scene("res://Menus/CustomGameMenu/CustomGameMenu.tscn")
 
 func _process(_delta):
 	if get_viewport_rect().size.y > 2000 and not checked:

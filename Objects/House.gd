@@ -3,7 +3,7 @@ extends Node2D
 #this is just a sprite
 #for house properties see ...
 
-var houses = [load("res://pics/house1.png"), load("res://pics/house2.png"), load("res://pics/house3.png")]
+var houses = [load("res://pics/sprites/house1.png"), load("res://pics/sprites/house2.png"), load("res://pics/sprites/house3.png")]
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -12,4 +12,7 @@ func _ready():
 	get_node("Sprite").texture = house
 	
 func set_asset(asset):
-	get_node("Sprite").texture = asset
+	if typeof(asset) == TYPE_INT:
+		pass
+	else:
+		get_node("Sprite").texture = asset

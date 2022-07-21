@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI/Victory.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/ActionButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Submit.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Objects/Tiles/SpriteTiles.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -101,20 +102,29 @@ visible = false
 margin_right = 1303.0
 margin_bottom = 774.0
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Area2D" type="Area2D" parent="State"]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="State/Area2D"]
 position = Vector2( 449, 41 )
-polygon = PoolVector2Array( 335, 252, 437, 163, 638, 245, 709, 421, 823, 654, 448, 821, 231, 742, 225, 421, 240, 352 )
+polygon = PoolVector2Array( 367, 442, 591, 442, 659, 566, 605, 601, 534, 626, 506, 506, 440, 520, 388, 514, 371, 485 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Camera2D" type="Camera2D" parent="State"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Matrix" parent="State" instance=ExtResource( 6 )]
+
+[node name="SpriteTiles" parent="State" instance=ExtResource( 11 )]
+position = Vector2( 7, 2 )
+scale = Vector2( 0.33, 0.33 )

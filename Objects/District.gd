@@ -26,8 +26,10 @@ var squares = []
 var district_sizes = []
 var squares_in_region = []
 var regions = []
+
 var size_count = 1
 var is_selected = true
+
 
 func _ready():
 	if not ["Flood", "Error"].has(name):
@@ -53,15 +55,16 @@ func free_flood():
 	flood.queue_free()
 	
 func highlight(grid_point, exclude=null, force=false):
+
 	var scene = get_tree().get_current_scene()
 	var house_id = str(grid_point)
-	var matrix = scene.matrix.vertices
+	var matrix = scene.matrix
 	if name == "Flood":
 		if len(squares_in_region) == 0:
 			squares_in_region.append(house_id)
-		if not matrix[house_id].has("district") and house_id != exclude:
+		if not matrix.vertices[house_id].has("district") and house_id != exclude:
 			if len(squares) > 0:
-				var neighboring_squares = get_neighbors(matrix[house_id])
+				var neighboring_squares = get_neighbors(matrix.vertices[house_id])
 
 				if len(neighboring_squares) == 0:
 					district_sizes.append(size_count)
@@ -74,109 +77,130 @@ func highlight(grid_point, exclude=null, force=false):
 					squares_in_region.append(house_id)
 					
 				
-			var cell = (grid_point-starting_vertex)
-			var tm = get_node("TileMap")
-			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
-			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
-			matrix[house_id]["visited_empty"] = true
-			matrix[house_id]["district"] = "Flood"
+			#var cell = (grid_point-starting_vertex)
+			#var tm = get_node("TileMap")
+			#tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
+			#tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
+			matrix.vertices[house_id]["visited_empty"] = true
+			matrix.vertices[house_id]["district"] = "Flood"
 			squares.append(house_id)
-			var neighbors = get_neighbors(matrix[house_id], squares, 2)
+			var neighbors = get_neighbors(matrix.vertices[house_id], squares, 2)
 			for neighbor in neighbors:
-				get_tree().get_current_scene().draw_district_flood(matrix[neighbor]["coords"], exclude)
+				get_tree().get_current_scene().draw_district_flood(matrix.vertices[neighbor]["coords"], exclude)
 		return
 		
 	if max_size > house_count or force==true:
-		if matrix.has(house_id):
-			if not matrix[house_id].has("district"):
-				if settings["contiguous"] and force != true:
-					if house_count != 0:
-						var neighbors = get_neighbors(matrix[house_id])
-						if len(neighbors) == 0:
-							return
+		if not matrix.vertices.has(house_id):
+			error_label.set_text("NO HOUSE THERE")
+			var id_vect = str2var("Vector2"+house_id)
+			var intersection = get_world_2d().direct_space_state.intersect_point (id_vect*matrix.GRID_SIZE, 32, [ ], 2147483647, true, true )
+			if not intersection:
+				error_label.set_text("OUT OF STATE BORDER")
+				return
+			if id_vect.x >= matrix.top_left_corner.x and id_vect.x <= matrix.bottom_right_corner.x and id_vect.y >= matrix.top_left_corner.y and id_vect.y <= matrix.bottom_right_corner.y:
+				matrix.vertices[house_id] = {"type" : "Gap", "visited":false, "coords": str2var("Vector2"+house_id)}
+			else:
+				error_label.set_text("OUT OF BOUNDS")
+				return
+		if not matrix.vertices[house_id].has("district"):
+			if settings["contiguous"] and force != true:
+				if house_count != 0:
+					var neighbors = get_neighbors(matrix.vertices[house_id])
+					if len(neighbors) == 0:
+						return
 
-					var neighbors = get_neighbors(matrix[house_id], squares, 2)
-					var found_neighbors = false
-					for neighbor in neighbors:
-						found_neighbors = true
-						scene.draw_district_flood(matrix[neighbor]["coords"], house_id)
-					if found_neighbors:
-						scene.get_node("Flood").district_sizes.append(scene.get_node("Flood").size_count)
-						scene.get_node("Flood").regions.append(scene.get_node("Flood").squares_in_region)
-						var ds = scene.get_node("Flood").district_sizes
-						var regions = scene.get_node("Flood").regions
+				var neighbors = get_neighbors(matrix.vertices[house_id], squares, 2)
+				var found_neighbors = false
+				for neighbor in neighbors:
+					found_neighbors = true
+					scene.draw_district_flood(matrix.vertices[neighbor]["coords"], house_id)
+				if found_neighbors:
+					scene.get_node("Flood").district_sizes.append(scene.get_node("Flood").size_count)
+					scene.get_node("Flood").regions.append(scene.get_node("Flood").squares_in_region)
+					var ds = scene.get_node("Flood").district_sizes
+					var regions = scene.get_node("Flood").regions
 #						for r in regions:
 #							print(len(r))
 #						print(ds)
 #						print(regions)
-						free_flood()
-					
-						var houses_left = max_size-house_count
-						var regions_to_fill = []
-						for r in regions:
-							if len(r) < min_size:
-								houses_left -= len(r)
-								if max_size-house_count > len(r) and houses_left > 0:
-									regions_to_fill.append(r)
-									
-								else:
-									regions_to_fill = []
-									error_flash(matrix, scene, r)
-									error_label.set_text("NO BLOCK REGION")
-									return
-							
-						for r in regions_to_fill:		
-							for house in r:
-								highlight(matrix[house]["coords"], null, true)
-						
-				matrix[house_id]["district"] = self.name
-				var cell = (grid_point-starting_vertex)
-				var tm = get_node("TileMap")
-
+					free_flood()
 				
-				if matrix[house_id]["type"] == "House":
-					house_count += 1
+					var houses_left = max_size-house_count
+					var regions_to_fill = []
+					for r in regions:
+						if len(r) < min_size:
+							houses_left -= len(r)
+							if max_size-house_count > len(r) and houses_left > 0:
+								regions_to_fill.append(r)
+								
+							else:
+								regions_to_fill = []
+								error_flash(matrix.vertices, scene, r)
+								error_label.set_text("NO BLOCK REGION")
+								return
+						
+					for r in regions_to_fill:		
+						for house in r:
+							highlight(matrix.vertices[house]["coords"], null, true)
+					
+			matrix.vertices[house_id]["district"] = self.name
+			var cell = (grid_point-starting_vertex)
+			var tm = get_node("TileMap")
+
+			
+			if matrix.vertices[house_id]["type"] == "House":
+				house_count += 1
 #					if not ["Error", "Flood"].has(name):
 #						scene.filled_squares += 1
 
-				tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
-				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
+			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
+			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
+			
+			squares.append(house_id)
+			
+			if house_count == max_size:
 				
-				squares.append(house_id)
+				if not ["Flood", "Error"].has(name):
+					get_next_district()
 				
-				if house_count == max_size:
-					var next = null
-					if not ["Flood", "Error"].has(name):
-						#check if the button exists
-						var button_name = char(ord(name[0]) + 1)
-						if scene.district_button_names.has(button_name):
-							next = scene.get_node("UI/DistrictButtons").get_node(button_name)
-							if next:
-								for d in scene.districts:
-									#check if the district alraedy used all its houses
-									if d.name == char(ord(name[0]) + 1):
-										#if it did use all its houses pick a different district
-										if d.house_count == max_size:
-											for each in scene.districts:
-												if each.house_count < max_size:
-													button_name = char(ord(each.name[0]))
-													
-						else:
-							for each in scene.districts:
-								if each.house_count < max_size:
-									button_name = char(ord(each.name[0]))
-
-						next = scene.get_node("UI/DistrictButtons").get_node(button_name)
-						if next:
-							next.pressed = true
-							next._on_Button_button_up()
-					
-			else:
-				error_label.set_text("ALREADY HOUSE")
 		else:
-			error_label.set_text("NO HOUSE THERE")
+			error_label.set_text("ALREADY HOUSE")
+			
 	else:
 		error_label.set_text("TOO MANY HOUSE")
+		get_next_district()
+		
+func get_next_district():
+	var next = null
+	#check if the button exists
+	var scene = get_tree().get_current_scene()
+	var button_name
+	if scene.district_button_names.find(name) + 1 >= len(scene.district_button_names):
+		button_name = scene.district_button_names[0]
+	else:
+		button_name = scene.district_button_names[scene.district_button_names.find(name) + 1]
+	#var button_name = char(ord(name[0]) + 1)
+	if scene.district_button_names.has(button_name):
+		next = scene.get_node("UI/DistrictButtons").get_node(button_name)
+		if next:
+			for d in scene.districts:
+				#check if the district alraedy used all its houses
+				if d.name == button_name:
+					#if it did use all its houses pick a different district
+					if d.house_count == max_size:
+						for each in scene.districts:
+							if each.house_count < max_size:
+								button_name = each.name
+								
+	else:
+		for each in scene.districts:
+			if each.house_count < max_size:
+				button_name = each.name
+
+	next = scene.get_node("UI/DistrictButtons").get_node(button_name)
+	if next:
+		next.pressed = true
+		next._on_Button_button_up()
 	
 func error_flash(matrix, scene, region):
 	var error_shape = district_node.instance()
@@ -199,7 +223,7 @@ func error_flash(matrix, scene, region):
 	error_shape.queue_free()
 	scene.start_input()
 					
-func erase(grid_point):
+func erase(grid_point, force=false):
 	var house_id = str(grid_point)
 	var scene = get_tree().get_current_scene()
 	var matrix = scene.matrix.vertices
@@ -212,9 +236,9 @@ func erase(grid_point):
 					var size = get_viewport().size
 					var true_or_false = !matrix[neighbor]["visited"]
 					matrix[house_id]["visited"] = !matrix[house_id]["visited"]
-					var x = ff.flood_fill(matrix, size, matrix[neighbor]["coords"], true_or_false, "district", matrix[house_id]["district"], "House", house_id)
+					var x = ff.flood_fill(matrix, size, matrix[neighbor]["coords"], true_or_false, "district", matrix[house_id]["district"], house_id)
 					ff.queue_free()
-					if len(x) < house_count - 1:
+					if len(x) < house_count - 1 and not force:
 						error_label.set_text("NO SPLITTING DISTRICT "+str(matrix[house_id]["district"]))
 						if matrix[house_id]["district"] != self.name:
 							var button_name = matrix[house_id]["district"]
@@ -243,15 +267,15 @@ func erase(grid_point):
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 				
 				squares.erase(house_id)
-				house_count-=1
+				if matrix[house_id]["type"] == "House":
+					house_count-=1
 				#scene.filled_squares-=1
 				
 					
 			else:
 				error_label.set_text("WRONG DISTRICT")
-
 				if not ["Flood", "Error"].has(name):
-					var next = scene.get_node("UI/DistrictButtons").get_node(char(ord(matrix[house_id]["district"][0])))
+					var next = scene.get_node("UI/DistrictButtons").get_node(matrix[house_id]["district"])
 					if next:
 						next.pressed = true
 						next._on_Button_button_up()

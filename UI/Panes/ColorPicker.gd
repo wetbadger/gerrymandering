@@ -8,6 +8,7 @@ var button
 func _ready():
 	for c in colors:
 		var square = ColorSquare.instance()
+		square.set_color_name(c)
 		var col_arr = colors[c]
 		var color = Color(col_arr[0],col_arr[1],col_arr[2])
 		square.color = color
@@ -15,5 +16,5 @@ func _ready():
 		square.set_button(button)
 		insert(square)
 
-func set_button(button):
-	self.button = button
+func set_button(btn):
+	self.button = btn
