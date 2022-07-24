@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Widgets/BAddButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Widgets/BAddAndSubtractButtons.gd" type="Script" id=2]
+[ext_resource path="res://UI/Widgets/BSubtractButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pics/ui/plus-outline-tn.png" type="Texture" id=4]
+[ext_resource path="res://pics/ui/minus-outline-tn.png" type="Texture" id=5]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+margin_right = 92.0
+margin_bottom = 38.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BAddButton" parent="." instance=ExtResource( 1 )]
+margin_right = 44.0
+margin_bottom = 38.0
+icon = ExtResource( 4 )
+
+[node name="BSubtractButton" parent="." instance=ExtResource( 3 )]
+margin_left = 48.0
+margin_right = 92.0
+margin_bottom = 38.0
+icon = ExtResource( 5 )
+
+[connection signal="button_up" from="BAddButton" to="." method="_on_BAddButton_button_up"]
+[connection signal="button_up" from="BSubtractButton" to="." method="_on_BSubtractButton_button_up"]

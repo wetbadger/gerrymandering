@@ -1,0 +1,57 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/GotoMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/ErrorScreen.gd" type="Script" id=2]
+
+[node name="ErrorScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 439.0
+margin_top = 136.0
+margin_right = 1520.0
+margin_bottom = 944.0
+color = Color( 0.105882, 0.105882, 0.105882, 0.301961 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+margin_left = 371.0
+margin_top = 872.0
+margin_right = 1600.0
+margin_bottom = 1053.0
+custom_constants/separation = 80
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GotoMenu" parent="Buttons" instance=ExtResource( 1 )]
+margin_left = 414.0
+margin_right = 814.0
+margin_bottom = 181.0
+rect_min_size = Vector2( 400, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 567.0
+margin_top = 210.0
+margin_right = 1343.0
+margin_bottom = 852.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorName" type="Label" parent="VBoxContainer"]
+margin_right = 776.0
+margin_bottom = 14.0
+text = "Population Error"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ErrorMessage" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 776.0
+margin_bottom = 32.0
+text = "$State can fit $n voters at most. Your population is $big_n. Please try again."

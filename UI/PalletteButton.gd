@@ -21,7 +21,6 @@ func unselect_district(district_name):
 	if state.has_node(district_name):
 		state.get_node(district_name).is_selected = false
 
-
 func set_color(color):
 	
 	var color_from_str = get_node("/root/Globals").word2color(color)

@@ -18,11 +18,15 @@ var texture_missing = load("res://pics/target.png")
 onready var matrix = get_node("State").get_node("Matrix")
 onready var mode_label = get_node("UI/Debug/HBox/ModeLabel")
 onready var squares_filled_label = get_node("UI/Debug/HBox/SquaresFilledLabel")
+onready var debug_party_tally = get_node("UI/Debug/HBox/PartyTally")
 onready var popular_vote = get_node("UI/Victory/HBoxContainer/Totals")
 onready var district_tally = get_node("UI/Victory/HBoxContainer/Districts")
 onready var winner_label = get_node("UI/Victory/Winner")
+onready var progress_label = get_node("UI/Progress")
 onready var victory_node = get_node("UI/Victory")
-
+onready var error_screen = get_node("UI/ErrorScreen")
+onready var camera = get_node("State/Camera2D")
+onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
 var population
 var width
 var n_districts
@@ -44,10 +48,22 @@ var filled_squares = 0
 var submit_button
 
 var map_name
+var shape
 
 func _ready():
-
 	settings = load_settings()
+
+	var state_shape = settings["shape"]
+	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
+	get_node("State").add_child(shape)
+	shape.set_name("Shape")
+	var _size = get_viewport_rect().size
+	var _center = Vector2(floor(_size.x/2), floor(_size.y/2))
+	shape.set_position(_center)
+	shape.z_index = -999
+	
+	yield(get_tree(), "idle_frame")
+	
 	#width = settings["width"]
 	parties = settings["parties"]
 	
@@ -58,15 +74,31 @@ func _ready():
 
 	width = int(sqrt(population))
 	
-	print(population)
+	var expected_population = population
 
-	population = matrix.generate_houses(population, parties)
+	population = matrix.generate_houses(population, parties, settings["advanced"]["gaps"], settings["advanced"]["algorithm"])
 	
-	print(population)
+	if population != expected_population:
+		error_screen.set_error_name("Population Error")
+		error_screen.set_error_message(state_shape + " can fit "+str(population)+" at most. For some reason, the game is trying to add "+str(expected_population)+". "+"Please try again.")
+		error_screen.visible = true
+		recieve_input = false
+		
+	match settings["advanced"]["algorithm"]: 
+		"spiral":
+			if population < 50:
+				camera.set_zoom(Vector2(0.05,0.05))
+			elif population > 5000:
+				camera.set_zoom(Vector2(1,1))
+			else:
+				var z = (0.95/4950) * population + (0.05 - (0.95/4950) * 50)
+				camera.set_zoom(Vector2(z, z))
+		"fill":
+			camera.set_zoom(Vector2(0.5,0.5))
 	
 	for p in parties:
 		popular_vote.add_party(p, parties[p]["voters"], stepify(parties[p]["voters"]/population, 0.001)*100)
-	
+
 	#max_size = settings["max_size"]
 	#min_size = settings["min_size"]
 	#n_districts = settings["n_districts"]
@@ -74,22 +106,29 @@ func _ready():
 	n_districts = settings["districts"].size()
 	#district_colors = generate_colors(n_districts)
 	
-	get_node("UI/DistrictButtons").load_buttons(settings["districts"])
+	district_buttons.load_buttons(settings["districts"])
 	district_button_names = get_button_names()
 	selected_district = district_button_names[0]
 	submit_button = get_node("UI/Submit")
 	
-	if settings["debug"]:
+	if settings["advanced"]["debug"]:
 		get_node("UI/Debug").visible = true
 	else:
 		get_node("UI/Debug").visible = false
+		
 
 func get_button_names():
 	var bn = []
-	var children = get_node("UI/DistrictButtons").get_children()
+	var children = district_buttons.get_children()
 	for b in children:
 		bn.append(b.name)
 	return bn
+	
+func reset_buttons(names):
+	var buttons = district_buttons.get_children()
+	for button in buttons:
+		if button.name in names:
+			button.reset()
 
 func generate_colors(n):
 	var colors = []
@@ -103,7 +142,7 @@ func generate_colors(n):
 
 func load_settings():
 	var globals = get_node("/root/Globals")
-	var map_name = ""
+	map_name = ""
 	if globals.map_name:
 		map_name = globals.map_name
 		
@@ -114,6 +153,7 @@ func load_settings():
 			return data
 	file.open("user://"+map_name+"/settings.json", File.READ)
 	var data = parse_json(file.get_as_text())
+	map_name = data["name"]
 	return data
 
 func stop_input():
@@ -147,6 +187,8 @@ func _process(_delta):
 	var count = 0
 	for d in districts:
 		count += d.house_count
+		if d.name == selected_district:
+			debug_party_tally.text = str(d.party_tallies)
 		
 	filled_squares = count
 
@@ -156,17 +198,22 @@ func _process(_delta):
 		mode_label.set_text('Mode: -    ')
 		
 	squares_filled_label.set_text("Squares: "+str(filled_squares)+"    ")
+	progress_label.set_text(str(filled_squares)+"/"+str(population))
 		
 	if not can_recheck:
 		can_recheck = true
 		
 	if is_instance_valid(submit_button):
-		if filled_squares == population:
+		if filled_squares >= population: #because sometimes the computer can't count :)
 			submit_button.disabled = false
 		else:
 			submit_button.disabled = true
+			
+	
 	
 func set_mouse_members(event):
+	if event is InputEventKey:
+		return
 	#sets the variables realted to the mouse positions from a click
 	if not last_point:
 		last_point = Node2D.new()
@@ -230,11 +277,11 @@ func determine_draw_mode():
 	if house_in_district:
 		set_draw_mode(DRAW_MODES.ERASE)
 		
-	if settings.none_selected_start_erasing:
-		if matrix.vertices.has(str(grid_point)) and not matrix.vertices[str(grid_point)].has("district"):
-			var district = get_node(selected_district)
-			if district and len(district.squares) > 0:
-				set_draw_mode(DRAW_MODES.ERASE)
+#	if settings["advanced"]["none_selected_start_erasing"]:
+#		if matrix.vertices.has(str(grid_point)) and not matrix.vertices[str(grid_point)].has("district"):
+#			var district = get_node(selected_district)
+#			if district and len(district.squares) > 0:
+#				set_draw_mode(DRAW_MODES.ERASE)
 		
 	just_pressed = false
 		
@@ -276,8 +323,8 @@ func get_district_selected(exclude=null, temp=null):
 		else:
 			var color_name = settings["districts"][selected_district]["color"] #get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
 			color = get_node("/root/Globals").word2color(color_name)
-
-			color.a = 0.85
+			district.color = color
+			color.a = 0.5
 
 		district.get_node("TileMap").modulate = color
 		add_child(district)
@@ -288,16 +335,13 @@ func get_district_selected(exclude=null, temp=null):
 	else:
 		var district = get_node(selected_district)
 		return district
-		
-func measure_width_and_height():
-	#TODO: for non perfectly square shapes measure the tile height and width at the longest bones on the state polygon
-	pass
 	
 func get_width():
 	return width
 	
 func submit():
 	print("Submitted")
+	get_node("Darkening").darken()
 	#print(matrix.vertices)
 	var scores = []
 	for d in districts:
@@ -311,6 +355,7 @@ func submit():
 		scores.append(score)
 
 	var results = []
+	victory_node.get_node("HBoxContainer/Districts").reset()
 	for district in scores:
 		for d in district:
 			var most_votes = {null: 0}
@@ -324,36 +369,50 @@ func submit():
 
 	var winner = get_winner(results)
 	print(winner)
-	winner_label.set_text(winner.keys()[0]+" WINS!")
-	var color_name = settings["parties"][winner.keys()[0]]["color"]
-	var col_arr = settings["colors"][color_name]
-	var color = Color(col_arr[0],col_arr[1],col_arr[2])
+	var color = Color(0,0,0)
+	if not winner.keys()[0]:
+		winner_label.set_text("TIE!?")
+	else:
+		winner_label.set_text(winner.keys()[0]+" WIN!")
+		var color_name = settings["parties"][winner.keys()[0]]["color"]
+		var col_arr = settings["colors"][color_name]
+		color = Color(col_arr[0],col_arr[1],col_arr[2])
 	winner_label.set_border_color(color)
 	victory_node.visible = true
+
 	recieve_input = false
-	submit_button.queue_free()
+	submit_button.visible = false
 	
 func remove_district(district_name):
+	recieve_input = false
+	#show a spinning hour glass here
 	for d in districts:
 		if d.name == district_name:
 			var houses = d.squares.duplicate()
 			for house in houses:
 				d.erase(str2var("Vector2" + house), true)
-			#districts.erase(d)
+			districts.erase(d)
+			d.party_tally.reset()
+			d.button.text = str(d.max_size-d.house_count)
 			var n = d.max_size
-			#d.queue_free()
+			d.queue_free()
+			recieve_input = true
 			return n
+	recieve_input = true
 	
 func get_winner(results):
 	var arr = []
-	for p in results:
-		for r in p:
-			arr.append(r)
-	var counter = 0
-	var winner
-	for elem in arr:
-		var count = arr.count(elem)
-		if count > counter:
-			counter = count
-			winner = elem
+	for v in results:
+		arr.append(v.keys()[0])
+
+	var count = 0
+	var winner = null
+	for n in arr:
+		var score = arr.count(n)
+		if score > count and n != null:
+			count = score
+			winner = n
+		elif score == count and n != null and n != winner:
+			winner = null
+
 	return {winner: arr.count(winner)}

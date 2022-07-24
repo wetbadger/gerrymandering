@@ -7,15 +7,20 @@ func _on_Start_button_up():
 	game_settings = scene.settings
 	var options = get_options()
 
+	game_settings["shape"] = scene.state_name
 	game_settings["name"]=scene.game_name.text
 	game_settings["parties"]=options["parties"]
 	game_settings["districts"]=options["districts"]
+	game_settings["advanced"]=options["advanced"]
+	
 
 	var globals = get_node("/root/Globals")
 	globals.map_name = scene.game_name.text
 	
 	new_game_folder(game_settings)
-	get_tree().change_scene("res://Game/main.tscn")
+	var error = get_tree().change_scene("res://Game/main.tscn")
+	if error:
+		print("Could not load main scene")
 
 func new_game_folder(settings):
 	var game_name = settings["name"]
@@ -44,10 +49,13 @@ func get_options():
 				"line":
 					group_name = group[-1].get_text()
 				"number":
-
 					if not result[pane.name].has(group_name):
 						result[pane.name][group_name] = {}
 					result[pane.name][group_name][group[1]] = group[-1].get_node("SpinBox").get_value()
+				"bool":
+					result[pane.name][group[1]] = group[-1].is_pressed()
+				"list":
+					result[pane.name][group[1]] = group[-1].get_item_text(group[-1].get_selected())
 				"color":
 					result[pane.name][group_name]["color"] = group[-1]._get_color()
 				"asset":

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -11,9 +11,18 @@
 [ext_resource path="res://UI/ActionButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/Submit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Tiles/SpriteTiles.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/ErrorScreen.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Game/Darkening.gd" type="Script" id=13]
+[ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=14]
+[ext_resource path="res://font/Chicago.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://UI/Widgets/BScroll.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 15 )
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 7 )
@@ -28,11 +37,15 @@ margin_top = -229.0
 margin_right = 470.0
 margin_bottom = -54.0
 
-[node name="DistrictButtons" type="VBoxContainer" parent="UI"]
-margin_left = 1600.0
-margin_top = 1.0
-margin_right = 1820.0
-margin_bottom = 1074.0
+[node name="Scroll" parent="UI" instance=ExtResource( 16 )]
+margin_left = 1700.0
+margin_top = 48.0
+margin_right = -8.0
+rect_min_size = Vector2( 212, 0 )
+
+[node name="DistrictButtons" type="VBoxContainer" parent="UI/Scroll"]
+margin_right = 200.0
+rect_min_size = Vector2( 200, 0 )
 theme = ExtResource( 5 )
 custom_constants/separation = 20
 alignment = 1
@@ -51,6 +64,7 @@ margin_bottom = 1027.0
 [node name="Debug" type="Control" parent="UI"]
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -69,6 +83,7 @@ __meta__ = {
 [node name="HBox" type="HBoxContainer" parent="UI/Debug"]
 margin_right = 40.0
 margin_bottom = 68.0
+custom_constants/separation = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,26 +110,34 @@ margin_right = 8.0
 margin_bottom = 68.0
 theme = ExtResource( 2 )
 
+[node name="ZoomLabel" type="Label" parent="UI/Debug/HBox"]
+margin_left = 12.0
+margin_right = 12.0
+margin_bottom = 68.0
+
+[node name="PartyTally" type="Label" parent="UI/Debug/HBox"]
+margin_left = 16.0
+margin_right = 16.0
+margin_bottom = 68.0
+
 [node name="Victory" parent="UI" instance=ExtResource( 8 )]
 visible = false
+
+[node name="ErrorScreen" parent="UI" instance=ExtResource( 12 )]
+visible = false
+
+[node name="Progress" parent="UI" instance=ExtResource( 14 )]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = -1698.0
+margin_bottom = -1038.0
+custom_fonts/font = SubResource( 2 )
 
 [node name="State" type="ViewportContainer" parent="."]
 margin_right = 1303.0
 margin_bottom = 774.0
 __meta__ = {
 "_edit_use_anchors_": false
-}
-
-[node name="Area2D" type="Area2D" parent="State"]
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="State/Area2D"]
-position = Vector2( 449, 41 )
-polygon = PoolVector2Array( 367, 442, 591, 442, 659, 566, 605, 601, 534, 626, 506, 506, 440, 520, 388, 514, 371, 485 )
-__meta__ = {
-"_edit_lock_": true
 }
 
 [node name="Camera2D" type="Camera2D" parent="State"]
@@ -128,3 +151,12 @@ __meta__ = {
 [node name="SpriteTiles" parent="State" instance=ExtResource( 11 )]
 position = Vector2( 7, 2 )
 scale = Vector2( 0.33, 0.33 )
+
+[node name="Darkening" type="ColorRect" parent="."]
+margin_right = 1917.0
+margin_bottom = 1079.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

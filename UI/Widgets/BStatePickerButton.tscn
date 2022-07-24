@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Widgets/BStatePickerButton.gd" type="Script" id=1]
+[ext_resource path="res://pics/States/rectagonia.png" type="Texture" id=2]
+
+[node name="BStatePickerButton" type="Control"]
+margin_left = -40.0
+margin_top = -39.0
+margin_right = 39.0
+margin_bottom = 39.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 2 )
+centered = false
+region_rect = Rect2( 0, 0, 40, 40 )
+
+[node name="Button" type="Button" parent="."]
+margin_right = 125.0
+margin_bottom = 98.0
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

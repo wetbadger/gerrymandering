@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://themes/menu.tres" type="Theme" id=1]
+[ext_resource path="res://themes/splash.tres" type="Theme" id=1]
 [ext_resource path="res://Menus/GameSettings.gd" type="Script" id=2]
 [ext_resource path="res://themes/setting.tres" type="Theme" id=3]
 [ext_resource path="res://Menus/PartyEditor.tscn" type="PackedScene" id=4]
@@ -50,9 +50,9 @@ margin_right = -4.0
 margin_bottom = -4.0
 
 [node name="Grid" type="GridContainer" parent="CenterContainer/TabContainer/Game"]
-margin_left = 123.0
+margin_left = 118.0
 margin_top = 292.0
-margin_right = 669.0
+margin_right = 674.0
 margin_bottom = 642.0
 theme = ExtResource( 3 )
 custom_constants/vseparation = 8
@@ -61,68 +61,68 @@ columns = 2
 
 [node name="NameLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_top = 10.0
-margin_right = 331.0
+margin_right = 341.0
 margin_bottom = 49.0
 theme = ExtResource( 3 )
 text = "Name"
 
 [node name="NameText" type="LineEdit" parent="CenterContainer/TabContainer/Game/Grid"]
-margin_left = 346.0
-margin_right = 546.0
+margin_left = 356.0
+margin_right = 556.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 200, 60 )
 
 [node name="PartiesLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_top = 68.0
-margin_right = 331.0
+margin_right = 341.0
 margin_bottom = 107.0
 text = "Parties"
 
 [node name="Parties" parent="CenterContainer/TabContainer/Game/Grid" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 346.0
+margin_left = 356.0
 margin_top = 68.0
-margin_right = 546.0
+margin_right = 556.0
 margin_bottom = 107.0
 
 [node name="DistrictsLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_top = 115.0
-margin_right = 331.0
+margin_right = 341.0
 margin_bottom = 154.0
 text = "Districts"
 
 [node name="Districts" parent="CenterContainer/TabContainer/Game/Grid" instance=ExtResource( 7 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 346.0
+margin_left = 356.0
 margin_top = 115.0
-margin_right = 546.0
+margin_right = 556.0
 margin_bottom = 154.0
 
 [node name="LayoutLabel" type="Label" parent="CenterContainer/TabContainer/Game/Grid"]
 margin_top = 172.0
-margin_right = 331.0
+margin_right = 341.0
 margin_bottom = 211.0
 text = "Layout"
 
 [node name="Layouts" type="OptionButton" parent="CenterContainer/TabContainer/Game/Grid"]
-margin_left = 346.0
+margin_left = 356.0
 margin_top = 162.0
-margin_right = 546.0
+margin_right = 556.0
 margin_bottom = 222.0
 rect_min_size = Vector2( 0, 60 )
 
 [node name="GotoMenu" parent="CenterContainer/TabContainer/Game/Grid" instance=ExtResource( 5 )]
 margin_top = 230.0
-margin_right = 331.0
+margin_right = 341.0
 margin_bottom = 350.0
 rect_min_size = Vector2( 0, 120 )
 
 [node name="Start" parent="CenterContainer/TabContainer/Game/Grid" instance=ExtResource( 6 )]
-margin_left = 346.0
+margin_left = 356.0
 margin_top = 230.0
-margin_right = 546.0
+margin_right = 556.0
 margin_bottom = 350.0
 
 [node name="Advanced" type="GridContainer" parent="CenterContainer/TabContainer"]

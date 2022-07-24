@@ -4,6 +4,9 @@ var arr = []
 
 func _ready():
 	pass
+	
+func set_array(array):
+	arr = array
 
 func enqueue(elem):
 	arr.append(elem)

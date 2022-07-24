@@ -4,12 +4,16 @@ var normal_theme = load("res://UI/Widgets/BThemeSpinBox.tres")
 var mouseover_theme = load("res://UI/Widgets/BThemeSpinBoxHover.tres")
 
 var can_click = false
+var label_name
 
 func _ready():
 	get_node("Label").add_color_override("font_color", Color(1,1,1,1))
 
 func set_text(text):
 	get_node("Label").set_text(text)
+
+func set_label_name(text):
+	label_name = text
 
 func get_text():
 	return get_node("Label").text
@@ -54,4 +58,4 @@ func _input(_event):
 
 func _on_SpinBox_value_changed(value):
 	var parent_pane = get_parent().get_parent()
-	parent_pane.on_change()
+	parent_pane.on_change(label_name)

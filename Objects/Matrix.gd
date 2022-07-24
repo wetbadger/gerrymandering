@@ -9,8 +9,11 @@ var house_count = 0
 var _house = load("Objects/House.tscn")
 onready var sprite_tiles = get_tree().get_current_scene().get_node("State/SpriteTiles")
 onready var rect = get_viewport_rect()
+onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
 enum {RIGHT, DOWN, LEFT, UP}
 var point
+
+var house_chance = 1
 
 export var show_traversal = false
 var tracker = null
@@ -38,7 +41,8 @@ func _ready():
 	size.y = floor(size.y)
 	
 	
-func generate_houses(n, _parties=null):
+func generate_houses(n, _parties=null, _gaps=false, algo="fill"):
+	gaps = _gaps
 	population = n
 	if _parties:
 		self.parties = _parties
@@ -46,7 +50,58 @@ func generate_houses(n, _parties=null):
 			party_stacks[p] = [] #counts the number of allegiences given to said party
 			party_names.append(p)
 
-	var starting_point = Vector2(floor(size.x/2), floor(size.y/2))
+	match algo:
+		"spiral": #TODO: settings["algorithm"]["spiral"]
+			var starting_point = Vector2(floor(size.x/2), floor(size.y/2))
+			return place_houses__spiral(n, starting_point)
+		"fill":
+			gaps = false #if _gaps, go back and remove squares
+			var pos_and_size = get_tree().get_current_scene().get_node("State/Shape").measure_width_and_height()
+			var starting_point = Vector2(floor(pos_and_size[0].x / GRID_SIZE), floor(pos_and_size[0].y / GRID_SIZE))
+			var size = Vector2(floor(pos_and_size[1].x / GRID_SIZE), floor(pos_and_size[1].y / GRID_SIZE))
+			print(starting_point, size)
+			var area = pos_and_size[1].x * pos_and_size[1].y
+			house_chance = 0 #make all gaps
+			var population = place_houses__fill_space(area, starting_point, size)
+			return population
+		
+
+func place_houses__fill_space(n, starting_point, size):
+	#fill shape with houses, and then delete houses until n is reached
+	#if n is higher than available space, throw an error, give exact number of houses that can fit
+
+	var last_point = place_house(RIGHT, starting_point, size.x)
+	var rows = 1
+	while last_point.y < starting_point.y + size.y:
+
+		last_point = place_house(DOWN, last_point, 1)
+		last_point = place_house(LEFT, last_point, size.x)
+		last_point = place_house(DOWN, last_point, 1)
+		last_point = place_house(RIGHT, last_point, size.x)
+		rows+=1
+		
+	var total_houses = 0
+	for p in party_stacks:
+		total_houses += party_stacks[p].size()
+	
+	print(total_houses)
+	
+	var voter_count = 0
+	for p in parties:
+		voter_count += parties[p]["voters"]
+		
+	print(voter_count)
+
+	var new_voters = reduce_voters_to(voter_count)
+	
+	house_chance = 1
+	for coord in new_voters:
+		place_house(null, str2var("Vector2"+coord), 1)
+
+	return house_count
+	
+func place_houses__spiral(n, starting_point):
+	
 	place_house(null, starting_point, 1)
 
 	point = starting_point
@@ -75,7 +130,7 @@ func generate_houses(n, _parties=null):
 func place_house(direction, from_point, n):
 	
 	if n <= 0:
-		return
+		return from_point
 	match(direction):
 		RIGHT:
 			point = Vector2(from_point.x+1, from_point.y)
@@ -89,12 +144,16 @@ func place_house(direction, from_point, n):
 			point = from_point
 		
 	var intersection = get_world_2d().direct_space_state.intersect_point (point*GRID_SIZE, 32, [ ], 2147483647, true, true )
-	var house_chance = 1
+	
 	if gaps:
 		house_chance = rng.randf()
-	if not intersection or house_chance < 0.5:
+	#TODO: add gaps here rather than in highlight()??
+	
+	if not intersection:
 		pass
 		#print("No make house")
+	elif house_chance < 0.5:
+		vertices[str(point)] = {"type":"Gap", "coords":Vector2(point.x,point.y), "visited": false}
 	else:
 		var allegiance = get_random_allegiance()
 		#var new_house = _house.instance()
@@ -114,8 +173,10 @@ func place_house(direction, from_point, n):
 		#add_child(new_house)
 		#new_house.set_asset()
 		#new_house.scale = Vector2(0.25, 0.25)
+
 	
 	place_house(direction, point, n-1)
+	return point
 	
 func get_random_allegiance():
 	#get party a percentage
@@ -174,3 +235,22 @@ func set(index, position):
 	#object.set_global_position(position * GRID_SIZE)
 	
 	sprite_tiles.set_cell(position.x, position.y, index)
+
+#
+#	Deletion
+#
+
+func reduce_voters_to(n):
+
+	var vert_copy = vertices.duplicate().keys()
+	var p = len(vert_copy)
+	while p > n:
+		var choice = rng.randi() % vert_copy.size()
+		vert_copy.pop_at(choice)
+		p-=1
+	return vert_copy
+	#everything else should be gaps
+	
+
+func remove_house(): #turn to gap
+	pass

@@ -11,11 +11,21 @@ bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
 
 [sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [sub_resource type="StyleBoxFlat" id=4]
 
 [sub_resource type="StyleBoxFlat" id=5]
 bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
 
 [resource]
 TabContainer/fonts/font = SubResource( 1 )

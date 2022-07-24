@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Pane",
+"class": "AdvSettingsPane",
+"language": "GDScript",
+"path": "res://UI/Classes/AdvSettingsPane.gd"
+}, {
 "base": "Control",
 "class": "Pane",
 "language": "GDScript",
@@ -25,14 +30,21 @@ _global_script_classes=[ {
 "path": "res://UI/Classes/SettingsPane.gd"
 }, {
 "base": "Node2D",
+"class": "StateShape",
+"language": "GDScript",
+"path": "res://Objects/Classes/StateShape.gd"
+}, {
+"base": "Node2D",
 "class": "Window",
 "language": "GDScript",
 "path": "res://UI/Classes/Window.gd"
 } ]
 _global_script_class_icons={
+"AdvSettingsPane": "",
 "Pane": "",
 "Picker": "",
 "SettingsPane": "",
+"StateShape": "",
 "Window": ""
 }
 

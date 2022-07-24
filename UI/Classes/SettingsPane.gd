@@ -20,28 +20,29 @@ func display_changeable_settings(settings, icon_grid_size=2):
 	
 	#create a label from key
 	for s in settings:
+		
 		add_line(s)
-		rect_min_size.y += 25
+		rect_min_size.y += 80
 		
 		#for ints create a label and spinbox
 		#for filepaths ending in .png create a spritepicker
 		#for colors create a color picker
 		#for text create a lineedit
 		#for arrays create and option box
-
 		for key in settings[s]:
 
 			if typeof(settings[s][key]) == TYPE_INT:
 				add_spinbox(key, settings[s][key])
-
+				rect_min_size.y += 65
 			elif key == "asset":
 				add_sprite_picker(settings[s][key])
-
+				#rect_min_size.y += 25
 			elif key == "color": #TODO put asset and color on one hbox
 				#var col_arr = get_node("/root/Globals").default_settings["colors"][settings[s]["color"]]
 				#var color = Color(col_arr[0], col_arr[1], col_arr[2])
 				add_color_picker(settings[s]["color"])
-			rect_min_size.y += 60
-	
+				rect_min_size.y += 65
+				
+	add_plus_or_minus(self.name, self)
 	display_groups(settings, icon_grid_size)
 	

@@ -34,6 +34,7 @@ script/source = "func _ready():
 script = SubResource( 2 )
 
 [node name="TileMap" type="TileMap"]
+modulate = Color( 0, 0, 0, 0.721569 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 18, 18 )
 format = 1

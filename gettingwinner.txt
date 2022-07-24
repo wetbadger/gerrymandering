@@ -1,0 +1,14 @@
+names = ["name1", "name2", "tie", "name3", "name4", "name2", "tie"]
+
+get the name with the highest frewuency.
+
+if two names have the same frequency: tie
+
+if one name is tied with "tie," return that name 
+
+count = 0
+for n in names:
+
+
+
+
