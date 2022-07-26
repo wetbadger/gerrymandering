@@ -43,23 +43,24 @@ func get_options():
 	for pane in panes:
 		result[pane.name] = {}
 		var group_name
-		for group in pane.groups:
+		for box in pane.boxes:
+			for group in box.groups:
 			
-			match group[0]:
-				"line":
-					group_name = group[-1].get_text()
-				"number":
-					if not result[pane.name].has(group_name):
-						result[pane.name][group_name] = {}
-					result[pane.name][group_name][group[1]] = group[-1].get_node("SpinBox").get_value()
-				"bool":
-					result[pane.name][group[1]] = group[-1].is_pressed()
-				"list":
-					result[pane.name][group[1]] = group[-1].get_item_text(group[-1].get_selected())
-				"color":
-					result[pane.name][group_name]["color"] = group[-1]._get_color()
-				"asset":
-					result[pane.name][group_name]["asset"] = group[-1].sprite_index
+				match group[0]:
+					"line":
+						group_name = group[-1].get_text()
+					"number":
+						if not result[pane.name].has(group_name):
+							result[pane.name][group_name] = {}
+						result[pane.name][group_name][group[1]] = group[-1].get_node("SpinBox").get_value()
+					"bool":
+						result[pane.name][group[1]] = group[-1].is_pressed()
+					"list":
+						result[pane.name][group[1]] = group[-1].get_item_text(group[-1].get_selected())
+					"color":
+						result[pane.name][group_name]["color"] = group[-1]._get_color()
+					"asset":
+						result[pane.name][group_name]["asset"] = group[-1].sprite_index
 
 	return result
 		

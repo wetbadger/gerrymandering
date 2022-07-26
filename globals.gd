@@ -37,12 +37,19 @@ var default_settings = {
 				}
 		},
 		"advanced" : {
-			"gaps": true,
-			"contiguous" : true,
-			"diagonals" : false,
-			"debug" : false,
-			"layout": ["random"],
-			"algorithm" : ["spiral", "fill"]
+			"District Rules" : {
+				"contiguous" : true,
+				"diagonals" : false
+			},
+			"House Placement" : {
+				"gaps": true,
+				"layout": ["random"],
+				"algorithm" : ["spiral", "fill"]
+			},
+			"Other" : {
+				"debug" : false
+			}
+
 		},
 		"shape": "Garryland",
 		"colors" : {

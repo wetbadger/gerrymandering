@@ -57,5 +57,5 @@ func _input(_event):
 
 
 func _on_SpinBox_value_changed(value):
-	var parent_pane = get_parent().get_parent()
+	var parent_pane = get_parent().get_parent().get_parent().get_parent()
 	parent_pane.on_change(label_name)

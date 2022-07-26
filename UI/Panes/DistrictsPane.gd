@@ -6,11 +6,17 @@ onready var content = get_node("/root/Globals").default_settings["districts"]
 var voters_spin_boxes = []
 var colors = []
 var index
-var party_groups
+var party_boxes
+
+var boxes = []
 
 func _ready():
+	BOX = load("res://UI/Boxes/DistrictBox.tscn")
+	for i in range(content.size()):
+		boxes.append(BOX.instance())
+	
 	set_name("districts")
-	display_changeable_settings(content, 1)
+	display_changeable_settings(content, boxes, 1)
 	index = content.size()-1
 
 func on_change(text=""):
@@ -19,8 +25,8 @@ func on_change(text=""):
 func add_voter_spinbox(spinbox):
 	voters_spin_boxes.append(spinbox)
 	
-func set_party_groups(g):
-	party_groups = g
+func set_party_boxes(b):
+	party_boxes = b
 
 func add():
 	var c = 65
@@ -34,16 +40,11 @@ func add():
 		index = 0
 
 	var props =  {"max_size": 1, "min_size": 1, "color" : colors[index]}
-	display_changeable_settings( {char(c) : props }, 1)
+	boxes.append(BOX.instance())
+	var index2 = len(boxes) - 1
+	display_changeable_settings( {char(c) : props }, boxes, 1, index2)
 	content[char(c)] = props
 	
-	for g in groups:
-		if g[0] == "add":
-			g[-1].queue_free()
-			groups.erase(g)
-			break
-		
-	get_voter_boxes_again()		
 	set_max_min_values()
 		
 
@@ -62,21 +63,19 @@ func get_voter_boxes_again():
 
 func set_max_min_values():
 	var voter_count = 0
-	for g in party_groups:
-		if g[0] == "number" and g[1] == "voters":
-			voter_count += g[2]
-#	for box in voters_spin_boxes:
-#		if is_instance_valid(box): #TODO: why are there null values in the array?
-#			voter_count += box.get_value()
-
-		
+	for b in party_boxes:
+		for g in b.groups:
+			if g[0] == "number" and g[1] == "voters":
+				voter_count += g[-1].get_value()
+						
 	var total_num_of_districts = content.size()
 	var max_size = ceil(voter_count / total_num_of_districts)
 	var min_size = floor(voter_count / total_num_of_districts)
 	
-	for g in groups:
-		if g[0] == "number":
-			if g[1] == "max_size":
-				g[-1].set_value (max_size)
-			if g[1] == "min_size":
-				g[-1].set_value(min_size)
+	for b in boxes:
+		for g in b.groups:
+			if g[0] == "number":
+				if g[1] == "max_size":
+					g[-1].set_value (max_size)
+				if g[1] == "min_size":
+					g[-1].set_value(min_size)

@@ -43,7 +43,7 @@ func _ready():
 		
 	
 	var adv = advanced_pane.instance()
-	add_pane("Advanced", "", adv)
+	add_pane("Advanced", "Advanced Options", adv)
 	
 	settings = load_settings()
 	game_name.set_text(settings["name"])

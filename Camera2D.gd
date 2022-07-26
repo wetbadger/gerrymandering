@@ -73,8 +73,8 @@ func _input(event):
 					"Down", "S":
 						set_global_position(Vector2(pos.x, pos.y+6))
 		
-func set_can_zoom(torf):
-	can_zoom = torf		
+func set_can_zoom(boolean):
+	can_zoom = boolean		
 			
 func _unhandled_input(event):
 	if event == InputEventMouseMotion:

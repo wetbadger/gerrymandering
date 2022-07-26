@@ -13,7 +13,7 @@ func set_sprite(sprite_name):
 	sprite = sprite_name
 	
 func set_sprite_index(tilemap):
-	var index = get_node("/root/Globals").default_settings["assets"][sprite]
+	var index = Globals.default_settings["assets"][sprite]
 	sprite_index = index
 	var texture = tilemap.tile_set.tile_get_texture(index)
 	var region_rect = tilemap.tile_set.tile_get_region(sprite_index)

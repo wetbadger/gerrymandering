@@ -2,8 +2,10 @@ extends Button
 
 var color_val
 var can_right_click = false #right click to remove the district
+var camera
 
 func _ready():
+	camera = get_tree().get_current_scene().get_node("State/Camera2D")
 	set_focus_mode(1)
 
 
@@ -41,10 +43,12 @@ func set_color(color):
 
 func _on_Button_mouse_entered():
 	can_right_click = true
+	camera.set_can_zoom(false)
 
 
 func _on_Button_mouse_exited():
 	can_right_click = false
+	camera.set_can_zoom(true)
 	
 func _input(event):
 	if can_right_click:

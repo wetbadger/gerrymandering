@@ -375,8 +375,9 @@ func submit():
 	else:
 		winner_label.set_text(winner.keys()[0]+" WIN!")
 		var color_name = settings["parties"][winner.keys()[0]]["color"]
-		var col_arr = settings["colors"][color_name]
-		color = Color(col_arr[0],col_arr[1],col_arr[2])
+		if color_name != "white":
+			var col_arr = settings["colors"][color_name]
+			color = Color(col_arr[0],col_arr[1],col_arr[2])
 	winner_label.set_border_color(color)
 	victory_node.visible = true
 

@@ -37,7 +37,7 @@ bg_color = Color( 1, 1, 1, 1 )
 bg_color = Color( 0.756863, 0.756863, 0.756863, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.337255, 0.337255, 0.337255, 1 )
+bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 42
