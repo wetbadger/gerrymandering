@@ -2,7 +2,11 @@ extends Node
 
 var map_name
 
-var default_settings = {
+var save_progress = false #TODO: delete this
+
+#TODO: make sure these values are taken from the JSON, 
+#(the variable here should only be used to CREATE the JSON)
+const default_settings = {
 		"name": "My State",
 
 		"parties" : {
@@ -39,10 +43,12 @@ var default_settings = {
 		"advanced" : {
 			"District Rules" : {
 				"contiguous" : true,
+				"runtime contiguity enforcement" : true,
 				"diagonals" : false
 			},
 			"House Placement" : {
 				"gaps": true,
+				"randomize positions" : false,
 				"layout": ["random"],
 				"algorithm" : ["spiral", "fill"]
 			},
@@ -51,7 +57,7 @@ var default_settings = {
 			}
 
 		},
-		"shape": "Garryland",
+		"shape": "Roadland",
 		"colors" : {
 			"blue" : [0.25,0.25,1],
 			"red" : [0.8,0.1,0.1],
@@ -77,9 +83,12 @@ var default_settings = {
 			"Tent" : 7
 		}
 }
+var house_placement_layout = 0
+var house_placement_algorithm = 0
 
+#these are not taken from a json
 var default_names = {
-	"prefixes" : [
+	"prefixes": [
 		"blip",
 		"bloop",
 		"blob",
@@ -90,7 +99,6 @@ var default_names = {
 		"lol",
 		"lib",
 		"con",
-		"gil",
 		"wang",
 		"flip",
 		"floop",
@@ -98,7 +106,7 @@ var default_names = {
 		"flim",
 		"flam",
 		"fash",
-		"bim",
+		"bip",
 		"boop",
 		"bop",
 		"cat",
@@ -106,15 +114,12 @@ var default_names = {
 		"zoop",
 		"zip",
 		"nerp",
-		"erm",
 		"nom",
-		"gif",
 		"flimb",
-		"bebop",
 		"beat",
 		"mod",
 		"nic",
-		"epub",
+		"pub",
 		"bubl",
 		"blubl",
 		"blub",
@@ -126,20 +131,51 @@ var default_names = {
 		"puffl",
 		"huff",
 		"huffl",
-		"is"
+		"fizzl",
+		"publ",
+		"republ",
+		"dem",
+		"commun",
+		"anarch",
+		"conserv",
+		"preserv",
+		"reserv",
+		"lib",
+		"nation",
+		"contrar",
+		"ludd",
+		"ilum",
+		"fed",
+		"soc"
+		
 	],
-	"suffixes" : [
+	"suffixes": [
 		"icans",
 		"ocrats",
 		"ists",
 		"atives",
 		"erals",
+		"eralists",
 		"itarians",
+		"ialists",
 		"alists",
 		"ians",
-		"inati"
+		"inati",
+		"ites",
+		"als",
+		"ards",
+		"s"
+	],
+	"affixes": [
+		"anarcho",
+		"paleo",
+		"neo",
+		"proto",
+		"crypto"
 	]
 }
+
+var current_settings = {}
 
 func word2color(word):
 	if word:

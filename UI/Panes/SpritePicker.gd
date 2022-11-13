@@ -25,11 +25,11 @@ func generate():
 func set_window(w):
 	window = w
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_released("click"):
 
 		var local_mouse_position = get_local_mouse_position()
-		var window_position = window.get_node("PanelContainer").get_global_position()
+		#var window_position = window.get_node("PanelContainer").get_global_position()
 		var tile = Vector2(floor(local_mouse_position.x/18), floor(local_mouse_position.y/18))
 		var index = (tile.x-1) + width * (tile.y-1)
 		if index > 0 and index < len(assets):

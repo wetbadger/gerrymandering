@@ -21,7 +21,7 @@ var isAddable = true
 var BOX
 
 func _ready():
-	pass
+	scene = scene.get_children()[-1]
 
 func add_line(text):
 	groups.append(["line", text, null])
@@ -60,12 +60,10 @@ func set_elements(box, icon_grid_size=2):
 	var icon_grid
 	var icon_count = 0
 	var line
-	var is_plus_min = false
-	var plus_min
 	
-	var groups = box.groups
+	var boxes = box.groups
 
-	for g in groups:
+	for g in boxes:
 		var a = 30
 		if not g[-1]:
 			rect_min_size.y += 65
@@ -158,12 +156,14 @@ func set_elements(box, icon_grid_size=2):
 		if not box.get_parent():
 			vbox.add_child(box)
 
-func display_groups(content, icon_grid_size=2):
+func display_groups(content):
 	#add children to hboxes and vboxes
 	for box in content:
 		set_elements(box)
 		
 	if isAddable:
+		#Yes, This produces an error
+		#DO NOT delete
 		var pm_node = get_node("VBox/BAddAndSubtractButtons")
 		var main_vbox = get_node("VBox")
 		if pm_node:

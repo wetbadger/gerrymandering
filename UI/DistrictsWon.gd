@@ -6,7 +6,7 @@ onready var grid = get_node("VBoxContainer/CenterContainer/Scroll/CenterContaine
 var district_label_scn = load("res://UI/DistrictLabel.tscn")
 onready var scene = get_tree().get_current_scene()
 onready var settings = scene.settings
-onready var globals = get_node("/root/Globals")
+
 var labels = []
 	
 func add_district(party, votes):
@@ -17,7 +17,7 @@ func add_district(party, votes):
 	var party_label = district_label_scn.instance()
 	party_label.set_text(party+": ")
 	if party != "Tie":
-		party_label.add_color_override("font_color", globals.word2color(settings["parties"][party]["color"]))
+		party_label.add_color_override("font_color", Globals.word2color(settings["parties"][party]["color"]))
 	var votes_label = district_label_scn.instance()
 	votes_label.set_text(str(votes))
 	

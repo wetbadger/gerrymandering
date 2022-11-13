@@ -1,12 +1,14 @@
 extends VBoxContainer
 
 var checked = false
+var custom_game = load("res://Menus/CustomGameMenu/CustomGameMenu.tscn")
 
 func _ready():
-	var pos = get_global_position()
+	pass
 
 func _on_Custom_button_up():
-	get_tree().change_scene("res://Menus/CustomGameMenu/CustomGameMenu.tscn")
+	get_parent().add_child(custom_game.instance())
+	#get_tree().change_scene("res://Menus/CustomGameMenu/CustomGameMenu.tscn")
 
 func _process(_delta):
 	if get_viewport_rect().size.y > 2000 and not checked:

@@ -1,6 +1,6 @@
 extends SettingsPane
 
-onready var content = get_node("/root/Globals").default_settings["districts"]
+onready var content = get_node("/root/Globals").default_settings["districts"].duplicate(true)
 
 #onready var scene = get_tree().get_current_scene()
 var voters_spin_boxes = []
@@ -11,15 +11,35 @@ var party_boxes
 var boxes = []
 
 func _ready():
+	var file = File.new()
+	file.open("user://games.json", File.READ)
+	var games = parse_json(file.get_as_text())
+	var game_name
+	if games:
+		game_name = games[0]
+	else:
+		game_name = "My State"
+	file.close()
+	file.open("user://" + game_name + "/settings.json", File.READ)
+	var dict = parse_json(file.get_as_text())
+	file.close()
+	
+	if dict:
+		content = dict["districts"]
+		for p in content: #convert to int because json reads as TYPE_REAL
+			content[p]["max_size"] = int(content[p]["max_size"])
+			content[p]["min_size"] = int(content[p]["min_size"])
+	
 	BOX = load("res://UI/Boxes/DistrictBox.tscn")
-	for i in range(content.size()):
+	for _i in range(content.size()):
 		boxes.append(BOX.instance())
 	
 	set_name("districts")
-	display_changeable_settings(content, boxes, 1)
+	display_changeable_settings(content, boxes)
 	index = content.size()-1
 
 func on_change(text=""):
+	#Don't delete this function
 	pass
 
 func add_voter_spinbox(spinbox):
@@ -42,7 +62,7 @@ func add():
 	var props =  {"max_size": 1, "min_size": 1, "color" : colors[index]}
 	boxes.append(BOX.instance())
 	var index2 = len(boxes) - 1
-	display_changeable_settings( {char(c) : props }, boxes, 1, index2)
+	display_changeable_settings( {char(c) : props }, boxes, index2)
 	content[char(c)] = props
 	
 	set_max_min_values()
@@ -55,7 +75,7 @@ func get_voter_boxes_again():
 			var children = p.get_children()
 			print(children)
 			for ch in children:
-				var spinbox = ch.get_node("BSpinBox")
+				#var spinbox = ch.get_node("BSpinBox")
 				var grand_children = ch.get_children()
 				for gc in grand_children:
 					if "BSpinBox" in gc.name:

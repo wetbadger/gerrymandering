@@ -3,7 +3,7 @@ extends Node2D
 #A pure mathematical obejct
 var vertices = {}
 
-export var GRID_SIZE = 6
+export var GRID_SIZE = 18
 var size
 var house_count = 0
 var _house = load("Objects/House.tscn")
@@ -58,27 +58,29 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill"):
 			gaps = false #if _gaps, go back and remove squares
 			var pos_and_size = get_tree().get_current_scene().get_node("State/Shape").measure_width_and_height()
 			var starting_point = Vector2(floor(pos_and_size[0].x / GRID_SIZE), floor(pos_and_size[0].y / GRID_SIZE))
-			var size = Vector2(floor(pos_and_size[1].x / GRID_SIZE), floor(pos_and_size[1].y / GRID_SIZE))
+			var size_ = Vector2(floor(pos_and_size[1].x / GRID_SIZE), floor(pos_and_size[1].y / GRID_SIZE))
 			print(starting_point, size)
 			var area = pos_and_size[1].x * pos_and_size[1].y
 			house_chance = 0 #make all gaps
-			var population = place_houses__fill_space(area, starting_point, size)
-			return population
+			var pop = place_houses__fill_space(area, starting_point, size_)
+			return pop
+		_:
+			print(str(algo)+" is not a valid algorithm.")
 		
 
-func place_houses__fill_space(n, starting_point, size):
+func place_houses__fill_space(_n, starting_point, size_):
 	#fill shape with houses, and then delete houses until n is reached
 	#if n is higher than available space, throw an error, give exact number of houses that can fit
 
-	var last_point = place_house(RIGHT, starting_point, size.x)
-	var rows = 1
-	while last_point.y < starting_point.y + size.y:
+	var last_point = place_house(RIGHT, starting_point, size_.x)
+
+	while last_point.y < starting_point.y + size_.y:
 
 		last_point = place_house(DOWN, last_point, 1)
 		last_point = place_house(LEFT, last_point, size.x)
 		last_point = place_house(DOWN, last_point, 1)
 		last_point = place_house(RIGHT, last_point, size.x)
-		rows+=1
+
 		
 	var total_houses = 0
 	for p in party_stacks:
@@ -108,7 +110,7 @@ func place_houses__spiral(n, starting_point):
 	var switch = true
 
 	var i = 1
-	while house_count < n:
+	while house_count < n and point.x > 0 and point.y > 0:
 		if switch:
 			place_house(RIGHT, point, i)
 			place_house(DOWN, point, i)
@@ -128,7 +130,7 @@ func place_houses__spiral(n, starting_point):
 	return house_count
 		
 func place_house(direction, from_point, n):
-	
+
 	if n <= 0:
 		return from_point
 	match(direction):
@@ -231,10 +233,25 @@ func get_random_allegiance():
 	return allegiance
 		
 func set(index, position):
+	var settings = get_tree().get_current_scene().settings
 	house_count += 1
 	#object.set_global_position(position * GRID_SIZE)
 	
-	sprite_tiles.set_cell(position.x, position.y, index)
+	var x_shift = 0
+	var y_shift = 0
+	if settings["advanced"]["House Placement"]["randomize positions"]:
+		rng.randomize()
+
+		x_shift = rng.randi_range(-GRID_SIZE/12, GRID_SIZE/12)
+		
+		rng.randomize()
+		y_shift = rng.randi_range(-GRID_SIZE/12, GRID_SIZE/12)
+	
+	if typeof(index) == TYPE_STRING:
+		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, Globals.default_settings["assets"][index])
+	else:
+		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, index)
+
 
 #
 #	Deletion

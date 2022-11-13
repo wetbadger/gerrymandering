@@ -17,9 +17,9 @@ func _on_Button_button_up():
 
 	get_tree().get_current_scene().add_child(w)
 	
-func set_color(color, color_name):
+func set_color(color, name):
 	get_node("ColorRect").color = color
-	self.color_name = color_name
+	self.color_name = name
 	
 func _get_color():
 	return color_name

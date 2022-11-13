@@ -36,12 +36,10 @@ func set_shape(index):
 	vbox.add_child(shapes[index])
 	var size = shapes[index].get_node("ReferenceRect").rect_size
 	var scale
-	var x_is_bigger = true
 	if size.x > size.y:
 		scale = size.x
 	else:
 		scale = size.y
-		x_is_bigger = false
 	
 	if scale > 400:
 
@@ -71,5 +69,5 @@ func _on_Button_button_up():
 
 
 func _on_Select_button_up():
-	get_tree().get_current_scene().set_state_shape(shapes[current_index])
+	get_parent().get_parent().menu.set_state_shape(shapes[current_index])
 	get_parent().get_parent().close_window()

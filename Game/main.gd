@@ -27,6 +27,8 @@ onready var victory_node = get_node("UI/Victory")
 onready var error_screen = get_node("UI/ErrorScreen")
 onready var camera = get_node("State/Camera2D")
 onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
+onready var ambience = get_node("Ambience")
+onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 var population
 var width
 var n_districts
@@ -38,6 +40,7 @@ enum DRAW_MODES {ADD, ERASE}
 var draw_mode = DRAW_MODES.ADD
 
 var just_pressed = false
+
 var recieve_input = true
 
 var district_colors = []
@@ -49,6 +52,15 @@ var submit_button
 
 var map_name
 var shape
+
+var PRESS = true
+var RELEASE = false
+
+var mobile__press_type = RELEASE
+var mobile__is_waiting_for_hold = false
+var mobile__hold_tween
+
+var contiguous = true
 
 func _ready():
 	settings = load_settings()
@@ -76,7 +88,9 @@ func _ready():
 	
 	var expected_population = population
 
-	population = matrix.generate_houses(population, parties, settings["advanced"]["gaps"], settings["advanced"]["algorithm"])
+	population = matrix.generate_houses(population, parties, 
+		settings["advanced"]["House Placement"]["gaps"], 
+		settings["advanced"]["House Placement"]["algorithm"])
 	
 	if population != expected_population:
 		error_screen.set_error_name("Population Error")
@@ -84,7 +98,7 @@ func _ready():
 		error_screen.visible = true
 		recieve_input = false
 		
-	match settings["advanced"]["algorithm"]: 
+	match settings["advanced"]["House Placement"]["algorithm"]: 
 		"spiral":
 			if population < 50:
 				camera.set_zoom(Vector2(0.05,0.05))
@@ -111,7 +125,7 @@ func _ready():
 	selected_district = district_button_names[0]
 	submit_button = get_node("UI/Submit")
 	
-	if settings["advanced"]["debug"]:
+	if settings["advanced"]["Other"]["debug"]:
 		get_node("UI/Debug").visible = true
 	else:
 		get_node("UI/Debug").visible = false
@@ -141,20 +155,23 @@ func generate_colors(n):
 	return colors
 
 func load_settings():
-	var globals = get_node("/root/Globals")
+
 	map_name = ""
-	if globals.map_name:
-		map_name = globals.map_name
-		
-	var file = File.new()
-	if not file.file_exists("user://"+map_name+"/settings.json"):
-			file.open("user://settings.json", File.READ)
-			var data = parse_json(file.get_as_text())
-			return data
-	file.open("user://"+map_name+"/settings.json", File.READ)
-	var data = parse_json(file.get_as_text())
-	map_name = data["name"]
-	return data
+	if Globals.map_name:
+		map_name = Globals.map_name
+	if Globals.save_progress:
+		var file = File.new()
+		if not file.file_exists("user://"+map_name+"/settings.json"):
+				#file.open("user://settings.json", File.READ)
+				#var data = parse_json(file.get_as_text())
+				var data = Globals.default_settings
+				return data
+		file.open("user://"+map_name+"/settings.json", File.READ)
+		var data = parse_json(file.get_as_text())
+		map_name = data["name"]
+		return data
+	else:
+		return Globals.current_settings.duplicate(true)
 
 func stop_input():
 	recieve_input = false
@@ -172,10 +189,19 @@ func _input(event: InputEvent) -> void:
 		else:
 			just_pressed = false
 			
-		if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			set_mouse_members(event)
-
-			_draw_district()
+		if event is InputEventScreenTouch or event is InputEventScreenDrag:
+			if event is InputEventScreenTouch:
+				mobile__press_type = !mobile__press_type
+			just_pressed = !just_pressed
+			set_touch_members(event)
+			_draw_district(event)
+			
+			return
+			
+		if Input.is_mouse_button_pressed(BUTTON_LEFT) and not event is InputEventScreenTouch:
+			pass
+			#set_mouse_members(event)
+			#_draw_district()
 			
 		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 			set_mouse_members(event)
@@ -204,11 +230,23 @@ func _process(_delta):
 		can_recheck = true
 		
 	if is_instance_valid(submit_button):
-		if filled_squares >= population: #because sometimes the computer can't count :)
+		if filled_squares >= population and contiguous: #because sometimes the computer can't count :)
 			submit_button.disabled = false
 		else:
 			submit_button.disabled = true
 			
+	if ambience.volume_db <= 0:
+		ambience.volume_db += 1
+
+
+func set_last_point():
+	last_point = Node2D.new()
+	matrix.add_child(last_point)
+	last_point.set_name("LastPoint")
+	if show_last_point:
+		var sprite = Sprite.new()
+		last_point.add_child(sprite)
+		sprite.texture = texture_missing
 	
 	
 func set_mouse_members(event):
@@ -216,17 +254,17 @@ func set_mouse_members(event):
 		return
 	#sets the variables realted to the mouse positions from a click
 	if not last_point:
-		last_point = Node2D.new()
-		matrix.add_child(last_point)
-		last_point.set_name("LastPoint")
-		
-		if show_last_point:
-			var sprite = Sprite.new()
-			last_point.add_child(sprite)
-			sprite.texture = texture_missing
-			
-	points.append(event.global_position)
+		set_last_point()
+	
 	last_point.set_global_position(get_global_mouse_position())
+	var point = matrix.get_node("LastPoint")
+	grid_point = get_grid_position(point.position)
+	
+func set_touch_members(event):
+	if not last_point:
+		set_last_point()
+	
+	last_point.set_global_position(get_canvas_transform().affine_inverse().xform(event.position))
 	var point = matrix.get_node("LastPoint")
 	grid_point = get_grid_position(point.position)
 	
@@ -235,10 +273,10 @@ func get_grid_position(point):
 	var result = Vector2(round(point.x/matrix.GRID_SIZE), round(point.y/matrix.GRID_SIZE))
 	return result
 
-func _draw_district() -> void:
+func _draw_district(event) -> void:
 	if just_pressed and can_recheck:
 		can_recheck = false
-		determine_draw_mode()
+		determine_draw_mode(event)
 	#draw_colored_polygon(points, Color.red)
 	#for point in points:
 		#draw_circle(point,10, Color.red)
@@ -270,13 +308,32 @@ func draw_district_flood(coords, exclude=null):
 	_draw_district_flood(coords, exclude, temp1)
 	selected_district = temp1
 	#grid_point = temp2
-	
 
-func determine_draw_mode():
-	var house_in_district = house_in_district()
-	if house_in_district:
+func set_draw_mode_erase():
+	draw_mode = DRAW_MODES.ERASE
+	if (is_instance_valid(mobile__hold_tween)):
+		mobile__hold_tween.queue_free()
+		mobile__is_waiting_for_hold = false
+
+func determine_draw_mode(event):
+	var already_district = already_district()
+	if already_district and not event is InputEventScreenTouch and not event is InputEventScreenDrag:
 		set_draw_mode(DRAW_MODES.ERASE)
-		
+	elif event is InputEventScreenTouch:
+		if already_district and not mobile__is_waiting_for_hold and mobile__press_type == true:
+			get_district_selected()
+			mobile__hold_tween = Tween.new()
+			self.add_child(mobile__hold_tween)
+			mobile__is_waiting_for_hold = true
+			mobile__hold_tween.interpolate_callback(self, 2, "set_draw_mode_erase")
+			mobile__hold_tween.start()
+		if mobile__is_waiting_for_hold and mobile__press_type == false:
+			if (is_instance_valid(mobile__hold_tween)):
+				mobile__hold_tween.stop(self)
+				mobile__hold_tween.queue_free()
+				mobile__is_waiting_for_hold = false
+		#if still touching (no other screentouch has happed)
+		#	set DRAW_MODES.ERASE
 #	if settings["advanced"]["none_selected_start_erasing"]:
 #		if matrix.vertices.has(str(grid_point)) and not matrix.vertices[str(grid_point)].has("district"):
 #			var district = get_node(selected_district)
@@ -286,9 +343,11 @@ func determine_draw_mode():
 	just_pressed = false
 		
 func house_in_district():
-	var in_district = matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)]["type"] == "House" and matrix.vertices[str(grid_point)].has("district")
-	return in_district
+	return matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)]["type"] == "House" and matrix.vertices[str(grid_point)].has("district")
 
+func already_district():
+	return matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)].has("district")
+	
 func set_draw_mode(mode):
 	draw_mode = mode
 
@@ -326,11 +385,16 @@ func get_district_selected(exclude=null, temp=null):
 			district.color = color
 			color.a = 0.5
 
-		district.get_node("TileMap").modulate = color
+		if settings["advanced"]["District Rules"]["diagonals"]:
+			#color.a = 1.0
+			district.get_node("TileMap255").modulate = color
+		else:
+			district.get_node("TileMap").modulate = color
 		add_child(district)
 		district.highlight(grid_point, exclude)
 		if not ["Flood","Error"].has(selected_district):
 			districts.append(district)
+
 		return false
 	else:
 		var district = get_node(selected_district)
@@ -340,7 +404,7 @@ func get_width():
 	return width
 	
 func submit():
-	print("Submitted")
+	#print("Submitted")
 	get_node("Darkening").darken()
 	#print(matrix.vertices)
 	var scores = []

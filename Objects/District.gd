@@ -1,7 +1,7 @@
 extends Node2D
 
 var color = Color(1, 1, 1, .5)
-var highlight = load("res://Objects/Highlight.tscn")
+#var highlight = load("res://Objects/Highlight.tscn")
 var circle = load("res://Misc/Tracker.tscn")
 
 var district_node = load("res://Objects/District.tscn")
@@ -39,6 +39,7 @@ var party_tally #the graphic that shows the tally
 
 var district_buttons
 
+var contiguous = true #becomes false if squares are not connected
 
 func _ready():
 
@@ -129,8 +130,9 @@ func highlight(grid_point, exclude=null, force=false):
 			m_vert_house_id["district"] = "Flood"
 			squares.append(house_id)
 			var neighbors = get_neighbors(m_vert_house_id, squares, 2)
-			for neighbor in neighbors:
-				get_tree().get_current_scene().draw_district_flood(matrix.vertices[neighbor]["coords"], exclude)
+			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"]:
+				for neighbor in neighbors:
+					get_tree().get_current_scene().draw_district_flood(matrix.vertices[neighbor]["coords"], exclude)
 		return
 		
 	if max_size > house_count or force==true:
@@ -148,7 +150,7 @@ func highlight(grid_point, exclude=null, force=false):
 				error_label.set_text("OUT OF BOUNDS")
 				return
 		if not m_vert_house_id.has("district"):
-			if settings["advanced"]["contiguous"] and force != true:
+			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"] and force != true:
 				if house_count != 0:
 					var neighbors = get_neighbors(m_vert_house_id)
 					if len(neighbors) == 0:
@@ -168,10 +170,7 @@ func highlight(grid_point, exclude=null, force=false):
 
 					var f_regions = flood.regions
 					var f_house_collections = flood.house_collections
-#						for r in regions:
-#							print(len(r))
-#						print(ds)
-#						print(regions)
+
 					free_flood()
 				
 					var houses_left = max_size-house_count
@@ -190,14 +189,13 @@ func highlight(grid_point, exclude=null, force=false):
 								if houses_left > 64:
 									can_fill = true
 							else:
-								print("if "+str(len(f_house_collections[i])) + " < " + str(min_size-1) + ": ")
+
 								if len(f_house_collections[i]) < min_size-1:
 									houses_left -= len(f_house_collections[i])
 									f_houses_in_region += f_house_collections[i]
 									fill_regions += f_regions[i]
 									can_fill = true
 
-							print("if "+str(max_size - house_count) +  ">=" + str(len(f_houses_in_region)) + " and " + str(houses_left) + " > " + str(0) + " or " + str(len(f_houses_in_region)) + " == 0:")
 							if can_fill and max_size - house_count >= len(f_houses_in_region) and houses_left > 0 or len(f_houses_in_region) == 0:
 								regions_to_fill.append(fill_regions)
 								
@@ -213,7 +211,11 @@ func highlight(grid_point, exclude=null, force=false):
 					
 			m_vert_house_id["district"] = self.name
 			var cell = (grid_point-starting_vertex)
-			var tm = get_node("TileMap")
+			var tm
+			if settings["advanced"]["District Rules"]["diagonals"]:
+				tm = get_node("TileMap255")
+			else:
+				tm = get_node("TileMap")
 
 			
 			if m_vert_house_id["type"] == "House":
@@ -227,8 +229,30 @@ func highlight(grid_point, exclude=null, force=false):
 			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			
 			squares.append(house_id)
-			
-			if house_count == max_size:
+			if house_count > 1 and has_neighbors(house_id):
+				#TODO: THIS DOESN'T WORK!!!
+				#CHECK CONTIGUITY IN C++
+				if not contiguous:
+					var has_contiguity = true 
+					for sq in squares:
+						if not has_neighbors(sq):
+							has_contiguity = false
+							break
+						#do something to check if dist is contiguous
+					if has_contiguity:
+						contiguous = true
+						error_label.set_text("DISTRICT CONTIGUOUS AGAIN")
+				else:
+					contiguous = true
+			elif house_count > 1:
+				contiguous = false
+				error_label.set_text("DISTRICT NO LONGER CONTIGUOUS")
+			else:
+				if not contiguous:
+					error_label.set_text("DISTRICT CONTIGUOUS AGAIN")
+				contiguous = true
+				
+			if house_count == max_size and scene.filled_squares < scene.population:
 				
 				if not ["Flood", "Error"].has(name):
 					get_next_district()
@@ -238,7 +262,8 @@ func highlight(grid_point, exclude=null, force=false):
 			
 	else:
 		error_label.set_text("TOO MANY HOUSE")
-		get_next_district()
+		if scene.filled_squares < scene.population:
+			get_next_district()
 		
 func get_next_district():
 	var next = null
@@ -281,7 +306,10 @@ func error_flash(matrix, scene, region):
 	
 	var error_shape = district_node.instance()
 	error_shape.starting_vertex = Vector2(-1,-1)
-	error_shape.get_node("TileMap").modulate = Color(1, 0, 0, 0.9)
+	if settings["advanced"]["District Rules"]["diagonals"]:
+		error_shape.get_node("TileMap255").modulate = Color(1, 0, 0, 0.9)
+	else:
+		error_shape.get_node("TileMap").modulate = Color(1, 0, 0, 0.9)
 	error_shape.set_name("Error")
 	scene.add_child(error_shape)
 	error_shape.global_position.x += 3.5
@@ -308,7 +336,7 @@ func erase(grid_point, force=false):
 			#check if there are 3 or more neighbors. if so, just erase the thing
 			if check_all_spaces_around(m_vert_house_id) == true: #check for 5 or more consecutive neighbors
 				pass
-			elif settings["advanced"]["contiguous"] and (house_count > 2 or settings["advanced"]["gaps"]) and not overflowed:
+			elif settings["advanced"]["District Rules"]["runtime contiguity enforcement"] and (house_count > 2 or settings["advanced"]["House Placement"]["gaps"]) and not overflowed:
 				var neighbor = get_any_neighbor(m_vert_house_id)
 				if neighbor:
 					scene.recieve_input = false
@@ -333,7 +361,11 @@ func erase(grid_point, force=false):
 				m_vert_house_id.erase("district")
 				#TODO: unhighlight grid
 				var cell = (grid_point-starting_vertex)
-				var tm = get_node("TileMap")
+				var tm
+				if settings["advanced"]["District Rules"]["diagonals"]:
+					tm = get_node("TileMap255")
+				else:
+					tm = get_node("TileMap")
 
 				tm.set_cell(cell.x-1, cell.y-1, -1, false, false, false) #, Vector2(1,1))
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
@@ -474,7 +506,7 @@ func get_any_neighbor(house, exclude=[]):
 	id = str(west)
 	if is_house(id) and not exclude.has(id):
 		return id
-	if settings["advanced"]["diagonals"]:
+	if settings["advanced"]["District Rules"]["diagonals"]:
 		var ne = Vector2(coords.x+1, coords.y-1)
 		id = str(ne)
 		if is_house(id) and not exclude.has(id):
@@ -512,7 +544,7 @@ func get_neighbors(house, exclude=[], has_district=1):
 	id = str(west)
 	if is_house(id, has_district) and not exclude.has(id):
 		neighbors.append(id)
-	if settings["advanced"]["diagonals"]:
+	if settings["advanced"]["District Rules"]["diagonals"]:
 		var ne = Vector2(coords.x+1, coords.y-1)
 		id = str(ne)
 		if is_house(id, has_district) and not exclude.has(id):
@@ -532,7 +564,11 @@ func get_neighbors(house, exclude=[], has_district=1):
 	return neighbors
 		
 func has_neighbors(house, exclude=[]):
-	var coords = house["coords"]
+	var coords
+	if typeof(house) == TYPE_STRING:
+		coords = str2var("Vector2" + house)
+	else:
+		coords = house["coords"]
 	var north = Vector2(coords.x, coords.y-1)
 	var id = str(north)
 	if is_house(id) and not exclude.has(id):
@@ -549,7 +585,7 @@ func has_neighbors(house, exclude=[]):
 	id = str(west)
 	if is_house(id) and not exclude.has(id):
 		return true
-	if settings["diagonals"]:
+	if settings["advanced"]["District Rules"]["diagonals"]:
 		var ne = Vector2(coords.x+1, coords.y-1)
 		id = str(ne)
 		if is_house(id) and not exclude.has(id):

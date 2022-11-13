@@ -25,7 +25,7 @@ func unselect_district(district_name):
 
 func set_color(color):
 	
-	var color_from_str = get_node("/root/Globals").word2color(color)
+	var color_from_str = Globals.word2color(color)
 
 	var new_stylebox_normal = get_stylebox("normal").duplicate()
 	new_stylebox_normal.bg_color = color_from_str

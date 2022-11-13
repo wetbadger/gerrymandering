@@ -14,12 +14,37 @@ var ass_index
 
 var boxes
 
-
-
 func _ready():
-	content = get_node("/root/Globals").default_settings["parties"]
+	var file = File.new()
+	file.open("user://games.json", File.READ)
+	var games = parse_json(file.get_as_text())
+	var game_name
+	if games:
+		game_name = games[0]
+	else:
+		game_name = "My State"
+	file.close()
+	file.open("user://" + game_name + "/settings.json", File.READ)
+	var dict = parse_json(file.get_as_text())
+	file.close()
+	
+	var generate_silly_name = false
+	if dict:
+		content = dict["parties"]
+		for p in content: #convert to int because json reads as TYPE_REAL
+			content[p]["voters"] = int(content[p]["voters"])
+		
+	else:
+		content = Globals.default_settings["parties"].duplicate(true)
+		generate_silly_name = true
+		
 	BOX = load("res://UI/Boxes/PartyBox.tscn")
-	boxes = [BOX.instance(), BOX.instance()]
+	boxes = []
+	if not dict:
+		boxes = [BOX.instance(), BOX.instance()]
+	else:
+		for i in len(dict["parties"]):
+			boxes.append(BOX.instance())
 	
 	col_index = content.size()-1
 	ass_index = content.size()-1
@@ -28,7 +53,11 @@ func _ready():
 	var to_add = []
 	
 	for party in content:
-		var silly_name = name_gen.new_name().capitalize()
+		var silly_name
+		if generate_silly_name:
+			silly_name = name_gen.new_name().capitalize()
+		else:
+			silly_name = party
 		if not {silly_name: content[party]} in to_add:
 			to_add.append({silly_name: content[party]})
 		else:
@@ -37,7 +66,7 @@ func _ready():
 				if not {silly_name: content[party]} in to_add:
 					to_add.append({silly_name: content[party]})
 				
-		to_erase.append(party)
+			to_erase.append(party)
 		
 	for each in to_add:
 		content[each.keys()[0]] = each[each.keys()[0]]
@@ -52,9 +81,10 @@ func _ready():
 
 func add_district_max_box(spinbox):
 	district_maxboxes.append(spinbox)
-	
+
 func add_district_min_box(spinbox):
 	district_minboxes.append(spinbox)
+
 	
 func deferred_ready():
 	if not district_pane:
@@ -90,14 +120,9 @@ func add():
 	var props =  {"voters": 1, "asset": assets[ass_index], "color" : colors[col_index]}
 	boxes.append(BOX.instance())
 	var index = len(boxes) - 1
-	display_changeable_settings( { silly_name : props }, boxes,  2, index)
+	display_changeable_settings( { silly_name : props }, boxes,  index)
 	content[silly_name] = props
 	
-#	for g in groups:
-#		if g[0] == "add":
-#			g[-1].queue_free()
-#			groups.erase(g)
-#			break
 	district_pane.set_party_boxes(boxes)
 	district_pane.set_max_min_values()
 	

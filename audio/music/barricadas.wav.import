@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/barricadas.wav-71b45c6e11a8d46858aeb4b3d61ee545.sample"
+
+[deps]
+
+source_file="res://audio/music/barricadas.wav"
+dest_files=[ "res://.import/barricadas.wav-71b45c6e11a8d46858aeb4b3d61ee545.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

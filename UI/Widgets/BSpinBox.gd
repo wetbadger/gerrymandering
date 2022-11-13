@@ -56,6 +56,6 @@ func _input(_event):
 			get_node("SpinBox").get_line_edit().grab_focus()
 
 
-func _on_SpinBox_value_changed(value):
+func _on_SpinBox_value_changed(_value):
 	var parent_pane = get_parent().get_parent().get_parent().get_parent()
 	parent_pane.on_change(label_name)

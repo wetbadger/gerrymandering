@@ -2,25 +2,50 @@ extends Button
 
 onready var scene = get_tree().get_current_scene()
 var game_settings
+var music
+
+func _ready():
+	set_process(false)
+	music = scene.get_node("MainTheme")
+	scene = scene.get_children()[-1]
+
+func _process(_delta):
+	music.volume_db -= 1
+	if music.volume_db <= -50:
+		scene.pp.queue_free()
+		scene.dp.queue_free()
+		scene.adv.queue_free()
+		var error = get_tree().change_scene("res://Game/main.tscn")
+		if error:
+			print("Could not load main scene")
 
 func _on_Start_button_up():
+	
 	game_settings = scene.settings
 	var options = get_options()
 
 	game_settings["shape"] = scene.state_name
-	game_settings["name"]=scene.game_name.text
+	game_settings["name"]=scene.game_name #.text
 	game_settings["parties"]=options["parties"]
 	game_settings["districts"]=options["districts"]
 	game_settings["advanced"]=options["advanced"]
 	
-
-	var globals = get_node("/root/Globals")
-	globals.map_name = scene.game_name.text
+	Globals.map_name = scene.game_name #.text
 	
-	new_game_folder(game_settings)
-	var error = get_tree().change_scene("res://Game/main.tscn")
-	if error:
-		print("Could not load main scene")
+	var new_dict = game_settings.duplicate()
+	new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
+		
+	if Globals.save_progress:
+		new_game_folder(game_settings)
+		new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]
+		var file = File.new()
+		file.open("user://" + game_settings["name"] + "settings.json", File.WRITE)
+		file.store_string(JSON.print(new_dict, "  "))
+	else:
+		Globals.current_settings = new_dict
+	
+	set_process(true)
+
 
 func new_game_folder(settings):
 	var game_name = settings["name"]
@@ -39,9 +64,13 @@ func new_game_folder(settings):
 	
 func get_options():
 	var result = {}
-	var panes = get_tree().get_current_scene().panes
+	var panes = scene.panes
 	for pane in panes:
-		result[pane.name] = {}
+		result[pane.name] = scene.settings[pane.name]
+		if pane.name == "parties":
+			result[pane.name] = {}
+		else:
+			result[pane.name] = scene.settings[pane.name]
 		var group_name
 		for box in pane.boxes:
 			for group in box.groups:
@@ -54,9 +83,9 @@ func get_options():
 							result[pane.name][group_name] = {}
 						result[pane.name][group_name][group[1]] = group[-1].get_node("SpinBox").get_value()
 					"bool":
-						result[pane.name][group[1]] = group[-1].is_pressed()
+						result[pane.name][group_name][group[1]] = group[-1].is_pressed()
 					"list":
-						result[pane.name][group[1]] = group[-1].get_item_text(group[-1].get_selected())
+						result[pane.name][group_name][group[1]] = group[-1].get_item_text(group[-1].get_selected())
 					"color":
 						result[pane.name][group_name]["color"] = group[-1]._get_color()
 					"asset":

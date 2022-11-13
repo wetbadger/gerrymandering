@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://font/Chicago.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://UI/Widgets/BScroll.tscn" type="PackedScene" id=16]
+[ext_resource path="res://audio/sfx/ambience.wav" type="AudioStream" id=17]
+[ext_resource path="res://UI/DeselectButton.tscn" type="PackedScene" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -24,7 +26,7 @@ font_data = ExtResource( 4 )
 size = 24
 font_data = ExtResource( 15 )
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 script = ExtResource( 7 )
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -133,10 +135,18 @@ margin_right = -1698.0
 margin_bottom = -1038.0
 custom_fonts/font = SubResource( 2 )
 
+[node name="Deselect" parent="UI" instance=ExtResource( 18 )]
+visible = false
+margin_left = 48.0
+margin_top = 61.0
+margin_right = -1741.0
+margin_bottom = -882.0
+
 [node name="State" type="ViewportContainer" parent="."]
 margin_right = 1303.0
 margin_bottom = 774.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -158,5 +168,11 @@ margin_bottom = 1079.0
 color = Color( 0, 0, 0, 0 )
 script = ExtResource( 13 )
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 17 )
+volume_db = -80.0
+autoplay = true

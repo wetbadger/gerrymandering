@@ -13,8 +13,14 @@ func set_sprite(sprite_name):
 	sprite = sprite_name
 	
 func set_sprite_index(tilemap):
-	var index = Globals.default_settings["assets"][sprite]
-	sprite_index = index
+	var index
+	if typeof(sprite) == TYPE_INT or typeof(sprite) == TYPE_REAL:
+		#don't know why sprite is sometimes set to a REAL ...
+		index = Globals.default_settings["assets"].values()[sprite]
+		sprite_index = int(sprite)
+	else: #probably a string
+		index = Globals.default_settings["assets"][sprite]
+		sprite_index = index
 	var texture = tilemap.tile_set.tile_get_texture(index)
 	var region_rect = tilemap.tile_set.tile_get_region(sprite_index)
 	var atlas_texture = AtlasTexture.new()
