@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Menus/Cookies.gd" type="Script" id=2]
-[ext_resource path="res://UI/Classes/WindowBasic.gd" type="Script" id=3]
 [ext_resource path="res://UI/Ok.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Nevermind.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=6]
@@ -11,13 +10,9 @@
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Window" parent="." instance=ExtResource( 1 )]
-position = Vector2( 624, 232 )
-script = ExtResource( 3 )
+position = Vector2( 575, 207 )
 
 [node name="Ok" parent="." instance=ExtResource( 4 )]
 margin_left = 736.0

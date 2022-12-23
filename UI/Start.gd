@@ -33,6 +33,7 @@ func _on_Start_button_up():
 	Globals.map_name = scene.game_name #.text
 	
 	var new_dict = game_settings.duplicate()
+	new_dict["name"] = game_settings["name"].text
 	new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
 		
 	if Globals.save_progress:
@@ -68,6 +69,8 @@ func get_options():
 	for pane in panes:
 		result[pane.name] = scene.settings[pane.name]
 		if pane.name == "parties":
+			result[pane.name] = {}
+		elif pane.name == "districts":
 			result[pane.name] = {}
 		else:
 			result[pane.name] = scene.settings[pane.name]

@@ -15,3 +15,5 @@ func _ready():
 		w.add_element(b)
 	else:
 		assert(get_tree().change_scene("res://Menus/MainMenu/MainMenu.tscn") == OK)
+
+	get_node("Window").set_min_height(536)

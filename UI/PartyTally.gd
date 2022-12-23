@@ -29,8 +29,7 @@ func add_party(party, color, n=1):
 	add_child(new_rect)
 	new_rect.name = party
 	parties[party]["rect"] = new_rect
-	resize()
-	print()
+	resize()	
 	
 func resize():
 	var sum = 0.0

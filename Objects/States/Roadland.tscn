@@ -9,23 +9,18 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
-position = Vector2( 1.52588e-05, 7.62939e-06 )
-scale = Vector2( 0.0777988, 0.0777988 )
+position = Vector2( -4, 2 )
+scale = Vector2( 0.183938, 0.183938 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( -266.513, -168.048 )
-scale = Vector2( 0.286641, 0.286641 )
+position = Vector2( -634.775, -395.586 )
+scale = Vector2( 0.67943, 0.67943 )
 polygon = PoolVector2Array( 1010.02, 579.289, 1020.49, 582.778, 1020.49, 600.221, 1023.97, 607.199, 1027.46, 638.597, 1017, 649.063, 1010.02, 652.551, 985.599, 642.085, 978.621, 652.551, 950.712, 652.551, 940.246, 663.017, 933.268, 687.438, 922.802, 683.95, 873.961, 701.393, 853.029, 701.393, 846.051, 694.416, 842.563, 669.995, 853.029, 666.506, 853.029, 460.674, 957.689, 457.185, 961.178, 499.049, 971.644, 499.049, 971.644, 540.914, 992.576, 551.38, 999.553, 565.334, 996.065, 572.312, 999.553, 582.778 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
-margin_left = -25.0
-margin_top = -37.0
-margin_right = 28.0
-margin_bottom = 33.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_left = -72.0
+margin_top = -87.0
+margin_right = 65.0
+margin_bottom = 86.0
+mouse_filter = 2

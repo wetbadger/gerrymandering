@@ -1,7 +1,7 @@
 extends Node2D
 
 func _ready():
-	pass
+	self.set_min_height(536)
 
 func add_element(elem, _scale=1):
 	get_node("PanelContainer").add_child(elem)

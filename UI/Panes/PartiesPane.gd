@@ -87,14 +87,19 @@ func add_district_min_box(spinbox):
 
 	
 func deferred_ready():
+	#scene = get_tree().get_current_scene()
 	if not district_pane:
 		district_pane = scene.get_node("TabContainer/Basic/HBoxContainer/Grid2/Scroll/districts")
-	district_pane.set_party_boxes(boxes)
+	if district_pane:
+		district_pane.set_party_boxes(boxes)
 	
 func on_change(silly_name=""):
-	
+	scene = get_tree().get_current_scene().get_children()[-1]
+	#Scroll@233 etc must be named Scroll
+	scene.get_node("TabContainer/Basic/HBoxContainer/Grid2").get_children()[-1].set_name("Scroll")
 	if not district_pane:
 		district_pane = scene.get_node("TabContainer/Basic/HBoxContainer/Grid2/Scroll/districts")
+
 	district_pane.set_party_boxes(boxes)
 	district_pane.set_max_min_values()
 	

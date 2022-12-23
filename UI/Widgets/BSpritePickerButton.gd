@@ -5,6 +5,8 @@ var bSpritePicker = load("res://UI/Panes/SpritePicker.tscn")
 
 var sprite
 var sprite_index
+var original_sprite_index
+
 
 func _ready():
 	pass
@@ -23,18 +25,24 @@ func set_sprite_index(tilemap):
 		sprite_index = index
 	var texture = tilemap.tile_set.tile_get_texture(index)
 	var region_rect = tilemap.tile_set.tile_get_region(sprite_index)
+	if not original_sprite_index:
+		original_sprite_index = sprite_index
 	var atlas_texture = AtlasTexture.new()
 	atlas_texture.set_atlas(texture)
 	atlas_texture.set_region(region_rect)
 	get_node("Sprite").set_texture(atlas_texture)
-	
+
+func set_original_sprite_index(index):
+	original_sprite_index = index
+
 func change_sprite_index(tilemap, index):
 	var texture = tilemap.tile_set.tile_get_texture(index)
-	var region_rect = tilemap.tile_set.tile_get_region(sprite_index)
+	var region_rect = tilemap.tile_set.tile_get_region(index)
 	var atlas_texture = AtlasTexture.new()
 	atlas_texture.set_atlas(texture)
 	atlas_texture.set_region(region_rect)
 	get_node("Sprite").set_texture(atlas_texture)
+	sprite_index = index
 
 
 

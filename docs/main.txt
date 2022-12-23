@@ -1,0 +1,138 @@
+This is the "main scene" where the game is played.
+
+<h2>Member Variables</h2>
+
+export var show_grid = false
+
+var settings
+var usrexp_settings
+
+var last_point
+var grid_point
+
+
+var selected_district
+var _district = load("Objects/District.tscn")
+var districts = []
+var district_button_names
+var draw_size = 33
+
+var selected_house
+
+var deselect_is_on = false
+var disable_draw= false
+var touches = 0
+
+export var show_last_point = false
+var texture_missing = load("res://pics/target.png")
+
+onready var matrix = get_node("State").get_node("Matrix")
+onready var mode_label = get_node("UI/Debug/HBox/ModeLabel")
+onready var squares_filled_label = get_node("UI/Debug/HBox/SquaresFilledLabel")
+onready var debug_party_tally = get_node("UI/Debug/HBox/PartyTally")
+onready var popular_vote = get_node("UI/Victory/HBoxContainer/Totals")
+onready var district_tally = get_node("UI/Victory/HBoxContainer/Districts")
+onready var winner_label = get_node("UI/Victory/Winner")
+onready var progress_label = get_node("UI/Progress")
+onready var victory_node = get_node("UI/Victory")
+onready var error_screen = get_node("UI/ErrorScreen")
+onready var camera = get_node("State/Camera2D")
+onready var scroll = get_node("UI/Scroll")
+onready var scroll2 = get_node("UI/Scroll2")
+onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
+onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
+onready var ambience = get_node("Ambience")
+onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
+var population
+var width
+var n_districts
+var max_size
+var min_size
+
+var can_recheck = true #can determine drawmode
+enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE}
+var draw_mode = DRAW_MODES.ADD
+
+var just_pressed = false
+
+var recieve_input = true
+
+var district_colors = []
+
+var parties
+var filled_squares = 0
+
+var submit_button
+
+var map_name
+var shape
+
+var PRESS = true
+var RELEASE = false
+
+var mobile__press_type = RELEASE
+var mobile__is_waiting_for_hold = false
+var mobile__hold_tween
+
+var contiguous = true
+
+<h2>Member Functions</h2>
+
+func create_district_buttons(expected_population, state_shape)
+
+func get_button_names()
+	
+func reset_buttons(names)
+
+func generate_colors(n)
+
+func load_settings()
+
+func load_usrexp_settings()
+
+func stop_input()
+
+func start_input()
+
+func _process(_delta)
+
+func set_last_point()
+	
+func set_mouse_members(event):
+	
+func set_touch_members(event):
+	
+func get_grid_position(point):
+
+func _draw_district(event) -> void
+
+func _draw_district_flood(coords, exclude=null, temp=null) -> void
+
+func draw_district_flood(coords, exclude=null)
+
+func set_draw_mode_erase()
+		
+func set_draw_mode_add()
+
+func already_district():
+	
+func set_draw_mode(mode):
+
+func _remove_district() -> void:
+
+func get_district_selected(exclude=null, temp=null):
+	
+func get_width():
+	
+func submit():
+	
+func remove_district(district_name):
+	
+func get_winner(results):
+
+func place_house(event):
+
+func _on_Deselect_focus_entered():
+
+func _on_Deselect_focus_exited():
+

@@ -1,11 +1,8 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="Theme" id=1]
+[ext_resource path="res://UI/Widgets/BScroll.tres" type="Theme" id=1]
 
 [node name="Scroll" type="ScrollContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+theme = ExtResource( 1 )

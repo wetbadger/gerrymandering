@@ -1,10 +1,12 @@
 extends Button
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var window = load("res://UI/Classes/Window.tscn")
+var bGamePicker = load("res://UI/Panes/GamePicker.tscn")
+var bGameSelectButton = load("res://UI/Widgets/BGameSelectButton.tscn")
+var games_list
 
+onready var scene = get_tree().get_current_scene()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,3 +29,13 @@ func _on_Load_button_up():
 	file.open("user://games.json", File.READ)
 	games = parse_json(file.get_as_text())
 	print(games)
+	var w = window.instance()
+	var gp = bGamePicker.instance()
+	for g in games:
+		var btn = bGameSelectButton.instance()
+		btn.set_text(g)
+		gp.insert(btn)
+	w.add_element(gp)
+	scene.add_child(w)
+	w.set_title("Load Settings")
+	w.position_window()

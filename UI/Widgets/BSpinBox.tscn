@@ -11,16 +11,16 @@ theme = ExtResource( 1 )
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
-margin_top = 500.0
-margin_right = 433.0
-margin_bottom = 580.0
-rect_min_size = Vector2( 0, 80 )
+margin_top = 517.0
+margin_right = 306.0
+margin_bottom = 562.0
+rect_min_size = Vector2( 0, 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "This is a spinbox"
 
 [node name="SpinBox" type="SpinBox" parent="."]
-margin_left = 437.0
-margin_right = 625.0
+margin_left = 310.0
+margin_right = 498.0
 margin_bottom = 1080.0
 max_value = 1e+08
 script = ExtResource( 3 )

@@ -9,17 +9,11 @@
 margin_right = 885.0
 margin_bottom = 606.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Grid" type="GridContainer" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
 columns = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="BLeftArrow" parent="Grid" instance=ExtResource( 2 )]
 anchor_right = 0.0

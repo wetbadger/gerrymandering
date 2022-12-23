@@ -22,5 +22,5 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="button_up" from="Button" to="." method="_on_TextureButton_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

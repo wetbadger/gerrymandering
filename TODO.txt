@@ -1,16 +1,16 @@
-Check when settings are loaded from file vs global (it should usually be from the file)
+\,Check when settings are loaded from file vs global (it should usually be from the file)
 
 Add balloon sounds
-Music
+\,Music
 \,Select state shape
 \,Let houses fill shape
-Silly Names
+\,Silly Names
 \,Show number of each party in district
 party music
 show state sizes in selector
-mobile mouse movements
-add more districts
-add more parties
+\,mobile mouse movements
+\,add more districts
+\,add more parties
 
 cursor with pointer and spinning hourglass, or loading animation
 

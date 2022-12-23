@@ -1,0 +1,78 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix; // Is this required?
+
+// MODES
+//0 - Multiply
+//1 - ADD
+//2 - HARDLIGHT
+//3 - HARDLIGHT 2nd method
+uniform int mode :hint_range(0,3) = 4;
+uniform float opacity :hint_range(0, 1) = 0.5;
+
+vec4 multiply(vec4 base, vec4 blend){
+	return base * blend;
+}
+
+vec4 add(vec4 base, vec4 new){
+	return base+new;
+}
+
+vec4 hard_light(vec4 base, vec4 new){
+	vec4 limit = step(0.5, new);
+	return mix(2.0 * base * new, 1.0 - 2.0 * (1.0 - base) * (1.0 - new), limit);
+}
+
+vec4 color_burn(vec4 base, vec4 blend) {
+	return 1.0 - (1.0 - base) / blend;
+}
+
+vec4 screen(vec4 base, vec4 blend){
+	return 1.0 - (1.0 - base) * (1.0 - blend);
+}
+
+vec4 exclusion(vec4 base, vec4 blend){
+	return base + blend - 2.0 * base * blend;
+}
+
+vec4 average(vec4 base, vec4 blend){
+	vec4 result = (base + blend) / 2.0;
+	result.a = 0.0;
+	return result;
+}
+
+void fragment(){
+
+	vec4 base = texture(SCREEN_TEXTURE, SCREEN_UV);
+	vec4 new = texture(TEXTURE,UV);
+	vec4 b = base.argb;
+	vec4 n = new.argb;
+	vec4 output=vec4(0,0,0,0);
+	
+	switch(mode){
+		case 0: // MULTIPLY - new's alpha must be white
+			output=multiply(b,n);
+			break;
+		case 1: // ADD - new's alpha must be black
+			output=add(b,n);
+			break;
+		case 2: // HARDLIGHT - new's alpha must be mid-gray
+			output = hard_light(b,n);
+			break;
+		case 3: // HARDLIGHT 2nd method
+			vec4 c_u = n * b * 2.0;
+			vec4 c_d = 1.0 - (1.0 - n) * (1.0 - b) * 2.0;
+			output = mix(c_u, c_d, b + 0.5);
+			break;
+		case 4:
+			output = average(b, n);
+			break;
+	}
+	//COLOR=output;
+	//Originally it was all vec3, but since I'm trying to involve alpha I switched to vec4
+	COLOR=vec4(vec3(output[1],output[2],output[3]),opacity);
+}
+
+"

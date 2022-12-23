@@ -4,12 +4,15 @@ var color_val
 var can_right_click = false #right click to remove the district
 var camera
 
+var mouse_in
+
 func _ready():
 	camera = get_tree().get_current_scene().get_node("State/Camera2D")
 	set_focus_mode(1)
 
 
 func _on_Button_button_up():
+	get_tree().set_input_as_handled()
 	var buttons = get_tree().get_nodes_in_group("district_buttons")
 	for b in buttons:
 		if b != self:
@@ -17,7 +20,12 @@ func _on_Button_button_up():
 			unselect_district(b.name)
 			
 	get_tree().get_current_scene().selected_district = self.name
-	
+
+func _input(event):
+	if event is InputEventScreenTouch and disabled and mouse_in and event.is_pressed():
+		var deselect_button = get_tree().get_current_scene().get_node("UI/Deselect")
+		deselect_button.pressed = false
+
 func unselect_district(district_name):
 	var state = get_tree().get_current_scene().get_node("State")
 	if state.has_node(district_name):
@@ -41,17 +49,38 @@ func set_color(color):
 	add_stylebox_override("pressed", new_stylebox_pressed)
 
 
+#func _on_Button_mouse_entered():
+#	can_right_click = true
+#	camera.set_can_zoom(false)
+#
+#
+#func _on_Button_mouse_exited():
+#	can_right_click = false
+#	camera.set_can_zoom(true)
+	
+#func _input(event):
+#	if can_right_click:
+#		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+#			var n = get_tree().get_current_scene().remove_district(name)
+#			text = str(n)
+			
+func _on_Button_gui_input(event):
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+#	        BUTTON_LEFT:
+#	            # left button clicked
+			BUTTON_RIGHT:
+				var n = get_tree().get_current_scene().remove_district(name)
+				text = str(n)
+
+
+#
+# While diabled click to undisable
+#
+
 func _on_Button_mouse_entered():
-	can_right_click = true
-	camera.set_can_zoom(false)
+	mouse_in = true
 
 
 func _on_Button_mouse_exited():
-	can_right_click = false
-	camera.set_can_zoom(true)
-	
-func _input(event):
-	if can_right_click:
-		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-			var n = get_tree().get_current_scene().remove_district(name)
-			text = str(n)
+	mouse_in = false

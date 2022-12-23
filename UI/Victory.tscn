@@ -13,9 +13,6 @@
 margin_right = 1932.0
 margin_bottom = 1079.0
 script = ExtResource( 8 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 439.0
@@ -23,9 +20,6 @@ margin_top = 136.0
 margin_right = 1520.0
 margin_bottom = 944.0
 color = Color( 0.105882, 0.105882, 0.105882, 0.301961 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Winner" parent="." instance=ExtResource( 1 )]
 margin_top = 114.0

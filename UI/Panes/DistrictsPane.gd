@@ -27,8 +27,8 @@ func _ready():
 	if dict:
 		content = dict["districts"]
 		for p in content: #convert to int because json reads as TYPE_REAL
-			content[p]["max_size"] = int(content[p]["max_size"])
-			content[p]["min_size"] = int(content[p]["min_size"])
+			content[p]["max"] = int(content[p]["max"])
+			content[p]["min"] = int(content[p]["min"])
 	
 	BOX = load("res://UI/Boxes/DistrictBox.tscn")
 	for _i in range(content.size()):
@@ -40,6 +40,8 @@ func _ready():
 
 func on_change(text=""):
 	#Don't delete this function
+	#This would be an an abstract function of Pane class
+	#but gdscript isn't a real programming language
 	pass
 
 func add_voter_spinbox(spinbox):
@@ -59,7 +61,7 @@ func add():
 	if index > len(colors) - 1:
 		index = 0
 
-	var props =  {"max_size": 1, "min_size": 1, "color" : colors[index]}
+	var props =  {"max": 1, "min": 1, "color" : colors[index]}
 	boxes.append(BOX.instance())
 	var index2 = len(boxes) - 1
 	display_changeable_settings( {char(c) : props }, boxes, index2)
@@ -95,7 +97,7 @@ func set_max_min_values():
 	for b in boxes:
 		for g in b.groups:
 			if g[0] == "number":
-				if g[1] == "max_size":
+				if g[1] == "max":
 					g[-1].set_value (max_size)
-				if g[1] == "min_size":
+				if g[1] == "min":
 					g[-1].set_value(min_size)

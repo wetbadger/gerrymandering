@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://pics/target.png" type="Texture" id=1]
+[ext_resource path="res://pics/camera_move.png" type="Texture" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=4]
 
@@ -27,12 +27,4 @@ margin_bottom = -949.0
 rect_min_size = Vector2( 50, 50 )
 theme = SubResource( 3 )
 toggle_mode = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 49, 16 )
-scale = Vector2( 6, 6 )
-texture = ExtResource( 1 )
-centered = false
+icon = ExtResource( 1 )

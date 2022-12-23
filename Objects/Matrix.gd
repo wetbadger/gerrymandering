@@ -7,7 +7,11 @@ export var GRID_SIZE = 18
 var size
 var house_count = 0
 var _house = load("Objects/House.tscn")
-onready var sprite_tiles = get_tree().get_current_scene().get_node("State/SpriteTiles")
+onready var scene = get_tree().get_current_scene()
+onready var sprite_tiles = scene.get_node("State/SpriteTiles2")
+onready var fog = scene.get_node("State/Fog2/Fog")
+onready var ui_tiles = scene.get_node("State/UITiles")
+#onready var ui_tiles = load("res://Objects/States/Tescos.tscn").instance()
 onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
 enum {RIGHT, DOWN, LEFT, UP}
@@ -40,8 +44,15 @@ func _ready():
 	size.x = floor(size.x)
 	size.y = floor(size.y)
 	
+	fog.fill(size.x, size.y)
 	
-func generate_houses(n, _parties=null, _gaps=false, algo="fill"):
+func save_matrix(map_name):
+	var file = File.new()
+	file.open("user://"+map_name+"/matrix.json", File.WRITE)
+	file.store_string(JSON.print(vertices, "\t"))
+	file.close()
+	
+func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 	gaps = _gaps
 	population = n
 	if _parties:
@@ -59,10 +70,39 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill"):
 			var pos_and_size = get_tree().get_current_scene().get_node("State/Shape").measure_width_and_height()
 			var starting_point = Vector2(floor(pos_and_size[0].x / GRID_SIZE), floor(pos_and_size[0].y / GRID_SIZE))
 			var size_ = Vector2(floor(pos_and_size[1].x / GRID_SIZE), floor(pos_and_size[1].y / GRID_SIZE))
-			print(starting_point, size)
+			#print(starting_point, size)
 			var area = pos_and_size[1].x * pos_and_size[1].y
 			house_chance = 0 #make all gaps
 			var pop = place_houses__fill_space(area, starting_point, size_)
+			return pop
+		"load from file":
+			var file = File.new()
+			file.open("user://"+map_name+"/matrix.json", File.READ)
+			var loaded_matrix = parse_json(file.get_as_text())
+			var pop = 0
+			vertices = loaded_matrix
+			if loaded_matrix == null:
+				return -1
+				
+			for square in loaded_matrix:
+				var index = -1 #TODO: missing asset?
+				
+				if loaded_matrix[square]["type"] == "House":
+					for party in parties: 
+						#speed note:
+						#in practice this dict should not be huge
+						if party == loaded_matrix[square]["allegiance"]:
+							index = parties[party]["asset"]
+					set(index, str2var("Vector2"+square))
+					fog.clear_fog(str2var("Vector2"+square))
+					pop += 1
+					
+				else:
+					fog.clear_fog(str2var("Vector2"+square))
+					
+				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
+				var coord = str2var("Vector2"+square)
+				
 			return pop
 		_:
 			print(str(algo)+" is not a valid algorithm.")
@@ -86,13 +126,13 @@ func place_houses__fill_space(_n, starting_point, size_):
 	for p in party_stacks:
 		total_houses += party_stacks[p].size()
 	
-	print(total_houses)
+	#print(total_houses)
 	
 	var voter_count = 0
 	for p in parties:
 		voter_count += parties[p]["voters"]
 		
-	print(voter_count)
+	#print(voter_count)
 
 	var new_voters = reduce_voters_to(voter_count)
 	
@@ -156,6 +196,8 @@ func place_house(direction, from_point, n):
 		#print("No make house")
 	elif house_chance < 0.5:
 		vertices[str(point)] = {"type":"Gap", "coords":Vector2(point.x,point.y), "visited": false}
+		fog.clear_fog(point)
+
 	else:
 		var allegiance = get_random_allegiance()
 		#var new_house = _house.instance()
@@ -171,12 +213,17 @@ func place_house(direction, from_point, n):
 				bottom_right_corner.y = point.y
 			
 			vertices[str(point)] = {"type":"House", "coords":Vector2(point.x,point.y), "visited": false, "allegiance" : allegiance["party"]}
+			
 			set(allegiance["asset"], point)
 		#add_child(new_house)
 		#new_house.set_asset()
 		#new_house.scale = Vector2(0.25, 0.25)
-
 	
+	if scene.show_grid and intersection:
+		ui_tiles.set_cell(point.x*((GRID_SIZE)/18), point.y*((GRID_SIZE)/18), 0)
+	
+	
+		
 	place_house(direction, point, n-1)
 	return point
 	
@@ -233,6 +280,7 @@ func get_random_allegiance():
 	return allegiance
 		
 func set(index, position):
+	
 	var settings = get_tree().get_current_scene().settings
 	house_count += 1
 	#object.set_global_position(position * GRID_SIZE)
@@ -251,8 +299,22 @@ func set(index, position):
 		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, Globals.default_settings["assets"][index])
 	else:
 		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, index)
+	fog.clear_fog(position)
 
 
+
+func get(grid_point):
+	if vertices.has(str(grid_point)):
+		return vertices[str(grid_point)]
+	else:
+		#this null indicates a square that is not in the matrix.
+		return null
+
+func user_place_house(population, parties, map_name):
+	#print(population, parties, map_name)
+	return population
+	
+		
 #
 #	Deletion
 #
@@ -271,3 +333,4 @@ func reduce_voters_to(n):
 
 func remove_house(): #turn to gap
 	pass
+

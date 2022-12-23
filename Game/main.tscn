@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=32 format=2]
 
-[ext_resource path="res://Camera2D.gd" type="Script" id=1]
+[ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
 [ext_resource path="res://DistrictButtons.gd" type="Script" id=3]
 [ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=4]
@@ -12,12 +12,19 @@
 [ext_resource path="res://UI/Submit.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Objects/Tiles/SpriteTiles.tscn" type="PackedScene" id=11]
 [ext_resource path="res://UI/ErrorScreen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Game/Darkening.gd" type="Script" id=13]
+[ext_resource path="res://Game/Darkening.tscn" type="PackedScene" id=13]
 [ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=14]
 [ext_resource path="res://font/Chicago.ttf" type="DynamicFontData" id=15]
 [ext_resource path="res://UI/Widgets/BScroll.tscn" type="PackedScene" id=16]
 [ext_resource path="res://audio/sfx/ambience.wav" type="AudioStream" id=17]
-[ext_resource path="res://UI/DeselectButton.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Game/Deselect.gd" type="Script" id=18]
+[ext_resource path="res://pics/camera_move_med.png" type="Texture" id=19]
+[ext_resource path="res://Objects/Tiles/UITiles.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Objects/Tiles/SpriteTiles2.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Game/Ambience.gd" type="Script" id=22]
+[ext_resource path="res://Game/HouseButtons.gd" type="Script" id=23]
+[ext_resource path="res://Objects/Tiles/Fog.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Objects/Tiles/Fog.gd" type="Script" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -26,8 +33,42 @@ font_data = ExtResource( 4 )
 size = 24
 font_data = ExtResource( 15 )
 
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.131042, 0.706616, 0.882812, 1 )
+corner_radius_top_left = 80
+corner_radius_top_right = 80
+corner_radius_bottom_right = 80
+corner_radius_bottom_left = 80
+
+[sub_resource type="Theme" id=5]
+Button/styles/hover = SubResource( 6 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 8 )
+
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
+show_grid = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -38,12 +79,16 @@ margin_left = 61.0
 margin_top = -229.0
 margin_right = 470.0
 margin_bottom = -54.0
+disabled = false
 
 [node name="Scroll" parent="UI" instance=ExtResource( 16 )]
-margin_left = 1700.0
-margin_top = 48.0
-margin_right = -8.0
-rect_min_size = Vector2( 212, 0 )
+anchor_left = 1.0
+margin_left = -270.0
+margin_top = 18.0
+margin_right = -45.0
+margin_bottom = -30.0
+rect_min_size = Vector2( 225, 0 )
+mouse_filter = 2
 
 [node name="DistrictButtons" type="VBoxContainer" parent="UI/Scroll"]
 margin_right = 200.0
@@ -56,6 +101,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Scroll2" type="ScrollContainer" parent="UI"]
+margin_left = 1650.0
+margin_right = 2055.0
+margin_bottom = 1069.0
+mouse_filter = 2
+
+[node name="HouseButtons" type="VBoxContainer" parent="UI/Scroll2"]
+visible = false
+script = ExtResource( 23 )
+
 [node name="DebugButton" parent="UI" instance=ExtResource( 9 )]
 visible = false
 margin_left = 68.0
@@ -67,9 +122,6 @@ margin_bottom = 1027.0
 margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ErrorLabel" type="Label" parent="UI/Debug"]
 margin_left = 1000.0
@@ -134,20 +186,24 @@ margin_top = 12.0
 margin_right = -1698.0
 margin_bottom = -1038.0
 custom_fonts/font = SubResource( 2 )
+text = "..."
 
-[node name="Deselect" parent="UI" instance=ExtResource( 18 )]
-visible = false
-margin_left = 48.0
-margin_top = 61.0
-margin_right = -1741.0
-margin_bottom = -882.0
+[node name="Deselect" type="Button" parent="UI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 527.0
+margin_top = -217.0
+margin_right = 675.0
+margin_bottom = -69.0
+theme = SubResource( 5 )
+toggle_mode = true
+action_mode = 0
+icon = ExtResource( 19 )
+script = ExtResource( 18 )
 
-[node name="State" type="ViewportContainer" parent="."]
-margin_right = 1303.0
-margin_bottom = 774.0
+[node name="State" type="Node2D" parent="."]
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
 [node name="Camera2D" type="Camera2D" parent="State"]
@@ -157,22 +213,37 @@ __meta__ = {
 }
 
 [node name="Matrix" parent="State" instance=ExtResource( 6 )]
+scale = Vector2( 0.999, 0.999 )
 
 [node name="SpriteTiles" parent="State" instance=ExtResource( 11 )]
-position = Vector2( 7, 2 )
-scale = Vector2( 0.33, 0.33 )
+position = Vector2( -2, -3 )
+scale = Vector2( 0.333, 0.333 )
 
-[node name="Darkening" type="ColorRect" parent="."]
-margin_right = 1917.0
-margin_bottom = 1079.0
-color = Color( 0, 0, 0, 0 )
-script = ExtResource( 13 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+[node name="SpriteTiles2" parent="State" instance=ExtResource( 21 )]
+position = Vector2( -4, -3 )
+scale = Vector2( 0.333, 0.333 )
+
+[node name="UITiles" parent="State" instance=ExtResource( 20 )]
+scale = Vector2( 0.999, 0.999 )
+tile_data = PoolIntArray(  )
+
+[node name="Fog2" type="Node2D" parent="State"]
+scale = Vector2( 0.999, 1 )
+
+[node name="Fog" parent="State/Fog2" instance=ExtResource( 24 )]
+modulate = Color( 0, 0, 0, 0.4 )
+position = Vector2( -9, -9 )
+script = ExtResource( 25 )
+
+[node name="Darkening" parent="." instance=ExtResource( 13 )]
 
 [node name="Ambience" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 volume_db = -80.0
 autoplay = true
+script = ExtResource( 22 )
+
+[connection signal="button_down" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_button_down"]
+[connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
+[connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]
+[connection signal="toggled" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_toggled"]

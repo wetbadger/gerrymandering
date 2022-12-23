@@ -2,7 +2,7 @@ extends Control
 
 class_name Pane
 
-onready var scene = get_tree().get_current_scene()
+onready var scene = get_tree().get_current_scene().get_children()[-1]
 onready var BLabel = load("res://UI/Widgets/BLabel.tscn")
 onready var BLineEdit = load("res://UI/Widgets/BLineEdit.tscn")
 onready var BSpinBox = load("res://UI/Widgets/BSpinBox.tscn")
@@ -11,17 +11,18 @@ onready var BColorPicker = load("res://UI/Widgets/BColorPickerButton.tscn")
 onready var BIconGrid = load("res://UI/Widgets/BIconGrid.tscn")
 onready var BCheckBox = load("res://UI/Widgets/BCheckBox.tscn")
 onready var BOptionMenu = load("res://UI/Widgets/BOptionMenu.tscn")
+onready var BSlider = load("res://UI/Widgets/BSlider.tscn")
 
 onready var BAddAndSubtractButtons = load("res://UI/Widgets/BAddAndSubtractButtons.tscn")
 
-onready var tilemap = load("res://Objects/Tiles/SpriteTiles.tscn").instance()
+onready var tilemap = load("res://Objects/Tiles/SpriteTiles2.tscn").instance()
 var groups = [] # array of [type, contents, node_instance]
 var is_read_only = false
 var isAddable = true
 var BOX
 
 func _ready():
-	scene = scene.get_children()[-1]
+	pass
 
 func add_line(text):
 	groups.append(["line", text, null])
@@ -46,8 +47,12 @@ func add_optmenu(text, options):
 	
 func add_plus_or_minus(text, pane): #on which pane is the add button adding elements?
 	groups.append(["add", text, pane, null])
+	
+func add_slider(text, value):
+	groups.append(["slider", text, value, null])
 
 func set_elements(box, icon_grid_size=2):
+	#build the pane from elements in a dictionary
 	var vbox
 	if has_node("VBox"):
 		#get_node("VBox").queue_free()
@@ -64,7 +69,7 @@ func set_elements(box, icon_grid_size=2):
 	var boxes = box.groups
 
 	for g in boxes:
-		var a = 30
+		var a = 40
 		if not g[-1]:
 			rect_min_size.y += 65
 			match g[0]:
@@ -100,7 +105,10 @@ func set_elements(box, icon_grid_size=2):
 					var optmenu = BOptionMenu.instance()
 					optmenu.text = g[1]
 					for each in g[2]:
-						optmenu.add_item(each)
+						if typeof(each) == TYPE_STRING:
+							optmenu.add_item(each)
+						else:
+							print("error: Option Menu item not a string")
 					g[3] = optmenu
 					box.get_node("VBox").add_child(optmenu)
 					g[-1] = optmenu
@@ -144,6 +152,15 @@ func set_elements(box, icon_grid_size=2):
 					grdbox.add_child(colorpicker)
 					icon_count+=1
 					g[-1] = colorpicker
+				"slider":
+					var slider = BSlider.instance()
+					slider.set_text(g[1])
+					slider.set_value(g[2])
+					slider.set_label_name(line.text)
+					box.get_node("VBox").add_child(slider)
+					g[-1] = slider
+					box.rect_min_size.y += slider.rect_size.y + a
+					#slider.rext_min_size.y = 50
 
 				_:
 					print("Widget type not specified")

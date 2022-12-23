@@ -9,9 +9,6 @@ margin_top = -39.0
 margin_right = 39.0
 margin_bottom = 39.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.1, 0.1 )

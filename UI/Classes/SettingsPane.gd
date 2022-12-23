@@ -40,7 +40,7 @@ func display_changeable_settings(settings, boxes, index = 0):
 				elif typeof(settings[s][key]) == TYPE_REAL:
 					#TODO: make a slider widget
 					#Will be used for sound
-					print("Slider")
+					boxes[i].add_slider(key, settings[s][key])
 				
 		i += 1
 

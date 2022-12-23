@@ -15,58 +15,60 @@ const default_settings = {
 		},
 		"districts" : {
 			"A" : {
-				"max_size" : 5,
-				"min_size" : 5,
+				"max" : 5,
+				"min" : 5,
 				"color" : "blue"
 				},
 			"B" : {
-				"max_size" : 5,
-				"min_size" : 5,
+				"max" : 5,
+				"min" : 5,
 				"color" : "red"
 				},
 			"C" : {
-				"max_size" : 5,
-				"min_size" : 5,
+				"max" : 5,
+				"min" : 5,
 				"color" : "orange"
 				},
 			"D" : {
-				"max_size" : 5,
-				"min_size" : 5,
-				"color" : "green"
+				"max" : 5,
+				"min" : 5,
+				"color" : "purple"
 				},
 			"E" : {
-				"max_size" : 5,
-				"min_size" : 5,
-				"color" : "purple"
+				"max" : 5,
+				"min" : 5,
+				"color" : "green"
 				}
 		},
 		"advanced" : {
 			"District Rules" : {
 				"contiguous" : true,
-				"runtime contiguity enforcement" : true,
-				"diagonals" : false
+				"runtime contiguity enforcement" : false,
+				"diagonals" : false,
+				"show grid": false,
+				"multiplayer" : false
 			},
 			"House Placement" : {
 				"gaps": true,
 				"randomize positions" : false,
-				"layout": ["random"],
-				"algorithm" : ["spiral", "fill"]
+				"layout": ["random", "user placed"],
+				"algorithm" : ["spiral", "fill", "load from file"]
 			},
 			"Other" : {
 				"debug" : false
 			}
 
 		},
-		"shape": "Roadland",
+		"shape": "Rectagonia",
 		"colors" : {
 			"blue" : [0.25,0.25,1],
 			"red" : [0.8,0.1,0.1],
-			"white" : [1,1,1],
-			"purple" : [0.5,0.2,0.8],
-			"green" : [0.2,0.8,0.1],
-			"yellow" : [0.8,0.8,0.0],
 			"orange" : [0.8,0.4,0.1],
+			"purple" : [0.5,0.2,0.8],
+			"yellow" : [0.8,0.8,0.0],
 			"brown" : [0.3,0.2,0.0],
+			"green" : [0.2,0.8,0.1],
+			"white" : [1,1,1],
 			"gray" : [0.5,0.5,0.5],
 			"teal" : [0.1,0.8,0.8],
 			"pink" : [0.8,0.1,0.7],
@@ -80,7 +82,9 @@ const default_settings = {
 			"Green House" : 4,
 			"Yellow House" : 5,
 			"Adobe House" : 6,
-			"Tent" : 7
+			"Tent" : 7,
+			"Happy Blue": 8,
+			"Happy Red": 9
 		}
 }
 var house_placement_layout = 0

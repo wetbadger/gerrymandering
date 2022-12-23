@@ -50,6 +50,8 @@ func get_options():
 		result[pane.name] = scene.settings[pane.name]
 		if pane.name == "parties":
 			result[pane.name] = {}
+		elif pane.name == "districts":
+			result[pane.name] = {}
 		else:
 			result[pane.name] = scene.settings[pane.name]
 		var group_name
@@ -79,6 +81,9 @@ func get_options():
 func prompt_user_to_overwrite():
 	print("TODO: promt user to overwrite")
 
+func return_arrays_to_array(array):
+	array.push_front("element")
+	
 
 func _on_Save_button_up():
 	game_settings = scene.settings
@@ -96,12 +101,25 @@ func _on_Save_button_up():
 	#Globals.map_name = scene.game_name #.text
 	
 	var new_dict = game_settings.duplicate()
-	new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
+	#new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
 		
 	new_game_folder(game_settings, scene.game_name)
-	new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]
+	#new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]
 	var file = File.new()
+	var game_settings_to_save = new_dict.duplicate(true)
+	
+	#return arrays to array format TODO: can this be cleaner?
+	#return_arrays_to_array
+	var array_layout = ["random", "user placed"]
+	array_layout.erase(game_settings_to_save["advanced"]["House Placement"]["layout"])
+	array_layout.push_front(game_settings_to_save["advanced"]["House Placement"]["layout"])
+	var array_algorithm = ["fill", "spiral", "load from file"]
+	array_algorithm.erase(game_settings_to_save["advanced"]["House Placement"]["algorithm"])
+	array_algorithm.push_front(game_settings_to_save["advanced"]["House Placement"]["algorithm"])
+	game_settings_to_save["advanced"]["House Placement"]["layout"] = array_layout
+	game_settings_to_save["advanced"]["House Placement"]["algorithm"] = array_algorithm
+	
 	file.open("user://"+game_settings["name"]+"/settings.json", File.WRITE)
-	file.store_string(JSON.print(new_dict, "  "))
+	file.store_string(JSON.print(game_settings_to_save, "\t"))
 	file.close()
 	
