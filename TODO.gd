@@ -70,7 +70,7 @@ TODO:
 		Stage 2. Players take turns placing voters in a
 			predetermined map
 			
-		Stage 4. Players take turns drawing districts.
+		Stage 3. Players take turns drawing districts.
 			The most disadvantaged player goes first.
 			(It will be math-heavy to calculate atvantages XD)
 		

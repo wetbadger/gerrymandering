@@ -8,7 +8,7 @@ var save_progress = false #TODO: delete this
 #(the variable here should only be used to CREATE the JSON)
 const default_settings = {
 		"name": "My State",
-
+		"pointer" : null,
 		"parties" : {
 			"Reds" : {"voters": 10, "asset": "Red House", "color": "red"},
 			"Blues" : {"voters": 15, "asset": "Blue House", "color": "blue"}

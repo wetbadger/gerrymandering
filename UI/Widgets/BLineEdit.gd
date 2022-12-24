@@ -7,7 +7,8 @@ func _ready():
 
 func _on_BLineEdit_text_changed(new_text):
 	#TODO: update district pane text changed?
-	pass
+	if parent.name == "parties":
+		parent.district_pane.alternate_ownerships()
 
 
 func _on_BLineEdit_focus_exited():
