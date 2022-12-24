@@ -10,3 +10,5 @@ func _on_TryAgain_button_up():
 	scene.recieve_input = true
 	scene.submit_button.visible = true
 	get_parent().get_parent().visible = false
+	if scene.settings["advanced"]["District Rules"]["multiplayer"]:
+		scene.submit_button.set_mode_multiplayer()

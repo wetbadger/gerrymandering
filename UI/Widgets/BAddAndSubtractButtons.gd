@@ -13,13 +13,7 @@ func _on_BAddButton_button_up():
 
 func _on_BSubtractButton_button_up():
 	var pane = get_parent().get_parent()
-	var box = pane.boxes[-1]
-	pane.boxes.erase(box)
-	pane.collections.erase(box)
-	var settings = pane.content
-	settings.erase(box.groups[0][1])
-	pane.set_max_min_values()
-	box.queue_free()
+	pane.subtract()
 #	for each in subtract_set:
 #		each.queue_free()
 #	subtract_set = [null]

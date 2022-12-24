@@ -130,8 +130,22 @@ func add():
 	
 	district_pane.set_party_boxes(boxes)
 	district_pane.set_max_min_values()
+	district_pane.alternate_ownerships()
 	
 	on_change()
+	
+func subtract():
+	var box = boxes[-1]
+	boxes.erase(box)
+	collections.erase(box)
+	var settings = content
+	settings.erase(box.groups[0][1])
+	set_max_min_values()
+	box.queue_free()
+	
+	district_pane.set_party_boxes(boxes)
+	district_pane.set_max_min_values()
+	district_pane.alternate_ownerships()
 	
 func set_max_min_values():
 	district_pane.set_max_min_values()

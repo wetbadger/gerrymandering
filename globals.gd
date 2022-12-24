@@ -17,27 +17,32 @@ const default_settings = {
 			"A" : {
 				"max" : 5,
 				"min" : 5,
-				"color" : "blue"
+				"color" : "blue",
+				"party" : ["Reds", "Blues"]
 				},
 			"B" : {
 				"max" : 5,
 				"min" : 5,
-				"color" : "red"
+				"color" : "red",
+				"party" : ["Blues", "Reds"]
 				},
 			"C" : {
 				"max" : 5,
 				"min" : 5,
-				"color" : "orange"
+				"color" : "orange",
+				"party" : ["Reds", "Blues"]
 				},
 			"D" : {
 				"max" : 5,
 				"min" : 5,
-				"color" : "purple"
+				"color" : "purple",
+				"party" : ["Blues", "Reds"]
 				},
 			"E" : {
 				"max" : 5,
 				"min" : 5,
-				"color" : "green"
+				"color" : "green",
+				"party" : ["Reds", "Blues"]
 				}
 		},
 		"advanced" : {

@@ -54,7 +54,7 @@ onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
 onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
 onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
-#onready var fog = get_node("State/Fog")
+onready var player_label = get_node("UI/PlayerMove")
 var population
 var width
 var n_districts
@@ -91,12 +91,19 @@ var contiguous = true
 var state_shape
 var reference_rect
 
+var players = []
+var current_player = 0
+var _multiplayer = false
+
 func _ready():
 	set_process_unhandled_input (true)
 	settings = load_settings()
 	usrexp_settings = load_usrexp_settings()
 	
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
+	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
+	
+	
 
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
@@ -117,6 +124,14 @@ func _ready():
 	
 	#width = settings["width"]
 	parties = settings["parties"]
+	
+	players = parties.keys()
+	
+	if _multiplayer:
+		player_label.visible = true
+		submit_button.set_mode_multiplayer()
+		
+		
 	
 	#override width
 	population = 0
@@ -156,7 +171,12 @@ func _ready():
 			settings["advanced"]["House Placement"]["algorithm"], 
 			Globals.current_settings["name"])
 		create_district_buttons(expected_population)
-			
+
+# # # # # # # # #
+#
+# DISTRICT BUTTONS
+#
+# # # # # # # # #
 			
 func create_district_buttons(expected_population):
 	if population == -1:
@@ -198,6 +218,19 @@ func create_district_buttons(expected_population):
 	district_button_names = get_button_names()
 	selected_district = district_button_names[0]
 	
+	if _multiplayer:
+
+		var i = 0
+		for btn in district_buttons.get_children():
+			if btn.name != selected_district:
+				btn.disabled = true
+			else:
+				btn.disabled = false
+				#first district goes first
+				current_player = players.find(settings["districts"][btn.name]["party"])
+				player_label.set_party(players[current_player], parties[players[current_player]])
+			i+=1
+	
 	
 	if settings["advanced"]["Other"]["debug"]:
 		get_node("UI/Debug").visible = true
@@ -230,6 +263,12 @@ func generate_colors(n):
 		colors.append({c: settings["colors"][c]})
 		i+=1
 	return colors
+
+# # # # # # # # # # #
+#
+# LOAD SETTINGS
+#
+# # # # # # # # # # #
 
 func load_settings():
 
@@ -316,8 +355,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				set_mouse_members(event)
 
 				_remove_district()
-		elif draw_mode == DRAW_MODES.PLACE:
-			if event is InputEventScreenTouch:
+		elif draw_mode == DRAW_MODES.PLACE or draw_mode == DRAW_MODES.REMOVE:
+			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				set_touch_members(event)
 				place_house(event)
 
@@ -331,10 +370,13 @@ func _process(_delta):
 		
 	filled_squares = count
 
-	if draw_mode == 0:
-		mode_label.set_text('Mode: +    ')
-	else:
-		mode_label.set_text('Mode: -    ')
+	match draw_mode:
+		0:
+			mode_label.set_text('Mode: +    ' + selected_district + "    ")
+		1:
+			mode_label.set_text('Mode: -    ' + selected_district + "    ")
+		_:
+			pass
 		
 	squares_filled_label.set_text("Squares: "+str(filled_squares)+"    ")
 	progress_label.set_text(str(filled_squares)+"/"+str(population))
@@ -342,12 +384,19 @@ func _process(_delta):
 	if not can_recheck:
 		can_recheck = true
 		
-	if is_instance_valid(submit_button) and draw_mode != DRAW_MODES.PLACE:
+	if not _multiplayer and is_instance_valid(submit_button) and draw_mode != DRAW_MODES.PLACE:
 		if filled_squares >= population and contiguous: #because sometimes the computer can't count :)
+			for d in districts:
+				if d.house_count < d.min_size:
+					submit_button.set_reason("District "+d.name+" is too small!")
+					return
+			
 			submit_button.disabled = false
 			submit_button.set_mouse_filter(0)
 		else:
+			
 			submit_button.disabled = true
+			submit_button.set_reason("Not all houses are in a district.")
 			submit_button.set_mouse_filter(2)
 			
 	if ambience.volume <= usrexp_settings["Audio"]["Sound"]:
@@ -432,6 +481,12 @@ func set_draw_mode_erase():
 		mobile__hold_tween.queue_free()
 		mobile__is_waiting_for_hold = false
 		
+func set_draw_mode_remove():
+	draw_mode = DRAW_MODES.REMOVE
+	if (is_instance_valid(mobile__hold_tween)):
+		mobile__hold_tween.queue_free()
+		mobile__is_waiting_for_hold = false
+		
 func set_draw_mode_add():
 	draw_mode = DRAW_MODES.ADD
 
@@ -462,6 +517,23 @@ func determine_draw_mode(event):
 #				set_draw_mode(DRAW_MODES.ERASE)
 		
 	just_pressed = false
+	
+func determine_placement_mode(event):
+
+	if event is InputEventScreenTouch:
+		if not mobile__is_waiting_for_hold and mobile__press_type == true:
+			mobile__hold_tween = Tween.new()
+			self.add_child(mobile__hold_tween)
+			mobile__is_waiting_for_hold = true
+			mobile__hold_tween.interpolate_callback(self, 1, "set_draw_mode_remove")
+			mobile__hold_tween.start()
+		if mobile__is_waiting_for_hold and mobile__press_type == false:
+			if (is_instance_valid(mobile__hold_tween)):
+				mobile__hold_tween.stop(self)
+				mobile__hold_tween.queue_free()
+				mobile__is_waiting_for_hold = false
+				draw_mode = DRAW_MODES.PLACE	
+	just_pressed = false
 		
 func house_in_district():
 	return matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)]["type"] == "House" and matrix.vertices[str(grid_point)].has("district")
@@ -480,6 +552,9 @@ func _remove_district() -> void:
 		return
 		
 	district.erase(grid_point)
+	if _multiplayer:
+		if district.house_count < district.min_size:
+			submit_button.disabled = true
 
 func get_district_selected(exclude=null, temp=null):
 
@@ -536,6 +611,7 @@ func submit_current_layout():
 
 func submit():
 	#print("Submitted")
+	
 	get_node("Darkening").darken()
 	#print(matrix.vertices)
 	get_node("UI/Deselect").visible = false
@@ -580,6 +656,9 @@ func submit():
 	recieve_input = false
 	submit_button.visible = false
 	
+func end_turn_enable():
+	submit_button.disabled = false
+	
 func remove_district(district_name):
 	recieve_input = false
 	#show a spinning hour glass here
@@ -617,8 +696,17 @@ func get_winner(results):
 func place_house(event):
 	if deselect_is_on or disable_draw:
 		return
-	if event is InputEventScreenTouch:
-		if event.is_pressed():
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if event is InputEventScreenTouch and not event.is_pressed():
+			draw_mode = DRAW_MODES.PLACE
+			
+		if event.is_pressed() or event is InputEventScreenDrag:
+			if not event is InputEventScreenDrag: #is pressed
+				mobile__press_type = true
+				
+			else:
+				mobile__press_type = false #screen drag
+				
 			var square = matrix.get(grid_point)
 
 			var allegiance
@@ -629,18 +717,25 @@ func place_house(event):
 				#remove house sprite if there is one
 				matrix.set(-1, grid_point)
 				
-				#set matrix fog to clear this square
-				matrix.fog.clear_fog(grid_point)
+				if matrix.vertices.has(str(grid_point)):
+					determine_placement_mode(event)
 				
-				#matrix.set(selected_house.sprite_index, grid_point)
-				matrix.vertices[str(grid_point)] = {
-					"type":"Gap", 
-					"coords":grid_point, 
-					"visited": false,
-				}
-				if square != null and square.has("allegiance"):
-					house_buttons.get_party(allegiance).increment_voters()
-					houses_unplaced+=1
+				if draw_mode == DRAW_MODES.REMOVE:
+					matrix.fog.add_fog(grid_point)
+					matrix.vertices.erase(str(grid_point))
+				else:
+					#set matrix fog to clear this square
+					matrix.fog.clear_fog(grid_point)
+					
+					#matrix.set(selected_house.sprite_index, grid_point)
+					matrix.vertices[str(grid_point)] = {
+						"type":"Gap", 
+						"coords":grid_point, 
+						"visited": false,
+					}
+					if square != null and square.has("allegiance"):
+						house_buttons.get_party(allegiance).increment_voters()
+						houses_unplaced+=1
 					
 				
 					
@@ -659,9 +754,11 @@ func place_house(event):
 				selected_house.decrement_voters()
 				houses_unplaced-=1
 				
+			
 		if houses_unplaced <= 0:
 			submit_button.disabled = false
 			submit_button.set_mouse_filter(0)
+			
 			
 
 func _on_Deselect_focus_entered():
@@ -670,3 +767,31 @@ func _on_Deselect_focus_entered():
 
 func _on_Deselect_focus_exited():
 	disable_draw = false
+
+
+# # # # # # # # #
+#
+#
+# MULTIPLAYER
+#
+# # # # # # # # #
+
+func increment_player():
+	current_player += 1
+	if current_player >= len(players):
+		current_player = 0
+	player_label.set_party(players[current_player], parties[players[current_player]])
+	
+
+	var district_btn = get_node(selected_district).get_next_district()
+	
+	for btn in district_buttons.get_children():
+		if btn != district_btn:
+			btn.disabled = true
+		else:
+			btn.disabled = false
+			
+func enable_selected_district():
+	for btn in district_buttons.get_children():
+		if btn.name == selected_district:
+			btn.disabled = false

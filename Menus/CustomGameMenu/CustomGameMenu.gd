@@ -28,9 +28,9 @@ var scrollboxes_and_labels = []
 
 var state_shape
 var state_name
-var pp
-var dp
-var adv
+var pp #party pane (instance)
+var dp #district pane (instance)
+var adv #advanced pane (instance)
 
 
 #
@@ -77,6 +77,8 @@ func _ready():
 		game_name.set_text(settings["name"])
 	else:
 		game_name = "My State"
+		
+	dp.alternate_ownerships(pp.boxes)
 
 func add_pane(tab_name, lbl_name, pane, container_name="Grid", size=Vector2(400,350)):
 	var grid = get_node("TabContainer").get_node(tab_name).get_node("HBoxContainer").get_node(container_name)
@@ -162,6 +164,7 @@ func reposition():
 	
 func _on_orientation_changed(portrait):
 	reposition()
+	#TODO: reload as one column for portrait mode
 	pass
 #	if portrait:
 #		get_node("TabContainer").set_size(Vector2(793, 1457))

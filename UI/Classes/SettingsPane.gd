@@ -8,7 +8,7 @@ var collections = []
 func _ready():
 	rect_min_size.y = 400
 
-func display_changeable_settings(settings, boxes, index = 0):
+func display_changeable_settings(settings, boxes, index = 0, rect_size = 65):
 
 	var i = index
 	for s in settings:
@@ -16,7 +16,7 @@ func display_changeable_settings(settings, boxes, index = 0):
 			collections.append(boxes[i])
 			if typeof(s) == TYPE_STRING:
 				boxes[i].add_line(s)
-				rect_min_size.y += 65
+				rect_min_size.y += rect_size
 			if boxes[i].is_read_only == true:
 				boxes[i].set_read_only(true)
 
@@ -38,7 +38,6 @@ func display_changeable_settings(settings, boxes, index = 0):
 					boxes[i].add_optmenu(key, settings[s][key])
 
 				elif typeof(settings[s][key]) == TYPE_REAL:
-					#TODO: make a slider widget
 					#Will be used for sound
 					boxes[i].add_slider(key, settings[s][key])
 				

@@ -4,10 +4,14 @@ var color_val
 var can_right_click = false #right click to remove the district
 var camera
 
+onready var scene = get_tree().get_current_scene()
+
 var mouse_in
 
+var turn_ended = false
+
 func _ready():
-	camera = get_tree().get_current_scene().get_node("State/Camera2D")
+	camera = scene.get_node("State/Camera2D")
 	set_focus_mode(1)
 
 
@@ -19,15 +23,15 @@ func _on_Button_button_up():
 			b.pressed = false
 			unselect_district(b.name)
 			
-	get_tree().get_current_scene().selected_district = self.name
+	scene.selected_district = self.name
 
 func _input(event):
 	if event is InputEventScreenTouch and disabled and mouse_in and event.is_pressed():
-		var deselect_button = get_tree().get_current_scene().get_node("UI/Deselect")
+		var deselect_button = scene.get_node("UI/Deselect")
 		deselect_button.pressed = false
 
 func unselect_district(district_name):
-	var state = get_tree().get_current_scene().get_node("State")
+	var state = scene.get_node("State")
 	if state.has_node(district_name):
 		state.get_node(district_name).is_selected = false
 
@@ -47,22 +51,6 @@ func set_color(color):
 	
 	new_stylebox_pressed.bg_color = color_from_str #- Color(.2,.2,.2)
 	add_stylebox_override("pressed", new_stylebox_pressed)
-
-
-#func _on_Button_mouse_entered():
-#	can_right_click = true
-#	camera.set_can_zoom(false)
-#
-#
-#func _on_Button_mouse_exited():
-#	can_right_click = false
-#	camera.set_can_zoom(true)
-	
-#func _input(event):
-#	if can_right_click:
-#		if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-#			var n = get_tree().get_current_scene().remove_district(name)
-#			text = str(n)
 			
 func _on_Button_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:
@@ -70,12 +58,11 @@ func _on_Button_gui_input(event):
 #	        BUTTON_LEFT:
 #	            # left button clicked
 			BUTTON_RIGHT:
-				var n = get_tree().get_current_scene().remove_district(name)
+				var n = scene.remove_district(name)
 				text = str(n)
 
-
 #
-# While diabled click to undisable
+# While disabled click to undisable
 #
 
 func _on_Button_mouse_entered():

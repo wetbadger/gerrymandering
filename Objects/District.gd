@@ -18,7 +18,7 @@ var button
 onready var settings = get_tree().get_current_scene().settings
 onready var tiles_left_label = get_tree().get_current_scene().get_node("UI/Debug/HBox/TilesLeftLabel")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
-
+onready var scene = get_tree().get_current_scene()
 
 const flood_fill = preload("res://Algorithms/flood.gd")
 const Queue = preload("res://DataStructures/queue.gd")
@@ -40,6 +40,8 @@ var party_tally #the graphic that shows the tally
 var district_buttons
 
 var contiguous = true #becomes false if squares are not connected
+
+var turn_ended = false #when true avoid this district until endgame
 
 func _ready():
 
@@ -87,7 +89,7 @@ func highlight(grid_point, exclude=null, force=false):
 			return
 	else:
 		overflowed = false
-	var scene = get_tree().get_current_scene()
+	
 	var house_id = str(grid_point)
 	var matrix = scene.matrix
 	var m_vert_house_id
@@ -255,7 +257,15 @@ func highlight(grid_point, exclude=null, force=false):
 			if house_count == max_size and scene.filled_squares < scene.population:
 				
 				if not ["Flood", "Error"].has(name):
-					get_next_district()
+					if scene._multiplayer:
+						pass
+					else:
+						#make next district selected
+						get_next_district()
+						
+			if scene._multiplayer:
+				if house_count >= min_size and scene.filled_squares < scene.population:
+					scene.end_turn_enable()
 				
 		else:
 			error_label.set_text("ALREADY HOUSE")
@@ -263,12 +273,15 @@ func highlight(grid_point, exclude=null, force=false):
 	else:
 		error_label.set_text("TOO MANY HOUSE")
 		if scene.filled_squares < scene.population:
-			get_next_district()
+			if scene._multiplayer:
+				pass
+			else:
+				get_next_district()
 		
 func get_next_district():
 	var next = null
 	#check if the button exists
-	var scene = get_tree().get_current_scene()
+	#var scene = get_tree().get_current_scene()
 	scene.stop_input()
 	
 	var button_name
@@ -277,6 +290,53 @@ func get_next_district():
 	else:
 		button_name = scene.district_button_names[scene.district_button_names.find(name) + 1]
 	#var button_name = char(ord(name[0]) + 1)
+	if scene._multiplayer:
+		#look for a non-zero district for current player
+		#if none is found increment player and seach again
+		#and scene.districts[scene.districts.find(button_name)].house_count > 0
+		var district_names = settings["districts"].keys()
+		var district_found = false
+		
+		var num_parties = len(settings["parties"].keys())
+		var num_parties_tried = 0
+		while not district_found:
+			
+			for i in range(len(district_names)):
+				var _house_count = int(district_buttons.get_children()[i].text)
+				if _house_count > 0:
+					if district_buttons.get_children()[i].turn_ended:
+						#district_buttons.get_children()[i].turn_ended = false
+						continue
+					if settings["districts"][district_names[i]]["party"] == scene.players[scene.current_player]:
+						district_found = true
+						num_parties_tried = 0
+						button_name = district_names[i]
+						break
+			if not district_found:
+				if num_parties_tried >= num_parties:
+					#show count votes on submit button
+					if scene.filled_squares == scene.population:
+						scene.submit_button.set_mode_district()
+						scene.submit_button._on_Submit_button_up()
+						break
+					else:
+						for i in range(len(district_names)):
+							district_buttons.get_children()[i].turn_ended = false
+				else:
+					#increment player (modifyied from main)
+					scene.current_player += 1
+					if scene.current_player >= num_parties:
+						scene.current_player = 0
+					scene.player_label.set_party(scene.players[scene.current_player], scene.parties[scene.players[scene.current_player]])
+					num_parties_tried += 1
+			elif scene.filled_squares == scene.population:
+				scene.submit_button.set_mode_district()
+				scene.submit_button._on_Submit_button_up()
+				break
+
+					
+				
+			
 	if scene.district_button_names.has(button_name):
 		next = district_buttons.get_node(button_name)
 		if next:
@@ -289,6 +349,7 @@ func get_next_district():
 							if each.house_count < max_size:
 								button_name = each.name
 								
+								
 	else:
 		for each in scene.districts:
 			if each.house_count < max_size:
@@ -298,14 +359,16 @@ func get_next_district():
 	if next:
 		next.pressed = true
 		next._on_Button_button_up()
+			
 		
 	scene.start_input()
+	return next
 	
 func error_flash(matrix, scene, region):
 	scene.stop_input()
 	
 	var error_shape = district_node.instance()
-	error_shape.starting_vertex = Vector2(-1,-1)
+	error_shape.starting_vertex = Vector2(0,0)
 	if settings["advanced"]["District Rules"]["diagonals"]:
 		error_shape.get_node("TileMap255").modulate = Color(1, 0, 0, 0.9)
 	else:
@@ -379,7 +442,7 @@ func erase(grid_point, force=false):
 				error_label.set_text("WRONG DISTRICT")
 				if not ["Flood", "Error"].has(name):
 					var next = district_buttons.get_node(m_vert_house_id["district"])
-					if next:
+					if next and !scene._multiplayer:
 						next.pressed = true
 						next._on_Button_button_up()
 		else:

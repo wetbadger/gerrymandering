@@ -24,7 +24,7 @@ func toggle_buttons(button_container):
 				last_button = btn
 				break
 	else:
-		#TODO: change focus back to button
+		
 		last_button.pressed = true
 		scene.disable_draw = false
 	
@@ -35,8 +35,11 @@ func toggle_buttons(button_container):
 			btn.pressed = false
 			btn.disabled = true
 	else:
-		for btn in button_container.get_children():
-			btn.disabled = false
+		if scene._multiplayer:
+			scene.enable_selected_district()
+		else:
+			for btn in button_container.get_children():
+				btn.disabled = false
 
 
 

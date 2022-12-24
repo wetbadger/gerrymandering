@@ -61,14 +61,31 @@ func add():
 	if index > len(colors) - 1:
 		index = 0
 
-	var props =  {"max": 1, "min": 1, "color" : colors[index]}
+	var parties 
+	
+	if len(boxes) == 0:
+		parties = scene.pp.content.keys()
+	else:
+		parties = boxes[len(boxes) - 1].groups[4][2]
+		var first_elem = parties.pop_front()
+		parties.push_back(first_elem)
+
+	var props =  {"max": 1, "min": 1, "color" : colors[index], "party": parties}
 	boxes.append(BOX.instance())
 	var index2 = len(boxes) - 1
-	display_changeable_settings( {char(c) : props }, boxes, index2)
+	display_changeable_settings( {char(c) : props }, boxes, index2, 125)
 	content[char(c)] = props
 	
 	set_max_min_values()
 		
+func subtract():
+	var box = boxes[-1]
+	boxes.erase(box)
+	collections.erase(box)
+	var settings = content
+	settings.erase(box.groups[0][1])
+	set_max_min_values()
+	box.queue_free()
 
 func get_voter_boxes_again():
 	voters_spin_boxes = []
@@ -101,3 +118,18 @@ func set_max_min_values():
 					g[-1].set_value (max_size)
 				if g[1] == "min":
 					g[-1].set_value(min_size)
+
+func alternate_ownerships(pb = null):
+	var parties = []
+	if party_boxes == null:
+		party_boxes = pb
+	for x in range(len(party_boxes)):
+		parties.append(party_boxes[x].groups[0][2].text)
+
+	for b in boxes:
+		for g in b.groups:
+			if g[1] == "party":
+				g[-1].set_options(parties)
+				#"cycle" the list
+				var first_elem = parties.pop_front()
+				parties.push_back(first_elem)
