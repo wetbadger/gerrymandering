@@ -98,6 +98,7 @@ var _multiplayer = false
 func _ready():
 	set_process_unhandled_input (true)
 	settings = load_settings()
+	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
 	
 	show_grid = settings["advanced"]["District Rules"]["show grid"]

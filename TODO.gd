@@ -4,7 +4,7 @@ extends Node
 """
 
 TODO:
-	load saved settings
+	[done] load saved settings
 	
 	CPP module for:
 		runtime contiguity detection
@@ -23,7 +23,7 @@ TODO:
 		clustered (random but like-houses together)
 		[done] houses placed by user
 		
-	Fog of War
+	[done] Fog of War
 	User-Created Shapes
 	
 	[done] touch screen hold-to-delete function
@@ -79,6 +79,7 @@ TODO:
 			and eventually a completion screen.
 		Develop a teir system for more optimal solutions
 			(bronze silver gold) 
+		Create a map screen
 		
 	make puzzles:
 		10 puzzles

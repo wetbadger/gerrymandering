@@ -5,6 +5,7 @@ var last_size
 var started_in_portrait = false
 var checked_portrait = false
 var settings 
+onready var music = get_node("MainTheme")
 var default_settings = {
 	"Audio": 
 		{
@@ -19,6 +20,7 @@ var default_settings = {
 #the orientations settings should only show up on mobile devices
 
 onready var main_theme = get_node("MainTheme")
+var start_story = false
 
 func _ready():
 	if not OS.request_permissions():
@@ -67,3 +69,14 @@ func _process(_delta):
 
 		
 	last_size = size
+	
+	if start_story:
+		music.volume_db -= 1
+		if music.volume_db <= -50:
+			var error = get_tree().change_scene("res://Story/Story.tscn")
+			if error:
+				print("Could not load story scene")
+
+func start_story():
+	start_story = true
+	
