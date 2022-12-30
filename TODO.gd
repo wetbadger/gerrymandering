@@ -63,9 +63,13 @@ TODO:
 		any number of human or computer players
 		computer can draw a district (see c++)
 		
-		Stage 1. Draw power or People cards
+		Stage 1. Draw Power or People or Money cards
 			Power cards represent the ability to draw a district.
 			People cards represent voters.
+			Money cards give spender a chance to flip a vote or two 
+				(discourages tie strategies and narrow victories)
+			
+			Each player starts with 5 voters, no districts, and $100
 			
 		Stage 2. Players take turns placing voters in a
 			predetermined map
@@ -91,5 +95,11 @@ TODO:
 		Thats probably enough puzzles
 
 NOTE: remember to uncomment out the mouseclick event in the main scene
+
+BUGS:
+	1. [FIXED] User Place mode holding down to erase "claimed land" will make 
+		house disapear without tallying 
+	2. Shape is not always matched to hardcoded levels on different screen sizes
+
 
 """

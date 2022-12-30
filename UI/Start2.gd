@@ -1,5 +1,6 @@
 extends Button
 
+#Start2 is not Start
 
 # This script was created as a simpler version of start
 # to start a game already loaded from a map node.

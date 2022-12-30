@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Start2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Map/Map.gd" type="Script" id=2]
+[ext_resource path="res://Music/MapTheme.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Map/MapNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/GotoMenu.tscn" type="PackedScene" id=5]
+
+[node name="TutorialMap" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="MapNode" parent="Container" instance=ExtResource( 4 )]
+position = Vector2( 0, 1 )
+
+[node name="MapNode2" parent="Container" instance=ExtResource( 4 )]
+position = Vector2( 330, 0 )
+folder = "lvl2"
+
+[node name="MapTheme" parent="." instance=ExtResource( 3 )]
+
+[node name="ButtonContainer" type="Control" parent="."]
+margin_right = 1867.0
+margin_bottom = 1038.0
+mouse_filter = 2
+
+[node name="Start2" parent="ButtonContainer" instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -78.5
+margin_top = -88.0
+margin_right = 78.5
+
+[node name="GotoMenu" parent="ButtonContainer" instance=ExtResource( 5 )]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -341.0
+margin_top = -88.0
+margin_right = 0.0
+margin_bottom = 0.0

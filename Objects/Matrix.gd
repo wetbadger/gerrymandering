@@ -46,7 +46,9 @@ func _ready():
 	
 	fog.fill(size.x, size.y)
 	
-func save_matrix(map_name):
+func save_matrix(map_name, anchor=null):
+	if anchor != null:
+		vertices["anchor"] = {"type": "Anchor", "coords" : anchor}
 	var file = File.new()
 	file.open("user://"+map_name+"/matrix.json", File.WRITE)
 	file.store_string(JSON.print(vertices, "\t"))
@@ -97,13 +99,15 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					fog.clear_fog(str2var("Vector2"+square))
 					pop += 1
 					
-				else:
+				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
 					
 				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
 				var coord = str2var("Vector2"+square)
-				
+			scene.readjust_state(loaded_matrix["anchor"])
 			return pop
+		"hardcoded":
+			pass
 		_:
 			print(str(algo)+" is not a valid algorithm.")
 		
@@ -329,8 +333,4 @@ func reduce_voters_to(n):
 		p-=1
 	return vert_copy
 	#everything else should be gaps
-	
-
-func remove_house(): #turn to gap
-	pass
 

@@ -1,37 +1,58 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Map/MapNode.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Music/MapTheme.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/Start2.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/GotoMenu.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Map/Map.gd" type="Script" id=5]
+[ext_resource path="res://themes/Submit.tres" type="Theme" id=6]
+[ext_resource path="res://Map/ButtonContainer.gd" type="Script" id=7]
 
 [node name="Map" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="GridContainer" type="GridContainer" parent="."]
-margin_right = 1916.0
-margin_bottom = 913.0
-columns = 11
+[node name="Container" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="MapNode" parent="GridContainer" instance=ExtResource( 1 )]
-position = Vector2( 82, 472 )
+[node name="MapNode" parent="Container" instance=ExtResource( 1 )]
+position = Vector2( -1, -1 )
 
-[node name="MapNode2" parent="GridContainer" instance=ExtResource( 1 )]
-position = Vector2( 422, 475 )
+[node name="MapNode2" parent="Container" instance=ExtResource( 1 )]
+position = Vector2( 265, 2 )
 folder = "lvl2"
 
 [node name="MapTheme" parent="." instance=ExtResource( 2 )]
 
-[node name="Start2" parent="." instance=ExtResource( 3 )]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 930.0
-margin_top = 927.0
-margin_right = 1087.0
-margin_bottom = 1015.0
+[node name="ButtonContainer" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
-[node name="GotoMenu" parent="." instance=ExtResource( 4 )]
-margin_left = 1533.0
-margin_top = 943.0
-margin_right = 1874.0
-margin_bottom = 1031.0
+[node name="HBox" type="HBoxContainer" parent="ButtonContainer"]
+margin_right = 1033.0
+margin_bottom = 175.0
+mouse_filter = 2
+alignment = 2
+
+[node name="Fill1" type="ColorRect" parent="ButtonContainer/HBox"]
+margin_bottom = 175.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Start2" parent="ButtonContainer/HBox" instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 4.0
+margin_right = 238.0
+margin_bottom = 175.0
+theme = ExtResource( 6 )
+
+[node name="Fill2" type="ColorRect" parent="ButtonContainer/HBox"]
+margin_left = 242.0
+margin_right = 692.0
+margin_bottom = 175.0
+rect_min_size = Vector2( 450, 0 )
+color = Color( 1, 1, 1, 0 )
+
+[node name="GotoMenu" parent="ButtonContainer/HBox" instance=ExtResource( 4 )]
+margin_left = 696.0
+margin_right = 1037.0
+margin_bottom = 175.0
