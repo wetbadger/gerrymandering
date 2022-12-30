@@ -58,7 +58,6 @@ config/icon="res://icon.png"
 
 Globals="*res://globals.gd"
 Levels="*res://levels.gd"
-MainMenu="res://Menus/MainMenu/MainMenu.gd"
 
 [debug]
 

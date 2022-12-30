@@ -22,16 +22,9 @@ func _ready():
 #	self.matrix = parse_json(file.get_as_text())
 #	file.close()
 #	self.pointers = settings["pointer"]
-	match folder:
-		"lvl1":
-			self.settings = Levels.lvl1
-			self.matrix = Levels.lvl1_mtrx
-		"lvl2":
-			self.settings = Levels.lvl2
-			self.matrix = Levels.lvl2_mtrx
-		_:
-			print("No such level.")
-			return
+
+	self.settings = Levels.settings[folder]
+	self.matrix = Levels.matrices[folder]
 			
 	self.pointers = settings["pointer"]
 

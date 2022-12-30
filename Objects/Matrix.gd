@@ -107,7 +107,36 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 			scene.readjust_state(loaded_matrix["anchor"])
 			return pop
 		"hardcoded":
-			pass
+
+			var _matrix = Levels.matrices[map_name]
+			#var _settings = Levels.settings[map_name]
+			var loaded_matrix = _matrix
+			var pop = 0
+			vertices = loaded_matrix
+			if loaded_matrix == null:
+				return -1
+				
+			for square in loaded_matrix:
+				var index = -1 #TODO: missing asset?
+				
+				if loaded_matrix[square]["type"] == "House":
+					for party in parties: 
+						#speed note:
+						#in practice this dict should not be huge
+						if party == loaded_matrix[square]["allegiance"]:
+							index = parties[party]["asset"]
+					set(index, str2var("Vector2"+square))
+					fog.clear_fog(str2var("Vector2"+square))
+					pop += 1
+					
+				elif loaded_matrix[square]["type"] != "Anchor":
+					fog.clear_fog(str2var("Vector2"+square))
+					
+				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
+				var coord = str2var("Vector2"+square)
+			scene.readjust_state(loaded_matrix["anchor"])
+			return pop
+			
 		_:
 			print(str(algo)+" is not a valid algorithm.")
 		

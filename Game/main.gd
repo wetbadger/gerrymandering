@@ -234,15 +234,15 @@ func create_district_buttons(expected_population):
 		
 	get_node("Ambience").set_volume(usrexp_settings["Audio"]["Sound"])
 	
-	var reference_rect_position = shape.get_node("ReferenceRect").get_global_position()
+	var shape_rect_position = shape.get_global_position()
 	var anchor = Vector2(
 		round(
-			reference_rect_position.x / matrix.GRID_SIZE
+			shape_rect_position.x / matrix.GRID_SIZE
 		),
 		round(
-			reference_rect_position.y / matrix.GRID_SIZE)
+			shape_rect_position.y / matrix.GRID_SIZE)
 		)
-	print(anchor)
+
 	matrix.save_matrix(Globals.current_settings["name"], anchor)
 
 func get_button_names():
@@ -847,3 +847,14 @@ func enable_selected_district():
 	for btn in district_buttons.get_children():
 		if btn.name == selected_district:
 			btn.disabled = false
+
+##################
+#
+# State Shape
+#
+##################
+
+func readjust_state(anchor):
+	var coords = anchor.coords
+	shape.set_global_position(Vector2(coords.x * matrix.GRID_SIZE,
+									 coords.y * matrix.GRID_SIZE))
