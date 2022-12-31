@@ -59,6 +59,8 @@ TODO:
 			Each district cannot be split into two shapes. They must be connected. 
 			fact: 20 states do not require that congressional districts be contiguous.
 
+	
+
 	multiplayer:
 		any number of human or computer players
 		computer can draw a district (see c++)
@@ -83,7 +85,15 @@ TODO:
 			and eventually a completion screen.
 		Develop a teir system for more optimal solutions
 			(bronze silver gold) 
-		Create a map screen
+		[done] Create a map screen
+		Tutorial:
+			Sally the Salamander teaches you how to play.
+			
+		Legislative vs Commitee:
+			Legislative mode: player controls all districts
+				purple shape
+			Commitee mode: Multiplayer or player v computer
+				orange shape
 		
 	make puzzles:
 		10 puzzles
@@ -99,7 +109,7 @@ NOTE: remember to uncomment out the mouseclick event in the main scene
 BUGS:
 	1. [FIXED] User Place mode holding down to erase "claimed land" will make 
 		house disapear without tallying 
-	2. Shape is not always matched to hardcoded levels on different screen sizes
-
+	2. [FIXED] Shape is not always matched to hardcoded levels on different screen sizes
+	3. Hardcoded levels not showing percentages on victory
 
 """

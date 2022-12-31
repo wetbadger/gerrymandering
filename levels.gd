@@ -5,7 +5,7 @@ var settings = {
 	"lvl1" : {
 		
 		"name": "lvl1",
-		"pointer": null,
+		"pointer": ["lvl2"],
 		"parties": {
 			"Player": {
 				"voters": 6,
@@ -74,7 +74,7 @@ var settings = {
 				"debug": false
 			}
 		},
-		"shape": "Rectagonia",
+		"shape": "TutoriaMinor",
 		"colors": {
 			"blue": [
 				0.25,
@@ -240,7 +240,7 @@ var settings = {
 				"debug": false
 			}
 		},
-		"shape": "Rectagonia",
+		"shape": "TutoriaMinor",
 		"colors": {
 			"blue": [
 				0.25,
@@ -323,7 +323,7 @@ var matrices = {
 	"lvl1" : {
 		"anchor" : {
 			"type" : "Anchor",
-			"coords" : "(58, 30)"
+			"coords" : "(71, 29)"
 		},
 		"(58, 30)": {
 			"type": "House",
@@ -419,7 +419,7 @@ var matrices = {
 	"lvl2" : {
 		"anchor" : {
 			"type" : "Anchor",
-			"coords" : "(58, 30)"
+			"coords" : "(64, 30)"
 		},
 		"(57, 30)": {
 			"type": "Gap",

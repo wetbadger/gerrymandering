@@ -6,8 +6,8 @@ onready var next = $Buttons/NewPuzzle
 func _ready():
 	pass
 
-func apply_pointer():
-	next.init()
+func apply_pointer(hardcoded=false):
+	next.init(hardcoded)
 
 func _on_Winner_mouse_entered():
 	pass # Replace with function body.

@@ -101,6 +101,7 @@ func _ready():
 	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
 	
+	
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
 	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
 	
@@ -309,6 +310,7 @@ func load_usrexp_settings():
 				"Orientation" : "sensor"
 			}
 		}
+	
 	return data
 
 func stop_input():

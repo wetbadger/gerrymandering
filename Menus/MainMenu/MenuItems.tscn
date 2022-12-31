@@ -15,7 +15,6 @@ script = ExtResource( 2 )
 margin_right = 344.0
 margin_bottom = 88.0
 theme = null
-disabled = true
 text = "Tutorial"
 
 [node name="Story" parent="." instance=ExtResource( 1 )]
@@ -23,6 +22,7 @@ margin_top = 112.0
 margin_right = 344.0
 margin_bottom = 200.0
 theme = null
+disabled = true
 text = "Story"
 
 [node name="Custom" parent="." instance=ExtResource( 1 )]
@@ -55,6 +55,7 @@ margin_bottom = 648.0
 theme = null
 text = "Settings"
 
+[connection signal="button_up" from="Tutorial" to="." method="_on_Tutorial_button_up"]
 [connection signal="button_up" from="Story" to="." method="_on_Story_button_up"]
 [connection signal="button_up" from="Custom" to="." method="_on_Custom_button_up"]
 [connection signal="button_up" from="Settings" to="." method="_on_Settings_button_up"]

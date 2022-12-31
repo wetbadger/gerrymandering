@@ -110,6 +110,9 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 
 			var _matrix = Levels.matrices[map_name]
 			#var _settings = Levels.settings[map_name]
+			
+			scene.victory_node.apply_pointer(true)
+			
 			var loaded_matrix = _matrix
 			var pop = 0
 			vertices = loaded_matrix
@@ -117,6 +120,7 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 				return -1
 				
 			for square in loaded_matrix:
+				
 				var index = -1 #TODO: missing asset?
 				
 				if loaded_matrix[square]["type"] == "House":
@@ -131,9 +135,15 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					
 				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
-					
-				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
-				var coord = str2var("Vector2"+square)
+				
+				var coord
+				if typeof(loaded_matrix[square]["coords"]) == TYPE_STRING:
+					loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
+					coord = str2var("Vector2"+square)
+				else:
+					loaded_matrix[square]["coords"] = loaded_matrix[square]["coords"]
+					coord = square
+				
 			scene.readjust_state(loaded_matrix["anchor"])
 			return pop
 			

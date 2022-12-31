@@ -44,3 +44,7 @@ func _on_Settings_button_up():
 
 func _on_Story_button_up():
 	main_menu.start_story()
+
+
+func _on_Tutorial_button_up():
+	main_menu.start_tutorial()

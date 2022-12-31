@@ -192,3 +192,21 @@ func word2color(word):
 
 func arr2color(arr):
 	return Color(arr[0],arr[1],arr[2])
+
+
+var user_experience_settings = {
+	"Audio": {
+		"Music": 0.7,
+		"Sound": 0.7
+	},
+	"Video": {
+		"Orientation": [
+			"sensor",
+			"portrait",
+			"landscape"
+		],
+		"Resolution": [
+			"1920x1080"
+		]
+	}
+}

@@ -20,7 +20,9 @@ var default_settings = {
 #the orientations settings should only show up on mobile devices
 
 onready var main_theme = get_node("MainTheme")
-var start_story = false
+var start_story = load("res://Story/Story.tscn")
+var start_tutorial = load("res://Story/Tutorial.tscn")
+onready var scene = get_tree().get_current_scene()
 
 func _ready():
 	if not OS.request_permissions():
@@ -45,6 +47,8 @@ func _ready():
 		
 	if main_theme:
 		main_theme.set_volume(settings["Audio"]["Music"])
+		Globals.user_experience_settings["Audio"]["Music"] = settings["Audio"]["Music"]
+		
 
 		
 	
@@ -52,6 +56,7 @@ func _ready():
 func change_value(widget):
 	if widget.label == "Music":
 		main_theme.set_volume(widget.get_value())
+		
 	
 
 func _process(_delta):
@@ -70,13 +75,18 @@ func _process(_delta):
 		
 	last_size = size
 	
-	if start_story:
-		music.volume_db -= 1
-		if music.volume_db <= -50:
-			var error = get_tree().change_scene("res://Story/Story.tscn")
-			if error:
-				print("Could not load story scene")
+	#This code could fade the music with a scene change
+#	if start_story:
+#		music.volume_db -= 1
+#		if music.volume_db <= -50:
+#			var error = get_tree().change_scene("res://Story/Story.tscn")
+#			if error:
+#				print("Could not load story scene")
 
 func start_story():
-	start_story = true
+	var ss = start_story.instance()
+	scene.add_child(ss)
 	
+func start_tutorial():
+	var st = start_tutorial.instance()
+	scene.add_child(st)

@@ -16,10 +16,12 @@ func _ready():
 	connect("orientation_changed", self, "_on_orientation_changed")
 
 	if last_size.x < last_size.y:
-		container.rotate(deg2rad(90))
+		container.rotate(deg2rad(-90))
 		flip_portrait()
 	else:
 		flip_landscape()
+		
+	get_node("MapTheme").set_volume(Globals.user_experience_settings["Audio"]["Music"])
 
 func _process(_delta):
 	var size = get_viewport().size
