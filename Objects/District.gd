@@ -670,3 +670,9 @@ func has_neighbors(house, exclude=[]):
 func to_string():
 	print(squares)
 	print(len(squares))
+	
+func check_contiguity():
+	pass #call contiguity function
+	
+func update_district():
+	pass #send the new shape to cpp memory?
