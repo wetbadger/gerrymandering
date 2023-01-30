@@ -97,6 +97,8 @@ var _multiplayer = false
 
 var enable_next_if_winner_is = "You"
 
+var firework_object = load("res://Effects/Firework.tscn")
+
 func _ready():
 
 	set_process_unhandled_input (true)
@@ -786,6 +788,7 @@ func submit():
 
 	var winner = get_winner(results)
 	print(winner)
+		
 	var color = Color(0,0,0)
 	if not winner.keys()[0]:
 		winner_label.set_text("TIE!?")
@@ -803,7 +806,26 @@ func submit():
 	
 	if winner.keys()[0] == enable_next_if_winner_is:
 		victory_node.next.disabled = false
+		
 	
+	for square in matrix.vertices:
+		if matrix.vertices[square].has("allegiance") and matrix.vertices[square]["allegiance"] == winner.keys()[0]:
+			shoot_firework(matrix.vertices[square]["coords"])
+
+func shoot_firework(coords):
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var t = Timer.new()
+	t.set_wait_time(rng.randf()*4)
+	t.set_one_shot(true)
+	self.add_child(t)
+	t.start()
+	yield(t, "timeout")
+	var firework = firework_object.instance()
+	firework.set_global_position(coords * matrix.GRID_SIZE)
+	add_child(firework)
+	t.queue_free()
+
 func end_turn_enable():
 	submit_button.disabled = false
 	

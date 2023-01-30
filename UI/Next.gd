@@ -2,7 +2,7 @@ extends Button
 
 
 onready var scene = get_tree().get_current_scene()
-onready var music = scene.get_node("MapTheme")
+#onready var music = scene.get_node("MapTheme")
 var settings
 var pointer
 var hardcoded = false #is the level hardcoded or in a file?
