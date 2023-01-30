@@ -1,7 +1,0 @@
-[gd_resource type="Theme" format=2]
-
-[resource]
-VScrollBar/styles/grabber = null
-VScrollBar/styles/grabber_highlight = null
-VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = null
