@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/States/virginia.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Classes/StateShape.gd" type="Script" id=2]
+
+[node name="Whirginia" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 7, 7 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.27995, 0.27995 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -267.513, -167.048 )
+scale = Vector2( 0.286641, 0.286641 )
+polygon = PoolVector2Array( 1034.44, 415.321, 1058.86, 418.81, 1079.79, 450.208, 1090.26, 429.276, 1111.19, 443.23, 1107.7, 460.674, 1139.1, 478.117, 1153.06, 492.072, 1146.08, 509.515, 1128.63, 526.959, 1128.63, 544.402, 1149.57, 537.425, 1163.52, 561.846, 1191.43, 565.334, 1208.87, 586.266, 1313.53, 582.778, 1254.23, 680.461, 1240.27, 663.017, 1264.69, 603.71, 1219.34, 603.71, 1222.83, 656.04, 1214.13, 666.208, 1229.81, 683.95, 1208.87, 697.904, 1177.48, 669.995, 1205.39, 704.882, 1247.25, 704.882, 1264.69, 736.28, 999.553, 746.746, 751.857, 739.769, 556.49, 725.814, 718.916, 620.296, 744.88, 669.995, 856.517, 645.574, 929.78, 509.515, 943.735, 540.914, 982.11, 481.606, 996.065, 492.072, 1027.46, 453.696 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = -760.0
+margin_top = -373.0
+margin_right = 772.0
+margin_bottom = 332.0
+mouse_filter = 2

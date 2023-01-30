@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ambience.wav-c5de02ad0799f45afd2f722260c402cf.sample"
+
+[deps]
+
+source_file="res://audio/sfx/ambience.wav"
+dest_files=[ "res://.import/ambience.wav-c5de02ad0799f45afd2f722260c402cf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=1

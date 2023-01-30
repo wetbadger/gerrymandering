@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/splash.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/Nevermind.gd" type="Script" id=3]
+
+[node name="Nevermind" type="Button"]
+margin_right = 485.0
+margin_bottom = 141.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BLabel" parent="." instance=ExtResource( 2 )]
+margin_right = 10.0
+margin_bottom = -2.0
+text = "No Thanks, I Don't 
+Want Cookies"
+
+[connection signal="button_up" from="." to="." method="_on_Nevermind_button_up"]

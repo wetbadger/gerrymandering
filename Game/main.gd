@@ -14,7 +14,7 @@ var grid_point
 #
 
 var selected_district
-var _district = load("Objects/District.tscn")
+var district_object
 var districts = []
 var district_button_names
 var draw_size = 33
@@ -95,13 +95,16 @@ var players = []
 var current_player = 0
 var _multiplayer = false
 
+var enable_next_if_winner_is = "You"
+
 func _ready():
+
 	set_process_unhandled_input (true)
 	settings = load_settings()
 	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
 	
-	
+	contiguous = settings["advanced"]["District Rules"]["contiguous"]
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
 	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
 	
@@ -110,6 +113,8 @@ func _ready():
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
 	reference_rect = shape.get_node("ReferenceRect")
+	
+	district_object = load("res://Objects/District.tscn")
 	
 	#if true:#settings["advanced"]["District Rules"]["fog"]:
 		
@@ -206,7 +211,9 @@ func create_district_buttons(expected_population):
 			camera.set_zoom(Vector2(0.5,0.5))
 	
 	for p in parties:
-		popular_vote.add_party(p, parties[p]["voters"], stepify(parties[p]["voters"]/population, 0.001)*100)
+		var voters = parties[p]["voters"]*1.0
+		var ratio = voters/population
+		popular_vote.add_party(p, parties[p]["voters"], stepify(ratio, 0.001)*100)
 	
 	n_districts = settings["districts"].size()
 	
@@ -473,10 +480,13 @@ func _process(_delta):
 		can_recheck = true
 		
 	if not _multiplayer and is_instance_valid(submit_button) and draw_mode != DRAW_MODES.PLACE:
-		if filled_squares >= population and contiguous: #because sometimes the computer can't count :)
+		if filled_squares >= population: #because sometimes the computer can't count :)
 			for d in districts:
 				if d.house_count < d.min_size:
 					submit_button.set_reason("District "+d.name+" is too small!")
+					return
+				if contiguous and not d.contiguous:
+					submit_button.set_reason("District "+d.name+" is not contiguous!")
 					return
 			
 			submit_button.disabled = false
@@ -544,7 +554,7 @@ func get_district_selected(exclude=null, temp=null):
 
 	if not has_node(selected_district):
 		
-		var district = _district.instance()
+		var district = district_object.instance()
 		district.starting_vertex = grid_point
 		
 		if selected_district == "Flood":
@@ -790,6 +800,9 @@ func submit():
 
 	recieve_input = false
 	submit_button.visible = false
+	
+	if winner.keys()[0] == enable_next_if_winner_is:
+		victory_node.next.disabled = false
 	
 func end_turn_enable():
 	submit_button.disabled = false

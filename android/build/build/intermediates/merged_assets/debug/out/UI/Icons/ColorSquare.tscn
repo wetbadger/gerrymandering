@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Icons/ColorSquare.gd" type="Script" id=1]
+
+[node name="ColorSquare" type="ColorRect"]
+margin_right = 300.0
+margin_bottom = 300.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_ColorSquare_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_ColorSquare_mouse_exited"]

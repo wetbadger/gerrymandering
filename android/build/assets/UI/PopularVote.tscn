@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://themes/splash_sm.tres" type="Theme" id=1]
+[ext_resource path="res://UI/PopularVote.gd" type="Script" id=2]
+[ext_resource path="res://themes/popularvote.tres" type="Theme" id=3]
+[ext_resource path="res://UI/Widgets/BScroll.tscn" type="PackedScene" id=4]
+
+[node name="Totals" type="Control"]
+theme = ExtResource( 3 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 800.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 800, 0 )
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 800.0
+margin_bottom = 55.0
+theme = ExtResource( 1 )
+text = "Popular Vote"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+margin_top = 59.0
+margin_right = 800.0
+margin_bottom = 444.0
+mouse_filter = 2
+
+[node name="Scroll" parent="VBoxContainer/CenterContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 100.0
+margin_right = 700.0
+margin_bottom = 385.0
+rect_min_size = Vector2( 600, 385 )
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/CenterContainer/Scroll"]
+margin_right = 600.0
+rect_min_size = Vector2( 600, 0 )
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/CenterContainer/Scroll/CenterContainer"]
+margin_left = 300.0
+margin_right = 300.0
+theme = ExtResource( 3 )
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

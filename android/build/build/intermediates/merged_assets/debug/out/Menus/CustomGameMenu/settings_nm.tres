@@ -1,0 +1,60 @@
+[gd_resource type="Theme" load_steps=11 format=2]
+
+[ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://pics/ui/coin.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.921569, 0.835294, 0.266667, 1 )
+expand_margin_top = 7.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.921569, 0.835294, 0.266667, 1 )
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0.235294, 0.235294, 0.235294, 1 )
+border_width_top = 1
+border_width_bottom = 1
+expand_margin_top = 8.0
+expand_margin_bottom = 8.0
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+border_width_left = 9
+border_width_top = 9
+border_width_right = 9
+border_width_bottom = 9
+border_color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+
+[resource]
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_disabled = null
+HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 6 )
+HSlider/styles/grabber_area_highlight = SubResource( 7 )
+HSlider/styles/slider = SubResource( 8 )
+TabContainer/fonts/font = SubResource( 1 )
+TabContainer/styles/panel = SubResource( 2 )
+TabContainer/styles/tab_bg = SubResource( 3 )
+TabContainer/styles/tab_disabled = SubResource( 4 )
+TabContainer/styles/tab_fg = SubResource( 5 )

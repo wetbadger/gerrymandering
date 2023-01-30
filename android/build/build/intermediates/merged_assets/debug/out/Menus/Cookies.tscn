@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Menus/Cookies.gd" type="Script" id=2]
+[ext_resource path="res://UI/Ok.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/Nevermind.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=6]
+
+[node name="Cookies" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Window" parent="." instance=ExtResource( 1 )]
+position = Vector2( 575, 207 )
+
+[node name="Ok" parent="." instance=ExtResource( 4 )]
+margin_left = 736.0
+margin_top = 784.0
+margin_right = 837.0
+margin_bottom = 872.0
+
+[node name="Nevermind" parent="." instance=ExtResource( 5 )]
+margin_left = 888.0
+margin_top = 752.0
+margin_right = 1373.0
+margin_bottom = 893.0
+
+[node name="BLabel" parent="." instance=ExtResource( 6 )]
+margin_left = 624.0
+margin_top = 288.0
+margin_right = -576.0
+margin_bottom = -653.0
+text = "Enable \"accept third party
+cookies\" in your browser"

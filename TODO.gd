@@ -7,10 +7,13 @@ TODO:
 	[done] load saved settings
 	
 	CPP module for:
-		runtime contiguity detection
+		[done] runtime contiguity detection
 		when click is draged from district but not connected, draw a connecting line
 		autofill
 		computer drawn district for multiplayer
+			easy: randomly picks squares and checks if valid.
+			hard: uses a strategy (rip from codewars)
+			very hard: uses a strategy and predicts player move
 	
 	
 	house algorithm

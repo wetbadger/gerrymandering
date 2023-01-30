@@ -4,15 +4,33 @@ var color_val
 var can_right_click = false #right click to remove the district
 var camera
 
+var puzzle_texture = preload("res://pics/puzzle2.png")
+
 onready var scene = get_tree().get_current_scene()
 
 var mouse_in
 
 var turn_ended = false
 
+var contiguous = true
+
 func _ready():
 	camera = scene.get_node("State/Camera2D")
 	set_focus_mode(1)
+	set_process(false)
+
+func _process(delta):
+	if not contiguous:
+		icon = puzzle_texture
+
+	else:
+		icon = null
+
+func break_animation():
+	icon = puzzle_texture
+	
+func close_animation():
+	icon = null
 
 
 func _on_Button_button_up():

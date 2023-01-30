@@ -7,8 +7,7 @@ var settings
 var pointer
 var hardcoded = false #is the level hardcoded or in a file?
 var button_up = false
-var next_map
-var next_settings 
+var next_maps
 
 func _ready():
 	set_process(false)
@@ -22,9 +21,9 @@ func init(_hardcoded=false):
 		return
 	if len(pointer) == 1:
 		if hardcoded:
-			next_map = Levels.matrices[settings["pointer"][0]]
-			next_settings = Levels.settings[settings["pointer"][0]]
-			scene.map_name = pointer[0]
+			#unlock these maps
+			next_maps = settings["pointer"]
+
 		else:
 			print("TODO: non-hardcoded pointers")
 	#TODO: multiple pointers
@@ -39,7 +38,12 @@ func _on_NewPuzzle_button_up():
 func _process(_delta):
 	
 	if button_up:
-
-		var error = get_tree().change_scene("res://Game/main.tscn")
-		if error:
-			print("Could not load main scene")
+		if text == "End Game":
+			var error = get_tree().change_scene("res://Menus/MainMenu/MainMenu.tscn")
+			if error:
+				print("Could not load main menu")
+		else:
+			#TODO: get map scene from level
+			var error = get_tree().change_scene("res://Map/TutorialMap.tscn")
+			if error:
+				print("Could not load map scene")

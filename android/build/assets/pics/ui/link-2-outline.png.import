@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/link-2-outline.png-2435b288b0d05b9b7ab8f172633a4edb.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://pics/ui/link-2-outline.png"
+dest_files=[ "res://.import/link-2-outline.png-2435b288b0d05b9b7ab8f172633a4edb.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

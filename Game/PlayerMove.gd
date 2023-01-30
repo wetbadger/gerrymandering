@@ -5,14 +5,14 @@ onready var label = $BLabel
 var sprite_index = 0
 var tiles = preload("res://Objects/Tiles/SpriteTiles2.tres")
 
-func set_sprite(sprite):
+func set_sprite(_sprite):
 	var index
-	if typeof(sprite) == TYPE_INT or typeof(sprite) == TYPE_REAL:
+	if typeof(_sprite) == TYPE_INT or typeof(_sprite) == TYPE_REAL:
 		#don't know why sprite is sometimes set to a REAL ...
-		index = Globals.default_settings["assets"].values()[sprite]
-		sprite_index = int(sprite)
+		index = Globals.default_settings["assets"].values()[_sprite]
+		sprite_index = int(_sprite)
 	else: #probably a string
-		index = Globals.default_settings["assets"][sprite]
+		index = Globals.default_settings["assets"][_sprite]
 		sprite_index = index
 	var texture = tiles.tile_get_texture(index)
 	var region_rect = tiles.tile_get_region(sprite_index)

@@ -7,7 +7,7 @@ var settings = {
 		"name": "lvl1",
 		"pointer": ["lvl2"],
 		"parties": {
-			"Player": {
+			"You": {
 				"voters": 6,
 				"asset": 0,
 				"color": "red"
@@ -24,7 +24,7 @@ var settings = {
 				"min": 5,
 				"color": "blue",
 				"party": [
-					"Player",
+					"You",
 					"Opponent"
 				]
 			},
@@ -34,7 +34,7 @@ var settings = {
 				"color": "red",
 				"party": [
 					"Opponent",
-					"Player"
+					"You"
 				]
 			},
 			"C": {
@@ -42,7 +42,7 @@ var settings = {
 				"min": 5,
 				"color": "orange",
 				"party": [
-					"Player",
+					"You",
 					"Opponent"
 				]
 			}
@@ -156,7 +156,7 @@ var settings = {
 		"name": "lvl2",
 		"pointer": null,
 		"parties": {
-			"Player": {
+			"You": {
 				"voters": 9,
 				"asset": 0,
 				"color": "red"
@@ -173,7 +173,7 @@ var settings = {
 				"min": 5,
 				"color": "blue",
 				"party": [
-					"Player",
+					"You",
 					"Opponent"
 				]
 			},
@@ -183,7 +183,7 @@ var settings = {
 				"color": "red",
 				"party": [
 					"Opponent",
-					"Player"
+					"You"
 				]
 			},
 			"C": {
@@ -191,7 +191,7 @@ var settings = {
 				"min": 5,
 				"color": "orange",
 				"party": [
-					"Player",
+					"You",
 					"Opponent"
 				]
 			},
@@ -201,7 +201,7 @@ var settings = {
 				"color": "purple",
 				"party": [
 					"Opponent",
-					"Player"
+					"You"
 				]
 			},
 			"E": {
@@ -209,7 +209,7 @@ var settings = {
 				"min": 5,
 				"color": "yellow",
 				"party": [
-					"Player",
+					"You",
 					"Opponent"
 				]
 			}
@@ -335,7 +335,7 @@ var matrices = {
 			"type": "House",
 			"coords": "(58, 29)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(57, 30)": {
 			"type": "House",
@@ -347,19 +347,19 @@ var matrices = {
 			"type": "House",
 			"coords": "(59, 30)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(58, 31)": {
 			"type": "House",
 			"coords": "(58, 31)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(57, 31)": {
 			"type": "House",
 			"coords": "(57, 31)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(57, 32)": {
 			"type": "House",
@@ -377,13 +377,13 @@ var matrices = {
 			"type": "House",
 			"coords": "(59, 32)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(60, 32)": {
 			"type": "House",
 			"coords": "(60, 32)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(59, 31)": {
 			"type": "House",
@@ -436,7 +436,7 @@ var matrices = {
 			"type": "House",
 			"coords": "(58, 31)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(57, 31)": {
 			"type": "House",
@@ -544,7 +544,7 @@ var matrices = {
 			"type": "House",
 			"coords": "(57, 28)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(58, 28)": {
 			"type": "House",
@@ -605,7 +605,7 @@ var matrices = {
 			"type": "House",
 			"coords": "(57, 33)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(56, 33)": {
 			"type": "Gap",
@@ -621,7 +621,7 @@ var matrices = {
 			"type": "House",
 			"coords": "(54, 33)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(54, 32)": {
 			"type": "House",
@@ -671,13 +671,13 @@ var matrices = {
 			"type": "House",
 			"coords": "(57, 27)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(58, 27)": {
 			"type": "House",
 			"coords": "(58, 27)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(59, 27)": {
 			"type": "Gap",
@@ -693,19 +693,19 @@ var matrices = {
 			"type": "House",
 			"coords": "(61, 27)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(61, 28)": {
 			"type": "House",
 			"coords": "(61, 28)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(61, 29)": {
 			"type": "House",
 			"coords": "(61, 29)",
 			"visited": false,
-			"allegiance": "Player"
+			"allegiance": "You"
 		},
 		"(61, 33)": {
 			"type": "Gap",
