@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Effects/Explosion.gd" type="Script" id=1]
 [ext_resource path="res://Effects/ParticleExplosion2.gd" type="Script" id=2]
 [ext_resource path="res://Effects/Smoke.gd" type="Script" id=3]
-[ext_resource path="res://audio/sfx/DeepExplosion.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/fireworks/pop.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/fireworks/smack.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfx/fireworks/crack.wav" type="AudioStream" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -55,10 +57,12 @@ scale = 3.0
 color_ramp = SubResource( 7 )
 
 [node name="Node2D" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
 script = ExtResource( 2 )
 
 [node name="Explosion" type="Particles2D" parent="."]
 material = SubResource( 1 )
+emitting = false
 amount = 160
 lifetime = 50.0
 speed_scale = 5.0
@@ -70,6 +74,7 @@ script = ExtResource( 1 )
 
 [node name="Smoke" type="Particles2D" parent="."]
 material = SubResource( 5 )
+emitting = false
 amount = 160
 lifetime = 50.0
 speed_scale = 5.0
@@ -77,6 +82,11 @@ explosiveness = 0.9
 process_material = SubResource( 8 )
 script = ExtResource( 3 )
 
-[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+[node name="Sound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
-volume_db = 24.0
+
+[node name="Sound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )

@@ -1,17 +1,35 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 var t = null
 var rng = RandomNumberGenerator.new()
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	rng.randomize()
-	$Sound.play()
 
-	var rand = rng.randi()%6
+onready var scene = get_tree().get_current_scene()
+
+func _ready():
+	$Explosion.emitting = false
+	$Smoke.emitting = false
+	$Explosion.one_shot = true
+	$Smoke.one_shot = true
+	var rand
+	rng.randomize()
+	rand = rng.randi()%3
+
+
+	match rand:
+		0:
+			$Sound1.play()
+		1:
+			$Sound2.play()
+		2:
+			$Sound3.play()
+
+
+	$Explosion.emitting = true
+	$Smoke.emitting = true
+
+
+
+	rand = rng.randi()%7
 	var explosion = get_node("Explosion")
 	match rand:
 		0:
@@ -28,8 +46,6 @@ func _ready():
 			explosion.modulate = Color(1, 0, 1)
 		_:
 			explosion.modulate = Color(1, 1, 1)
-	
-#	set_process(true) # Replace with function body.
 
 	t = Timer.new()
 	t.set_wait_time(5)
@@ -38,19 +54,8 @@ func _ready():
 	t.start()
 	yield(t, "timeout")
 	t.queue_free()
+	
+	
+	
+	
 	queue_free()
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	var speed_x = 0
-#	var speed_y = 1
-#	var motion = Vector2(speed_x, speed_y) * 100
-#	set_position(get_position() + motion * delta)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

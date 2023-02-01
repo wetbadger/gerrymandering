@@ -17,8 +17,8 @@ TODO:
 	
 	
 	house algorithm
-		fill
-		spiral
+		[done] fill
+		[done] spiral
 		circle
 	house dstribution
 		random (fix)
@@ -27,7 +27,6 @@ TODO:
 		[done] houses placed by user
 		
 	[done] Fog of War
-	User-Created Shapes
 	
 	[done] touch screen hold-to-delete function
 	[done] touchscreen drag and zoom (deselect district button)
@@ -39,7 +38,7 @@ TODO:
 		sfx
 		orientation
 	
-	fireworks: one for each house that won only in viewport
+	[done] fireworks: one for each house that won only in viewport
 	ability to explore / screenshot after victory screen
 	menu to quit to main menu in game
 	adjust screen layout for devices

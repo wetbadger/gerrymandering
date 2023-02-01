@@ -24,7 +24,8 @@ func toggle_buttons(button_container):
 				last_button = btn
 				break
 	else:
-		
+		if last_button == null:
+			last_button = house_buttons.get_children()[0]
 		last_button.pressed = true
 		scene.disable_draw = false
 	

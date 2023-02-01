@@ -99,6 +99,9 @@ var enable_next_if_winner_is = "You"
 
 var firework_object = load("res://Effects/Firework.tscn")
 
+var FIREWORK_LIMIT =25
+var firework_limit = 25
+
 func _ready():
 
 	set_process_unhandled_input (true)
@@ -807,24 +810,39 @@ func submit():
 	if winner.keys()[0] == enable_next_if_winner_is:
 		victory_node.next.disabled = false
 		
-	
-	for square in matrix.vertices:
+	var grid_list = matrix.vertices.keys()
+	grid_list = shuffleList(grid_list)
+	for square in grid_list:
 		if matrix.vertices[square].has("allegiance") and matrix.vertices[square]["allegiance"] == winner.keys()[0]:
 			shoot_firework(matrix.vertices[square]["coords"])
+			if firework_limit <= 0:
+				break
+
+func shuffleList(list):
+	var shuffledList = [] 
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		var x = randi()%indexList.size()
+		shuffledList.append(list[indexList[x]])
+		indexList.remove(x)
+	return shuffledList
 
 func shoot_firework(coords):
-	var rng = RandomNumberGenerator.new()
-	rng.randomize()
-	var t = Timer.new()
-	t.set_wait_time(rng.randf()*4)
-	t.set_one_shot(true)
-	self.add_child(t)
-	t.start()
-	yield(t, "timeout")
-	var firework = firework_object.instance()
-	firework.set_global_position(coords * matrix.GRID_SIZE)
-	add_child(firework)
-	t.queue_free()
+	coords.y = coords.y - 0.5
+	if firework_limit > 0:
+		firework_limit-=1
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var t = Timer.new()
+		t.set_wait_time(rng.randf()*4)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		var firework = firework_object.instance()
+		firework.set_global_position(coords * matrix.GRID_SIZE)
+		add_child(firework)
+		t.queue_free()
 
 func end_turn_enable():
 	submit_button.disabled = false

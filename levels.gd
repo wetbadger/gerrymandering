@@ -157,12 +157,12 @@ var settings = {
 		"pointer": null,
 		"parties": {
 			"You": {
-				"voters": 9,
+				"voters": 10,
 				"asset": 0,
 				"color": "red"
 			},
 			"Opponent": {
-				"voters": 17,
+				"voters": 18,
 				"asset": 1,
 				"color": "blue"
 			}
@@ -422,9 +422,10 @@ var matrices = {
 			"coords" : "(64, 30)"
 		},
 		"(57, 30)": {
-			"type": "Gap",
+			"type": "House",
 			"coords": "(57, 30)",
-			"visited": false
+			"visited": false,
+			"allegiance": "Opponent"
 		},
 		"(58, 30)": {
 			"type": "House",
@@ -445,9 +446,10 @@ var matrices = {
 			"allegiance": "Opponent"
 		},
 		"(56, 31)": {
-			"type": "Gap",
+			"type": "House",
 			"coords": "(56, 31)",
-			"visited": false
+			"visited": false,
+			"allegiance": "You"
 		},
 		"(56, 30)": {
 			"type": "House",
