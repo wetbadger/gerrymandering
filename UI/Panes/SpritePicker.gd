@@ -2,7 +2,7 @@ extends Node2D
 
 onready var assets = get_node("/root/Globals").default_settings["assets"]
 #onready var tilemap = get_node("SpriteTiles2")
-var tilemap = load("res://Objects/Tiles/SpriteTiles2.tscn")
+var tilemap = load("res://Objects/Tiles/SpriteTiles3.tscn")
 var bSpriteSelectorButton = load("res://UI/Widgets/BSpriteSelectorButton.tscn")
 
 var button

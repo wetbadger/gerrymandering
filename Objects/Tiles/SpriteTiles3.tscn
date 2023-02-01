@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Objects/Tiles/SpriteTiles2.tres" type="TileSet" id=1]
+[ext_resource path="res://Objects/Tiles/SpriteTiles3.tres" type="TileSet" id=1]
 
 [node name="SpriteTiles3" type="TileMap"]
 tile_set = ExtResource( 1 )

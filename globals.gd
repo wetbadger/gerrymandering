@@ -82,14 +82,11 @@ const default_settings = {
 		"assets" : {
 			"Red House" : 0,
 			"Blue House" : 1,
-			"White House" : 2,
+			"Orange House" : 2,
 			"Purple House" : 3,
-			"Green House" : 4,
-			"Yellow House" : 5,
-			"Adobe House" : 6,
-			"Tent" : 7,
-			"Happy Blue": 8,
-			"Happy Red": 9
+			"Yellow House" : 4,
+			"Green House" : 5,
+			"Weird House" : 6
 		}
 }
 var house_placement_layout = 0

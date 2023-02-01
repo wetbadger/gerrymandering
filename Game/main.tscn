@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Objects/Tiles/Fog.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Objects/Tiles/Fog.gd" type="Script" id=25]
 [ext_resource path="res://Game/PlayerMove.gd" type="Script" id=26]
+[ext_resource path="res://Objects/Tiles/SpriteTiles3.tres" type="TileSet" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -241,9 +242,10 @@ scale = Vector2( 0.999, 0.999 )
 position = Vector2( -2, -3 )
 scale = Vector2( 0.333, 0.333 )
 
-[node name="SpriteTiles2" parent="State" instance=ExtResource( 21 )]
+[node name="SpriteTiles3" parent="State" instance=ExtResource( 21 )]
 position = Vector2( -4, -3 )
 scale = Vector2( 0.333, 0.333 )
+tile_set = ExtResource( 27 )
 
 [node name="UITiles" parent="State" instance=ExtResource( 20 )]
 scale = Vector2( 0.999, 0.999 )

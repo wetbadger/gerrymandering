@@ -1,7 +1,7 @@
 extends Button
 
 
-onready var tilemap = get_node("Container/SpriteTiles2")
+onready var tilemap = get_node("Container/SpriteTiles3")
 var corresponding_button
 var window
 var tile_num

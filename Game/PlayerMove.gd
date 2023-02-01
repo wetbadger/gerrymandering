@@ -3,7 +3,7 @@ extends Control
 onready var sprite = $Sprite
 onready var label = $BLabel
 var sprite_index = 0
-var tiles = preload("res://Objects/Tiles/SpriteTiles2.tres")
+var tiles = preload("res://Objects/Tiles/SpriteTiles3.tres")
 
 func set_sprite(_sprite):
 	var index

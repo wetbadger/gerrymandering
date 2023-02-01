@@ -8,7 +8,7 @@ var size
 var house_count = 0
 var _house = load("Objects/House.tscn")
 onready var scene = get_tree().get_current_scene()
-onready var sprite_tiles = scene.get_node("State/SpriteTiles2")
+onready var sprite_tiles = scene.get_node("State/SpriteTiles3")
 onready var fog = scene.get_node("State/Fog2/Fog")
 onready var ui_tiles = scene.get_node("State/UITiles")
 #onready var ui_tiles = load("res://Objects/States/Tescos.tscn").instance()

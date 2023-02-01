@@ -15,7 +15,7 @@ onready var BSlider = load("res://UI/Widgets/BSlider.tscn")
 
 onready var BAddAndSubtractButtons = load("res://UI/Widgets/BAddAndSubtractButtons.tscn")
 
-onready var tilemap = load("res://Objects/Tiles/SpriteTiles2.tscn").instance()
+onready var tilemap = load("res://Objects/Tiles/SpriteTiles3.tscn").instance()
 var groups = [] # array of [type, contents, node_instance]
 var is_read_only = false
 var isAddable = true
