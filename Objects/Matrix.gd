@@ -14,6 +14,8 @@ onready var ui_tiles = scene.get_node("State/UITiles")
 #onready var ui_tiles = load("res://Objects/States/Tescos.tscn").instance()
 onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
+onready var voter_indicator = load("res://Effects/VotersIndicator.tscn")
+var v_indicator #instance of voter indicator (only need 1 for mouseover)
 enum {RIGHT, DOWN, LEFT, UP}
 var point
 
@@ -46,6 +48,23 @@ func _ready():
 	
 	fog.fill(size.x, size.y)
 	
+	v_indicator = voter_indicator.instance()
+	add_child(v_indicator)
+	v_indicator.z_index = 99
+
+func _process(delta):
+	var mouse_pos = get_global_mouse_position()
+	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
+	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
+	var grid_pos_str = str(grid_pos)
+	if vertices.has(grid_pos_str):
+		if vertices[grid_pos_str]["type"] == "House":
+			if vertices[grid_pos_str].has("voters"):
+				v_indicator.set_num(vertices[grid_pos_str]["voters"])
+			else:
+				v_indicator.set_num(1)
+			v_indicator.set_global_position(grid_pos * GRID_SIZE)
+
 func save_matrix(map_name, anchor=null):
 	if anchor != null:
 		vertices["anchor"] = {"type": "Anchor", "coords" : anchor}

@@ -447,6 +447,8 @@ func place_house(event):
 
 				selected_house.decrement_voters()
 				houses_unplaced-=1
+			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance == selected_house.party_name:
+				print("TODO: add another voter")
 				
 			
 		if houses_unplaced <= 0:
@@ -810,6 +812,7 @@ func submit():
 	if winner.keys()[0] == enable_next_if_winner_is:
 		victory_node.next.disabled = false
 		
+	#shoot off up to LIMIT fireworks
 	var grid_list = matrix.vertices.keys()
 	grid_list = shuffleList(grid_list)
 	for square in grid_list:
