@@ -23,11 +23,13 @@ func toggle_buttons(button_container):
 			if btn.pressed == true:
 				last_button = btn
 				break
+		scene.matrix.voter_indicators.visible = true
 	else:
 		if last_button == null:
 			last_button = house_buttons.get_children()[0]
 		last_button.pressed = true
 		scene.disable_draw = false
+		scene.matrix.voter_indicators.visible = false
 	
 	deselect = !deselect
 	scene.deselect_is_on = deselect

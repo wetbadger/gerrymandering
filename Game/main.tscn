@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -27,6 +27,8 @@
 [ext_resource path="res://Objects/Tiles/Fog.gd" type="Script" id=25]
 [ext_resource path="res://Game/PlayerMove.gd" type="Script" id=26]
 [ext_resource path="res://Objects/Tiles/SpriteTiles3.tres" type="TileSet" id=27]
+[ext_resource path="res://pics/sprites/red_house_hd.png" type="Texture" id=28]
+[ext_resource path="res://UI/VoterIndicatorUI.tscn" type="PackedScene" id=29]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -185,10 +187,17 @@ visible = false
 [node name="ErrorScreen" parent="UI" instance=ExtResource( 12 )]
 visible = false
 
+[node name="HouseIcon" type="Sprite" parent="UI"]
+position = Vector2( 26, 26 )
+scale = Vector2( 2.11111, 2.11111 )
+texture = ExtResource( 28 )
+
+[node name="VoterIndicatorUI" parent="UI" instance=ExtResource( 29 )]
+
 [node name="Progress" parent="UI" instance=ExtResource( 14 )]
-margin_left = 12.0
+margin_left = 57.0
 margin_top = 12.0
-margin_right = -1698.0
+margin_right = -1645.0
 margin_bottom = -1038.0
 custom_fonts/font = SubResource( 2 )
 text = "..."
@@ -237,6 +246,9 @@ __meta__ = {
 
 [node name="Matrix" parent="State" instance=ExtResource( 6 )]
 scale = Vector2( 0.999, 0.999 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="SpriteTiles" parent="State" instance=ExtResource( 11 )]
 position = Vector2( -2, -3 )
@@ -250,9 +262,15 @@ tile_set = ExtResource( 27 )
 [node name="UITiles" parent="State" instance=ExtResource( 20 )]
 scale = Vector2( 0.999, 0.999 )
 tile_data = PoolIntArray(  )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Fog2" type="Node2D" parent="State"]
 scale = Vector2( 0.999, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Fog" parent="State/Fog2" instance=ExtResource( 24 )]
 modulate = Color( 0, 0, 0, 0.4 )

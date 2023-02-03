@@ -156,8 +156,7 @@ func highlight(grid_point, exclude=null, force=false):
 				return
 		if not m_vert_house_id.has("district"):
 			#if settings["advanced"]["District Rules"]["contiguous"]:
-			contiguityChecker.addPoint(grid_point)
-			check_contiguity(grid_point)
+			
 			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"] and force != true:
 				if house_count != 0:
 					var neighbors = get_neighbors(m_vert_house_id)
@@ -225,13 +224,23 @@ func highlight(grid_point, exclude=null, force=false):
 			else:
 				tm = get_node("TileMap")
 
-			
 			if m_vert_house_id["type"] == "House":
-				house_count += 1
-				party_tallies[m_vert_house_id["allegiance"]] += 1
+				if m_vert_house_id.has("voters"):
+					if house_count + int(m_vert_house_id["voters"]) > max_size:
+						m_vert_house_id.erase("district")
+						return
+					else:
+						print(str(house_count) + "+" + str(m_vert_house_id["voters"]) + " is less than or equal to "+str(max_size))
+						house_count += int(m_vert_house_id["voters"])
+						party_tallies[m_vert_house_id["allegiance"]] += m_vert_house_id["voters"]
+				else:
+					house_count += 1
+					party_tallies[m_vert_house_id["allegiance"]] += 1
 				
 #					if not ["Error", "Flood"].has(name):
 #						scene.filled_squares += 1
+			contiguityChecker.addPoint(grid_point)
+			check_contiguity(grid_point)
 
 			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
@@ -423,9 +432,13 @@ func erase(grid_point, force=false):
 				contiguityChecker.removePoint(grid_point)
 				
 				if m_vert_house_id["type"] == "House":
-					house_count-=1
-					party_tallies[m_vert_house_id["allegiance"]] -= 1
-				
+					if m_vert_house_id.has("voters"):
+						house_count -= int(m_vert_house_id["voters"])
+						party_tallies[m_vert_house_id["allegiance"]] -= m_vert_house_id["voters"]
+					else:
+						house_count -= 1
+						party_tallies[m_vert_house_id["allegiance"]] -= 1
+					
 				var other_point = get_random_point()
 				if other_point:
 					check_contiguity(str2var("Vector2" + other_point))

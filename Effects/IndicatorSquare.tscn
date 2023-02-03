@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="ColorRect" type="ColorRect"]
+[node name="IndicatorSquare" type="ColorRect"]
 margin_left = -9.0
 margin_top = 3.0
 margin_right = -7.0

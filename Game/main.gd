@@ -55,6 +55,7 @@ onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
 onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
+onready var voter_indicator = get_node("UI/VoterIndicatorUI")
 var population
 var width
 var n_districts

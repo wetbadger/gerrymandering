@@ -14,7 +14,8 @@ onready var ui_tiles = scene.get_node("State/UITiles")
 #onready var ui_tiles = load("res://Objects/States/Tescos.tscn").instance()
 onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
-onready var voter_indicator = load("res://Effects/VotersIndicator.tscn")
+onready var vote_indicator = load("res://Effects/VotersIndicator.tscn")
+onready var voter_indicators = $VoterIndicators
 var v_indicator #instance of voter indicator (only need 1 for mouseover)
 enum {RIGHT, DOWN, LEFT, UP}
 var point
@@ -48,22 +49,27 @@ func _ready():
 	
 	fog.fill(size.x, size.y)
 	
-	v_indicator = voter_indicator.instance()
-	add_child(v_indicator)
-	v_indicator.z_index = 99
+	#v_indicator = vote_indicator.instance()
+	#add_child(v_indicator)
+	#v_indicator.z_index = 99
+	
 
 func _process(delta):
+	scene.voter_indicator.visible = false
 	var mouse_pos = get_global_mouse_position()
 	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
 	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
 	var grid_pos_str = str(grid_pos)
 	if vertices.has(grid_pos_str):
 		if vertices[grid_pos_str]["type"] == "House":
+			scene.voter_indicator.visible = true
 			if vertices[grid_pos_str].has("voters"):
-				v_indicator.set_num(vertices[grid_pos_str]["voters"])
+				scene.voter_indicator.set_num(vertices[grid_pos_str]["voters"])
 			else:
-				v_indicator.set_num(1)
-			v_indicator.set_global_position(grid_pos * GRID_SIZE)
+				scene.voter_indicator.set_num(1)
+			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
+		else:
+			scene.voter_indicator.visible = false
 
 func save_matrix(map_name, anchor=null):
 	if anchor != null:
@@ -116,7 +122,21 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 							index = parties[party]["asset"]
 					set(index, str2var("Vector2"+square))
 					fog.clear_fog(str2var("Vector2"+square))
-					pop += 1
+					var voters
+					if loaded_matrix[square].has("voters"):
+						voters = loaded_matrix[square]["voters"]
+						pop += voters
+					else:
+						voters = 1
+						pop += 1
+						
+					var v_indicator = vote_indicator.instance()
+					voter_indicators.add_child(v_indicator)
+					v_indicator.set_num(voters)
+					v_indicator.z_index = 99
+					var coords = str2var("Vector2"+square)
+					v_indicator.set_global_position(coords * GRID_SIZE)
+					
 					
 				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
@@ -150,7 +170,20 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 							index = parties[party]["asset"]
 					set(index, str2var("Vector2"+square))
 					fog.clear_fog(str2var("Vector2"+square))
-					pop += 1
+					var voters
+					if loaded_matrix[square].has("voters"):
+						voters = loaded_matrix[square]["voters"]
+						pop += voters
+					else:
+						voters = 1
+						pop += 1
+						
+					var v_indicator = vote_indicator.instance()
+					voter_indicators.add_child(v_indicator)
+					v_indicator.set_num(voters)
+					v_indicator.z_index = 99
+					var coords = str2var("Vector2"+square)
+					v_indicator.set_global_position(coords * GRID_SIZE)
 					
 				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
