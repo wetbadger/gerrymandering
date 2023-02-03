@@ -11,7 +11,7 @@ func set_num(n):
 	var i = 0
 	var pos = $PersonIcon.get_global_position()
 	var previous_position = pos
-	if len(extra_heads) != n+1:
+	if len(extra_heads) != n:
 		for h in extra_heads:
 			h.queue_free()
 		extra_heads = []

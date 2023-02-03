@@ -37,6 +37,8 @@ var gaps = true
 var top_left_corner = Vector2(999,999)
 var bottom_right_corner = Vector2(0,0)
 
+var mouse_over #what point is the mouse over
+
 func _ready():
 	
 	rng.randomize()
@@ -55,12 +57,11 @@ func _ready():
 	
 
 func _process(delta):
-	scene.voter_indicator.visible = false
 	var mouse_pos = get_global_mouse_position()
 	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
 	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
 	var grid_pos_str = str(grid_pos)
-	if vertices.has(grid_pos_str):
+	if vertices.has(grid_pos_str) and grid_pos != mouse_over:
 		if vertices[grid_pos_str]["type"] == "House":
 			scene.voter_indicator.visible = true
 			if vertices[grid_pos_str].has("voters"):
@@ -68,8 +69,9 @@ func _process(delta):
 			else:
 				scene.voter_indicator.set_num(1)
 			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
-		else:
+		elif vertices[grid_pos_str]["type"] == "Gap":
 			scene.voter_indicator.visible = false
+	mouse_over = grid_pos
 
 func save_matrix(map_name, anchor=null):
 	if anchor != null:
@@ -120,8 +122,7 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 						#in practice this dict should not be huge
 						if party == loaded_matrix[square]["allegiance"]:
 							index = parties[party]["asset"]
-					set(index, str2var("Vector2"+square))
-					fog.clear_fog(str2var("Vector2"+square))
+					
 					var voters
 					if loaded_matrix[square].has("voters"):
 						voters = loaded_matrix[square]["voters"]
@@ -129,7 +130,10 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					else:
 						voters = 1
 						pop += 1
-						
+					
+					set(index, str2var("Vector2"+square))
+					fog.clear_fog(str2var("Vector2"+square))
+					
 					var v_indicator = vote_indicator.instance()
 					voter_indicators.add_child(v_indicator)
 					v_indicator.set_num(voters)
@@ -146,7 +150,7 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 			scene.readjust_state(loaded_matrix["anchor"])
 			return pop
 		"hardcoded":
-
+			#TODO: this logic is similar to from file
 			var _matrix = Levels.matrices[map_name]
 			#var _settings = Levels.settings[map_name]
 			
@@ -168,8 +172,7 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 						#in practice this dict should not be huge
 						if party == loaded_matrix[square]["allegiance"]:
 							index = parties[party]["asset"]
-					set(index, str2var("Vector2"+square))
-					fog.clear_fog(str2var("Vector2"+square))
+					
 					var voters
 					if loaded_matrix[square].has("voters"):
 						voters = loaded_matrix[square]["voters"]
@@ -177,6 +180,9 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					else:
 						voters = 1
 						pop += 1
+						
+					set(index, str2var("Vector2"+square))
+					fog.clear_fog(str2var("Vector2"+square))
 						
 					var v_indicator = vote_indicator.instance()
 					voter_indicators.add_child(v_indicator)
@@ -389,6 +395,16 @@ func set(index, position):
 		
 		rng.randomize()
 		y_shift = rng.randi_range(-GRID_SIZE/12, GRID_SIZE/12)
+	
+
+	var key = str(position)
+	
+	if vertices[key].has("voters"):
+		var voters = vertices[key]["voters"]
+		if voters > 2 and voters < 5:
+			index += 7
+		if voters >=5:
+			index += 14
 	
 	if typeof(index) == TYPE_STRING:
 		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, Globals.default_settings["assets"][index])

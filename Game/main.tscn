@@ -193,6 +193,7 @@ scale = Vector2( 2.11111, 2.11111 )
 texture = ExtResource( 28 )
 
 [node name="VoterIndicatorUI" parent="UI" instance=ExtResource( 29 )]
+visible = false
 
 [node name="Progress" parent="UI" instance=ExtResource( 14 )]
 margin_left = 57.0

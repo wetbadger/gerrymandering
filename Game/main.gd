@@ -104,7 +104,7 @@ var FIREWORK_LIMIT =25
 var firework_limit = 25
 
 func _ready():
-
+	
 	set_process_unhandled_input (true)
 	settings = load_settings()
 	victory_node.apply_pointer()
