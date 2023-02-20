@@ -43,7 +43,8 @@ func _process(_delta):
 			if error:
 				print("Could not load main menu")
 		else:
-			#TODO: get map scene from level
+			for node in settings["pointer"]:
+				Globals.map_progress["Tutoria"][node] = true
 			var error = get_tree().change_scene("res://Map/TutorialMap.tscn")
 			if error:
 				print("Could not load map scene")

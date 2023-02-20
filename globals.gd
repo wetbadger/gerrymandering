@@ -86,7 +86,21 @@ const default_settings = {
 			"Purple House" : 3,
 			"Yellow House" : 4,
 			"Green House" : 5,
-			"Weird House" : 6
+			"Weird House" : 6,
+			"Red House Medium" : 7,
+			"Blue House Medium" : 8,
+			"Orange House Medium" : 9,
+			"Purple House Medium" : 10,
+			"Yellow House Medium" : 11,
+			"Green House Medium" : 12,
+			"Weird House Medium" : 13,
+			"Red House Apartments" : 14,
+			"Blue House Apartments" : 15,
+			"Orange House Apartments" : 16,
+			"Purple House Apartments" : 17,
+			"Yellow House Apartments" : 18,
+			"Green House Apartments" : 19,
+			"Weird House Apartments" : 20
 		}
 }
 var house_placement_layout = 0
@@ -205,5 +219,13 @@ var user_experience_settings = {
 		"Resolution": [
 			"1920x1080"
 		]
+	}
+}
+
+var map_progress = {
+	"Tutoria": {
+		"lvl1" : false,
+		"lvl2" : false,
+		"lvl3" : false
 	}
 }

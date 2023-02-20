@@ -30,12 +30,12 @@ func _on_Start_button_up():
 	game_settings["districts"]=options["districts"]
 	game_settings["advanced"]=options["advanced"]
 	
-	Globals.map_name = scene.game_name #.text
+	Globals.map_name = scene.game_name.text
 	
-	var new_dict = game_settings.duplicate()
+	var new_dict = game_settings.duplicate(true)
 	new_dict["name"] = game_settings["name"].text
 	new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
-		
+	
 	if Globals.save_progress:
 		new_game_folder(game_settings)
 		new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]

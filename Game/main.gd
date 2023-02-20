@@ -8,6 +8,7 @@ var usrexp_settings
 #var points: Array = []
 var last_point
 var grid_point
+var previous_grid_point
 
 #
 # District Draw Mode
@@ -29,6 +30,8 @@ var deselect_is_on = false
 var disable_draw= false
 var touches = 0
 var houses_unplaced = 0
+
+var placement_mode__grid_indicators = {}
 
 #
 # Buttons and things
@@ -104,7 +107,7 @@ var FIREWORK_LIMIT =25
 var firework_limit = 25
 
 func _ready():
-
+	
 	set_process_unhandled_input (true)
 	settings = load_settings()
 	victory_node.apply_pointer()
@@ -214,8 +217,10 @@ func create_district_buttons(expected_population):
 				var z = (0.95/4950) * population + (0.05 - (0.95/4950) * 50)
 				camera.set_zoom(Vector2(z, z))
 		"fill":
-			camera.set_zoom(Vector2(0.5,0.5))
-	
+			camera.set_zoom(Vector2(0.1,0.1))
+		"hardcoded":
+			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
 	for p in parties:
 		var voters = parties[p]["voters"]*1.0
 		var ratio = voters/population
@@ -386,54 +391,69 @@ func _unhandled_input(event: InputEvent) -> void:
 ###################
 
 func place_house(event):
+	
 	if deselect_is_on or disable_draw:
 		return
 	if event is InputEventScreenTouch or event is InputEventScreenDrag:
 		if event is InputEventScreenTouch and not event.is_pressed():
 			draw_mode = DRAW_MODES.PLACE
-			
+
 		if event.is_pressed() or event is InputEventScreenDrag:
 			if not event is InputEventScreenDrag: #is pressed
 				mobile__press_type = true
-				
+
 			else:
 				mobile__press_type = false #screen drag
-				
-			var square = matrix.get(grid_point)
 
+			var square = matrix.get(grid_point)
+#
 			var allegiance
-			if square != null and square.has("allegiance"):
+			if matrix.get(grid_point) != null and matrix.get(grid_point).has("allegiance"):
 				allegiance = square["allegiance"]
 
 			if selected_house.type == "gap":
-				#remove house sprite if there is one
+#				voter_indicator.visible = true
+#				#remove house sprite if there is one
 				matrix.set(-1, grid_point)
-				
+
 				if matrix.vertices.has(str(grid_point)):
-					if square != null and square["type"] != "House":
+					if matrix.get(grid_point) != null and matrix.get(grid_point)["type"] != "House":
 						determine_placement_mode(event)
-				
+#
 				if draw_mode == DRAW_MODES.REMOVE:
 					matrix.fog.add_fog(grid_point)
+					
+					if matrix.vertices.has(str(grid_point)) and matrix.vertices.has("allegiance"):
+						if matrix.vertices[str(grid_point)].has("voters"):
+							house_buttons.get_party(allegiance).increment_voters(matrix.vertices[grid_point]["voters"])
+							houses_unplaced+=matrix.vertices[grid_point]["voters"]
+						else:
+							house_buttons.get_party(allegiance).increment_voters()
+							houses_unplaced+=1
 					matrix.vertices.erase(str(grid_point))
-					if square != null and square.has("allegiance"):
-						house_buttons.get_party(allegiance).increment_voters()
-						houses_unplaced+=1
 				else:
 					#set matrix fog to clear this square
 					matrix.fog.clear_fog(grid_point)
-					
+#
+					if square != null and square.has("allegiance"):
+						if matrix.vertices[str(grid_point)].has("voters"):
+							house_buttons.get_party(allegiance).increment_voters(matrix.vertices[str(grid_point)]["voters"])
+							houses_unplaced+=matrix.vertices[str(grid_point)]["voters"]
+						else:
+							house_buttons.get_party(allegiance).increment_voters()
+							houses_unplaced+=1
+							
+						placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
+						placement_mode__grid_indicators.erase(str(grid_point))
+						
 					matrix.vertices[str(grid_point)] = {
 						"type":"Gap", 
 						"coords":grid_point, 
 						"visited": false,
 					}
-					if square != null and square.has("allegiance"):
-						house_buttons.get_party(allegiance).increment_voters()
-						houses_unplaced+=1
-					
-				
-					
+#
+#
+#
 			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance != selected_house.party_name:
 				matrix.set(selected_house.sprite_index, grid_point)
 				matrix.vertices[str(grid_point)] = {
@@ -442,16 +462,45 @@ func place_house(event):
 					"visited": false,
 					"allegiance": selected_house.party_name
 				}
+				#replace house with new house
 				if square != null and square.has("allegiance") and allegiance != selected_house.party_name:
-					house_buttons.get_party(allegiance).increment_voters()
-					houses_unplaced+=1
+					if square.has("voters"):
+						house_buttons.get_party(allegiance).increment_voters(square["voters"])
+						houses_unplaced+=square["voters"]
+					else:
+						house_buttons.get_party(allegiance).increment_voters()
+						houses_unplaced+=1
+					placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
+					placement_mode__grid_indicators.erase(str(grid_point))
 
 				selected_house.decrement_voters()
 				houses_unplaced-=1
-			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance == selected_house.party_name:
-				print("TODO: add another voter")
+				matrix.voter_indicators.visible = true
 				
-			
+				if not placement_mode__grid_indicators.has(str(grid_point)):
+					#create a voter indicator
+					var i = matrix.set_voter_indicator(1, str(grid_point))
+					placement_mode__grid_indicators[str(grid_point)] = {"indicator": i}
+				
+
+			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance == selected_house.party_name and not event is InputEventScreenDrag:
+				if matrix.vertices[str(grid_point)].has(str("voters")):
+					matrix.vertices[str(grid_point)]["voters"] += 1
+				else:
+					matrix.vertices[str(grid_point)]["voters"] = 2
+
+				selected_house.decrement_voters()
+				houses_unplaced-=1
+				voter_indicator.set_num(matrix.vertices[str(grid_point)]["voters"])
+				placement_mode__grid_indicators[str(grid_point)]["indicator"].increment()
+				
+				if matrix.vertices[str(grid_point)]["voters"] > 2 and matrix.vertices[str(grid_point)]["voters"] < 5:
+					matrix.set(selected_house.sprite_index, grid_point)
+				elif matrix.vertices[str(grid_point)]["voters"] > 4:
+					matrix.set(selected_house.sprite_index, grid_point)
+				
+			$UI/VoterIndicatorUI.visible = true
+
 		if houses_unplaced <= 0:
 			submit_button.disabled = false
 			submit_button.set_mouse_filter(0)
@@ -536,6 +585,7 @@ func set_mouse_members(event):
 	
 	last_point.set_global_position(get_global_mouse_position())
 	var point = matrix.get_node("LastPoint")
+	previous_grid_point = grid_point
 	grid_point = get_grid_position(point.position)
 	
 func set_touch_members(event):
@@ -544,6 +594,7 @@ func set_touch_members(event):
 	
 	last_point.set_global_position(get_canvas_transform().affine_inverse().xform(event.position))
 	var point = matrix.get_node("LastPoint")
+	previous_grid_point = grid_point
 	grid_point = get_grid_position(point.position)
 	
 ########################
@@ -773,10 +824,13 @@ func submit():
 		var score = {d.name:{}}
 		for id in d.squares:
 			if matrix.vertices[id].has("allegiance"):
+				var voters = 1
+				if matrix.vertices[id].has("voters"):
+					voters = matrix.vertices[id]["voters"]
 				if score[d.name].has(matrix.vertices[id]["allegiance"]):
-					score[d.name][matrix.vertices[id]["allegiance"]] += 1
+					score[d.name][matrix.vertices[id]["allegiance"]] += voters
 				else:
-					score[d.name][matrix.vertices[id]["allegiance"]] = 1
+					score[d.name][matrix.vertices[id]["allegiance"]] = voters
 		scores.append(score)
 
 	var results = []
@@ -844,6 +898,9 @@ func shoot_firework(coords):
 		t.start()
 		yield(t, "timeout")
 		var firework = firework_object.instance()
+		firework.get_node("Sound1").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
+		firework.get_node("Sound2").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
+		firework.get_node("Sound3").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
 		firework.set_global_position(coords * matrix.GRID_SIZE)
 		add_child(firework)
 		t.queue_free()

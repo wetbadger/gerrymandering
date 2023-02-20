@@ -31,6 +31,8 @@ func _on_Start2_button_up():
 	#TODO: cool animation
 	Globals.current_settings = scene.current_selection.settings
 	#change the lists to single fields
-	Globals.current_settings["advanced"]["House Placement"]["layout"] = scene.current_selection.settings["advanced"]["House Placement"]["layout"][0]
-	Globals.current_settings["advanced"]["House Placement"]["algorithm"] = scene.current_selection.settings["advanced"]["House Placement"]["algorithm"][0]
+	if typeof(Globals.current_settings["advanced"]["House Placement"]["layout"]) == TYPE_ARRAY:
+		Globals.current_settings["advanced"]["House Placement"]["layout"] = scene.current_selection.settings["advanced"]["House Placement"]["layout"][0]
+	if typeof(Globals.current_settings["advanced"]["House Placement"]["algorithm"]) == TYPE_ARRAY:
+		Globals.current_settings["advanced"]["House Placement"]["algorithm"] = scene.current_selection.settings["advanced"]["House Placement"]["algorithm"][0]
 	button_up = true

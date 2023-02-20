@@ -40,7 +40,11 @@ func set_pointers(_pointers):
 	
 func disable():
 	disabled = true
-	modulate = Color(0.1,0.1,0.1,0.8)
+	visible = false
+	
+func enable():
+	disabled = false
+	visible = true
 
 func _on_Button_button_up():
 	$Click.play()

@@ -230,7 +230,6 @@ func highlight(grid_point, exclude=null, force=false):
 						m_vert_house_id.erase("district")
 						return
 					else:
-						print(str(house_count) + "+" + str(m_vert_house_id["voters"]) + " is less than or equal to "+str(max_size))
 						house_count += int(m_vert_house_id["voters"])
 						party_tallies[m_vert_house_id["allegiance"]] += m_vert_house_id["voters"]
 				else:
