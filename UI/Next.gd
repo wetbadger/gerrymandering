@@ -39,6 +39,7 @@ func _process(_delta):
 	
 	if button_up:
 		if text == "End Game":
+			#TODO: create special victory screen
 			var error = get_tree().change_scene("res://Menus/MainMenu/MainMenu.tscn")
 			if error:
 				print("Could not load main menu")
