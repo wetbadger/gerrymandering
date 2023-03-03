@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://UI/Widgets/BTheme1.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Widgets/BLabel.gd" type="Script" id=2]
 
 [node name="BLabel" type="Label"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
 text = "This is a BLabel!"
+script = ExtResource( 2 )

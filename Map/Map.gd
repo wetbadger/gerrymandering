@@ -16,6 +16,8 @@ onready var dialog = get_node("Dialog")
 var node_at = -1
 
 func _ready():
+	Globals.current_map["name"] = map_name
+	Globals.current_map["scene"] = get_tree().current_scene.filename
 	
 	last_size = get_viewport().size
 
@@ -32,9 +34,18 @@ func _ready():
 	get_node("MapTheme").set_volume(Globals.user_experience_settings["Audio"]["Music"])
 
 	for node in Globals.map_progress[map_name].keys():
+		
+		if node == "completed":
+			continue
 		var node_state = Globals.map_progress[map_name][node]
 		if node_state == true:
 			dialog.get_children()[0].add_node(get_node("Container/"+node))
+			
+	if Globals.map_progress[map_name]["completed"]:
+		for node in container.get_children():
+			if node.name != "Sprite" and node.name != "FlashingArrow":
+				node.enable()
+				node.visible = true
 
 func _process(_delta):
 	var size = get_viewport().size

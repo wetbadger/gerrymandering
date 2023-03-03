@@ -2,6 +2,9 @@ extends Dialog
 
 func _ready():
 	nodes = [$"../../Container/lvl1"]
+	if Globals.map_progress["Tutoria"]["completed"] == true:
+		queue_free()
+		
 	if Globals.map_progress["Tutoria"]["lvl2"] == false:
 		dialog_array = ["""
 		This is the island of Tutoria! Here, we aren't the most 
@@ -39,6 +42,10 @@ func _ready():
 		"""
 		In this next area, pay special attention to the 
 		number of voters on each square.
+		""",
+		"""
+		Oh, yeah. Also there is a third party... mere
+		pawns in our game of thrones.
 		"""]
 		read_text_array(dialog_index)
 		#state = 3

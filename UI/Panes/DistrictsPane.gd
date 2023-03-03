@@ -92,7 +92,7 @@ func get_voter_boxes_again():
 	for p in scene.panes:
 		if p.name == "parties":
 			var children = p.get_children()
-			print(children)
+			#print(children)
 			for ch in children:
 				#var spinbox = ch.get_node("BSpinBox")
 				var grand_children = ch.get_children()

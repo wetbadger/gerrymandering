@@ -11,7 +11,7 @@ onready var main_menu = get_tree().get_current_scene()
 func _ready():
 	if get_parent().started_in_portrait:
 		for btn in get_children():
-			print("Yeet")
+			
 			btn.add_font_override("font", load("res://font/sans_big.tres"))
 	get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
 

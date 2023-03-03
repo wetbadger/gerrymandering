@@ -226,6 +226,121 @@ var map_progress = {
 	"Tutoria": {
 		"lvl1" : false,
 		"lvl2" : false,
-		"lvl3" : false
+		"lvl3" : false,
+		"completed" : false
 	}
+}
+
+var popular_vote = {
+}
+
+var chamber_of_legislation = {
+	"Tutoria":{
+		"parties":{
+			"Opponent":{
+				"asset":1, 
+				"color":"blue", 
+				"voters":9
+			}, 
+			"You":{
+				"asset":0, 
+				"color":"red", 
+				"voters":6
+			}
+		}, 
+		"seats": {
+			"lvl1": [
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5}
+			],
+			"lvl2": [
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5}
+			],
+			"lvl3": [
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"You":3}, 
+				{"Opponent":5},
+				{"You":3}, 
+				{"Opponent":3}, 
+				{"Opponent":5}
+			]
+		}
+	}
+}
+
+var current_map = {
+	"name" : "",
+	"scene": ""
 }

@@ -225,6 +225,14 @@ func create_district_buttons(expected_population):
 		var voters = parties[p]["voters"]*1.0
 		var ratio = voters/population
 		popular_vote.add_party(p, parties[p]["voters"], stepify(ratio, 0.001)*100)
+		#set global popular vote at game start
+		if not Globals.popular_vote.has(Globals.current_map["name"]):
+			Globals.popular_vote[Globals.current_map["name"]] = {}
+		var lvlname = [settings["name"]][0]
+		var mapname = Globals.current_map["name"]
+		if not Globals.popular_vote[mapname].has(lvlname):
+			Globals.popular_vote[mapname][lvlname] = {}
+		Globals.popular_vote[Globals.current_map["name"]][settings["name"]][p] = parties[p]["voters"]
 	
 	n_districts = settings["districts"].size()
 	
@@ -846,8 +854,12 @@ func submit():
 			results.append(most_votes)
 			district_tally.add_district(most_votes.keys()[0], most_votes[most_votes.keys()[0]])
 
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["seats"][settings["name"]] = results
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["parties"] = settings["parties"]
+
 	var winner = get_winner(results)
-	print(winner)
+	#print(winner)
+	
 		
 	var color = Color(0,0,0)
 	if not winner.keys()[0]:
@@ -865,6 +877,9 @@ func submit():
 	submit_button.visible = false
 	
 	if winner.keys()[0] == enable_next_if_winner_is:
+		if settings["pointer"]:
+			for node in settings["pointer"]:
+				Globals.map_progress[Globals.current_map["name"]][node] = true
 		victory_node.next.disabled = false
 		
 	#shoot off up to LIMIT fireworks
