@@ -226,14 +226,10 @@ func create_district_buttons(expected_population):
 		var ratio = voters/population
 		popular_vote.add_party(p, parties[p]["voters"], stepify(ratio, 0.001)*100)
 		#set global popular vote at game start
-		if not Globals.popular_vote.has(Globals.current_map["name"]):
-			Globals.popular_vote[Globals.current_map["name"]] = {}
+		
 		var lvlname = [settings["name"]][0]
 		var mapname = Globals.current_map["name"]
-		if not Globals.popular_vote[mapname].has(lvlname):
-			Globals.popular_vote[mapname][lvlname] = {}
-		Globals.popular_vote[Globals.current_map["name"]][settings["name"]][p] = parties[p]["voters"]
-	
+
 	n_districts = settings["districts"].size()
 	
 	district_buttons.load_buttons(settings["districts"])
@@ -854,8 +850,15 @@ func submit():
 			results.append(most_votes)
 			district_tally.add_district(most_votes.keys()[0], most_votes[most_votes.keys()[0]])
 
+	
+	if not Globals.chamber_of_legislation.has(Globals.current_map["name"]):
+		Globals.chamber_of_legislation[Globals.current_map["name"]] = {"seats":{},"parties":{}}
+
 	Globals.chamber_of_legislation[Globals.current_map["name"]]["seats"][settings["name"]] = results
 	Globals.chamber_of_legislation[Globals.current_map["name"]]["parties"] = settings["parties"]
+	if not Globals.chamber_of_legislation[Globals.current_map["name"]].has("scores"):
+		Globals.chamber_of_legislation[Globals.current_map["name"]]["scores"] = {}
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["scores"][settings["name"]] = scores
 
 	var winner = get_winner(results)
 	#print(winner)

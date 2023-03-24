@@ -6,9 +6,12 @@ var seat_list = []
 var max_scale = 1
 onready var endgame_scene = get_parent()
 
+var seats_won = {}
+
 func _ready():
 	var tally = 0
-	var data = Globals.chamber_of_legislation["Tutoria"]
+	#var data = Globals.chamber_of_legislation["Tutoria"]
+	var data = get_parent().data
 
 	var center = get_viewport_rect().get_center()
 	var seats = data["seats"]
@@ -17,10 +20,6 @@ func _ready():
 		for district in seats[lvl]:
 			var party_name = district.keys()[0]
 			var s = seat.instance()
-			
-			
-			
-			
 			var added = false
 			if len(seat_list) < 1:
 				s.set_position(Vector2(center.x-50, center.y))
@@ -43,9 +42,15 @@ func _ready():
 
 				
 			add_child(s)
-			if is_instance_valid(endgame_scene):
-				endgame_scene.dist_seats[party_name].text = str(int(endgame_scene.dist_seats[party_name].text) + 1)
+			#something goes here
+			
 			s.set_color(parties[party_name]["color"])
+			
+			if seats_won.has(party_name):
+				seats_won[party_name] += 1
+			else:
+				seats_won[party_name] = 1
+				
 			s.party = party_name
 			seat_list.append(s)
 			

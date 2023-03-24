@@ -46,7 +46,7 @@ func get_options():
 
 func _on_Apply_button_up():
 	var settings = scene.settings
-	var options = get_options()
+	#var options = get_options()
 	var new_dict = settings.duplicate()
 	var file = File.new()
 	var settings_to_save = new_dict.duplicate(true)
