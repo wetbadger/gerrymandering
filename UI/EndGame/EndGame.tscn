@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/EndGame/Seats/Seats.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/GotoMenu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/EndGame/EndGame.gd" type="Script" id=4]
+
+[node name="EndGame" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Seats" parent="." instance=ExtResource( 2 )]
+position = Vector2( 510, 448 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CenterContainer" type="Node2D" parent="."]
+position = Vector2( 549, 21 )
+
+[node name="HBoxContainer" type="GridContainer" parent="CenterContainer"]
+margin_right = 844.0
+margin_bottom = 140.0
+columns = 3
+
+[node name="GotoMenu" parent="." instance=ExtResource( 3 )]
+margin_left = 1568.0
+margin_top = 13.0
+margin_right = 1909.0
+margin_bottom = 101.0

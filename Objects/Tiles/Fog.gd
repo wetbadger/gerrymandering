@@ -6,10 +6,10 @@ func fill(width, height):
 		for y in range(height):
 			set_cell(x,y,1)
 			
-func clear_fog(position):
-	set_cell(position.x, position.y, 0, false, false, false)
-	update_bitmask_area(position)
+func clear_fog(pos):
+	set_cell(pos.x, pos.y, 0, false, false, false)
+	update_bitmask_area(pos)
 	
-func add_fog(position):
-	set_cell(position.x, position.y, 1, false, false, false)
-	update_bitmask_area(position)
+func add_fog(pos):
+	set_cell(pos.x, pos.y, 1, false, false, false)
+	update_bitmask_area(pos)

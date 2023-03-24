@@ -8,12 +8,15 @@ var size
 var house_count = 0
 var _house = load("Objects/House.tscn")
 onready var scene = get_tree().get_current_scene()
-onready var sprite_tiles = scene.get_node("State/SpriteTiles2")
+onready var sprite_tiles = scene.get_node("State/SpriteTiles3")
 onready var fog = scene.get_node("State/Fog2/Fog")
 onready var ui_tiles = scene.get_node("State/UITiles")
 #onready var ui_tiles = load("res://Objects/States/Tescos.tscn").instance()
 onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
+onready var vote_indicator = load("res://Effects/VotersIndicator.tscn")
+onready var voter_indicators = $VoterIndicators
+var v_indicator #instance of voter indicator (only need 1 for mouseover)
 enum {RIGHT, DOWN, LEFT, UP}
 var point
 
@@ -34,6 +37,8 @@ var gaps = true
 var top_left_corner = Vector2(999,999)
 var bottom_right_corner = Vector2(0,0)
 
+var mouse_over #what point is the mouse over
+
 func _ready():
 	
 	rng.randomize()
@@ -46,7 +51,31 @@ func _ready():
 	
 	fog.fill(size.x, size.y)
 	
-func save_matrix(map_name):
+	#v_indicator = vote_indicator.instance()
+	#add_child(v_indicator)
+	#v_indicator.z_index = 99
+	
+
+func _process(delta):
+	var mouse_pos = get_global_mouse_position()
+	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
+	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
+	var grid_pos_str = str(grid_pos)
+	if vertices.has(grid_pos_str) and grid_pos != mouse_over:
+		if vertices[grid_pos_str]["type"] == "House":
+			scene.voter_indicator.visible = true
+			if vertices[grid_pos_str].has("voters"):
+				scene.voter_indicator.set_num(vertices[grid_pos_str]["voters"])
+			else:
+				scene.voter_indicator.set_num(1)
+			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
+		elif vertices[grid_pos_str]["type"] == "Gap":
+			scene.voter_indicator.visible = false
+	mouse_over = grid_pos
+
+func save_matrix(map_name, anchor=null):
+	if anchor != null:
+		vertices["anchor"] = {"type": "Anchor", "coords" : anchor}
 	var file = File.new()
 	file.open("user://"+map_name+"/matrix.json", File.WRITE)
 	file.store_string(JSON.print(vertices, "\t"))
@@ -93,20 +122,92 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 						#in practice this dict should not be huge
 						if party == loaded_matrix[square]["allegiance"]:
 							index = parties[party]["asset"]
+					
+					var voters
+					if loaded_matrix[square].has("voters"):
+						voters = loaded_matrix[square]["voters"]
+						pop += voters
+					else:
+						voters = 1
+						pop += 1
+					
 					set(index, str2var("Vector2"+square))
 					fog.clear_fog(str2var("Vector2"+square))
-					pop += 1
 					
-				else:
+					set_voter_indicator(voters, square)
+					
+				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
 					
 				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
 				var coord = str2var("Vector2"+square)
-				
+			scene.readjust_state(loaded_matrix["anchor"])
 			return pop
+		"hardcoded":
+			#TODO: this logic is similar to from file
+			var _matrix = Levels.matrices[map_name].duplicate(true)
+			#var _settings = Levels.settings[map_name]
+			
+			scene.victory_node.apply_pointer(true)
+			
+			var loaded_matrix = _matrix
+			var pop = 0
+			vertices = loaded_matrix
+			if loaded_matrix == null:
+				return -1
+				
+			for square in loaded_matrix:
+				
+				var index = -1 #TODO: missing asset?
+				
+				if loaded_matrix[square]["type"] == "House":
+					for party in parties: 
+						#speed note:
+						#in practice this dict should not be huge
+						if party == loaded_matrix[square]["allegiance"]:
+							index = parties[party]["asset"]
+					
+					var voters
+					if loaded_matrix[square].has("voters"):
+						voters = loaded_matrix[square]["voters"]
+						pop += voters
+					else:
+						voters = 1
+						pop += 1
+						
+					set(index, str2var("Vector2"+square))
+					fog.clear_fog(str2var("Vector2"+square))
+						
+					set_voter_indicator(voters, square)
+					
+					
+				elif loaded_matrix[square]["type"] != "Anchor":
+					fog.clear_fog(str2var("Vector2"+square))
+				
+				var coord
+				if typeof(loaded_matrix[square]["coords"]) == TYPE_STRING:
+					loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
+					coord = str2var("Vector2"+square)
+				else:
+					loaded_matrix[square]["coords"] = loaded_matrix[square]["coords"]
+					coord = square
+				
+			scene.readjust_state(loaded_matrix["anchor"])
+			return pop
+			
 		_:
 			print(str(algo)+" is not a valid algorithm.")
 		
+
+func set_voter_indicator(voters, square):
+	var v_indicator = vote_indicator.instance()
+	voter_indicators.add_child(v_indicator)
+	v_indicator.set_num(voters)
+	v_indicator.z_index = 99
+	var coords = str2var("Vector2"+square)
+	v_indicator.set_global_position(coords * GRID_SIZE)
+	return v_indicator
+	
 
 func place_houses__fill_space(_n, starting_point, size_):
 	#fill shape with houses, and then delete houses until n is reached
@@ -280,7 +381,7 @@ func get_random_allegiance():
 	return allegiance
 		
 func set(index, position):
-	
+
 	var settings = get_tree().get_current_scene().settings
 	house_count += 1
 	#object.set_global_position(position * GRID_SIZE)
@@ -295,12 +396,22 @@ func set(index, position):
 		rng.randomize()
 		y_shift = rng.randi_range(-GRID_SIZE/12, GRID_SIZE/12)
 	
+
+	var key = str(position)
+	
+	if vertices.has(key) and vertices[key].has("voters") and index != -1:
+		var voters = vertices[key]["voters"]
+		if voters > 2 and voters < 5:
+			index += 7
+		if voters >=5:
+			index += 14
+	
 	if typeof(index) == TYPE_STRING:
 		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, Globals.default_settings["assets"][index])
 	else:
 		sprite_tiles.set_cell(position.x*(GRID_SIZE/6) + x_shift, position.y*(GRID_SIZE/6) + y_shift, index)
+	
 	fog.clear_fog(position)
-
 
 
 func get(grid_point):
@@ -329,8 +440,4 @@ func reduce_voters_to(n):
 		p-=1
 	return vert_copy
 	#everything else should be gaps
-	
-
-func remove_house(): #turn to gap
-	pass
 

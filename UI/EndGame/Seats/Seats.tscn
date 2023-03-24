@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://UI/EndGame/Seats/LeftBumper.gd" type="Script" id=1]
+[ext_resource path="res://UI/EndGame/Seats/Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://UI/EndGame/Seats/Seats.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 429.153, 104.222 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 511.473
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 60, 537 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 830.5, 53.5 )
+
+[node name="Seats" type="Node2D"]
+position = Vector2( -2, 344 )
+script = ExtResource( 3 )
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 1393.49, -132.339 )
+rotation = 0.39619
+scale = Vector2( 1, 1 )
+shape = SubResource( 4 )
+
+[node name="KinematicBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D3"]
+position = Vector2( 540, -143 )
+rotation = -0.39619
+shape = SubResource( 4 )
+
+[node name="KinematicBody2D2" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D2"]
+position = Vector2( 977, 785 )
+shape = SubResource( 3 )
+
+[node name="LeftBumper" type="RigidBody2D" parent="."]
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBumper"]
+position = Vector2( 75, 559 )
+shape = SubResource( 2 )
+
+[node name="RightBumper" type="RigidBody2D" parent="."]
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBumper"]
+position = Vector2( 1861, 548 )
+shape = SubResource( 2 )
+
+[node name="BottomBumper" type="RigidBody2D" parent="."]
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBumper"]
+position = Vector2( 967.5, 850 )
+shape = SubResource( 5 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource( 2 )

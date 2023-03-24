@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI/Dialog/DialogBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Sally.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Sally.gd" type="Script" id=3]
+[ext_resource path="res://UI/Dialog/SallyDialog.gd" type="Script" id=4]
+
+[node name="SallyDialog" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Dialog" parent="." instance=ExtResource( 1 )]
+position = Vector2( 220, 804 )
+
+[node name="Sally" parent="." instance=ExtResource( 2 )]
+position = Vector2( -467, 623 )
+scale = Vector2( 15, 15 )
+script = ExtResource( 3 )

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Effects/VotersIndicator.gd" type="Script" id=1]
+[ext_resource path="res://Effects/IndicatorSquare.tscn" type="PackedScene" id=2]
+
+[node name="VotersIndicator" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="IndicatorSquare" parent="." instance=ExtResource( 2 )]

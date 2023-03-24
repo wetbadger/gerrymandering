@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/Dialog/DialogBox.gd" type="Script" id=2]
+
+[node name="DialogBox" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RichTextLabel" type="Container" parent="."]
+margin_right = 1579.0
+margin_bottom = 244.0
+
+[node name="ColorRect" type="ColorRect" parent="RichTextLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0745098, 0.0745098, 0.0745098, 0.596078 )
+
+[node name="BLabel" parent="RichTextLabel" instance=ExtResource( 1 )]
+margin_left = 200.0
+margin_top = -30.0
+margin_right = -25.0
+margin_bottom = -25.0

@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="IndicatorSquare" type="ColorRect"]
+margin_left = -9.0
+margin_top = 3.0
+margin_right = -7.0
+margin_bottom = 5.0
+color = Color( 0.219608, 1, 0, 1 )

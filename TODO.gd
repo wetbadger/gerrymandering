@@ -4,18 +4,21 @@ extends Node
 """
 
 TODO:
-	load saved settings
+	[done] load saved settings
 	
 	CPP module for:
-		runtime contiguity detection
+		[done] runtime contiguity detection
 		when click is draged from district but not connected, draw a connecting line
 		autofill
 		computer drawn district for multiplayer
+			easy: randomly picks squares and checks if valid.
+			hard: uses a strategy (rip from codewars)
+			very hard: uses a strategy and predicts player move
 	
 	
 	house algorithm
-		fill
-		spiral
+		[done] fill
+		[done] spiral
 		circle
 	house dstribution
 		random (fix)
@@ -23,8 +26,7 @@ TODO:
 		clustered (random but like-houses together)
 		[done] houses placed by user
 		
-	Fog of War
-	User-Created Shapes
+	[done] Fog of War
 	
 	[done] touch screen hold-to-delete function
 	[done] touchscreen drag and zoom (deselect district button)
@@ -36,7 +38,7 @@ TODO:
 		sfx
 		orientation
 	
-	fireworks: one for each house that won only in viewport
+	[done] fireworks: one for each house that won only in viewport
 	ability to explore / screenshot after victory screen
 	menu to quit to main menu in game
 	adjust screen layout for devices
@@ -59,13 +61,19 @@ TODO:
 			Each district cannot be split into two shapes. They must be connected. 
 			fact: 20 states do not require that congressional districts be contiguous.
 
+	
+
 	multiplayer:
 		any number of human or computer players
 		computer can draw a district (see c++)
 		
-		Stage 1. Draw power or People cards
+		Stage 1. Draw Power or People or Money cards
 			Power cards represent the ability to draw a district.
 			People cards represent voters.
+			Money cards give spender a chance to flip a vote or two 
+				(discourages tie strategies and narrow victories)
+			
+			Each player starts with 5 voters, no districts, and $100
 			
 		Stage 2. Players take turns placing voters in a
 			predetermined map
@@ -79,6 +87,15 @@ TODO:
 			and eventually a completion screen.
 		Develop a teir system for more optimal solutions
 			(bronze silver gold) 
+		[done] Create a map screen
+		Tutorial:
+			Sally the Salamander teaches you how to play.
+			
+		Legislative vs Commitee:
+			Legislative mode: player controls all districts
+				purple shape
+			Commitee mode: Multiplayer or player v computer
+				orange shape
 		
 	make puzzles:
 		10 puzzles
@@ -90,5 +107,11 @@ TODO:
 		Thats probably enough puzzles
 
 NOTE: remember to uncomment out the mouseclick event in the main scene
+
+BUGS:
+	1. [FIXED] User Place mode holding down to erase "claimed land" will make 
+		house disapear without tallying 
+	2. [FIXED] Shape is not always matched to hardcoded levels on different screen sizes
+	3. Hardcoded levels not showing percentages on victory
 
 """

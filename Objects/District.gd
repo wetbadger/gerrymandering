@@ -43,9 +43,12 @@ var contiguous = true #becomes false if squares are not connected
 
 var turn_ended = false #when true avoid this district until endgame
 
+#custom cpp module
+var contiguityChecker = Contiguity.new()
+
 func _ready():
 
-	var scene = get_tree().get_current_scene()
+	scene = get_tree().get_current_scene()
 	district_buttons = scene.get_node("UI/Scroll/DistrictButtons")
 	for party in scene.parties:
 		party_tallies[party] = 0
@@ -58,7 +61,7 @@ func _ready():
 
 func _process(_delta):
 	if is_selected:
-		#print(str(max_size)+" - "+str(house_count))
+		
 		tiles_left_label.set_text("Tiles Left: "+str(max_size-house_count)+"    ")
 		if button:
 			if typeof(house_count) == TYPE_INT:
@@ -73,7 +76,7 @@ func set_starting_vertex(vertex):
 	starting_vertex = vertex
 
 func free_flood():
-	var scene = get_tree().get_current_scene()
+	scene = get_tree().get_current_scene()
 	var flood = scene.get_node("Flood")
 	var matrix = scene.matrix.vertices
 	var childs = scene.get_children()
@@ -82,7 +85,7 @@ func free_flood():
 	flood.queue_free()
 	
 func highlight(grid_point, exclude=null, force=false):
-
+	
 	if len(squares) > 650: #prevent stack overflow
 		overflowed = true
 		if "Flood" in name or "Error" in name:
@@ -152,6 +155,8 @@ func highlight(grid_point, exclude=null, force=false):
 				error_label.set_text("OUT OF BOUNDS")
 				return
 		if not m_vert_house_id.has("district"):
+			#if settings["advanced"]["District Rules"]["contiguous"]:
+			
 			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"] and force != true:
 				if house_count != 0:
 					var neighbors = get_neighbors(m_vert_house_id)
@@ -219,40 +224,27 @@ func highlight(grid_point, exclude=null, force=false):
 			else:
 				tm = get_node("TileMap")
 
-			
 			if m_vert_house_id["type"] == "House":
-				house_count += 1
-				party_tallies[m_vert_house_id["allegiance"]] += 1
+				if m_vert_house_id.has("voters"):
+					if house_count + int(m_vert_house_id["voters"]) > max_size:
+						m_vert_house_id.erase("district")
+						return
+					else:
+						house_count += int(m_vert_house_id["voters"])
+						party_tallies[m_vert_house_id["allegiance"]] += m_vert_house_id["voters"]
+				else:
+					house_count += 1
+					party_tallies[m_vert_house_id["allegiance"]] += 1
 				
 #					if not ["Error", "Flood"].has(name):
 #						scene.filled_squares += 1
+			contiguityChecker.addPoint(grid_point)
+			check_contiguity(grid_point)
 
 			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			
 			squares.append(house_id)
-			if house_count > 1 and has_neighbors(house_id):
-				#TODO: THIS DOESN'T WORK!!!
-				#CHECK CONTIGUITY IN C++
-				if not contiguous:
-					var has_contiguity = true 
-					for sq in squares:
-						if not has_neighbors(sq):
-							has_contiguity = false
-							break
-						#do something to check if dist is contiguous
-					if has_contiguity:
-						contiguous = true
-						error_label.set_text("DISTRICT CONTIGUOUS AGAIN")
-				else:
-					contiguous = true
-			elif house_count > 1:
-				contiguous = false
-				error_label.set_text("DISTRICT NO LONGER CONTIGUOUS")
-			else:
-				if not contiguous:
-					error_label.set_text("DISTRICT CONTIGUOUS AGAIN")
-				contiguous = true
 				
 			if house_count == max_size and scene.filled_squares < scene.population:
 				
@@ -364,8 +356,8 @@ func get_next_district():
 	scene.start_input()
 	return next
 	
-func error_flash(matrix, scene, region):
-	scene.stop_input()
+func error_flash(matrix, _scene, region):
+	_scene.stop_input()
 	
 	var error_shape = district_node.instance()
 	error_shape.starting_vertex = Vector2(0,0)
@@ -374,7 +366,7 @@ func error_flash(matrix, scene, region):
 	else:
 		error_shape.get_node("TileMap").modulate = Color(1, 0, 0, 0.9)
 	error_shape.set_name("Error")
-	scene.add_child(error_shape)
+	_scene.add_child(error_shape)
 	error_shape.global_position.x += 3.5
 	for r in region:
 		error_shape.highlight(matrix[r]["coords"], [], true)
@@ -391,9 +383,11 @@ func error_flash(matrix, scene, region):
 					
 func erase(grid_point, force=false):
 	var house_id = str(grid_point)
-	var scene = get_tree().get_current_scene()
+	
 	var matrix = scene.matrix.vertices
 	if matrix.has(house_id):
+		#var neighbor_house_id = get_any_neighbor(matrix[house_id])
+		
 		var m_vert_house_id = matrix[house_id]
 		if m_vert_house_id.has("district"):
 			#check if there are 3 or more neighbors. if so, just erase the thing
@@ -434,9 +428,19 @@ func erase(grid_point, force=false):
 				tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 				
 				squares.erase(house_id)
+				contiguityChecker.removePoint(grid_point)
+				
 				if m_vert_house_id["type"] == "House":
-					house_count-=1
-					party_tallies[m_vert_house_id["allegiance"]] -= 1
+					if m_vert_house_id.has("voters"):
+						house_count -= int(m_vert_house_id["voters"])
+						party_tallies[m_vert_house_id["allegiance"]] -= m_vert_house_id["voters"]
+					else:
+						house_count -= 1
+						party_tallies[m_vert_house_id["allegiance"]] -= 1
+					
+				var other_point = get_random_point()
+				if other_point:
+					check_contiguity(str2var("Vector2" + other_point))
 
 			else:
 				error_label.set_text("WRONG DISTRICT")
@@ -667,6 +671,18 @@ func has_neighbors(house, exclude=[]):
 			return true
 	return false
 
+func get_random_point():
+	if len(squares) > 0:
+		return squares[0]
+
 func to_string():
 	print(squares)
 	print(len(squares))
+	
+func check_contiguity(gp):
+	var previous_contiguous = contiguous
+	contiguous = contiguityChecker.isContiguous(gp)
+	if not contiguous && previous_contiguous:
+		button.break_animation()
+	elif contiguous && not previous_contiguous:
+		button.close_animation()

@@ -3,10 +3,15 @@ extends VBoxContainer
 var checked = false
 var custom_game = load("res://Menus/CustomGameMenu/CustomGameMenu.tscn")
 var settings_menu = load("res://Menus/SettingsMenu/SettingsMenu.tscn")
+
+var story = load("res://Story/Story.tscn")
+
+onready var main_menu = get_tree().get_current_scene()
+
 func _ready():
 	if get_parent().started_in_portrait:
 		for btn in get_children():
-			print("Yeet")
+			
 			btn.add_font_override("font", load("res://font/sans_big.tres"))
 	get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
 
@@ -35,3 +40,11 @@ func _on_Settings_button_up():
 	var rect = get_viewport_rect().size
 	sm.set_position(Vector2(rect.x/2-sm.get_node("TabContainer").get_size().x/2, rect.y/2-sm.get_node("TabContainer").get_size().y/1.5))
 	
+
+
+func _on_Story_button_up():
+	main_menu.start_story()
+
+
+func _on_Tutorial_button_up():
+	main_menu.start_tutorial()

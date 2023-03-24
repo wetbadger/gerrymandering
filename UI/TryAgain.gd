@@ -12,3 +12,4 @@ func _on_TryAgain_button_up():
 	get_parent().get_parent().visible = false
 	if scene.settings["advanced"]["District Rules"]["multiplayer"]:
 		scene.submit_button.set_mode_multiplayer()
+	scene.firework_limit = scene.FIREWORK_LIMIT

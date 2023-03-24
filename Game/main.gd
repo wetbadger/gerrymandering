@@ -8,13 +8,14 @@ var usrexp_settings
 #var points: Array = []
 var last_point
 var grid_point
+var previous_grid_point
 
 #
 # District Draw Mode
 #
 
 var selected_district
-var _district = load("Objects/District.tscn")
+var district_object
 var districts = []
 var district_button_names
 var draw_size = 33
@@ -29,6 +30,8 @@ var deselect_is_on = false
 var disable_draw= false
 var touches = 0
 var houses_unplaced = 0
+
+var placement_mode__grid_indicators = {}
 
 #
 # Buttons and things
@@ -55,6 +58,7 @@ onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
 onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
+onready var voter_indicator = get_node("UI/VoterIndicatorUI")
 var population
 var width
 var n_districts
@@ -95,11 +99,21 @@ var players = []
 var current_player = 0
 var _multiplayer = false
 
+var enable_next_if_winner_is = "You"
+
+var firework_object = load("res://Effects/Firework.tscn")
+
+var FIREWORK_LIMIT =25
+var firework_limit = 25
+
 func _ready():
+	
 	set_process_unhandled_input (true)
 	settings = load_settings()
+	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
 	
+	contiguous = settings["advanced"]["District Rules"]["contiguous"]
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
 	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
 	
@@ -108,6 +122,8 @@ func _ready():
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
 	reference_rect = shape.get_node("ReferenceRect")
+	
+	district_object = load("res://Objects/District.tscn")
 	
 	#if true:#settings["advanced"]["District Rules"]["fog"]:
 		
@@ -122,7 +138,6 @@ func _ready():
 	
 	yield(get_tree(), "idle_frame")
 	
-	#width = settings["width"]
 	parties = settings["parties"]
 	
 	players = parties.keys()
@@ -202,17 +217,20 @@ func create_district_buttons(expected_population):
 				var z = (0.95/4950) * population + (0.05 - (0.95/4950) * 50)
 				camera.set_zoom(Vector2(z, z))
 		"fill":
-			camera.set_zoom(Vector2(0.5,0.5))
-	
+			camera.set_zoom(Vector2(0.1,0.1))
+		"hardcoded":
+			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
 	for p in parties:
-		popular_vote.add_party(p, parties[p]["voters"], stepify(parties[p]["voters"]/population, 0.001)*100)
+		var voters = parties[p]["voters"]*1.0
+		var ratio = voters/population
+		popular_vote.add_party(p, parties[p]["voters"], stepify(ratio, 0.001)*100)
+		#set global popular vote at game start
+		
+		var lvlname = [settings["name"]][0]
+		var mapname = Globals.current_map["name"]
 
-	#max_size = settings["max"]
-	#min_size = settings["min"]
-	#n_districts = settings["n_districts"]
-	
 	n_districts = settings["districts"].size()
-	#district_colors = generate_colors(n_districts)
 	
 	district_buttons.load_buttons(settings["districts"])
 	district_button_names = get_button_names()
@@ -239,7 +257,16 @@ func create_district_buttons(expected_population):
 		
 	get_node("Ambience").set_volume(usrexp_settings["Audio"]["Sound"])
 	
-	matrix.save_matrix(Globals.current_settings["name"])
+	var shape_rect_position = shape.get_global_position()
+	var anchor = Vector2(
+		round(
+			shape_rect_position.x / matrix.GRID_SIZE
+		),
+		round(
+			shape_rect_position.y / matrix.GRID_SIZE)
+		)
+
+	matrix.save_matrix(Globals.current_settings["name"], anchor)
 
 func get_button_names():
 	var bn = []
@@ -305,6 +332,7 @@ func load_usrexp_settings():
 				"Orientation" : "sensor"
 			}
 		}
+	
 	return data
 
 func stop_input():
@@ -360,6 +388,134 @@ func _unhandled_input(event: InputEvent) -> void:
 				set_touch_members(event)
 				place_house(event)
 
+###################
+#
+# House Placement
+#
+###################
+
+func place_house(event):
+	
+	if deselect_is_on or disable_draw:
+		return
+	if event is InputEventScreenTouch or event is InputEventScreenDrag:
+		if event is InputEventScreenTouch and not event.is_pressed():
+			draw_mode = DRAW_MODES.PLACE
+
+		if event.is_pressed() or event is InputEventScreenDrag:
+			if not event is InputEventScreenDrag: #is pressed
+				mobile__press_type = true
+
+			else:
+				mobile__press_type = false #screen drag
+
+			var square = matrix.get(grid_point)
+#
+			var allegiance
+			if matrix.get(grid_point) != null and matrix.get(grid_point).has("allegiance"):
+				allegiance = square["allegiance"]
+
+			if selected_house.type == "gap":
+#				voter_indicator.visible = true
+#				#remove house sprite if there is one
+				matrix.set(-1, grid_point)
+
+				if matrix.vertices.has(str(grid_point)):
+					if matrix.get(grid_point) != null and matrix.get(grid_point)["type"] != "House":
+						determine_placement_mode(event)
+#
+				if draw_mode == DRAW_MODES.REMOVE:
+					matrix.fog.add_fog(grid_point)
+					
+					if matrix.vertices.has(str(grid_point)) and matrix.vertices.has("allegiance"):
+						if matrix.vertices[str(grid_point)].has("voters"):
+							house_buttons.get_party(allegiance).increment_voters(matrix.vertices[grid_point]["voters"])
+							houses_unplaced+=matrix.vertices[grid_point]["voters"]
+						else:
+							house_buttons.get_party(allegiance).increment_voters()
+							houses_unplaced+=1
+					matrix.vertices.erase(str(grid_point))
+				else:
+					#set matrix fog to clear this square
+					matrix.fog.clear_fog(grid_point)
+#
+					if square != null and square.has("allegiance"):
+						if matrix.vertices[str(grid_point)].has("voters"):
+							house_buttons.get_party(allegiance).increment_voters(matrix.vertices[str(grid_point)]["voters"])
+							houses_unplaced+=matrix.vertices[str(grid_point)]["voters"]
+						else:
+							house_buttons.get_party(allegiance).increment_voters()
+							houses_unplaced+=1
+							
+						placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
+						placement_mode__grid_indicators.erase(str(grid_point))
+						
+					matrix.vertices[str(grid_point)] = {
+						"type":"Gap", 
+						"coords":grid_point, 
+						"visited": false,
+					}
+#
+#
+#
+			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance != selected_house.party_name:
+				matrix.set(selected_house.sprite_index, grid_point)
+				matrix.vertices[str(grid_point)] = {
+					"type":"House", 
+					"coords":grid_point, 
+					"visited": false,
+					"allegiance": selected_house.party_name
+				}
+				#replace house with new house
+				if square != null and square.has("allegiance") and allegiance != selected_house.party_name:
+					if square.has("voters"):
+						house_buttons.get_party(allegiance).increment_voters(square["voters"])
+						houses_unplaced+=square["voters"]
+					else:
+						house_buttons.get_party(allegiance).increment_voters()
+						houses_unplaced+=1
+					placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
+					placement_mode__grid_indicators.erase(str(grid_point))
+
+				selected_house.decrement_voters()
+				houses_unplaced-=1
+				matrix.voter_indicators.visible = true
+				
+				if not placement_mode__grid_indicators.has(str(grid_point)):
+					#create a voter indicator
+					var i = matrix.set_voter_indicator(1, str(grid_point))
+					placement_mode__grid_indicators[str(grid_point)] = {"indicator": i}
+				
+
+			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance == selected_house.party_name and not event is InputEventScreenDrag:
+				if matrix.vertices[str(grid_point)].has(str("voters")):
+					matrix.vertices[str(grid_point)]["voters"] += 1
+				else:
+					matrix.vertices[str(grid_point)]["voters"] = 2
+
+				selected_house.decrement_voters()
+				houses_unplaced-=1
+				voter_indicator.set_num(matrix.vertices[str(grid_point)]["voters"])
+				placement_mode__grid_indicators[str(grid_point)]["indicator"].increment()
+				
+				if matrix.vertices[str(grid_point)]["voters"] > 2 and matrix.vertices[str(grid_point)]["voters"] < 5:
+					matrix.set(selected_house.sprite_index, grid_point)
+				elif matrix.vertices[str(grid_point)]["voters"] > 4:
+					matrix.set(selected_house.sprite_index, grid_point)
+				
+			$UI/VoterIndicatorUI.visible = true
+
+		if houses_unplaced <= 0:
+			submit_button.disabled = false
+			submit_button.set_mouse_filter(0)
+
+######################
+#
+#	PROCESS
+#
+######################
+
+
 func _process(_delta):
 
 	var count = 0
@@ -385,10 +541,13 @@ func _process(_delta):
 		can_recheck = true
 		
 	if not _multiplayer and is_instance_valid(submit_button) and draw_mode != DRAW_MODES.PLACE:
-		if filled_squares >= population and contiguous: #because sometimes the computer can't count :)
+		if filled_squares >= population: #because sometimes the computer can't count :)
 			for d in districts:
 				if d.house_count < d.min_size:
 					submit_button.set_reason("District "+d.name+" is too small!")
+					return
+				if contiguous and not d.contiguous:
+					submit_button.set_reason("District "+d.name+" is not contiguous!")
 					return
 			
 			submit_button.disabled = false
@@ -402,6 +561,13 @@ func _process(_delta):
 	if ambience.volume <= usrexp_settings["Audio"]["Sound"]:
 		ambience.volume += 0.001
 
+########################
+#
+# Setters
+#
+#########################
+
+# Creates a point that will henceforth be known as the "last point"
 
 func set_last_point():
 	last_point = Node2D.new()
@@ -412,7 +578,8 @@ func set_last_point():
 		last_point.add_child(sprite)
 		sprite.texture = texture_missing
 	
-	
+# mouse and touch member variables are set based on positions of the event
+
 func set_mouse_members(event):
 	if event is InputEventKey:
 		return
@@ -422,6 +589,7 @@ func set_mouse_members(event):
 	
 	last_point.set_global_position(get_global_mouse_position())
 	var point = matrix.get_node("LastPoint")
+	previous_grid_point = grid_point
 	grid_point = get_grid_position(point.position)
 	
 func set_touch_members(event):
@@ -430,12 +598,69 @@ func set_touch_members(event):
 	
 	last_point.set_global_position(get_canvas_transform().affine_inverse().xform(event.position))
 	var point = matrix.get_node("LastPoint")
+	previous_grid_point = grid_point
 	grid_point = get_grid_position(point.position)
 	
+########################
+#
+# Getters
+#
+########################	
+
 func get_grid_position(point):
 	#var cam = get_node("State").get_node("Camera2D")
 	var result = Vector2(round(point.x/matrix.GRID_SIZE), round(point.y/matrix.GRID_SIZE))
 	return result
+	
+
+func get_district_selected(exclude=null, temp=null):
+
+	if not has_node(selected_district):
+		
+		var district = district_object.instance()
+		district.starting_vertex = grid_point
+		
+		if selected_district == "Flood":
+			district.max_size = settings["districts"][temp]["max"]
+			district.min_size = settings["districts"][temp]["min"]
+		else:
+			district.max_size = settings["districts"][selected_district]["max"]
+			district.min_size = settings["districts"][selected_district]["min"]
+		district.set_global_position(grid_point * matrix.GRID_SIZE)
+		district.set_name(selected_district)
+		var color
+		if selected_district == "Flood":
+			color = Color(1, 0, 0)
+			#district.squares_in_region.append(exclude)
+		else:
+			var color_name = settings["districts"][selected_district]["color"] #get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
+			color = get_node("/root/Globals").word2color(color_name)
+			district.color = color
+			color.a = 0.5
+
+		if settings["advanced"]["District Rules"]["diagonals"]:
+			#color.a = 1.0
+			district.get_node("TileMap255").modulate = color
+		else:
+			district.get_node("TileMap").modulate = color
+		add_child(district)
+		district.highlight(grid_point, exclude)
+		if not ["Flood","Error"].has(selected_district):
+			districts.append(district)
+
+		return false
+	else:
+		var district = get_node(selected_district)
+		return district
+	
+func get_width():
+	return width
+
+####################
+#
+# District drawing
+#
+####################
 
 func _draw_district(event) -> void:
 	if deselect_is_on or disable_draw:
@@ -475,6 +700,41 @@ func draw_district_flood(coords, exclude=null):
 	selected_district = temp1
 	#grid_point = temp2
 
+
+
+func _remove_district() -> void:
+	if not last_point:
+		return
+	var district = get_district_selected()
+	if not district:
+		return
+		
+	district.erase(grid_point)
+	if _multiplayer:
+		if district.house_count < district.min_size:
+			submit_button.disabled = true
+
+func remove_district(district_name):
+	recieve_input = false
+	#show a spinning hour glass here
+	for d in districts:
+		if d.name == district_name:
+			var houses = d.squares.duplicate()
+			for house in houses:
+				d.erase(str2var("Vector2" + house), true)
+			districts.erase(d)
+			d.party_tally.reset()
+			d.button.text = str(d.max_size-d.house_count)
+			var n = d.max_size
+			d.queue_free()
+			recieve_input = true
+			return n
+	recieve_input = true
+	
+#
+# Mode setters
+#
+
 func set_draw_mode_erase():
 	draw_mode = DRAW_MODES.ERASE
 	if (is_instance_valid(mobile__hold_tween)):
@@ -490,6 +750,10 @@ func set_draw_mode_remove():
 func set_draw_mode_add():
 	draw_mode = DRAW_MODES.ADD
 
+func set_draw_mode(mode):
+	draw_mode = mode
+
+#figure out if we add or erase
 func determine_draw_mode(event):
 	var already_district = already_district()
 	if already_district and not event is InputEventScreenTouch and not event is InputEventScreenDrag:
@@ -508,16 +772,10 @@ func determine_draw_mode(event):
 				mobile__hold_tween.queue_free()
 				mobile__is_waiting_for_hold = false
 				draw_mode = DRAW_MODES.ADD
-		#if still touching (no other screentouch has happed)
-		#	set DRAW_MODES.ERASE
-#	if settings["advanced"]["none_selected_start_erasing"]:
-#		if matrix.vertices.has(str(grid_point)) and not matrix.vertices[str(grid_point)].has("district"):
-#			var district = get_node(selected_district)
-#			if district and len(district.squares) > 0:
-#				set_draw_mode(DRAW_MODES.ERASE)
 		
 	just_pressed = false
 	
+#figure out if add or delete but in house placing mode
 func determine_placement_mode(event):
 
 	if event is InputEventScreenTouch:
@@ -534,70 +792,20 @@ func determine_placement_mode(event):
 				mobile__is_waiting_for_hold = false
 				draw_mode = DRAW_MODES.PLACE	
 	just_pressed = false
-		
+	
+# bool checkers	
 func house_in_district():
 	return matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)]["type"] == "House" and matrix.vertices[str(grid_point)].has("district")
 
 func already_district():
 	return matrix.vertices.has(str(grid_point)) and matrix.vertices[str(grid_point)].has("district")
 	
-func set_draw_mode(mode):
-	draw_mode = mode
+##################
+#
+#	Submit Functions
+#
+##################
 
-func _remove_district() -> void:
-	if not last_point:
-		return
-	var district = get_district_selected()
-	if not district:
-		return
-		
-	district.erase(grid_point)
-	if _multiplayer:
-		if district.house_count < district.min_size:
-			submit_button.disabled = true
-
-func get_district_selected(exclude=null, temp=null):
-
-	if not has_node(selected_district):
-		
-		var district = _district.instance()
-		district.starting_vertex = grid_point
-		
-		if selected_district == "Flood":
-			district.max_size = settings["districts"][temp]["max"]
-			district.min_size = settings["districts"][temp]["min"]
-		else:
-			district.max_size = settings["districts"][selected_district]["max"]
-			district.min_size = settings["districts"][selected_district]["min"]
-		district.set_global_position(grid_point * matrix.GRID_SIZE)
-		district.set_name(selected_district)
-		var color
-		if selected_district == "Flood":
-			color = Color(1, 0, 0)
-			#district.squares_in_region.append(exclude)
-		else:
-			var color_name = settings["districts"][selected_district]["color"] #get_tree().get_current_scene().get_node("UI/DistrictButtons").get_node(selected_district).color_val
-			color = get_node("/root/Globals").word2color(color_name)
-			district.color = color
-			color.a = 0.5
-
-		if settings["advanced"]["District Rules"]["diagonals"]:
-			#color.a = 1.0
-			district.get_node("TileMap255").modulate = color
-		else:
-			district.get_node("TileMap").modulate = color
-		add_child(district)
-		district.highlight(grid_point, exclude)
-		if not ["Flood","Error"].has(selected_district):
-			districts.append(district)
-
-		return false
-	else:
-		var district = get_node(selected_district)
-		return district
-	
-func get_width():
-	return width
 
 func submit_current_layout():
 	#remove the house buttons
@@ -620,10 +828,13 @@ func submit():
 		var score = {d.name:{}}
 		for id in d.squares:
 			if matrix.vertices[id].has("allegiance"):
+				var voters = 1
+				if matrix.vertices[id].has("voters"):
+					voters = matrix.vertices[id]["voters"]
 				if score[d.name].has(matrix.vertices[id]["allegiance"]):
-					score[d.name][matrix.vertices[id]["allegiance"]] += 1
+					score[d.name][matrix.vertices[id]["allegiance"]] += voters
 				else:
-					score[d.name][matrix.vertices[id]["allegiance"]] = 1
+					score[d.name][matrix.vertices[id]["allegiance"]] = voters
 		scores.append(score)
 
 	var results = []
@@ -639,8 +850,20 @@ func submit():
 			results.append(most_votes)
 			district_tally.add_district(most_votes.keys()[0], most_votes[most_votes.keys()[0]])
 
+	
+	if not Globals.chamber_of_legislation.has(Globals.current_map["name"]):
+		Globals.chamber_of_legislation[Globals.current_map["name"]] = {"seats":{},"parties":{}}
+
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["seats"][settings["name"]] = results
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["parties"] = settings["parties"]
+	if not Globals.chamber_of_legislation[Globals.current_map["name"]].has("scores"):
+		Globals.chamber_of_legislation[Globals.current_map["name"]]["scores"] = {}
+	Globals.chamber_of_legislation[Globals.current_map["name"]]["scores"][settings["name"]] = scores
+
 	var winner = get_winner(results)
-	print(winner)
+	#print(winner)
+	
+		
 	var color = Color(0,0,0)
 	if not winner.keys()[0]:
 		winner_label.set_text("TIE!?")
@@ -656,25 +879,54 @@ func submit():
 	recieve_input = false
 	submit_button.visible = false
 	
+	if winner.keys()[0] == enable_next_if_winner_is:
+		if settings["pointer"]:
+			for node in settings["pointer"]:
+				Globals.map_progress[Globals.current_map["name"]][node] = true
+		victory_node.next.disabled = false
+		
+	#shoot off up to LIMIT fireworks
+	var grid_list = matrix.vertices.keys()
+	grid_list = shuffleList(grid_list)
+	for square in grid_list:
+		if matrix.vertices[square].has("allegiance") and matrix.vertices[square]["allegiance"] == winner.keys()[0]:
+			shoot_firework(matrix.vertices[square]["coords"])
+			if firework_limit <= 0:
+				break
+
+func shuffleList(list):
+	var shuffledList = [] 
+	var indexList = range(list.size())
+	for i in range(list.size()):
+		var x = randi()%indexList.size()
+		shuffledList.append(list[indexList[x]])
+		indexList.remove(x)
+	return shuffledList
+
+func shoot_firework(coords):
+	coords.y = coords.y - 0.5
+	if firework_limit > 0:
+		firework_limit-=1
+		var rng = RandomNumberGenerator.new()
+		rng.randomize()
+		var t = Timer.new()
+		t.set_wait_time(rng.randf()*4)
+		t.set_one_shot(true)
+		self.add_child(t)
+		t.start()
+		yield(t, "timeout")
+		var firework = firework_object.instance()
+		firework.get_node("Sound1").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
+		firework.get_node("Sound2").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
+		firework.get_node("Sound3").volume_db = 5*log(usrexp_settings["Audio"]["Sound"])
+		firework.set_global_position(coords * matrix.GRID_SIZE)
+		add_child(firework)
+		t.queue_free()
+
 func end_turn_enable():
 	submit_button.disabled = false
 	
-func remove_district(district_name):
-	recieve_input = false
-	#show a spinning hour glass here
-	for d in districts:
-		if d.name == district_name:
-			var houses = d.squares.duplicate()
-			for house in houses:
-				d.erase(str2var("Vector2" + house), true)
-			districts.erase(d)
-			d.party_tally.reset()
-			d.button.text = str(d.max_size-d.house_count)
-			var n = d.max_size
-			d.queue_free()
-			recieve_input = true
-			return n
-	recieve_input = true
+
 	
 func get_winner(results):
 	var arr = []
@@ -692,72 +944,6 @@ func get_winner(results):
 			winner = null
 
 	return {winner: arr.count(winner)}
-
-func place_house(event):
-	if deselect_is_on or disable_draw:
-		return
-	if event is InputEventScreenTouch or event is InputEventScreenDrag:
-		if event is InputEventScreenTouch and not event.is_pressed():
-			draw_mode = DRAW_MODES.PLACE
-			
-		if event.is_pressed() or event is InputEventScreenDrag:
-			if not event is InputEventScreenDrag: #is pressed
-				mobile__press_type = true
-				
-			else:
-				mobile__press_type = false #screen drag
-				
-			var square = matrix.get(grid_point)
-
-			var allegiance
-			if square != null and square.has("allegiance"):
-				allegiance = square["allegiance"]
-
-			if selected_house.type == "gap":
-				#remove house sprite if there is one
-				matrix.set(-1, grid_point)
-				
-				if matrix.vertices.has(str(grid_point)):
-					determine_placement_mode(event)
-				
-				if draw_mode == DRAW_MODES.REMOVE:
-					matrix.fog.add_fog(grid_point)
-					matrix.vertices.erase(str(grid_point))
-				else:
-					#set matrix fog to clear this square
-					matrix.fog.clear_fog(grid_point)
-					
-					#matrix.set(selected_house.sprite_index, grid_point)
-					matrix.vertices[str(grid_point)] = {
-						"type":"Gap", 
-						"coords":grid_point, 
-						"visited": false,
-					}
-					if square != null and square.has("allegiance"):
-						house_buttons.get_party(allegiance).increment_voters()
-						houses_unplaced+=1
-					
-				
-					
-			elif selected_house.type == "house" and selected_house.voters > 0 and allegiance != selected_house.party_name:
-				matrix.set(selected_house.sprite_index, grid_point)
-				matrix.vertices[str(grid_point)] = {
-					"type":"House", 
-					"coords":grid_point, 
-					"visited": false,
-					"allegiance": selected_house.party_name
-				}
-				if square != null and square.has("allegiance") and allegiance != selected_house.party_name:
-					house_buttons.get_party(allegiance).increment_voters()
-					houses_unplaced+=1
-
-				selected_house.decrement_voters()
-				houses_unplaced-=1
-				
-			
-		if houses_unplaced <= 0:
-			submit_button.disabled = false
-			submit_button.set_mouse_filter(0)
 			
 			
 
@@ -795,3 +981,14 @@ func enable_selected_district():
 	for btn in district_buttons.get_children():
 		if btn.name == selected_district:
 			btn.disabled = false
+
+##################
+#
+# State Shape
+#
+##################
+
+func readjust_state(anchor):
+	var coords = anchor.coords
+	shape.set_global_position(Vector2(coords.x * matrix.GRID_SIZE,
+									 coords.y * matrix.GRID_SIZE))

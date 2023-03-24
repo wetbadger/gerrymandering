@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=9 format=2]
 
-[ext_resource path="res://font/geo_bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/Inter-VariableFont_slnt,wght.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://font/SpaceMono-Regular.ttf" type="DynamicFontData" id=2]
 
 [sub_resource type="DynamicFont" id=2]

@@ -33,8 +33,8 @@ func decrement_voters():
 	voters -= 1
 	label.set_text(party_name + "\n" + str(voters))
 
-func increment_voters():
-	voters += 1
+func increment_voters(n=1):
+	voters += n
 	label.set_text(party_name + "\n" + str(voters))
 
 func _on_HouseButton_button_up():

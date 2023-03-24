@@ -4,14 +4,17 @@ class_name Window
 
 var menu
 
+onready var scene = get_tree().get_current_scene()
+
 func _ready():
-	menu = get_tree().get_current_scene().get_node("CustomGameMenu")
-	if is_instance_valid(menu):
-		var windows_open = menu.windows_open
-		if len(windows_open) >= menu.max_windows_open:
-			queue_free()
-		else:
-			windows_open.append(self)
+	if scene.has_node("CustomeGameMenu"):
+		menu = scene.get_node("CustomGameMenu")
+		if is_instance_valid(menu):
+			var windows_open = menu.windows_open
+			if len(windows_open) >= menu.max_windows_open:
+				queue_free()
+			else:
+				windows_open.append(self)
 
 func add_element(elem, _scale=1):
 	get_node("PanelContainer").add_child(elem)

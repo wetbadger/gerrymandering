@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://themes/splash.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Start2.gd" type="Script" id=2]
+
+[node name="Start2" type="Button"]
+margin_right = 157.0
+margin_bottom = 88.0
+rect_min_size = Vector2( 157, 88 )
+theme = ExtResource( 1 )
+text = "Start"
+script = ExtResource( 2 )
+
+[connection signal="button_up" from="." to="." method="_on_Start2_button_up"]

@@ -46,7 +46,7 @@ func get_options():
 
 func _on_Apply_button_up():
 	var settings = scene.settings
-	var options = get_options()
+	#var options = get_options()
 	var new_dict = settings.duplicate()
 	var file = File.new()
 	var settings_to_save = new_dict.duplicate(true)
@@ -62,3 +62,5 @@ func _on_Apply_button_up():
 	file.open("user://settings.json", File.WRITE)
 	file.store_string(JSON.print(settings_to_save, "\t"))
 	file.close()
+	Globals.user_experience_settings = settings_to_save
+

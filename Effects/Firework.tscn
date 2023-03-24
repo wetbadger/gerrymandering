@@ -1,0 +1,92 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Effects/Explosion.gd" type="Script" id=1]
+[ext_resource path="res://Effects/ParticleExplosion2.gd" type="Script" id=2]
+[ext_resource path="res://Effects/Smoke.gd" type="Script" id=3]
+[ext_resource path="res://audio/sfx/fireworks/pop.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sfx/fireworks/smack.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/sfx/fireworks/crack.wav" type="AudioStream" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.984772, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+lifetime_randomness = 0.67
+emission_shape = 1
+emission_sphere_radius = 10.0
+flag_disable_z = true
+direction = Vector3( 1, 1, 1 )
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 0.8
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 1.0
+linear_accel = -100.0
+radial_accel = 35.85
+radial_accel_random = 0.23
+scale = 2.0
+scale_curve = SubResource( 3 )
+
+[sub_resource type="CanvasItemMaterial" id=5]
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.576471, 0.576471, 0.576471, 0.27451, 0.576471, 0.576471, 0.576471, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 114.62
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -73.58
+radial_accel = 33.96
+scale = 3.0
+color_ramp = SubResource( 7 )
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2( 0.5, 0.5 )
+script = ExtResource( 2 )
+
+[node name="Explosion" type="Particles2D" parent="."]
+material = SubResource( 1 )
+emitting = false
+amount = 160
+lifetime = 50.0
+speed_scale = 5.0
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource( 4 )
+script = ExtResource( 1 )
+
+[node name="Smoke" type="Particles2D" parent="."]
+material = SubResource( 5 )
+emitting = false
+amount = 160
+lifetime = 50.0
+speed_scale = 5.0
+explosiveness = 0.9
+process_material = SubResource( 8 )
+script = ExtResource( 3 )
+
+[node name="Sound1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Sound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+
+[node name="Sound3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
