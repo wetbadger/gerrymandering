@@ -5,9 +5,10 @@ class_name Window
 var menu
 
 onready var scene = get_tree().get_current_scene()
+onready var bar = get_node("TitleBar")
 
 func _ready():
-	if scene.has_node("CustomeGameMenu"):
+	if scene.has_node("CustomGameMenu"):
 		menu = scene.get_node("CustomGameMenu")
 		if is_instance_valid(menu):
 			var windows_open = menu.windows_open

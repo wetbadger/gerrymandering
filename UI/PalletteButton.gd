@@ -77,7 +77,7 @@ func _on_Button_gui_input(event):
 #	            # left button clicked
 			BUTTON_RIGHT:
 				var n = scene.remove_district(name)
-				text = str(n)
+				#text = str(n)
 
 #
 # While disabled click to undisable
