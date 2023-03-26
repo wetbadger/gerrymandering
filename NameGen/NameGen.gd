@@ -26,16 +26,7 @@ func new_name():
 	return word
 	
 func load_names():
-	if Globals.save_progress: #TODO: let user modify names?
-		var file = File.new()
-		if not file.file_exists("user://names.json"):
-				create_name_file()
-				return Globals.default_settings.duplicate(true)
-		file.open("user://names.json", File.READ)
-		var data = parse_json(file.get_as_text())
-		return data
-	else:
-		return Globals.default_names
+	return Globals.default_names
 	
 func create_name_file():
 	var file = File.new()

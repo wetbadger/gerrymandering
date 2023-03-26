@@ -36,14 +36,7 @@ func _on_Start_button_up():
 	new_dict["name"] = game_settings["name"].text
 	new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
 	
-	if Globals.save_progress:
-		new_game_folder(game_settings)
-		new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]
-		var file = File.new()
-		file.open("user://" + game_settings["name"] + "settings.json", File.WRITE)
-		file.store_string(JSON.print(new_dict, "  "))
-	else:
-		Globals.current_settings = new_dict
+	Globals.current_settings = new_dict
 	
 	set_process(true)
 

@@ -2,8 +2,6 @@ extends Node
 
 var map_name
 
-var save_progress = false #TODO: delete this
-
 #TODO: make sure these values are taken from the JSON, 
 #(the variable here should only be used to CREATE the JSON)
 const default_settings = {
