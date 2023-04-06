@@ -26,6 +26,10 @@ TODO:
 		clustered (random but like-houses together)
 		[done] houses placed by user
 		
+	User placed mode:
+		ability to edit an existing matrix
+		ability to change number of houses available
+		
 	[done] Fog of War
 	
 	[done] touch screen hold-to-delete function
@@ -43,7 +47,7 @@ TODO:
 	menu to quit to main menu in game
 	adjust screen layout for devices
 
-	draw houses better (fix copyright infringement)
+	draw original houses (fix copyright infringement)
 	
 	infinite map
 	

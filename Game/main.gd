@@ -302,20 +302,8 @@ func load_settings():
 	map_name = ""
 	if Globals.map_name:
 		map_name = Globals.map_name
-	if Globals.save_progress:
-		var file = File.new()
-		if not file.file_exists("user://"+map_name+"/settings.json"):
-				#file.open("user://settings.json", File.READ)
-				#var data = parse_json(file.get_as_text())
-				var data = Globals.default_settings
-				return data
-		file.open("user://"+map_name+"/settings.json", File.READ)
-		var data = parse_json(file.get_as_text())
-		map_name = data["name"]
-		return data
-	else:
 		
-		return Globals.current_settings.duplicate(true)
+	return Globals.current_settings.duplicate(true)
 
 func load_usrexp_settings():
 	var file = File.new()

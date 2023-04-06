@@ -74,6 +74,10 @@ func _process(delta):
 	mouse_over = grid_pos
 
 func save_matrix(map_name, anchor=null):
+	if vertices == null:
+		#in the situation where there is no vertices here
+		#there should be a global with vertices defined
+		vertices = Globals.current_vertices
 	if anchor != null:
 		vertices["anchor"] = {"type": "Anchor", "coords" : anchor}
 	var file = File.new()
@@ -109,10 +113,13 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 			file.open("user://"+map_name+"/matrix.json", File.READ)
 			var loaded_matrix = parse_json(file.get_as_text())
 			var pop = 0
-			vertices = loaded_matrix
+			
 			if loaded_matrix == null:
-				return -1
+				loaded_matrix = Globals.current_vertices
+				if vertices == {}:
+					return -1
 				
+			vertices = loaded_matrix
 			for square in loaded_matrix:
 				var index = -1 #TODO: missing asset?
 				

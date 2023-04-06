@@ -9,12 +9,7 @@ func _ready():
 	size = rect_size
 	var scene = get_tree().get_current_scene()
 	var map_name = scene.map_name
-	if Globals.save_progress:
-		var file = File.new()
-		file.open("user://"+map_name+"/settings.json", File.READ)
-		settings = parse_json(file.get_as_text())
-	else:
-		settings = Globals.current_settings
+	settings = Globals.current_settings
 #	add_party("Red Party", "red")
 #	add_party("Blue Party", "blue")
 

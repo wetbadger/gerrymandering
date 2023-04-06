@@ -5,9 +5,13 @@ var current_index = 0
 
 var button
 
+onready var window = get_parent().get_parent()
+
 func _ready():
 	dir_contents("res://Objects/States")
 	set_shape(current_index)
+	var titlebar = window.get_node("TitleBar")
+	titlebar.extension = 65
 	
 func set_button(btn):
 	self.button = btn
@@ -69,5 +73,6 @@ func _on_Button_button_up():
 
 
 func _on_Select_button_up():
-	get_parent().get_parent().menu.set_state_shape(shapes[current_index])
-	get_parent().get_parent().close_window()
+	
+	window.menu.set_state_shape(shapes[current_index])
+	window.close_window()

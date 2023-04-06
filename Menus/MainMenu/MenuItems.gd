@@ -48,3 +48,11 @@ func _on_Story_button_up():
 
 func _on_Tutorial_button_up():
 	main_menu.start_tutorial()
+
+
+func _on_Puzzles_button_up():
+	main_menu.open_puzzle_menu()
+
+
+func _on_About_button_up():
+	main_menu.open_about_page()
