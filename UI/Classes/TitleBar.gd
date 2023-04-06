@@ -9,7 +9,8 @@ func _ready():
 	rect_min_size = Vector2(50, 50)
 	get_node("HBoxContainer/Bar").rect_min_size.x = parent_size.x - get_node("HBoxContainer/Close").rect_size.x + extension
 
-
+func set_width(width):
+	get_node("HBoxContainer/Bar").rect_min_size.x = width - get_node("HBoxContainer/Close").rect_size.x + extension
 
 func _on_Close_button_up():
 	get_parent().close_window()

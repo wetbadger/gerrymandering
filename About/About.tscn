@@ -1,0 +1,250 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=1]
+[ext_resource path="res://About/About.gd" type="Script" id=2]
+[ext_resource path="res://About/Heading.tres" type="Theme" id=3]
+[ext_resource path="res://About/Paragraph.tres" type="Theme" id=4]
+[ext_resource path="res://pics/history/Declaration_of_Independence_(1819),_by_John_Trumbull.png" type="Texture" id=5]
+[ext_resource path="res://pics/history/dragon2.png" type="Texture" id=6]
+[ext_resource path="res://pics/history/hal.png" type="Texture" id=7]
+[ext_resource path="res://pics/history/colorado.png" type="Texture" id=8]
+
+[node name="About" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Window" parent="." instance=ExtResource( 1 )]
+position = Vector2( 518, 206 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Window"]
+margin_left = 63.0
+margin_top = 64.0
+margin_right = 1002.0
+margin_bottom = 597.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Window/ScrollContainer"]
+margin_right = 938.0
+margin_bottom = 7565.0
+
+[node name="Label" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_right = 938.0
+margin_bottom = 111.0
+theme = ExtResource( 3 )
+text = "
+What is Gerrymandering?"
+
+[node name="Label2" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 115.0
+margin_right = 938.0
+margin_bottom = 640.0
+theme = ExtResource( 4 )
+text = "
+It is when local governments or partisan
+commissions redraw congressional districts
+to favor one party, whether that be Democrat 
+or Republican. 
+
+Gerrymandering has been cited by authors such 
+as Yascha Mounk as overtly undemocratic. Two 
+things are keeping Gerrymandering around. 
+First, the fact that most people don’t know what 
+it is, and second, the lack of a better alternative. 
+So first, why is Gerrymandering even a thing?"
+
+[node name="Label8" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 644.0
+margin_right = 938.0
+margin_bottom = 869.0
+theme = ExtResource( 3 )
+text = "
+American Democracy: 
+a Work in Progress
+"
+
+[node name="TextureRect" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 873.0
+margin_right = 938.0
+margin_bottom = 1373.0
+rect_min_size = Vector2( 1, 500 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 1377.0
+margin_right = 938.0
+margin_bottom = 2386.0
+theme = ExtResource( 4 )
+text = "
+In the early days of American Independence, 
+Democracy was in an experimental stage. 
+Modeling a new country on a republic that ended 
+1800 years ago was not a simple task. The founding 
+fathers were well educated and knowledgeable 
+about political philosophy of the day. For example, 
+the three branches of government were created to 
+put in place a system of checks and balances, an 
+idea that dates back to Ancient Rome. Several 
+states, such as New Jersey, originally used an 
+“at-large” voting system, meaning members of a 
+governing body were elected by popular vote. In 
+this system, each voter (as long as they were, male, 
+white and owned land) had the same number of 
+votes and could use them to support multiple 
+candidates running for office. However, this led 
+to the entire state being dominated by one political 
+party. Sometimes, a community preferred another 
+candidate, but far across the expanse of the state, 
+another community simply had more people. 
+Many people felt unrepresented. 
+"
+
+[node name="Label4" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 2390.0
+margin_right = 938.0
+margin_bottom = 2871.0
+theme = ExtResource( 4 )
+text = "A solution that helped fix this problem was to split 
+the state into districts—shapes intended to 
+represent a political area—however, the method 
+for drawing them and how often to do it was still 
+unclear. The constitution says that representatives 
+are assigned to a state based on that state’s 
+population, but the founding fathers left the 
+process of choosing those representatives up to 
+the states. Gerrymandering was invented out of 
+earnest attempts at redesigning the voting system 
+to be fair."
+
+[node name="Label5" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 2875.0
+margin_right = 938.0
+margin_bottom = 3356.0
+theme = ExtResource( 4 )
+text = "
+In the early 19th century, Congress continually 
+passed laws to try and improve the fairness of the 
+system, but in this regard, they were writing laws 
+for themselves. The solution that became the 
+system we use today was to redraw the districts 
+every decade. In some states elected 
+representatives draw them. In others, they are 
+drawn by an independent commission. It turns out, 
+democracy is more complicated than “one person, 
+one vote.”"
+
+[node name="Label6" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 3360.0
+margin_right = 938.0
+margin_bottom = 3585.0
+theme = ExtResource( 3 )
+text = "
+The Gerrymander: 
+a New Species of Monster
+"
+
+[node name="TextureRect2" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 3589.0
+margin_right = 938.0
+margin_bottom = 4089.0
+rect_min_size = Vector2( 1, 500 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[node name="Label7" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 4093.0
+margin_right = 938.0
+margin_bottom = 4882.0
+theme = ExtResource( 4 )
+text = "
+The public resentment of Gerrymandering was 
+apparent from its outset, when Elbridge Gerry, 
+former vice president under James Madison, 
+drew the districts as the governor of 
+Massachusetts. Gerry was concerned about the 
+Federalist party winning too many seats, so he 
+drew the districts of Massachusetts to favor The 
+Democratic-Republican party. The editor of the 
+Boston Gazette published a scathing article, The 
+Gerrymander: a New Species of Monster,
+ criticizing Gerry's tactic. The article featured a 
+political cartoon with Gerry's district stylized to 
+look like a monstrous Salamander-Dragon. The 
+editor warned Massachusans and Americans, 
+\"Behold and shudder at the exhibition of this 
+terrific dragon, brought forth to swallow and 
+devour your liberties and equal Rights.\""
+
+[node name="TextureRect3" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 4886.0
+margin_right = 938.0
+margin_bottom = 5386.0
+rect_min_size = Vector2( 1, 500 )
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="Label9" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 5390.0
+margin_right = 938.0
+margin_bottom = 6047.0
+theme = ExtResource( 4 )
+text = "
+One suggested solution is to let a computer 
+algorithm draw the districts, based on a 
+mathematical principle of fairness. However, 
+algorithms, even if perfectly fair in theory, might 
+not be able to understand the boundaries of 
+communities. There is also a sense of uneasiness 
+created by letting a black-box make such 
+important decisions. Just as important as fair 
+democracy, is the appearance of fairness. People 
+want to feel represented by a member of their 
+community, not a computer algorithm. Also, 
+computer algorithms are not necessarily free of 
+bias.
+"
+
+[node name="Label10" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 6051.0
+margin_right = 938.0
+margin_bottom = 6840.0
+theme = ExtResource( 4 )
+text = "
+Gerrymandering hurts Republicans and 
+Democrats alike. The great tragedy of 
+gerrymandering is that most Americans don’t 
+get to live in a district represented by a 
+congressperson who supports their values. 
+Because of the gerrymandering strategy, some 
+places are unanimous in their support for one 
+candidate but their party is a minority in the state, 
+while other districts are carefully split so that a 
+party wins by the smallest possible margin. Case 
+and point is Colorado’s District 3. Redistricted in 
+2021 by a Republican state house, Lauren Boebert 
+won her district by 0.1%, or about 500 votes. She 
+rode in on a short-lived populist wave, but thanks 
+to Gerrymandering, she may represent her unwilling 
+49.9% for the rest of their lives.
+"
+
+[node name="TextureRect4" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 6844.0
+margin_right = 938.0
+margin_bottom = 7344.0
+rect_min_size = Vector2( 1, 500 )
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="Label11" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 7348.0
+margin_right = 938.0
+margin_bottom = 7565.0
+theme = ExtResource( 4 )
+text = "
+There is no consensus around an alternate method, 
+but the constitution gives congress the power to ban 
+gerrymandering.
+"

@@ -22,6 +22,8 @@ var default_settings = {
 onready var main_theme = get_node("MainTheme")
 var start_story = load("res://Story/Story.tscn")
 var start_tutorial = load("res://Story/Tutorial.tscn")
+var puzzle_menu = load("res://Menus/PuzzleMenu/PuzzleMenu.tscn")
+var about_page = load("res://About/About.tscn")
 onready var scene = get_tree().get_current_scene()
 
 func _ready():
@@ -49,7 +51,9 @@ func _ready():
 		main_theme.set_volume(settings["Audio"]["Music"])
 		Globals.user_experience_settings["Audio"]["Music"] = settings["Audio"]["Music"]
 		
-
+	#reset global variables
+	Globals.current_vertices = {}
+	Globals.current_settings = {}
 		
 	
 		
@@ -90,3 +94,11 @@ func start_story():
 func start_tutorial():
 	var st = start_tutorial.instance()
 	scene.add_child(st)
+	
+func open_puzzle_menu():
+	var pm = puzzle_menu.instance()
+	scene.add_child(pm)
+	
+func open_about_page():
+	var ap = about_page.instance()
+	scene.add_child(ap)

@@ -194,6 +194,7 @@ var default_names = {
 }
 
 var current_settings = {}
+var current_vertices = {}
 
 func word2color(word):
 	if word:

@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://font/Toronto.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 44
+font_data = ExtResource( 1 )
+
+[sub_resource type="BitmapFont" id=2]
+
+[resource]
+default_font = SubResource( 2 )
+Label/fonts/font = SubResource( 1 )

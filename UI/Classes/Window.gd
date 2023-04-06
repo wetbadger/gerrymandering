@@ -47,3 +47,7 @@ func position_window():
 	
 func set_min_height(h):
 	get_node("PanelContainer").rect_min_size.y = h
+	
+func set_width(width):
+	get_node("PanelContainer").rect_size.x = width
+	bar.set_width(width)
