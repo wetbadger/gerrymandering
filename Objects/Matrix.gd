@@ -85,7 +85,7 @@ func save_matrix(map_name, anchor=null):
 	file.store_string(JSON.print(vertices, "\t"))
 	file.close()
 	
-func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
+func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name="", set_indicators=true):
 	gaps = _gaps
 	population = n
 	if _parties:
@@ -141,7 +141,8 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					set(index, str2var("Vector2"+square))
 					fog.clear_fog(str2var("Vector2"+square))
 					
-					set_voter_indicator(voters, square)
+					if set_indicators:
+						set_voter_indicator(voters, square)
 					
 				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
@@ -430,6 +431,17 @@ func get(grid_point):
 
 func user_place_house(population, parties, map_name):
 	#print(population, parties, map_name)
+	var directory = Directory.new();
+	var isFileExists = directory.dir_exists("user://"+map_name)
+	if not isFileExists:
+		return population
+	#TODO: add houses if directory exists
+	var file = File.new()
+	file.open("user://"+map_name+"/matrix.json", file.READ)
+	var text = file.get_as_text()
+	vertices = parse_json(text)
+	file.close()
+	#let user increase or decrease population in place mode
 	return population
 	
 		

@@ -166,19 +166,44 @@ func _ready():
 		
 		draw_mode = DRAW_MODES.PLACE
 		submit_button.set_mode_placement()
-		
-		population = matrix.user_place_house(population, parties, 
-			Globals.current_settings["name"])
-			
 		houses_unplaced = population
+		if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+			population = matrix.user_place_house(population, parties, 
+				Globals.current_settings["name"])
+			for vertex in matrix.vertices:
+				if matrix.vertices[vertex]["type"] == "House":
+					if not matrix.vertices[vertex].has("voters"):
+						matrix.vertices[vertex]["voters"] = 1
+					var idcr = matrix.set_voter_indicator(matrix.vertices[vertex]["voters"], vertex)
+					if not matrix.vertices[vertex].has("voters"):
+						idcr.set_num(1)
+					else:
+						idcr.set_num(matrix.vertices[vertex]["voters"])
+					placement_mode__grid_indicators[vertex] = {"indicator": idcr}
+					for btn in house_buttons.get_children():
+						if btn.type != "gap":
+							if btn.party_name == matrix.vertices[vertex]["allegiance"]:
+								var vtrs = 1
+								if matrix.vertices[vertex].has("voters"):
+									vtrs = matrix.vertices[vertex]["voters"]
+								btn.decrement_voters(vtrs)
+								houses_unplaced-=vtrs
 		
-		submit_button.disabled = true
-		submit_button.set_mouse_filter(2)
-		
+		if houses_unplaced > 0:
+			submit_button.disabled = true
+			submit_button.set_mouse_filter(2)
+		else:
+			submit_button.disabled = false
+			
 		if settings["advanced"]["House Placement"]["algorithm"] == "fill":
 			#fill the state with gaps
 			var should_be_zero = matrix.generate_houses(0, {}, true, "fill", Globals.current_settings["name"])
-		
+		if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+			population = matrix.generate_houses(population, parties, 
+				settings["advanced"]["House Placement"]["gaps"], 
+				settings["advanced"]["House Placement"]["algorithm"], 
+				Globals.current_settings["name"],
+				false)
 	else:
 		
 		population = matrix.generate_houses(population, parties, 
@@ -423,6 +448,11 @@ func place_house(event):
 							house_buttons.get_party(allegiance).increment_voters()
 							houses_unplaced+=1
 					matrix.vertices.erase(str(grid_point))
+					if houses_unplaced > 0:
+						submit_button.disabled = true
+						submit_button.set_mouse_filter(2)
+					else:
+						submit_button.disabled = false
 				else:
 					#set matrix fog to clear this square
 					matrix.fog.clear_fog(grid_point)
@@ -437,7 +467,11 @@ func place_house(event):
 							
 						placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
 						placement_mode__grid_indicators.erase(str(grid_point))
-						
+						if houses_unplaced > 0:
+							submit_button.disabled = true
+							submit_button.set_mouse_filter(2)
+						else:
+							submit_button.disabled = false
 					matrix.vertices[str(grid_point)] = {
 						"type":"Gap", 
 						"coords":grid_point, 
@@ -464,10 +498,19 @@ func place_house(event):
 						houses_unplaced+=1
 					placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
 					placement_mode__grid_indicators.erase(str(grid_point))
-
+					if houses_unplaced > 0:
+						submit_button.disabled = true
+						submit_button.set_mouse_filter(2)
+					else:
+						submit_button.disabled = false
 				selected_house.decrement_voters()
 				houses_unplaced-=1
 				matrix.voter_indicators.visible = true
+				if houses_unplaced > 0:
+					submit_button.disabled = true
+					submit_button.set_mouse_filter(2)
+				else:
+					submit_button.disabled = false
 				
 				if not placement_mode__grid_indicators.has(str(grid_point)):
 					#create a voter indicator
@@ -485,7 +528,12 @@ func place_house(event):
 				houses_unplaced-=1
 				voter_indicator.set_num(matrix.vertices[str(grid_point)]["voters"])
 				placement_mode__grid_indicators[str(grid_point)]["indicator"].increment()
-				
+				if houses_unplaced > 0:
+					submit_button.disabled = true
+					submit_button.set_mouse_filter(2)
+				else:
+					submit_button.disabled = false
+					
 				if matrix.vertices[str(grid_point)]["voters"] > 2 and matrix.vertices[str(grid_point)]["voters"] < 5:
 					matrix.set(selected_house.sprite_index, grid_point)
 				elif matrix.vertices[str(grid_point)]["voters"] > 4:
@@ -505,7 +553,7 @@ func place_house(event):
 
 
 func _process(_delta):
-
+	print(houses_unplaced)
 	var count = 0
 	for d in districts:
 		count += d.house_count
