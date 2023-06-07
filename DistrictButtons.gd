@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+#this is a comment
+
 var button = load("res://UI/PalletteButton.tscn")
 
 func load_buttons(districts):
