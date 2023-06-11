@@ -163,7 +163,6 @@ func _ready():
 		var house = house_buttons.get_children()[0]
 		house.pressed = true
 		selected_house = house
-		
 		draw_mode = DRAW_MODES.PLACE
 		submit_button.set_mode_placement()
 		houses_unplaced = population
@@ -188,7 +187,6 @@ func _ready():
 									vtrs = matrix.vertices[vertex]["voters"]
 								btn.decrement_voters(vtrs)
 								houses_unplaced-=vtrs
-		
 		if houses_unplaced > 0:
 			submit_button.disabled = true
 			submit_button.set_mouse_filter(2)
@@ -211,6 +209,10 @@ func _ready():
 			settings["advanced"]["House Placement"]["algorithm"], 
 			Globals.current_settings["name"])
 		create_district_buttons(expected_population)
+		
+		if settings.has("camera"):
+			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
 
 # # # # # # # # #
 #
@@ -297,7 +299,8 @@ func get_button_names():
 	var bn = []
 	var children = district_buttons.get_children()
 	for b in children:
-		bn.append(b.name)
+		if b.name != "Blank":
+			bn.append(b.name)
 	return bn
 	
 func reset_buttons(names):
@@ -553,7 +556,7 @@ func place_house(event):
 
 
 func _process(_delta):
-	print(houses_unplaced)
+
 	var count = 0
 	for d in districts:
 		count += d.house_count

@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 export var path :String = ""
+var difficulty = 0
 
 var music
 onready var scene = get_tree().get_current_scene()
@@ -17,6 +18,19 @@ func _process(_delta):
 		var error = get_tree().change_scene("res://Game/main.tscn")
 		if error:
 			print("Could not load main scene")
+
+func set_name(name):
+	get_node("Name").text = name
+	path = "Puzzles/" + name
+	
+func set_difficulty(d):
+	var i = 0
+	for star in get_node("Difficulty").get_children():
+		if i == d:
+			break
+		star.visible = true
+		i+=1
+	difficulty = d
 
 func _on_Button_button_up():
 	var file = File.new()

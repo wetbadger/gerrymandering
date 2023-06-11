@@ -25,7 +25,6 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 position = Vector2( 1393.49, -132.339 )
 rotation = 0.39619
-scale = Vector2( 1, 1 )
 shape = SubResource( 4 )
 
 [node name="KinematicBody2D3" type="StaticBody2D" parent="."]

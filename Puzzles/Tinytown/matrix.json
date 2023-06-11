@@ -1,0 +1,96 @@
+{
+		"anchor" : {
+			"type" : "Anchor",
+			"coords" : "(61, 31)"
+		},
+		"(58, 30)": {
+			"type": "House",
+			"coords": "(58, 30)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(58, 29)": {
+			"type": "House",
+			"coords": "(58, 29)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(57, 30)": {
+			"type": "House",
+			"coords": "(57, 30)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(59, 30)": {
+			"type": "House",
+			"coords": "(59, 30)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(58, 31)": {
+			"type": "House",
+			"coords": "(58, 31)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(57, 31)": {
+			"type": "House",
+			"coords": "(57, 31)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(57, 32)": {
+			"type": "House",
+			"coords": "(57, 32)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(58, 32)": {
+			"type": "House",
+			"coords": "(58, 32)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(59, 32)": {
+			"type": "House",
+			"coords": "(59, 32)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(60, 32)": {
+			"type": "House",
+			"coords": "(60, 32)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(59, 31)": {
+			"type": "House",
+			"coords": "(59, 31)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(60, 31)": {
+			"type": "House",
+			"coords": "(60, 31)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(60, 30)": {
+			"type": "House",
+			"coords": "(60, 30)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(60, 29)": {
+			"type": "House",
+			"coords": "(60, 29)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(59, 29)": {
+			"type": "House",
+			"coords": "(59, 29)",
+			"visited": false,
+			"allegiance": "Opponent"
+		}
+	}
