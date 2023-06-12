@@ -27,7 +27,7 @@ TODO:
 		[done] houses placed by user
 		
 	User placed mode:
-		ability to edit an existing matrix
+		[done] ability to edit an existing matrix
 		ability to change number of houses available
 		
 	[done] Fog of War
@@ -52,7 +52,7 @@ TODO:
 	infinite map
 	
 	different types of houses
-		Apartments with more people on a square
+		[done] Apartments with more people on a square
 		Farms, with more land
 		Mansions, with more money
 		trees, rocks, and other assets
@@ -116,6 +116,7 @@ BUGS:
 	1. [FIXED] User Place mode holding down to erase "claimed land" will make 
 		house disapear without tallying 
 	2. [FIXED] Shape is not always matched to hardcoded levels on different screen sizes
-	3. Hardcoded levels not showing percentages on victory
+	3. [FIXED] Hardcoded levels not showing percentages on victory
+	4. End Game is bugged for non-tutoria maps
 
 """

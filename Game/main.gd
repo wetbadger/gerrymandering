@@ -59,6 +59,7 @@ onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
 onready var voter_indicator = get_node("UI/VoterIndicatorUI")
+
 var population
 var width
 var n_districts
@@ -542,7 +543,7 @@ func place_house(event):
 				elif matrix.vertices[str(grid_point)]["voters"] > 4:
 					matrix.set(selected_house.sprite_index, grid_point)
 				
-			$UI/VoterIndicatorUI.visible = true
+			#$UI/VoterIndicatorUI.visible = true
 
 		if houses_unplaced <= 0:
 			submit_button.disabled = false

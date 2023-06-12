@@ -15,7 +15,7 @@ var dist_keys
 var _i = 0
 var _j = 0
 var popular_vote = {}
-var data = Globals.chamber_of_legislation["Tutoria"]
+var data = Globals.chamber_of_legislation[Globals.current_map["name"]]
 #var data = {"parties":
 #	{"Fizzlicans":{"asset":2, "color":"orange", "voters":7}, 
 #	"Opponent":{"asset":1, "color":"blue", "voters":43}, 

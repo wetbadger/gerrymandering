@@ -1,0 +1,35 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/logo.png-bbd669f7f7b4f990f2cd8a00f8f07fdb.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://pics/chamber/logo.png"
+dest_files=[ "res://.import/logo.png-bbd669f7f7b4f990f2cd8a00f8f07fdb.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+process/normal_map_invert_y=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

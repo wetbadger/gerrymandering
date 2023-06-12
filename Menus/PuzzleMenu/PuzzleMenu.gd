@@ -12,6 +12,10 @@ func compare_difficulty(a, b):
 		return 0
 
 func _ready():
+	#set the map to Puzzles
+	#the map is really a menu this time
+	Globals.current_map["name"] = "Puzzles"
+	
 	var buttons = []
 	var dir = Directory.new()
 	dir.open("res://Puzzles")
@@ -22,7 +26,7 @@ func _ready():
 		if file == "":
 			break
 		elif not file.begins_with("."):
-			
+
 			var pb = puzzle_button.instance()
 			buttons.append(pb)
 			pb.set_name(file)
@@ -39,9 +43,20 @@ func _ready():
 				pb.difficulty = 0
 				print("Error: " + file + " has no setting for diffuclty")
 				
+			
+				
 	var sorted_buttons = merge_sort(buttons)
 	for b in sorted_buttons:
 		grid.add_child(b)
+		#load thumbnail
+		var image = Image.new()
+		var error = image.load("res://"+b.path+"/thumbnail.png")
+		if error != OK:
+			print("Failed to load image:", error)
+		else:
+			var texture = ImageTexture.new()
+			texture.create_from_image(image)
+			b.set_icon(texture)
 
 	dir.list_dir_end()
 

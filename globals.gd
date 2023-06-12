@@ -235,6 +235,6 @@ var chamber_of_legislation = {
 }
 
 var current_map = {
-	"name" : "Tutoria",
+	"name" : "",
 	"scene": ""
 }

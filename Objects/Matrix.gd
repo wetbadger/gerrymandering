@@ -2,6 +2,8 @@ extends Node2D
 
 #A pure mathematical obejct
 var vertices = {}
+#numbers to show how many voters are on each square
+#var voter_indicator_numbers = {}
 
 export var GRID_SIZE = 18
 var size
@@ -16,6 +18,7 @@ onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
 onready var vote_indicator = load("res://Effects/VotersIndicator.tscn")
 onready var voter_indicators = $VoterIndicators
+onready var voter_indicator_number = get_node("../../State/VotersIndicator")
 var v_indicator #instance of voter indicator (only need 1 for mouseover)
 enum {RIGHT, DOWN, LEFT, UP}
 var point
@@ -38,6 +41,8 @@ var top_left_corner = Vector2(999,999)
 var bottom_right_corner = Vector2(0,0)
 
 var mouse_over #what point is the mouse over
+
+var m = 0 #modulation for voter indicator number
 
 func _ready():
 	
@@ -66,12 +71,24 @@ func _process(delta):
 			scene.voter_indicator.visible = true
 			if vertices[grid_pos_str].has("voters"):
 				scene.voter_indicator.set_num(vertices[grid_pos_str]["voters"])
+				voter_indicator_number.set_num(vertices[grid_pos_str]["voters"])
 			else:
 				scene.voter_indicator.set_num(1)
+				voter_indicator_number.set_num(1)
+			voter_indicator_number.set_global_position(GRID_SIZE * grid_pos)
+			m = 0
+			voter_indicator_number.modulate = Color(1, 1, 1, m)
 			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
+			#voter_indicator_numbers[grid_pos_str].visible = true
+			
 		elif vertices[grid_pos_str]["type"] == "Gap":
 			scene.voter_indicator.visible = false
-	mouse_over = grid_pos
+			voter_indicator_number.modulate = Color(1, 1, 1, 0)
+
+	if m < 0.75:
+		m += 0.02
+	voter_indicator_number.modulate = Color(1, 1, 1, m)
+	mouse_over = grid_pos #stops action from looping
 
 func save_matrix(map_name, anchor=null):
 	if vertices == null:
@@ -214,6 +231,9 @@ func set_voter_indicator(voters, square):
 	v_indicator.z_index = 99
 	var coords = str2var("Vector2"+square)
 	v_indicator.set_global_position(coords * GRID_SIZE)
+	#voter_indicator_numbers[str(coords)] = v_indicator
+	#v_indicator.visible = false
+	v_indicator.scale = Vector2(0.333, 0.333)
 	return v_indicator
 	
 

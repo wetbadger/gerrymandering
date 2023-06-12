@@ -8,10 +8,8 @@ func _ready():
 	if Globals.map_progress["Tutoria"]["lvl2"] == false:
 		dialog_array = ["""
 		This is the island of Tutoria! Here, we aren't the most 
-		popular party, but that doesn't mean we can't win  
-		""",
-		"""
-		more seats in the Chamber of Legislation!
+		popular party, but that doesn't mean we can't win 
+		more seats in the Chamber of Legislation! 
 		""",
 		"""
 		To start riggin', click on the state indicated by 
@@ -27,7 +25,8 @@ func _ready():
 		""",
 		"""
 		This district has 28 people and 5 districts, so 2
-		districts need to be 1 voter smaller than the others.
+		districts need to 1 less voter than the others.
+		Because math.
 		""",
 		"""
 		Let's see if we can use this to our advantage.
@@ -49,3 +48,10 @@ func _ready():
 		"""]
 		read_text_array(dialog_index)
 		#state = 3
+
+func press_start():
+	dialog_array = ["""
+		Now press the big red start button at the
+		top of your window.
+		"""]
+	read_text_array(0)

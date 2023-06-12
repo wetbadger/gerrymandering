@@ -32,7 +32,8 @@ func _process(_delta):
 	
 	if button_up:
 		if text == "End Game":
-			Globals.map_progress[Globals.current_map["name"]]["completed"] = true
+			if Globals.map_progress.has(Globals.current_map["name"]):
+				Globals.map_progress[Globals.current_map["name"]]["completed"] = true
 			var error = get_tree().change_scene("res://UI/EndGame/EndGame.tscn")
 			
 			if error:

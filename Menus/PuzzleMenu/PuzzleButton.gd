@@ -5,6 +5,7 @@ var difficulty = 0
 
 var music
 onready var scene = get_tree().get_current_scene()
+onready var button = get_node("Button")
 
 func _ready():
 
@@ -22,6 +23,9 @@ func _process(_delta):
 func set_name(name):
 	get_node("Name").text = name
 	path = "Puzzles/" + name
+	
+func set_icon(texture):
+	button.icon = texture
 	
 func set_difficulty(d):
 	var i = 0

@@ -5,6 +5,7 @@ onready var square = load("res://Effects/IndicatorSquare.tscn")
 var SPACING = 3
 var count = 1
 var previous_position
+var number
 
 func increment():
 	var previous_position = get_children()[-1].get_global_position()
@@ -20,6 +21,10 @@ func increment():
 	count+=1
 
 func set_num(n):
+	number = n
+	get_node("Label").text = str(n)
+	return #remove this to show squares indicating voters
+	
 	var pos = $IndicatorSquare.get_global_position()
 	previous_position = pos
 	var i = 0
