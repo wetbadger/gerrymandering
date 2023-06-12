@@ -25,7 +25,7 @@ func _ready():
 		""",
 		"""
 		This district has 28 people and 5 districts, so 2
-		districts need to 1 less voter than the others.
+		districts need to have 1 less voter than the others.
 		Because math.
 		""",
 		"""
@@ -36,7 +36,7 @@ func _ready():
 		#state = 2
 	else:
 		dialog_array = ["""
-		Some places have more people than others.
+		Some spaces have more people than others.
 		""",
 		"""
 		In this next area, pay special attention to the 

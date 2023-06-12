@@ -3,6 +3,7 @@ extends Node
 var settings = {
 
 	"lvl1" : {
+		"tutorial": 1,
 		"camera" : {
 			"zoom":0.1,
 			"position": [750,570]

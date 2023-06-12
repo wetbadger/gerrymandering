@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -30,6 +30,7 @@
 [ext_resource path="res://pics/sprites/red_house_hd.png" type="Texture" id=28]
 [ext_resource path="res://UI/VoterIndicatorUI.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Effects/VotersIndicator.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Game/PlayAs.tscn" type="PackedScene" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -235,6 +236,8 @@ texture = SubResource( 9 )
 [node name="BLabel" parent="UI/PlayerMove" instance=ExtResource( 14 )]
 margin_top = 23.0
 margin_bottom = 23.0
+
+[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
 
 [node name="State" type="Node2D" parent="."]
 __meta__ = {

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://UI/Dialog/Tutorial1Dialog.tscn" type="PackedScene" id=1]
+
+[node name="Tutorial1" type="Node2D"]
+
+[node name="Tutorial1Dialog" parent="." instance=ExtResource( 1 )]

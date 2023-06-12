@@ -59,6 +59,16 @@ onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
 onready var voter_indicator = get_node("UI/VoterIndicatorUI")
+onready var play_as = get_node("UI/PlayAs")
+#
+# Tutorials
+#
+
+var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+
+#
+# Statistics
+#
 
 var population
 var width
@@ -118,7 +128,10 @@ func _ready():
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
 	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
 	
-	
+	if settings.has("player"):
+		enable_next_if_winner_is = settings["player"]
+		
+	play_as.set_player(settings["parties"][enable_next_if_winner_is]["asset"])
 
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
@@ -214,6 +227,12 @@ func _ready():
 		if settings.has("camera"):
 			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
 			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
+
+	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
+		if settings.has("tutorial"):
+			match settings["tutorial"]:
+				1:
+					print("yeet")
 
 # # # # # # # # #
 #
