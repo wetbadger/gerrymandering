@@ -66,7 +66,8 @@ func _process(delta):
 	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
 	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
 	var grid_pos_str = str(grid_pos)
-	if vertices.has(grid_pos_str) and grid_pos != mouse_over:
+	var has_grid_pos = vertices.has(grid_pos_str)
+	if has_grid_pos and grid_pos != mouse_over:
 		if vertices[grid_pos_str]["type"] == "House":
 			scene.voter_indicator.visible = true
 			if vertices[grid_pos_str].has("voters"):
@@ -77,13 +78,18 @@ func _process(delta):
 				voter_indicator_number.set_num(1)
 			voter_indicator_number.set_global_position(GRID_SIZE * grid_pos)
 			m = 0
+			voter_indicator_number.visible = true
 			voter_indicator_number.modulate = Color(1, 1, 1, m)
 			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
 			#voter_indicator_numbers[grid_pos_str].visible = true
 			
 		elif vertices[grid_pos_str]["type"] == "Gap":
 			scene.voter_indicator.visible = false
-			voter_indicator_number.modulate = Color(1, 1, 1, 0)
+			voter_indicator_number.visible = false
+			
+	elif not has_grid_pos:
+		scene.voter_indicator.visible = false
+		voter_indicator_number.visible = false
 
 	if m < 0.75:
 		m += 0.02
