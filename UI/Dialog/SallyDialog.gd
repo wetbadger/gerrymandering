@@ -19,7 +19,13 @@ func _ready():
 		read_text_array(dialog_index)
 		#state = 1
 	elif Globals.map_progress["Tutoria"]["lvl3"] == false:
-		dialog_array = ["""
+		dialog_array = [
+		"""
+		Amazing work cadet! We won 2 out of three seats 
+		with 40% of the vote! Anyway, moving on to the next 
+		state of Tutoria...
+		""",
+		"""
 		Ideally, every district is the same size but this 
 		isn't always possible.  
 		""",
@@ -35,7 +41,12 @@ func _ready():
 		read_text_array(dialog_index)
 		#state = 2
 	else:
-		dialog_array = ["""
+		dialog_array = [
+		"""
+		Good job. Now, to the largest state and 
+		capitol of Tutoria: Tutopolis.
+		""",
+		"""
 		Some spaces have more people than others.
 		""",
 		"""

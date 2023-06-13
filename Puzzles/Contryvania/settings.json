@@ -1,85 +1,74 @@
 {
-    "camera" : {
-		"zoom":0.2,
-		"position": [950,550]
-	},
-	"name": "Ordbury",
-    "difficulty": 3,
+	"name": "NewPuzzle2",
 	"pointer": null,
+    "difficulty":2,
+    "player": "Contraritarians",
 	"parties": {
-		"You": {
-			"voters": 43,
-			"asset": 0,
-			"color": "red"
+		"Contraritarians": {
+			"voters": 48,
+			"asset": 6,
+			"color": "brown"
 		},
-		"Opponents": {
-			"voters": 87,
-			"asset": 1,
-			"color": "blue"
+		"Glips": {
+			"voters": 111,
+			"asset": 3,
+			"color": "pink"
+		},
+		"Cryptoglipists": {
+			"voters": 11,
+			"asset": 2,
+			"color": "orange"
 		}
 	},
 	"districts": {
 		"A": {
-			"max": 19,
-			"min": 18,
+			"max": 34,
+			"min": 34,
 			"color": "blue",
 			"party": [
-				"You",
-				"Opponents"
+				"Contraritarians",
+				"Glips",
+				"Cryptoglipists"
 			]
 		},
 		"B": {
-			"max": 19,
-			"min": 18,
+			"max": 34,
+			"min": 34,
 			"color": "red",
 			"party": [
-				"Opponents",
-				"You"
+				"Glips",
+				"Contraritarians",
+				"Cryptoglipists"
 			]
 		},
 		"C": {
-			"max": 19,
-			"min": 18,
+			"max": 34,
+			"min": 34,
 			"color": "orange",
 			"party": [
-				"You",
-				"Opponents"
+				"Cryptoglipists",
+				"Contraritarians",
+				"Glips"
 			]
 		},
 		"D": {
-			"max": 19,
-			"min": 18,
+			"max": 34,
+			"min": 34,
 			"color": "purple",
 			"party": [
-				"Opponents",
-				"You"
+				"Contraritarians",
+				"Glips",
+				"Cryptoglipists"
 			]
 		},
 		"E": {
-			"max": 19,
-			"min": 18,
-			"color": "green",
-			"party": [
-				"You",
-				"Opponents"
-			]
-		},
-		"F": {
-			"max": 19,
-			"min": 18,
+			"max": 34,
+			"min": 34,
 			"color": "yellow",
 			"party": [
-				"Opponents",
-				"You"
-			]
-		},
-		"G": {
-			"max": 19,
-			"min": 18,
-			"color": "teal",
-			"party": [
-				"You",
-				"Opponents"
+				"Glips",
+				"Contraritarians",
+				"Cryptoglipists"
 			]
 		}
 	},
@@ -101,7 +90,7 @@
 			"debug": false
 		}
 	},
-	"shape": "Ordbury",
+	"shape": "Empty",
 	"colors": {
 		"blue": [
 			0.25,

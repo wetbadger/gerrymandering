@@ -51,4 +51,5 @@ func _on_Button_button_up():
 	$Click.play()
 	start_btn.set_process(true)
 	scene.current_selection = self
-	dialog.press_start()
+	if is_instance_valid(dialog):
+		dialog.press_start()

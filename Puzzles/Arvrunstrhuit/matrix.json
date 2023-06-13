@@ -1,0 +1,1505 @@
+{
+	"(48, 25)": {
+		"type": "Gap",
+		"coords": "(48, 25)",
+		"visited": false
+	},
+	"(49, 25)": {
+		"type": "Gap",
+		"coords": "(49, 25)",
+		"visited": false
+	},
+	"(50, 25)": {
+		"type": "House",
+		"coords": "(50, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 25)": {
+		"type": "House",
+		"coords": "(51, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 25)": {
+		"type": "House",
+		"coords": "(52, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(53, 25)": {
+		"type": "House",
+		"coords": "(53, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(54, 25)": {
+		"type": "House",
+		"coords": "(54, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(55, 25)": {
+		"type": "House",
+		"coords": "(55, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(56, 25)": {
+		"type": "House",
+		"coords": "(56, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(57, 25)": {
+		"type": "House",
+		"coords": "(57, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(47, 25)": {
+		"type": "House",
+		"coords": "(47, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(46, 25)": {
+		"type": "House",
+		"coords": "(46, 25)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 5
+	},
+	"(58, 25)": {
+		"type": "House",
+		"coords": "(58, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(45, 25)": {
+		"type": "House",
+		"coords": "(45, 25)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 5
+	},
+	"(59, 25)": {
+		"type": "House",
+		"coords": "(59, 25)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(44, 25)": {
+		"type": "House",
+		"coords": "(44, 25)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(44, 26)": {
+		"type": "Gap",
+		"coords": "(44, 26)",
+		"visited": false
+	},
+	"(44, 27)": {
+		"type": "Gap",
+		"coords": "(44, 27)",
+		"visited": false
+	},
+	"(44, 28)": {
+		"type": "House",
+		"coords": "(44, 28)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 4
+	},
+	"(44, 29)": {
+		"type": "House",
+		"coords": "(44, 29)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 4
+	},
+	"(44, 30)": {
+		"type": "House",
+		"coords": "(44, 30)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 2
+	},
+	"(44, 31)": {
+		"type": "House",
+		"coords": "(44, 31)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 4
+	},
+	"(44, 32)": {
+		"type": "House",
+		"coords": "(44, 32)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 2
+	},
+	"(44, 33)": {
+		"type": "House",
+		"coords": "(44, 33)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 4
+	},
+	"(44, 34)": {
+		"type": "Gap",
+		"coords": "(44, 34)",
+		"visited": false
+	},
+	"(44, 35)": {
+		"type": "Gap",
+		"coords": "(44, 35)",
+		"visited": false
+	},
+	"(44, 36)": {
+		"type": "House",
+		"coords": "(44, 36)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(44, 37)": {
+		"type": "Gap",
+		"coords": "(44, 37)",
+		"visited": false
+	},
+	"(44, 38)": {
+		"type": "House",
+		"coords": "(44, 38)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(44, 39)": {
+		"type": "House",
+		"coords": "(44, 39)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(44, 40)": {
+		"type": "House",
+		"coords": "(44, 40)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(44, 41)": {
+		"type": "House",
+		"coords": "(44, 41)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(45, 41)": {
+		"type": "Gap",
+		"coords": "(45, 41)",
+		"visited": false
+	},
+	"(46, 41)": {
+		"type": "Gap",
+		"coords": "(46, 41)",
+		"visited": false
+	},
+	"(47, 41)": {
+		"type": "Gap",
+		"coords": "(47, 41)",
+		"visited": false
+	},
+	"(48, 41)": {
+		"type": "Gap",
+		"coords": "(48, 41)",
+		"visited": false
+	},
+	"(49, 41)": {
+		"type": "Gap",
+		"coords": "(49, 41)",
+		"visited": false
+	},
+	"(50, 41)": {
+		"type": "Gap",
+		"coords": "(50, 41)",
+		"visited": false
+	},
+	"(51, 41)": {
+		"type": "House",
+		"coords": "(51, 41)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 41)": {
+		"type": "Gap",
+		"coords": "(52, 41)",
+		"visited": false
+	},
+	"(53, 41)": {
+		"type": "Gap",
+		"coords": "(53, 41)",
+		"visited": false
+	},
+	"(54, 41)": {
+		"type": "Gap",
+		"coords": "(54, 41)",
+		"visited": false
+	},
+	"(55, 41)": {
+		"type": "Gap",
+		"coords": "(55, 41)",
+		"visited": false
+	},
+	"(56, 41)": {
+		"type": "Gap",
+		"coords": "(56, 41)",
+		"visited": false
+	},
+	"(57, 41)": {
+		"type": "Gap",
+		"coords": "(57, 41)",
+		"visited": false
+	},
+	"(58, 41)": {
+		"type": "Gap",
+		"coords": "(58, 41)",
+		"visited": false
+	},
+	"(59, 41)": {
+		"type": "House",
+		"coords": "(59, 41)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(59, 26)": {
+		"type": "House",
+		"coords": "(59, 26)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(59, 27)": {
+		"type": "Gap",
+		"coords": "(59, 27)",
+		"visited": false
+	},
+	"(59, 28)": {
+		"type": "House",
+		"coords": "(59, 28)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(59, 29)": {
+		"type": "House",
+		"coords": "(59, 29)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(59, 30)": {
+		"type": "Gap",
+		"coords": "(59, 30)",
+		"visited": false
+	},
+	"(59, 31)": {
+		"type": "House",
+		"coords": "(59, 31)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(59, 32)": {
+		"type": "Gap",
+		"coords": "(59, 32)",
+		"visited": false
+	},
+	"(59, 33)": {
+		"type": "House",
+		"coords": "(59, 33)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(59, 34)": {
+		"type": "Gap",
+		"coords": "(59, 34)",
+		"visited": false
+	},
+	"(59, 35)": {
+		"type": "House",
+		"coords": "(59, 35)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(59, 36)": {
+		"type": "Gap",
+		"coords": "(59, 36)",
+		"visited": false
+	},
+	"(59, 37)": {
+		"type": "Gap",
+		"coords": "(59, 37)",
+		"visited": false
+	},
+	"(59, 38)": {
+		"type": "Gap",
+		"coords": "(59, 38)",
+		"visited": false
+	},
+	"(59, 39)": {
+		"type": "Gap",
+		"coords": "(59, 39)",
+		"visited": false
+	},
+	"(59, 40)": {
+		"type": "Gap",
+		"coords": "(59, 40)",
+		"visited": false
+	},
+	"(58, 40)": {
+		"type": "Gap",
+		"coords": "(58, 40)",
+		"visited": false
+	},
+	"(57, 40)": {
+		"type": "Gap",
+		"coords": "(57, 40)",
+		"visited": false
+	},
+	"(56, 40)": {
+		"type": "Gap",
+		"coords": "(56, 40)",
+		"visited": false
+	},
+	"(55, 40)": {
+		"type": "Gap",
+		"coords": "(55, 40)",
+		"visited": false
+	},
+	"(55, 39)": {
+		"type": "Gap",
+		"coords": "(55, 39)",
+		"visited": false
+	},
+	"(54, 39)": {
+		"type": "Gap",
+		"coords": "(54, 39)",
+		"visited": false
+	},
+	"(53, 38)": {
+		"type": "House",
+		"coords": "(53, 38)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(53, 37)": {
+		"type": "Gap",
+		"coords": "(53, 37)",
+		"visited": false
+	},
+	"(52, 37)": {
+		"type": "Gap",
+		"coords": "(52, 37)",
+		"visited": false
+	},
+	"(52, 36)": {
+		"type": "House",
+		"coords": "(52, 36)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 36)": {
+		"type": "Gap",
+		"coords": "(51, 36)",
+		"visited": false
+	},
+	"(51, 35)": {
+		"type": "Gap",
+		"coords": "(51, 35)",
+		"visited": false
+	},
+	"(51, 34)": {
+		"type": "Gap",
+		"coords": "(51, 34)",
+		"visited": false
+	},
+	"(50, 34)": {
+		"type": "Gap",
+		"coords": "(50, 34)",
+		"visited": false
+	},
+	"(50, 33)": {
+		"type": "Gap",
+		"coords": "(50, 33)",
+		"visited": false
+	},
+	"(50, 32)": {
+		"type": "Gap",
+		"coords": "(50, 32)",
+		"visited": false
+	},
+	"(49, 32)": {
+		"type": "House",
+		"coords": "(49, 32)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 3
+	},
+	"(49, 31)": {
+		"type": "House",
+		"coords": "(49, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 31)": {
+		"type": "Gap",
+		"coords": "(48, 31)",
+		"visited": false
+	},
+	"(47, 31)": {
+		"type": "House",
+		"coords": "(47, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(47, 32)": {
+		"type": "House",
+		"coords": "(47, 32)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 2
+	},
+	"(47, 33)": {
+		"type": "Gap",
+		"coords": "(47, 33)",
+		"visited": false
+	},
+	"(47, 34)": {
+		"type": "House",
+		"coords": "(47, 34)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(47, 35)": {
+		"type": "House",
+		"coords": "(47, 35)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 2
+	},
+	"(47, 36)": {
+		"type": "Gap",
+		"coords": "(47, 36)",
+		"visited": false
+	},
+	"(47, 37)": {
+		"type": "Gap",
+		"coords": "(47, 37)",
+		"visited": false
+	},
+	"(48, 37)": {
+		"type": "House",
+		"coords": "(48, 37)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 38)": {
+		"type": "House",
+		"coords": "(48, 38)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(49, 38)": {
+		"type": "Gap",
+		"coords": "(49, 38)",
+		"visited": false
+	},
+	"(49, 39)": {
+		"type": "Gap",
+		"coords": "(49, 39)",
+		"visited": false
+	},
+	"(50, 39)": {
+		"type": "House",
+		"coords": "(50, 39)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 39)": {
+		"type": "Gap",
+		"coords": "(51, 39)",
+		"visited": false
+	},
+	"(51, 40)": {
+		"type": "Gap",
+		"coords": "(51, 40)",
+		"visited": false
+	},
+	"(52, 40)": {
+		"type": "Gap",
+		"coords": "(52, 40)",
+		"visited": false
+	},
+	"(53, 40)": {
+		"type": "Gap",
+		"coords": "(53, 40)",
+		"visited": false
+	},
+	"(54, 40)": {
+		"type": "House",
+		"coords": "(54, 40)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(53, 39)": {
+		"type": "Gap",
+		"coords": "(53, 39)",
+		"visited": false
+	},
+	"(52, 39)": {
+		"type": "Gap",
+		"coords": "(52, 39)",
+		"visited": false
+	},
+	"(50, 40)": {
+		"type": "Gap",
+		"coords": "(50, 40)",
+		"visited": false
+	},
+	"(49, 40)": {
+		"type": "Gap",
+		"coords": "(49, 40)",
+		"visited": false
+	},
+	"(48, 40)": {
+		"type": "House",
+		"coords": "(48, 40)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(47, 40)": {
+		"type": "House",
+		"coords": "(47, 40)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(46, 40)": {
+		"type": "Gap",
+		"coords": "(46, 40)",
+		"visited": false
+	},
+	"(45, 40)": {
+		"type": "Gap",
+		"coords": "(45, 40)",
+		"visited": false
+	},
+	"(45, 39)": {
+		"type": "Gap",
+		"coords": "(45, 39)",
+		"visited": false
+	},
+	"(46, 39)": {
+		"type": "Gap",
+		"coords": "(46, 39)",
+		"visited": false
+	},
+	"(47, 39)": {
+		"type": "House",
+		"coords": "(47, 39)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 39)": {
+		"type": "Gap",
+		"coords": "(48, 39)",
+		"visited": false
+	},
+	"(56, 39)": {
+		"type": "Gap",
+		"coords": "(56, 39)",
+		"visited": false
+	},
+	"(57, 39)": {
+		"type": "House",
+		"coords": "(57, 39)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(58, 39)": {
+		"type": "Gap",
+		"coords": "(58, 39)",
+		"visited": false
+	},
+	"(58, 38)": {
+		"type": "Gap",
+		"coords": "(58, 38)",
+		"visited": false
+	},
+	"(58, 37)": {
+		"type": "House",
+		"coords": "(58, 37)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(58, 36)": {
+		"type": "Gap",
+		"coords": "(58, 36)",
+		"visited": false
+	},
+	"(58, 35)": {
+		"type": "Gap",
+		"coords": "(58, 35)",
+		"visited": false
+	},
+	"(58, 34)": {
+		"type": "Gap",
+		"coords": "(58, 34)",
+		"visited": false
+	},
+	"(58, 33)": {
+		"type": "Gap",
+		"coords": "(58, 33)",
+		"visited": false
+	},
+	"(58, 32)": {
+		"type": "Gap",
+		"coords": "(58, 32)",
+		"visited": false
+	},
+	"(58, 31)": {
+		"type": "House",
+		"coords": "(58, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(58, 30)": {
+		"type": "Gap",
+		"coords": "(58, 30)",
+		"visited": false
+	},
+	"(58, 29)": {
+		"type": "House",
+		"coords": "(58, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(58, 28)": {
+		"type": "House",
+		"coords": "(58, 28)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(58, 27)": {
+		"type": "Gap",
+		"coords": "(58, 27)",
+		"visited": false
+	},
+	"(58, 26)": {
+		"type": "House",
+		"coords": "(58, 26)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(53, 26)": {
+		"type": "Gap",
+		"coords": "(53, 26)",
+		"visited": false
+	},
+	"(54, 26)": {
+		"type": "Gap",
+		"coords": "(54, 26)",
+		"visited": false
+	},
+	"(55, 26)": {
+		"type": "Gap",
+		"coords": "(55, 26)",
+		"visited": false
+	},
+	"(56, 26)": {
+		"type": "Gap",
+		"coords": "(56, 26)",
+		"visited": false
+	},
+	"(57, 26)": {
+		"type": "Gap",
+		"coords": "(57, 26)",
+		"visited": false
+	},
+	"(52, 26)": {
+		"type": "House",
+		"coords": "(52, 26)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(51, 26)": {
+		"type": "House",
+		"coords": "(51, 26)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(50, 26)": {
+		"type": "House",
+		"coords": "(50, 26)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(49, 26)": {
+		"type": "Gap",
+		"coords": "(49, 26)",
+		"visited": false
+	},
+	"(48, 26)": {
+		"type": "House",
+		"coords": "(48, 26)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 5
+	},
+	"(47, 26)": {
+		"type": "House",
+		"coords": "(47, 26)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 5
+	},
+	"(46, 26)": {
+		"type": "House",
+		"coords": "(46, 26)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 4
+	},
+	"(45, 26)": {
+		"type": "House",
+		"coords": "(45, 26)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 5
+	},
+	"(45, 27)": {
+		"type": "Gap",
+		"coords": "(45, 27)",
+		"visited": false
+	},
+	"(46, 27)": {
+		"type": "Gap",
+		"coords": "(46, 27)",
+		"visited": false
+	},
+	"(47, 27)": {
+		"type": "Gap",
+		"coords": "(47, 27)",
+		"visited": false
+	},
+	"(48, 27)": {
+		"type": "Gap",
+		"coords": "(48, 27)",
+		"visited": false
+	},
+	"(49, 27)": {
+		"type": "Gap",
+		"coords": "(49, 27)",
+		"visited": false
+	},
+	"(50, 27)": {
+		"type": "House",
+		"coords": "(50, 27)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 27)": {
+		"type": "House",
+		"coords": "(51, 27)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(52, 27)": {
+		"type": "Gap",
+		"coords": "(52, 27)",
+		"visited": false
+	},
+	"(53, 27)": {
+		"type": "Gap",
+		"coords": "(53, 27)",
+		"visited": false
+	},
+	"(54, 27)": {
+		"type": "Gap",
+		"coords": "(54, 27)",
+		"visited": false
+	},
+	"(55, 27)": {
+		"type": "House",
+		"coords": "(55, 27)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(56, 27)": {
+		"type": "Gap",
+		"coords": "(56, 27)",
+		"visited": false
+	},
+	"(57, 27)": {
+		"type": "Gap",
+		"coords": "(57, 27)",
+		"visited": false
+	},
+	"(57, 28)": {
+		"type": "House",
+		"coords": "(57, 28)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(56, 28)": {
+		"type": "House",
+		"coords": "(56, 28)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(55, 28)": {
+		"type": "Gap",
+		"coords": "(55, 28)",
+		"visited": false
+	},
+	"(54, 28)": {
+		"type": "Gap",
+		"coords": "(54, 28)",
+		"visited": false
+	},
+	"(53, 28)": {
+		"type": "House",
+		"coords": "(53, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 28)": {
+		"type": "Gap",
+		"coords": "(52, 28)",
+		"visited": false
+	},
+	"(51, 28)": {
+		"type": "House",
+		"coords": "(51, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(50, 28)": {
+		"type": "House",
+		"coords": "(50, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(49, 28)": {
+		"type": "House",
+		"coords": "(49, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 28)": {
+		"type": "House",
+		"coords": "(48, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(47, 28)": {
+		"type": "House",
+		"coords": "(47, 28)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(46, 28)": {
+		"type": "Gap",
+		"coords": "(46, 28)",
+		"visited": false
+	},
+	"(45, 28)": {
+		"type": "House",
+		"coords": "(45, 28)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 4
+	},
+	"(45, 29)": {
+		"type": "House",
+		"coords": "(45, 29)",
+		"visited": false,
+		"allegiance": "You",
+		"voters": 5
+	},
+	"(46, 29)": {
+		"type": "Gap",
+		"coords": "(46, 29)",
+		"visited": false
+	},
+	"(47, 29)": {
+		"type": "House",
+		"coords": "(47, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 29)": {
+		"type": "House",
+		"coords": "(48, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(49, 29)": {
+		"type": "House",
+		"coords": "(49, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(50, 29)": {
+		"type": "House",
+		"coords": "(50, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 29)": {
+		"type": "House",
+		"coords": "(51, 29)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 29)": {
+		"type": "Gap",
+		"coords": "(52, 29)",
+		"visited": false
+	},
+	"(53, 29)": {
+		"type": "Gap",
+		"coords": "(53, 29)",
+		"visited": false
+	},
+	"(54, 29)": {
+		"type": "Gap",
+		"coords": "(54, 29)",
+		"visited": false
+	},
+	"(55, 29)": {
+		"type": "Gap",
+		"coords": "(55, 29)",
+		"visited": false
+	},
+	"(56, 29)": {
+		"type": "House",
+		"coords": "(56, 29)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(57, 29)": {
+		"type": "House",
+		"coords": "(57, 29)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(57, 30)": {
+		"type": "Gap",
+		"coords": "(57, 30)",
+		"visited": false
+	},
+	"(56, 30)": {
+		"type": "Gap",
+		"coords": "(56, 30)",
+		"visited": false
+	},
+	"(55, 30)": {
+		"type": "Gap",
+		"coords": "(55, 30)",
+		"visited": false
+	},
+	"(54, 30)": {
+		"type": "Gap",
+		"coords": "(54, 30)",
+		"visited": false
+	},
+	"(53, 30)": {
+		"type": "Gap",
+		"coords": "(53, 30)",
+		"visited": false
+	},
+	"(52, 30)": {
+		"type": "Gap",
+		"coords": "(52, 30)",
+		"visited": false
+	},
+	"(51, 30)": {
+		"type": "Gap",
+		"coords": "(51, 30)",
+		"visited": false
+	},
+	"(50, 30)": {
+		"type": "Gap",
+		"coords": "(50, 30)",
+		"visited": false
+	},
+	"(49, 30)": {
+		"type": "Gap",
+		"coords": "(49, 30)",
+		"visited": false
+	},
+	"(48, 30)": {
+		"type": "Gap",
+		"coords": "(48, 30)",
+		"visited": false
+	},
+	"(47, 30)": {
+		"type": "Gap",
+		"coords": "(47, 30)",
+		"visited": false
+	},
+	"(46, 30)": {
+		"type": "Gap",
+		"coords": "(46, 30)",
+		"visited": false
+	},
+	"(45, 30)": {
+		"type": "House",
+		"coords": "(45, 30)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(45, 31)": {
+		"type": "Gap",
+		"coords": "(45, 31)",
+		"visited": false
+	},
+	"(46, 31)": {
+		"type": "House",
+		"coords": "(46, 31)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 5
+	},
+	"(50, 31)": {
+		"type": "House",
+		"coords": "(50, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 31)": {
+		"type": "House",
+		"coords": "(51, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 31)": {
+		"type": "House",
+		"coords": "(52, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(53, 31)": {
+		"type": "Gap",
+		"coords": "(53, 31)",
+		"visited": false
+	},
+	"(54, 31)": {
+		"type": "House",
+		"coords": "(54, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(55, 31)": {
+		"type": "Gap",
+		"coords": "(55, 31)",
+		"visited": false
+	},
+	"(56, 31)": {
+		"type": "Gap",
+		"coords": "(56, 31)",
+		"visited": false
+	},
+	"(57, 31)": {
+		"type": "House",
+		"coords": "(57, 31)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(57, 32)": {
+		"type": "House",
+		"coords": "(57, 32)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(56, 32)": {
+		"type": "Gap",
+		"coords": "(56, 32)",
+		"visited": false
+	},
+	"(55, 32)": {
+		"type": "Gap",
+		"coords": "(55, 32)",
+		"visited": false
+	},
+	"(54, 32)": {
+		"type": "House",
+		"coords": "(54, 32)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(53, 32)": {
+		"type": "Gap",
+		"coords": "(53, 32)",
+		"visited": false
+	},
+	"(52, 32)": {
+		"type": "House",
+		"coords": "(52, 32)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(51, 32)": {
+		"type": "House",
+		"coords": "(51, 32)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 32)": {
+		"type": "House",
+		"coords": "(48, 32)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 3
+	},
+	"(46, 32)": {
+		"type": "House",
+		"coords": "(46, 32)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 2
+	},
+	"(45, 32)": {
+		"type": "Gap",
+		"coords": "(45, 32)",
+		"visited": false
+	},
+	"(45, 33)": {
+		"type": "Gap",
+		"coords": "(45, 33)",
+		"visited": false
+	},
+	"(46, 33)": {
+		"type": "Gap",
+		"coords": "(46, 33)",
+		"visited": false
+	},
+	"(48, 33)": {
+		"type": "Gap",
+		"coords": "(48, 33)",
+		"visited": false
+	},
+	"(49, 33)": {
+		"type": "House",
+		"coords": "(49, 33)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 2
+	},
+	"(51, 33)": {
+		"type": "House",
+		"coords": "(51, 33)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 33)": {
+		"type": "House",
+		"coords": "(52, 33)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(53, 33)": {
+		"type": "Gap",
+		"coords": "(53, 33)",
+		"visited": false
+	},
+	"(54, 33)": {
+		"type": "Gap",
+		"coords": "(54, 33)",
+		"visited": false
+	},
+	"(55, 33)": {
+		"type": "Gap",
+		"coords": "(55, 33)",
+		"visited": false
+	},
+	"(56, 33)": {
+		"type": "Gap",
+		"coords": "(56, 33)",
+		"visited": false
+	},
+	"(57, 33)": {
+		"type": "Gap",
+		"coords": "(57, 33)",
+		"visited": false
+	},
+	"(57, 34)": {
+		"type": "Gap",
+		"coords": "(57, 34)",
+		"visited": false
+	},
+	"(56, 34)": {
+		"type": "House",
+		"coords": "(56, 34)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(55, 34)": {
+		"type": "Gap",
+		"coords": "(55, 34)",
+		"visited": false
+	},
+	"(54, 34)": {
+		"type": "Gap",
+		"coords": "(54, 34)",
+		"visited": false
+	},
+	"(53, 34)": {
+		"type": "House",
+		"coords": "(53, 34)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 34)": {
+		"type": "Gap",
+		"coords": "(52, 34)",
+		"visited": false
+	},
+	"(49, 34)": {
+		"type": "House",
+		"coords": "(49, 34)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 34)": {
+		"type": "House",
+		"coords": "(48, 34)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(46, 34)": {
+		"type": "Gap",
+		"coords": "(46, 34)",
+		"visited": false
+	},
+	"(45, 34)": {
+		"type": "House",
+		"coords": "(45, 34)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(45, 35)": {
+		"type": "Gap",
+		"coords": "(45, 35)",
+		"visited": false
+	},
+	"(46, 35)": {
+		"type": "House",
+		"coords": "(46, 35)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(48, 35)": {
+		"type": "House",
+		"coords": "(48, 35)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 3
+	},
+	"(49, 35)": {
+		"type": "House",
+		"coords": "(49, 35)",
+		"visited": false,
+		"allegiance": "Opponent",
+		"voters": 3
+	},
+	"(50, 35)": {
+		"type": "House",
+		"coords": "(50, 35)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(52, 35)": {
+		"type": "Gap",
+		"coords": "(52, 35)",
+		"visited": false
+	},
+	"(53, 35)": {
+		"type": "Gap",
+		"coords": "(53, 35)",
+		"visited": false
+	},
+	"(54, 35)": {
+		"type": "House",
+		"coords": "(54, 35)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(55, 35)": {
+		"type": "Gap",
+		"coords": "(55, 35)",
+		"visited": false
+	},
+	"(56, 35)": {
+		"type": "Gap",
+		"coords": "(56, 35)",
+		"visited": false
+	},
+	"(57, 35)": {
+		"type": "House",
+		"coords": "(57, 35)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(57, 36)": {
+		"type": "Gap",
+		"coords": "(57, 36)",
+		"visited": false
+	},
+	"(56, 36)": {
+		"type": "House",
+		"coords": "(56, 36)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(55, 36)": {
+		"type": "Gap",
+		"coords": "(55, 36)",
+		"visited": false
+	},
+	"(54, 36)": {
+		"type": "House",
+		"coords": "(54, 36)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(53, 36)": {
+		"type": "Gap",
+		"coords": "(53, 36)",
+		"visited": false
+	},
+	"(50, 36)": {
+		"type": "Gap",
+		"coords": "(50, 36)",
+		"visited": false
+	},
+	"(49, 36)": {
+		"type": "Gap",
+		"coords": "(49, 36)",
+		"visited": false
+	},
+	"(48, 36)": {
+		"type": "Gap",
+		"coords": "(48, 36)",
+		"visited": false
+	},
+	"(46, 36)": {
+		"type": "Gap",
+		"coords": "(46, 36)",
+		"visited": false
+	},
+	"(45, 36)": {
+		"type": "Gap",
+		"coords": "(45, 36)",
+		"visited": false
+	},
+	"(45, 37)": {
+		"type": "House",
+		"coords": "(45, 37)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(46, 37)": {
+		"type": "Gap",
+		"coords": "(46, 37)",
+		"visited": false
+	},
+	"(49, 37)": {
+		"type": "House",
+		"coords": "(49, 37)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(50, 37)": {
+		"type": "Gap",
+		"coords": "(50, 37)",
+		"visited": false
+	},
+	"(51, 37)": {
+		"type": "House",
+		"coords": "(51, 37)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(54, 37)": {
+		"type": "Gap",
+		"coords": "(54, 37)",
+		"visited": false
+	},
+	"(55, 37)": {
+		"type": "Gap",
+		"coords": "(55, 37)",
+		"visited": false
+	},
+	"(56, 37)": {
+		"type": "Gap",
+		"coords": "(56, 37)",
+		"visited": false
+	},
+	"(57, 37)": {
+		"type": "Gap",
+		"coords": "(57, 37)",
+		"visited": false
+	},
+	"(57, 38)": {
+		"type": "Gap",
+		"coords": "(57, 38)",
+		"visited": false
+	},
+	"(56, 38)": {
+		"type": "Gap",
+		"coords": "(56, 38)",
+		"visited": false
+	},
+	"(55, 38)": {
+		"type": "House",
+		"coords": "(55, 38)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(54, 38)": {
+		"type": "House",
+		"coords": "(54, 38)",
+		"visited": false,
+		"allegiance": "Opponent"
+	},
+	"(52, 38)": {
+		"type": "Gap",
+		"coords": "(52, 38)",
+		"visited": false
+	},
+	"(51, 38)": {
+		"type": "Gap",
+		"coords": "(51, 38)",
+		"visited": false
+	},
+	"(50, 38)": {
+		"type": "House",
+		"coords": "(50, 38)",
+		"visited": false,
+		"allegiance": "You"
+	},
+	"(47, 38)": {
+		"type": "Gap",
+		"coords": "(47, 38)",
+		"visited": false
+	},
+	"(46, 38)": {
+		"type": "Gap",
+		"coords": "(46, 38)",
+		"visited": false
+	},
+	"(45, 38)": {
+		"type": "Gap",
+		"coords": "(45, 38)",
+		"visited": false
+	},
+	"anchor": {
+		"type": "Anchor",
+		"coords": "(55, 30)"
+	}
+}

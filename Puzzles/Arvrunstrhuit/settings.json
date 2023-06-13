@@ -1,85 +1,73 @@
 {
-    "camera" : {
-		"zoom":0.2,
-		"position": [950,550]
-	},
-	"name": "Ordbury",
-    "difficulty": 3,
+	"name": "NewPuzzle",
 	"pointer": null,
+    "player": "You",
+    "difficulty": 2,
 	"parties": {
 		"You": {
-			"voters": 43,
-			"asset": 0,
-			"color": "red"
+			"voters": 61,
+			"asset": 2,
+			"color": "orange"
 		},
-		"Opponents": {
-			"voters": 87,
-			"asset": 1,
-			"color": "blue"
+		"Opponent": {
+			"voters": 115,
+			"asset": 3,
+			"color": "purple"
 		}
 	},
 	"districts": {
 		"A": {
-			"max": 19,
-			"min": 18,
+			"max": 30,
+			"min": 29,
 			"color": "blue",
 			"party": [
 				"You",
-				"Opponents"
+				"Opponent"
 			]
 		},
 		"B": {
-			"max": 19,
-			"min": 18,
+			"max": 30,
+			"min": 29,
 			"color": "red",
 			"party": [
-				"Opponents",
+				"Opponent",
 				"You"
 			]
 		},
 		"C": {
-			"max": 19,
-			"min": 18,
+			"max": 30,
+			"min": 29,
 			"color": "orange",
 			"party": [
 				"You",
-				"Opponents"
+				"Opponent"
 			]
 		},
 		"D": {
-			"max": 19,
-			"min": 18,
+			"max": 30,
+			"min": 29,
 			"color": "purple",
 			"party": [
-				"Opponents",
+				"Opponent",
 				"You"
 			]
 		},
 		"E": {
-			"max": 19,
-			"min": 18,
-			"color": "green",
+			"max": 30,
+			"min": 29,
+			"color": "yellow",
 			"party": [
 				"You",
-				"Opponents"
+				"Opponent"
 			]
 		},
 		"F": {
-			"max": 19,
-			"min": 18,
-			"color": "yellow",
+			"max": 30,
+			"min": 29,
+			"color": "brown",
 			"party": [
-				"Opponents",
+				"Opponent",
 				"You"
-			]
-		},
-		"G": {
-			"max": 19,
-			"min": 18,
-			"color": "teal",
-			"party": [
-				"You",
-				"Opponents"
 			]
 		}
 	},
@@ -101,7 +89,7 @@
 			"debug": false
 		}
 	},
-	"shape": "Ordbury",
+	"shape": "Empty",
 	"colors": {
 		"blue": [
 			0.25,
