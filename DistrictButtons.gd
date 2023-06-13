@@ -1,6 +1,9 @@
 extends VBoxContainer
 
+#this is a comment
+
 var button = load("res://UI/PalletteButton.tscn")
+var blank = load("res://UI/Blank.tscn")
 
 func load_buttons(districts):
 	var selected_district = get_tree().get_current_scene().selected_district
@@ -22,3 +25,4 @@ func load_buttons(districts):
 			new_button.pressed = true
 		new_button.add_to_group("district_buttons")
 		
+	add_child(blank.instance())

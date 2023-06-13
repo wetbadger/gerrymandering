@@ -1,0 +1,179 @@
+{
+	"name": "NewPuzzle2",
+	"pointer": null,
+    "difficulty":2,
+    "player": "Contraritarians",
+	"parties": {
+		"Contraritarians": {
+			"voters": 48,
+			"asset": 6,
+			"color": "brown"
+		},
+		"Glips": {
+			"voters": 111,
+			"asset": 3,
+			"color": "pink"
+		},
+		"Cryptoglipists": {
+			"voters": 11,
+			"asset": 2,
+			"color": "orange"
+		}
+	},
+	"districts": {
+		"A": {
+			"max": 34,
+			"min": 34,
+			"color": "blue",
+			"party": [
+				"Contraritarians",
+				"Glips",
+				"Cryptoglipists"
+			]
+		},
+		"B": {
+			"max": 34,
+			"min": 34,
+			"color": "red",
+			"party": [
+				"Glips",
+				"Contraritarians",
+				"Cryptoglipists"
+			]
+		},
+		"C": {
+			"max": 34,
+			"min": 34,
+			"color": "orange",
+			"party": [
+				"Cryptoglipists",
+				"Contraritarians",
+				"Glips"
+			]
+		},
+		"D": {
+			"max": 34,
+			"min": 34,
+			"color": "purple",
+			"party": [
+				"Contraritarians",
+				"Glips",
+				"Cryptoglipists"
+			]
+		},
+		"E": {
+			"max": 34,
+			"min": 34,
+			"color": "yellow",
+			"party": [
+				"Glips",
+				"Contraritarians",
+				"Cryptoglipists"
+			]
+		}
+	},
+	"advanced": {
+		"District Rules": {
+			"contiguous": true,
+			"runtime contiguity enforcement": false,
+			"diagonals": false,
+			"show grid": false,
+			"multiplayer": false
+		},
+		"House Placement": {
+			"gaps": true,
+			"randomize positions": false,
+			"layout": "random",
+			"algorithm": "load from file"
+		},
+		"Other": {
+			"debug": false
+		}
+	},
+	"shape": "Empty",
+	"colors": {
+		"blue": [
+			0.25,
+			0.25,
+			1
+		],
+		"red": [
+			0.8,
+			0.1,
+			0.1
+		],
+		"orange": [
+			0.8,
+			0.4,
+			0.1
+		],
+		"purple": [
+			0.5,
+			0.2,
+			0.8
+		],
+		"yellow": [
+			0.8,
+			0.8,
+			0
+		],
+		"brown": [
+			0.3,
+			0.2,
+			0
+		],
+		"green": [
+			0.2,
+			0.8,
+			0.1
+		],
+		"white": [
+			1,
+			1,
+			1
+		],
+		"gray": [
+			0.5,
+			0.5,
+			0.5
+		],
+		"teal": [
+			0.1,
+			0.8,
+			0.8
+		],
+		"pink": [
+			0.8,
+			0.1,
+			0.7
+		],
+		"black": [
+			0,
+			0,
+			0
+		]
+	},
+	"assets": {
+		"Red House": 0,
+		"Blue House": 1,
+		"Orange House": 2,
+		"Purple House": 3,
+		"Yellow House": 4,
+		"Green House": 5,
+		"Weird House": 6,
+		"Red House Medium": 7,
+		"Blue House Medium": 8,
+		"Orange House Medium": 9,
+		"Purple House Medium": 10,
+		"Yellow House Medium": 11,
+		"Green House Medium": 12,
+		"Weird House Medium": 13,
+		"Red House Apartments": 14,
+		"Blue House Apartments": 15,
+		"Orange House Apartments": 16,
+		"Purple House Apartments": 17,
+		"Yellow House Apartments": 18,
+		"Green House Apartments": 19,
+		"Weird House Apartments": 20
+	}
+}

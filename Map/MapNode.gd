@@ -4,6 +4,7 @@ export var folder = "lvl1"
 onready var start_btn = $"../../ButtonContainer/HBox/Start2"
 
 onready var scene = get_tree().get_current_scene()
+onready var dialog = get_node("../../Dialog/SallyDialog")
 
 var settings = {}
 var matrix = {}
@@ -50,3 +51,5 @@ func _on_Button_button_up():
 	$Click.play()
 	start_btn.set_process(true)
 	scene.current_selection = self
+	if is_instance_valid(dialog):
+		dialog.press_start()

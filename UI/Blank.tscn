@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Blank" type="Control"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_right = 14.0
+margin_bottom = 11.0

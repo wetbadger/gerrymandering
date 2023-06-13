@@ -2,6 +2,8 @@ extends Node2D
 
 #A pure mathematical obejct
 var vertices = {}
+#numbers to show how many voters are on each square
+#var voter_indicator_numbers = {}
 
 export var GRID_SIZE = 18
 var size
@@ -16,6 +18,7 @@ onready var rect = get_viewport_rect()
 onready var flood_fill_2 = load("res://Algorithms/flood2.gd")
 onready var vote_indicator = load("res://Effects/VotersIndicator.tscn")
 onready var voter_indicators = $VoterIndicators
+onready var voter_indicator_number = get_node("../../State/VotersIndicator")
 var v_indicator #instance of voter indicator (only need 1 for mouseover)
 enum {RIGHT, DOWN, LEFT, UP}
 var point
@@ -39,6 +42,8 @@ var bottom_right_corner = Vector2(0,0)
 
 var mouse_over #what point is the mouse over
 
+var m = 0 #modulation for voter indicator number
+
 func _ready():
 	
 	rng.randomize()
@@ -61,17 +66,35 @@ func _process(delta):
 	var grid_pos = mouse_pos / (GRID_SIZE * 1.0)
 	grid_pos = Vector2(round(grid_pos.x), round(grid_pos.y))
 	var grid_pos_str = str(grid_pos)
-	if vertices.has(grid_pos_str) and grid_pos != mouse_over:
+	var has_grid_pos = vertices.has(grid_pos_str)
+	if has_grid_pos and grid_pos != mouse_over:
 		if vertices[grid_pos_str]["type"] == "House":
 			scene.voter_indicator.visible = true
 			if vertices[grid_pos_str].has("voters"):
 				scene.voter_indicator.set_num(vertices[grid_pos_str]["voters"])
+				voter_indicator_number.set_num(vertices[grid_pos_str]["voters"])
 			else:
 				scene.voter_indicator.set_num(1)
+				voter_indicator_number.set_num(1)
+			voter_indicator_number.set_global_position(GRID_SIZE * grid_pos)
+			m = 0
+			voter_indicator_number.visible = true
+			voter_indicator_number.modulate = Color(1, 1, 1, m)
 			#v_indicator.set_global_position(grid_pos * GRID_SIZE)
+			#voter_indicator_numbers[grid_pos_str].visible = true
+			
 		elif vertices[grid_pos_str]["type"] == "Gap":
 			scene.voter_indicator.visible = false
-	mouse_over = grid_pos
+			voter_indicator_number.visible = false
+			
+	elif not has_grid_pos:
+		scene.voter_indicator.visible = false
+		voter_indicator_number.visible = false
+
+	if m < 0.75:
+		m += 0.02
+	voter_indicator_number.modulate = Color(1, 1, 1, m)
+	mouse_over = grid_pos #stops action from looping
 
 func save_matrix(map_name, anchor=null):
 	if vertices == null:
@@ -85,7 +108,7 @@ func save_matrix(map_name, anchor=null):
 	file.store_string(JSON.print(vertices, "\t"))
 	file.close()
 	
-func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
+func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name="", set_indicators=true):
 	gaps = _gaps
 	population = n
 	if _parties:
@@ -141,7 +164,8 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name=""):
 					set(index, str2var("Vector2"+square))
 					fog.clear_fog(str2var("Vector2"+square))
 					
-					set_voter_indicator(voters, square)
+					if set_indicators:
+						set_voter_indicator(voters, square)
 					
 				elif loaded_matrix[square]["type"] != "Anchor":
 					fog.clear_fog(str2var("Vector2"+square))
@@ -213,6 +237,9 @@ func set_voter_indicator(voters, square):
 	v_indicator.z_index = 99
 	var coords = str2var("Vector2"+square)
 	v_indicator.set_global_position(coords * GRID_SIZE)
+	#voter_indicator_numbers[str(coords)] = v_indicator
+	#v_indicator.visible = false
+	v_indicator.scale = Vector2(0.333, 0.333)
 	return v_indicator
 	
 
@@ -430,6 +457,17 @@ func get(grid_point):
 
 func user_place_house(population, parties, map_name):
 	#print(population, parties, map_name)
+	var directory = Directory.new();
+	var isFileExists = directory.dir_exists("user://"+map_name)
+	if not isFileExists:
+		return population
+	#TODO: add houses if directory exists
+	var file = File.new()
+	file.open("user://"+map_name+"/matrix.json", file.READ)
+	var text = file.get_as_text()
+	vertices = parse_json(text)
+	file.close()
+	#let user increase or decrease population in place mode
 	return population
 	
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -29,6 +29,8 @@
 [ext_resource path="res://Objects/Tiles/SpriteTiles3.tres" type="TileSet" id=27]
 [ext_resource path="res://pics/sprites/red_house_hd.png" type="Texture" id=28]
 [ext_resource path="res://UI/VoterIndicatorUI.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Effects/VotersIndicator.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Game/PlayAs.tscn" type="PackedScene" id=31]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -95,11 +97,12 @@ margin_top = 18.0
 margin_right = -20.0
 margin_bottom = -30.0
 rect_min_size = Vector2( 300, 0 )
-mouse_filter = 2
+mouse_filter = 1
 
 [node name="DistrictButtons" type="VBoxContainer" parent="UI/Scroll"]
 margin_right = 200.0
 rect_min_size = Vector2( 200, 0 )
+mouse_filter = 0
 theme = ExtResource( 5 )
 custom_constants/separation = 20
 alignment = 1
@@ -234,6 +237,8 @@ texture = SubResource( 9 )
 margin_top = 23.0
 margin_bottom = 23.0
 
+[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
+
 [node name="State" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -277,6 +282,11 @@ __meta__ = {
 modulate = Color( 0, 0, 0, 0.4 )
 position = Vector2( -9, -9 )
 script = ExtResource( 25 )
+
+[node name="VotersIndicator" parent="State" instance=ExtResource( 30 )]
+modulate = Color( 1, 1, 1, 0.466667 )
+position = Vector2( -15, 236 )
+scale = Vector2( 0.333, 0.333 )
 
 [node name="Darkening" parent="." instance=ExtResource( 13 )]
 

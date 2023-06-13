@@ -8,10 +8,8 @@ func _ready():
 	if Globals.map_progress["Tutoria"]["lvl2"] == false:
 		dialog_array = ["""
 		This is the island of Tutoria! Here, we aren't the most 
-		popular party, but that doesn't mean we can't win  
-		""",
-		"""
-		more seats in the Chamber of Legislation!
+		popular party, but that doesn't mean we can't win 
+		more seats in the Chamber of Legislation! 
 		""",
 		"""
 		To start riggin', click on the state indicated by 
@@ -21,13 +19,20 @@ func _ready():
 		read_text_array(dialog_index)
 		#state = 1
 	elif Globals.map_progress["Tutoria"]["lvl3"] == false:
-		dialog_array = ["""
+		dialog_array = [
+		"""
+		Amazing work cadet! We won 2 out of three seats 
+		with 40% of the vote! Anyway, moving on to the next 
+		state of Tutoria...
+		""",
+		"""
 		Ideally, every district is the same size but this 
 		isn't always possible.  
 		""",
 		"""
 		This district has 28 people and 5 districts, so 2
-		districts need to be 1 voter smaller than the others.
+		districts need to have 1 less voter than the others.
+		Because math.
 		""",
 		"""
 		Let's see if we can use this to our advantage.
@@ -36,8 +41,13 @@ func _ready():
 		read_text_array(dialog_index)
 		#state = 2
 	else:
-		dialog_array = ["""
-		Some places have more people than others.
+		dialog_array = [
+		"""
+		Good job. Now, to the largest state and 
+		capitol of Tutoria: Tutopolis.
+		""",
+		"""
+		Some spaces have more people than others.
 		""",
 		"""
 		In this next area, pay special attention to the 
@@ -49,3 +59,10 @@ func _ready():
 		"""]
 		read_text_array(dialog_index)
 		#state = 3
+
+func press_start():
+	dialog_array = ["""
+		Now press the big red start button at the
+		top of your window.
+		"""]
+	read_text_array(0)

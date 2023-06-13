@@ -59,6 +59,17 @@ onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
 onready var voter_indicator = get_node("UI/VoterIndicatorUI")
+onready var play_as = get_node("UI/PlayAs")
+#
+# Tutorials
+#
+
+var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+
+#
+# Statistics
+#
+
 var population
 var width
 var n_districts
@@ -117,7 +128,10 @@ func _ready():
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
 	_multiplayer = settings["advanced"]["District Rules"]["multiplayer"]
 	
-	
+	if settings.has("player"):
+		enable_next_if_winner_is = settings["player"]
+		
+	play_as.set_player(settings["parties"][enable_next_if_winner_is]["asset"])
 
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
@@ -163,22 +177,45 @@ func _ready():
 		var house = house_buttons.get_children()[0]
 		house.pressed = true
 		selected_house = house
-		
 		draw_mode = DRAW_MODES.PLACE
 		submit_button.set_mode_placement()
-		
-		population = matrix.user_place_house(population, parties, 
-			Globals.current_settings["name"])
-			
 		houses_unplaced = population
-		
-		submit_button.disabled = true
-		submit_button.set_mouse_filter(2)
-		
+		if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+			population = matrix.user_place_house(population, parties, 
+				Globals.current_settings["name"])
+			for vertex in matrix.vertices:
+				if matrix.vertices[vertex]["type"] == "House":
+					if not matrix.vertices[vertex].has("voters"):
+						matrix.vertices[vertex]["voters"] = 1
+					var idcr = matrix.set_voter_indicator(matrix.vertices[vertex]["voters"], vertex)
+					if not matrix.vertices[vertex].has("voters"):
+						idcr.set_num(1)
+					else:
+						idcr.set_num(matrix.vertices[vertex]["voters"])
+					placement_mode__grid_indicators[vertex] = {"indicator": idcr}
+					for btn in house_buttons.get_children():
+						if btn.type != "gap":
+							if btn.party_name == matrix.vertices[vertex]["allegiance"]:
+								var vtrs = 1
+								if matrix.vertices[vertex].has("voters"):
+									vtrs = matrix.vertices[vertex]["voters"]
+								btn.decrement_voters(vtrs)
+								houses_unplaced-=vtrs
+		if houses_unplaced > 0:
+			submit_button.disabled = true
+			submit_button.set_mouse_filter(2)
+		else:
+			submit_button.disabled = false
+			
 		if settings["advanced"]["House Placement"]["algorithm"] == "fill":
 			#fill the state with gaps
 			var should_be_zero = matrix.generate_houses(0, {}, true, "fill", Globals.current_settings["name"])
-		
+		if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+			population = matrix.generate_houses(population, parties, 
+				settings["advanced"]["House Placement"]["gaps"], 
+				settings["advanced"]["House Placement"]["algorithm"], 
+				Globals.current_settings["name"],
+				false)
 	else:
 		
 		population = matrix.generate_houses(population, parties, 
@@ -186,6 +223,17 @@ func _ready():
 			settings["advanced"]["House Placement"]["algorithm"], 
 			Globals.current_settings["name"])
 		create_district_buttons(expected_population)
+		
+		if settings.has("camera"):
+			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
+
+	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
+		if settings.has("tutorial"):
+			match settings["tutorial"]:
+				1:
+					#initiate tutorial 1
+					print("yeet")
 
 # # # # # # # # #
 #
@@ -272,7 +320,8 @@ func get_button_names():
 	var bn = []
 	var children = district_buttons.get_children()
 	for b in children:
-		bn.append(b.name)
+		if b.name != "Blank":
+			bn.append(b.name)
 	return bn
 	
 func reset_buttons(names):
@@ -423,6 +472,11 @@ func place_house(event):
 							house_buttons.get_party(allegiance).increment_voters()
 							houses_unplaced+=1
 					matrix.vertices.erase(str(grid_point))
+					if houses_unplaced > 0:
+						submit_button.disabled = true
+						submit_button.set_mouse_filter(2)
+					else:
+						submit_button.disabled = false
 				else:
 					#set matrix fog to clear this square
 					matrix.fog.clear_fog(grid_point)
@@ -437,7 +491,11 @@ func place_house(event):
 							
 						placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
 						placement_mode__grid_indicators.erase(str(grid_point))
-						
+						if houses_unplaced > 0:
+							submit_button.disabled = true
+							submit_button.set_mouse_filter(2)
+						else:
+							submit_button.disabled = false
 					matrix.vertices[str(grid_point)] = {
 						"type":"Gap", 
 						"coords":grid_point, 
@@ -464,10 +522,19 @@ func place_house(event):
 						houses_unplaced+=1
 					placement_mode__grid_indicators[str(grid_point)]["indicator"].queue_free()
 					placement_mode__grid_indicators.erase(str(grid_point))
-
+					if houses_unplaced > 0:
+						submit_button.disabled = true
+						submit_button.set_mouse_filter(2)
+					else:
+						submit_button.disabled = false
 				selected_house.decrement_voters()
 				houses_unplaced-=1
 				matrix.voter_indicators.visible = true
+				if houses_unplaced > 0:
+					submit_button.disabled = true
+					submit_button.set_mouse_filter(2)
+				else:
+					submit_button.disabled = false
 				
 				if not placement_mode__grid_indicators.has(str(grid_point)):
 					#create a voter indicator
@@ -485,13 +552,18 @@ func place_house(event):
 				houses_unplaced-=1
 				voter_indicator.set_num(matrix.vertices[str(grid_point)]["voters"])
 				placement_mode__grid_indicators[str(grid_point)]["indicator"].increment()
-				
+				if houses_unplaced > 0:
+					submit_button.disabled = true
+					submit_button.set_mouse_filter(2)
+				else:
+					submit_button.disabled = false
+					
 				if matrix.vertices[str(grid_point)]["voters"] > 2 and matrix.vertices[str(grid_point)]["voters"] < 5:
 					matrix.set(selected_house.sprite_index, grid_point)
 				elif matrix.vertices[str(grid_point)]["voters"] > 4:
 					matrix.set(selected_house.sprite_index, grid_point)
 				
-			$UI/VoterIndicatorUI.visible = true
+			#$UI/VoterIndicatorUI.visible = true
 
 		if houses_unplaced <= 0:
 			submit_button.disabled = false

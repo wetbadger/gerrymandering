@@ -276,11 +276,12 @@ func get_next_district():
 	#var scene = get_tree().get_current_scene()
 	scene.stop_input()
 	
-	var button_name
-	if scene.district_button_names.find(name) + 1 >= len(scene.district_button_names):
-		button_name = scene.district_button_names[0]
-	else:
-		button_name = scene.district_button_names[scene.district_button_names.find(name) + 1]
+	var button_name = "Blank"
+	while (button_name == "Blank"):
+		if scene.district_button_names.find(name) + 1 >= len(scene.district_button_names):
+			button_name = scene.district_button_names[0]
+		else:
+			button_name = scene.district_button_names[scene.district_button_names.find(name) + 1]
 	#var button_name = char(ord(name[0]) + 1)
 	if scene._multiplayer:
 		#look for a non-zero district for current player
@@ -338,12 +339,18 @@ func get_next_district():
 					#if it did use all its houses pick a different district
 					if d.house_count == max_size:
 						for each in scene.districts:
+							if each.name == "Blank":
+								#there is a blank object to create space at the bottom
+								continue
 							if each.house_count < max_size:
 								button_name = each.name
 								
 								
 	else:
 		for each in scene.districts:
+			if each.name == "Blank":
+				#there is a blank object to create space at the bottom
+				continue
 			if each.house_count < max_size:
 				button_name = each.name
 

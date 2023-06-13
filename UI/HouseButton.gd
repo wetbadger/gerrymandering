@@ -29,8 +29,8 @@ func unselect_house(house_name):
 	if state.has_node(house_name):
 		state.get_node(house_name).is_selected = false
 		
-func decrement_voters():
-	voters -= 1
+func decrement_voters(n=1):
+	voters -= n
 	label.set_text(party_name + "\n" + str(voters))
 
 func increment_voters(n=1):

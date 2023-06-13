@@ -1,5 +1,10 @@
 {
+    "camera" : {
+		"zoom":0.2,
+		"position": [950,550]
+	},
 	"name": "Ordbury",
+    "difficulty": 3,
 	"pointer": null,
 	"parties": {
 		"You": {
@@ -96,7 +101,7 @@
 			"debug": false
 		}
 	},
-	"shape": "Puzzle1",
+	"shape": "Ordbury",
 	"colors": {
 		"blue": [
 			0.25,

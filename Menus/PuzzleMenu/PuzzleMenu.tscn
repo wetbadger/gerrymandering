@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://pics/ui/gold-x-hover.png" type="Texture" id=1]
-[ext_resource path="res://Menus/PuzzleMenu/PuzzleButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://pics/ui/gold-x-2.png" type="Texture" id=3]
 [ext_resource path="res://Menus/PuzzleMenu/PuzzleMenu.gd" type="Script" id=4]
 
@@ -15,14 +14,7 @@ margin_right = 1780.0
 margin_bottom = 1032.0
 
 [node name="GridContainer" type="GridContainer" parent="VScrollBar"]
-margin_right = 312.0
-margin_bottom = 406.0
 columns = 5
-
-[node name="PuzzleButton" parent="VScrollBar/GridContainer" instance=ExtResource( 2 )]
-margin_right = 312.0
-margin_bottom = 406.0
-path = "Puzzles/Ordbury"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 1690.0

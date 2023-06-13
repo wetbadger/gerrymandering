@@ -29,6 +29,7 @@ func _on_Start_button_up():
 	game_settings["parties"]=options["parties"]
 	game_settings["districts"]=options["districts"]
 	game_settings["advanced"]=options["advanced"]
+	game_settings["player"]=options["player"]
 	
 	Globals.map_name = scene.game_name.text
 	
@@ -59,6 +60,7 @@ func new_game_folder(settings):
 func get_options():
 	var result = {}
 	var panes = scene.panes
+	var first = true #used to get player
 	for pane in panes:
 		result[pane.name] = scene.settings[pane.name]
 		if pane.name == "parties":
@@ -68,12 +70,16 @@ func get_options():
 		else:
 			result[pane.name] = scene.settings[pane.name]
 		var group_name
+		
 		for box in pane.boxes:
 			for group in box.groups:
 			
 				match group[0]:
 					"line":
 						group_name = group[-1].get_text()
+						if first and pane.name == "parties":
+							first = false
+							result["player"] = group_name
 					"number":
 						if not result[pane.name].has(group_name):
 							result[pane.name][group_name] = {}

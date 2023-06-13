@@ -36,14 +36,16 @@ func toggle_buttons(button_container):
 	scene.deselect_is_on = deselect
 	if deselect:
 		for btn in button_container.get_children():
-			btn.pressed = false
-			btn.disabled = true
+			if btn.name != "Blank":
+				btn.pressed = false
+				btn.disabled = true
 	else:
 		if scene._multiplayer:
 			scene.enable_selected_district()
 		else:
 			for btn in button_container.get_children():
-				btn.disabled = false
+				if btn.name != "Blank":
+					btn.disabled = false
 
 
 

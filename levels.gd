@@ -3,9 +3,10 @@ extends Node
 var settings = {
 
 	"lvl1" : {
+		"tutorial": 1,
 		"camera" : {
 			"zoom":0.1,
-			"position": [1050,550]
+			"position": [750,570]
 		},
 		"name": "lvl1",
 		"pointer": ["lvl2"],
@@ -501,99 +502,99 @@ var settings = {
 
 var matrices = {
 	"lvl1" : {
-		"anchor" : {
-			"type" : "Anchor",
-			"coords" : "(71, 29)"
-		},
-		"(58, 30)": {
+		"(42, 30)": {
 			"type": "House",
-			"coords": "(58, 30)",
+			"coords": "(42, 30)",
 			"visited": false,
 			"allegiance": "Opponent"
 		},
-		"(58, 29)": {
+		"(43, 30)": {
 			"type": "House",
-			"coords": "(58, 29)",
+			"coords": "(43, 30)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(44, 30)": {
+			"type": "House",
+			"coords": "(44, 30)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(41, 31)": {
+			"type": "House",
+			"coords": "(41, 31)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(57, 30)": {
+		"(42, 31)": {
 			"type": "House",
-			"coords": "(57, 30)",
-			"visited": false,
-			"allegiance": "Opponent"
-		},
-		"(59, 30)": {
-			"type": "House",
-			"coords": "(59, 30)",
+			"coords": "(42, 31)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(58, 31)": {
+		"(43, 31)": {
 			"type": "House",
-			"coords": "(58, 31)",
+			"coords": "(43, 31)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(44, 31)": {
+			"type": "House",
+			"coords": "(44, 31)",
+			"visited": false,
+			"allegiance": "Opponent"
+		},
+		"(41, 32)": {
+			"type": "House",
+			"coords": "(41, 32)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(57, 31)": {
+		"(42, 32)": {
 			"type": "House",
-			"coords": "(57, 31)",
+			"coords": "(42, 32)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(57, 32)": {
+		"(43, 32)": {
 			"type": "House",
-			"coords": "(57, 32)",
+			"coords": "(43, 32)",
 			"visited": false,
 			"allegiance": "Opponent"
 		},
-		"(58, 32)": {
+		"(44, 32)": {
 			"type": "House",
-			"coords": "(58, 32)",
+			"coords": "(44, 32)",
 			"visited": false,
 			"allegiance": "Opponent"
 		},
-		"(59, 32)": {
+		"(41, 33)": {
 			"type": "House",
-			"coords": "(59, 32)",
+			"coords": "(41, 33)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(60, 32)": {
+		"(42, 33)": {
 			"type": "House",
-			"coords": "(60, 32)",
+			"coords": "(42, 33)",
 			"visited": false,
 			"allegiance": "You"
 		},
-		"(59, 31)": {
+		"(43, 33)": {
 			"type": "House",
-			"coords": "(59, 31)",
+			"coords": "(43, 33)",
+			"visited": false,
+			"allegiance": "You"
+		},
+		"(44, 33)": {
+			"type": "House",
+			"coords": "(44, 33)",
 			"visited": false,
 			"allegiance": "Opponent"
 		},
-		"(60, 31)": {
-			"type": "House",
-			"coords": "(60, 31)",
-			"visited": false,
-			"allegiance": "Opponent"
-		},
-		"(60, 30)": {
-			"type": "House",
-			"coords": "(60, 30)",
-			"visited": false,
-			"allegiance": "Opponent"
-		},
-		"(60, 29)": {
-			"type": "House",
-			"coords": "(60, 29)",
-			"visited": false,
-			"allegiance": "Opponent"
-		},
-		"(59, 29)": {
-			"type": "House",
-			"coords": "(59, 29)",
-			"visited": false,
-			"allegiance": "Opponent"
+		"anchor": {
+			"type": "Anchor",
+			"coords": "(55, 30)"
 		}
 	},
 	"lvl2" : {
