@@ -9,6 +9,10 @@ var number
 
 func increment():
 	var previous_position = get_children()[-1].get_global_position()
+	count+=1
+	set_num(count)
+	return #remove this to show squares indicating voters
+	
 	var s = square.instance()
 	add_child(s)
 	var new_pos
@@ -18,7 +22,7 @@ func increment():
 		new_pos = Vector2(previous_position.x + SPACING, previous_position.y)
 	s.set_global_position(new_pos)
 	previous_position = new_pos
-	count+=1
+	
 
 func set_num(n):
 	number = n

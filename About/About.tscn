@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=1]
 [ext_resource path="res://About/About.gd" type="Script" id=2]
@@ -7,35 +7,52 @@
 [ext_resource path="res://pics/history/Declaration_of_Independence_(1819),_by_John_Trumbull.png" type="Texture" id=5]
 [ext_resource path="res://pics/history/dragon2.png" type="Texture" id=6]
 [ext_resource path="res://pics/history/hal.png" type="Texture" id=7]
-[ext_resource path="res://pics/history/colorado.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.921569, 0.835294, 0.266667, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+draw_center = false
+border_width_left = 35
+border_color = Color( 0.0666667, 0.0666667, 0.0666667, 1 )
+
+[sub_resource type="Theme" id=3]
+VScrollBar/styles/grabber = SubResource( 1 )
+VScrollBar/styles/scroll = SubResource( 2 )
 
 [node name="About" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Window" parent="." instance=ExtResource( 1 )]
-position = Vector2( 518, 206 )
+position = Vector2( 480, 123 )
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Window"]
-margin_left = 63.0
+margin_left = 36.0
 margin_top = 64.0
-margin_right = 1002.0
-margin_bottom = 597.0
+margin_right = 997.0
+margin_bottom = 834.0
+theme = SubResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Window/ScrollContainer"]
-margin_right = 938.0
-margin_bottom = 7565.0
+margin_right = 930.0
+margin_bottom = 7132.0
 
 [node name="Label" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_right = 938.0
+margin_right = 930.0
 margin_bottom = 111.0
 theme = ExtResource( 3 )
 text = "
-What is Gerrymandering?"
+What is \"Gerrymandering\"?"
 
 [node name="Label2" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
 margin_top = 115.0
-margin_right = 938.0
-margin_bottom = 640.0
+margin_right = 930.0
+margin_bottom = 772.0
 theme = ExtResource( 4 )
 text = "
 It is when local governments or partisan
@@ -43,17 +60,20 @@ commissions redraw congressional districts
 to favor one party, whether that be Democrat 
 or Republican. 
 
+Whoa, that's a lot of words. Let's break it down 
+a bit.
+
 Gerrymandering has been cited by authors such 
 as Yascha Mounk as overtly undemocratic. Two 
-things are keeping Gerrymandering around. 
+things are keeping gerrymandering around. 
 First, the fact that most people don’t know what 
 it is, and second, the lack of a better alternative. 
 So first, why is Gerrymandering even a thing?"
 
 [node name="Label8" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 644.0
-margin_right = 938.0
-margin_bottom = 869.0
+margin_top = 776.0
+margin_right = 930.0
+margin_bottom = 1001.0
 theme = ExtResource( 3 )
 text = "
 American Democracy: 
@@ -61,18 +81,18 @@ a Work in Progress
 "
 
 [node name="TextureRect" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 873.0
-margin_right = 938.0
-margin_bottom = 1373.0
+margin_top = 1005.0
+margin_right = 930.0
+margin_bottom = 1505.0
 rect_min_size = Vector2( 1, 500 )
 texture = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
 [node name="Label3" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 1377.0
-margin_right = 938.0
-margin_bottom = 2386.0
+margin_top = 1509.0
+margin_right = 930.0
+margin_bottom = 2518.0
 theme = ExtResource( 4 )
 text = "
 In the early days of American Independence, 
@@ -99,9 +119,9 @@ Many people felt unrepresented.
 "
 
 [node name="Label4" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 2390.0
-margin_right = 938.0
-margin_bottom = 2871.0
+margin_top = 2522.0
+margin_right = 930.0
+margin_bottom = 3047.0
 theme = ExtResource( 4 )
 text = "A solution that helped fix this problem was to split 
 the state into districts—shapes intended to 
@@ -111,14 +131,15 @@ unclear. The constitution says that representatives
 are assigned to a state based on that state’s 
 population, but the founding fathers left the 
 process of choosing those representatives up to 
-the states. Gerrymandering was invented out of 
+the states. Redistricting was invented out of 
 earnest attempts at redesigning the voting system 
-to be fair."
+to be fair, and gerrymandering is the exploitation
+of that system."
 
 [node name="Label5" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 2875.0
-margin_right = 938.0
-margin_bottom = 3356.0
+margin_top = 3051.0
+margin_right = 930.0
+margin_bottom = 3532.0
 theme = ExtResource( 4 )
 text = "
 In the early 19th century, Congress continually 
@@ -133,9 +154,9 @@ democracy is more complicated than “one person,
 one vote.”"
 
 [node name="Label6" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 3360.0
-margin_right = 938.0
-margin_bottom = 3585.0
+margin_top = 3536.0
+margin_right = 930.0
+margin_bottom = 3761.0
 theme = ExtResource( 3 )
 text = "
 The Gerrymander: 
@@ -143,21 +164,21 @@ a New Species of Monster
 "
 
 [node name="TextureRect2" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 3589.0
-margin_right = 938.0
-margin_bottom = 4089.0
+margin_top = 3765.0
+margin_right = 930.0
+margin_bottom = 4265.0
 rect_min_size = Vector2( 1, 500 )
 texture = ExtResource( 6 )
 expand = true
 stretch_mode = 5
 
 [node name="Label7" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 4093.0
-margin_right = 938.0
-margin_bottom = 4882.0
+margin_top = 4269.0
+margin_right = 930.0
+margin_bottom = 5058.0
 theme = ExtResource( 4 )
 text = "
-The public resentment of Gerrymandering was 
+The public resentment of gerrymandering was 
 apparent from its outset, when Elbridge Gerry, 
 former vice president under James Madison, 
 drew the districts as the governor of 
@@ -175,27 +196,35 @@ editor warned Massachusans and Americans,
 terrific dragon, brought forth to swallow and 
 devour your liberties and equal Rights.\""
 
+[node name="Label12" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
+margin_top = 5062.0
+margin_right = 930.0
+margin_bottom = 5173.0
+theme = ExtResource( 3 )
+text = "
+What can we do about it?"
+
 [node name="TextureRect3" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 4886.0
-margin_right = 938.0
-margin_bottom = 5386.0
+margin_top = 5177.0
+margin_right = 930.0
+margin_bottom = 5677.0
 rect_min_size = Vector2( 1, 500 )
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
 [node name="Label9" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 5390.0
-margin_right = 938.0
-margin_bottom = 6047.0
+margin_top = 5681.0
+margin_right = 930.0
+margin_bottom = 6338.0
 theme = ExtResource( 4 )
 text = "
 One suggested solution is to let a computer 
 algorithm draw the districts, based on a 
 mathematical principle of fairness. However, 
 algorithms, even if perfectly fair in theory, might 
-not be able to understand the boundaries of 
-communities. There is also a sense of uneasiness 
+not be able to understand the communities they
+are representing. There is also a sense of uneasiness 
 created by letting a black-box make such 
 important decisions. Just as important as fair 
 democracy, is the appearance of fairness. People 
@@ -206,42 +235,28 @@ bias.
 "
 
 [node name="Label10" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 6051.0
-margin_right = 938.0
-margin_bottom = 6840.0
+margin_top = 6342.0
+margin_right = 930.0
+margin_bottom = 6911.0
 theme = ExtResource( 4 )
 text = "
-Gerrymandering hurts Republicans and 
-Democrats alike. The great tragedy of 
-gerrymandering is that most Americans don’t 
-get to live in a district represented by a 
-congressperson who supports their values. 
-Because of the gerrymandering strategy, some 
-places are unanimous in their support for one 
-candidate but their party is a minority in the state, 
-while other districts are carefully split so that a 
-party wins by the smallest possible margin. Case 
-and point is Colorado’s District 3. Redistricted in 
-2021 by a Republican state house, Lauren Boebert 
-won her district by 0.1%, or about 500 votes. She 
-rode in on a short-lived populist wave, but thanks 
-to Gerrymandering, she may represent her unwilling 
-49.9% for the rest of their lives.
+Gerrymandering hurts Republicans and Democrats 
+alike. The great tragedy of gerrymandering is that
+most Americans don’t get to live in a district
+represented by a congressperson who supports 
+their values. 
+
+The gerrymandering strategy makes wierdly 
+shaped districts that are unanimous in their 
+support for one candidate, while other districts 
+are carefully split so that a party wins by the 
+smallest possible margin.
 "
 
-[node name="TextureRect4" type="TextureRect" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 6844.0
-margin_right = 938.0
-margin_bottom = 7344.0
-rect_min_size = Vector2( 1, 500 )
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 5
-
 [node name="Label11" type="Label" parent="Window/ScrollContainer/VBoxContainer"]
-margin_top = 7348.0
-margin_right = 938.0
-margin_bottom = 7565.0
+margin_top = 6915.0
+margin_right = 930.0
+margin_bottom = 7132.0
 theme = ExtResource( 4 )
 text = "
 There is no consensus around an alternate method, 

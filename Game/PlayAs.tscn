@@ -16,6 +16,7 @@ font_data = ExtResource( 3 )
 Label/fonts/font = SubResource( 1 )
 
 [node name="PlayAs" type="Node2D"]
+modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -24,10 +25,10 @@ margin_bottom = 1082.0
 color = Color( 0.0666667, 0.0666667, 0.0666667, 0.533333 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 854.0
-margin_top = 817.0
-margin_right = 1038.0
-margin_bottom = 905.0
+margin_left = 772.0
+margin_top = 791.0
+margin_right = 1226.0
+margin_bottom = 994.0
 theme = ExtResource( 4 )
 text = "Okay!"
 

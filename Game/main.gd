@@ -232,6 +232,7 @@ func _ready():
 		if settings.has("tutorial"):
 			match settings["tutorial"]:
 				1:
+					#initiate tutorial 1
 					print("yeet")
 
 # # # # # # # # #
