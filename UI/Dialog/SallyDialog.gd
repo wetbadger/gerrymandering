@@ -21,7 +21,7 @@ func _ready():
 	elif Globals.map_progress["Tutoria"]["lvl3"] == false:
 		dialog_array = [
 		"""
-		Amazing work cadet! We won 2 out of three seats 
+		Nice work greenhorn! We won 2 out of three seats 
 		with 40% of the vote! Anyway, moving on to the next 
 		state of Tutoria...
 		""",
