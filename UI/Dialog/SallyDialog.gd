@@ -21,9 +21,9 @@ func _ready():
 	elif Globals.map_progress["Tutoria"]["lvl3"] == false:
 		dialog_array = [
 		"""
-		Nice work greenhorn! We won 2 out of three seats 
-		with 40% of the vote! Anyway, moving on to the next 
-		state of Tutoria...
+		Nice work, greenhorn! We won 2 out of 3 seats 
+		with 40% of the vote! Moving on, this next state
+		is more "rural"...
 		""",
 		"""
 		Ideally, every district is the same size but this 

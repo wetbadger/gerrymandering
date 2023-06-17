@@ -64,7 +64,7 @@ onready var play_as = get_node("UI/PlayAs")
 # Tutorials
 #
 
-var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+var tutorial
 
 #
 # Statistics
@@ -75,6 +75,7 @@ var width
 var n_districts
 var max_size
 var min_size
+var short_number #how many districts need to be short
 
 var can_recheck = true #can determine drawmode
 enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE}
@@ -233,7 +234,8 @@ func _ready():
 			match settings["tutorial"]:
 				1:
 					#initiate tutorial 1
-					print("yeet")
+					var tutorial = load("res://Tutorials/Tutorial1.tscn").instance()
+					add_child(tutorial)
 
 # # # # # # # # #
 #

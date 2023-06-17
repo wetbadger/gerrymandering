@@ -100,6 +100,7 @@ func highlight(grid_point, exclude=null, force=false):
 		m_vert_house_id = matrix.vertices[house_id]
 	else:
 		error_label.set_text("NO CAN CLICK SQUARE")
+		return
 	if name == "Flood": #TODO: make Flood a class that extends District, so programemrs don't make fun of you
 		if len(squares_in_region) == 0:
 			squares_in_region.append(house_id)
@@ -140,7 +141,7 @@ func highlight(grid_point, exclude=null, force=false):
 					get_tree().get_current_scene().draw_district_flood(matrix.vertices[neighbor]["coords"], exclude)
 		return
 		
-	if max_size > house_count or force==true:
+	if max_size > house_count or (not contiguous and m_vert_house_id["type"] == "Gap") or force==true:
 		if not matrix.vertices.has(house_id):
 			error_label.set_text("NO HOUSE THERE")
 			var id_vect = str2var("Vector2"+house_id)
@@ -355,7 +356,7 @@ func get_next_district():
 				button_name = each.name
 
 	next = district_buttons.get_node(button_name)
-	if next:
+	if next and contiguous:
 		next.pressed = true
 		next._on_Button_button_up()
 			
