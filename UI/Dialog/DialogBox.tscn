@@ -7,16 +7,20 @@
 script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="Container" parent="."]
-margin_right = 1579.0
+margin_left = -2.0
+margin_right = 1577.0
 margin_bottom = 244.0
 
 [node name="ColorRect" type="ColorRect" parent="RichTextLabel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0745098, 0.0745098, 0.0745098, 0.596078 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="BLabel" parent="RichTextLabel" instance=ExtResource( 1 )]
-margin_left = 200.0
-margin_top = -60.0
-margin_right = -25.0
-margin_bottom = -55.0
+margin_left = 202.0
+margin_top = 26.0
+margin_right = 622.0
+margin_bottom = 94.0

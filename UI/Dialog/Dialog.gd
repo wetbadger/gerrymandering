@@ -10,6 +10,7 @@ onready var map = get_tree().get_current_scene()
 var state = 0
 
 var nodes = []
+var mouse_down = true
 
 func _ready():
 	pass
@@ -29,10 +30,20 @@ func read_text_array(i):
 		
 func _input(event):
 	if (event is InputEventKey or event is InputEventScreenTouch) and (dialog_index+1 < len(dialog_array) or not $Dialog.text_complete):
+		
 		if $Dialog.text_complete:
 			if event.pressed:
 				dialog_index+=1
 				read_text_array(dialog_index)
+		else:
+			if mouse_down:
+				if len(dialog_array) > dialog_index:
+					$Dialog.set_text_now(dialog_array[dialog_index])
+				
+		if mouse_down:
+			mouse_down = false
+		else:
+			mouse_down = true
 
 func add_node(node):
 	nodes.append(node)

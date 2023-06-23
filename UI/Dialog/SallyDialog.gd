@@ -1,41 +1,37 @@
 extends Dialog
 
+var started = false
+
 func _ready():
 	nodes = [$"../../Container/lvl1"]
 	if Globals.map_progress["Tutoria"]["completed"] == true:
 		queue_free()
 		
 	if Globals.map_progress["Tutoria"]["lvl2"] == false:
-		dialog_array = ["""
-		This is the island of Tutoria! Here, we aren't the most 
-		popular party, but that doesn't mean we can't win 
-		more seats in the Chamber of Legislation! 
+		dialog_array = ["""This is the island of Tutoria! Here, we aren't the most 
+popular party, but that doesn't mean we can't win 
+more seats in the Chamber of Legislation! 
 		""",
-		"""
-		To start riggin', click on the state indicated by 
-		the flashing arrow.
+		"""To start riggin', click on the state indicated by 
+the flashing arrow.
 		"""
 		]
 		read_text_array(dialog_index)
 		#state = 1
 	elif Globals.map_progress["Tutoria"]["lvl3"] == false:
 		dialog_array = [
-		"""
-		Nice work, greenhorn! We won 2 out of 3 seats 
-		with 40% of the vote! Moving on, this next state
-		is more "rural"...
+		"""Nice work, greenhorn! We won 2 out of 3 seats 
+with 40% of the vote! Moving on, this next state
+is more "rural"...
 		""",
-		"""
-		Ideally, every district is the same size but this 
-		isn't always possible.  
+		"""Ideally, every district is the same size but this 
+isn't always possible.  
 		""",
-		"""
-		This district has 28 people and 5 districts, so 2
-		districts need to have 1 less voter than the others.
-		Because math.
+		"""This district has 28 people and 5 districts, so 2
+districts need to have 1 less voter than the others.
+Because math.
 		""",
-		"""
-		Let's see if we can use this to our advantage.
+		"""Let's see if we can use this to our advantage.
 		"""
 		]
 		read_text_array(dialog_index)
@@ -61,8 +57,9 @@ func _ready():
 		#state = 3
 
 func press_start():
-	dialog_array = ["""
-		Now press the big red start button at the
-		top of your window.
-		"""]
-	read_text_array(0)
+	dialog_array = ["""Now press the big red start button at the
+top of your window.
+"""]
+	if not started:
+		started = true
+		read_text_array(0)
