@@ -12,6 +12,8 @@ var color_rect_freed = false
 
 var Y_POS = 30
 
+signal finished
+
 func _ready():
 	pass
 
@@ -49,6 +51,7 @@ func _process(_delta):
 					control.set_global_position(Vector2(pos.x, pos.y-10))
 			else:
 				mode = DONE
+				emit_signal("finished")
 				if not color_rect_freed: #race condition
 					free_color_rect()
 				set_process(false)

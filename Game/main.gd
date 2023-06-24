@@ -28,6 +28,7 @@ var selected_house
 
 var deselect_is_on = false
 var disable_draw= false
+var can_move = true
 var touches = 0
 var houses_unplaced = 0
 
@@ -40,6 +41,7 @@ var placement_mode__grid_indicators = {}
 export var show_last_point = false
 var texture_missing = load("res://pics/target.png")
 
+onready var ui = get_node("UI")
 onready var matrix = get_node("State").get_node("Matrix")
 onready var mode_label = get_node("UI/Debug/HBox/ModeLabel")
 onready var squares_filled_label = get_node("UI/Debug/HBox/SquaresFilledLabel")
@@ -64,7 +66,11 @@ onready var play_as = get_node("UI/PlayAs")
 # Tutorials
 #
 
-var tutorial
+var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+
+var t1
+var t2
+var t3
 
 #
 # Statistics
@@ -234,8 +240,16 @@ func _ready():
 			match settings["tutorial"]:
 				1:
 					#initiate tutorial 1
-					var tutorial = load("res://Tutorials/Tutorial1.tscn").instance()
-					add_child(tutorial)
+					t1 = tutorial1.instance()
+					var t1dialog = t1.get_node("Tutorial1Dialog")
+					play_as.connect("finished", t1dialog, "next")
+					ui.add_child(t1)
+					disable_draw = true
+					can_move = false
+					for btn in district_buttons.get_children():
+						if btn.name != "Blank":
+							btn.connect("clicked", t1dialog, "next")
+							btn.tutorial_click = true
 
 # # # # # # # # #
 #

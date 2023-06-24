@@ -14,6 +14,9 @@ var turn_ended = false
 
 var contiguous = true
 
+signal clicked
+var tutorial_click = false
+
 func _ready():
 	camera = scene.get_node("State/Camera2D")
 	set_focus_mode(1)
@@ -36,10 +39,14 @@ func close_animation():
 func _on_Button_button_up():
 	get_tree().set_input_as_handled()
 	var buttons = get_tree().get_nodes_in_group("district_buttons")
+	emit_signal("clicked") #used only for tutorial at the moment
 	for b in buttons:
 		if b != self:
 			b.pressed = false
 			unselect_district(b.name)
+		if b.tutorial_click:
+			b.tutorial_click = false
+			b.disconnect("clicked", scene.t1.get_node("Tutorial1Dialog"), "next")
 			
 	scene.selected_district = self.name
 

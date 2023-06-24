@@ -9,6 +9,7 @@ var _touches = {}
 var _touches_info = {"num_touch_last_frame":0, "radius":0, "total_pan":0}
 var _debug_cur_touch = 0
 var z_held = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -43,7 +44,7 @@ func do_multitouch_pan():
 	_touches_info.target = _touches_info.cur_pos
 
 func _unhandled_input(event):
-	if scene.disable_draw:
+	if scene.disable_draw and scene.can_move:
 		#handle multi-touch from capapable devices
 		if event is InputEventScreenTouch and event.pressed == true:
 			_touches[event.index] = {"start": event, "current": event}

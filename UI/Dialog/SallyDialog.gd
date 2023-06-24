@@ -57,7 +57,7 @@ Because math.
 		#state = 3
 
 func press_start():
-	dialog_array = ["""Now press the big red start button at the
+	dialog_array = ["""Now press the big red "start" button at the
 top of your window.
 """]
 	if not started:

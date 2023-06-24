@@ -5,8 +5,8 @@ var settings = {
 	"lvl1" : {
 		"tutorial": 1,
 		"camera" : {
-			"zoom":0.1,
-			"position": [750,570]
+			"zoom":0.2,
+			"position": [770,580]
 		},
 		"name": "lvl1",
 		"pointer": ["lvl2"],

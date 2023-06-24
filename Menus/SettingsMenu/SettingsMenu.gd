@@ -44,5 +44,5 @@ func _on_orientation_changed(portrait):
 func _on_Close_button_up():
 	for w in windows_open:
 		w.close_window()
-	scene.main_theme.set_volume(scene.settings["Audio"]["Music"])
+	#scene.main_theme.set_volume(scene.settings["Audio"]["Music"])
 	queue_free()
