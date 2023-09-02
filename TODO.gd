@@ -3,6 +3,11 @@ extends Node
 
 """
 
+What I was doing:
+	Working on the tutotial
+Issue I was having:
+	After player loses (or selects try again) tutorial starts at ...
+
 TODO:
 	[done] load saved settings
 	

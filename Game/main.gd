@@ -17,6 +17,7 @@ var previous_grid_point
 var selected_district
 var district_object
 var districts = []
+var n_drawn_districts = 0 #non empty districts
 var district_button_names
 var draw_size = 33
 
@@ -237,19 +238,21 @@ func _ready():
 
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
-			match settings["tutorial"]:
-				1:
-					#initiate tutorial 1
-					t1 = tutorial1.instance()
-					var t1dialog = t1.get_node("Tutorial1Dialog")
-					play_as.connect("finished", t1dialog, "next")
-					ui.add_child(t1)
-					disable_draw = true
-					can_move = false
-					for btn in district_buttons.get_children():
-						if btn.name != "Blank":
-							btn.connect("clicked", t1dialog, "next")
-							btn.tutorial_click = true
+			initiate_tutorial(settings["tutorial"])
+
+func initiate_tutorial(n):
+	#initiate tutorial 1
+	if n == 1:
+		t1 = tutorial1.instance()
+		var t1dialog = t1.get_node("Tutorial1Dialog")
+		play_as.connect("finished", t1dialog, "next")
+		ui.add_child(t1)
+		disable_draw = true
+		can_move = false
+		for btn in district_buttons.get_children():
+			if btn.name != "Blank":
+				btn.connect("clicked", t1dialog, "next")
+				btn.tutorial_click = true
 
 # # # # # # # # #
 #
@@ -695,6 +698,11 @@ func get_district_selected(exclude=null, temp=null):
 		
 		var district = district_object.instance()
 		district.starting_vertex = grid_point
+		if t1 and is_instance_valid(t1):
+			district.connect("filled", t1.get_node("Tutorial1Dialog"), "next")
+			district.connect("broken", t1.get_node("Tutorial1Dialog"), "broken")
+			district.connect("unbroken", t1.get_node("Tutorial1Dialog"), "unbroken")
+			district.connect("unfilled", t1.get_node("Tutorial1Dialog"), "set_to", [n_drawn_districts + 2])
 		
 		if selected_district == "Flood":
 			district.max_size = settings["districts"][temp]["max"]
@@ -722,6 +730,8 @@ func get_district_selected(exclude=null, temp=null):
 		add_child(district)
 		district.highlight(grid_point, exclude)
 		if not ["Flood","Error"].has(selected_district):
+			if t1 and is_instance_valid(t1) and len(districts) == 0:
+				t1.get_node("Tutorial1Dialog").next()
 			districts.append(district)
 
 		return false

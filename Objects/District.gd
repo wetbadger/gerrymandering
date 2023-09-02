@@ -46,9 +46,18 @@ var turn_ended = false #when true avoid this district until endgame
 #custom cpp module
 var contiguityChecker = Contiguity.new()
 
-func _ready():
+signal filled
+signal unfilled
+signal broken
+signal unbroken
+signal created
 
+func _ready():
 	scene = get_tree().get_current_scene()
+	
+	if scene.t1 and is_instance_valid(scene.t1):
+		scene.t1.get_node("Tutorial1Dialog").new_district()
+
 	district_buttons = scene.get_node("UI/Scroll/DistrictButtons")
 	for party in scene.parties:
 		party_tallies[party] = 0
@@ -134,7 +143,13 @@ func highlight(grid_point, exclude=null, force=false):
 			#tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			m_vert_house_id["visited_empty"] = true
 			m_vert_house_id["district"] = "Flood"
+			var isCreated = false
+			if len(squares) == 0:
+				isCreated = true
 			squares.append(house_id)
+			if isCreated:
+				isCreated = false
+				scene.n_drawn_districts += 1
 			var neighbors = get_neighbors(m_vert_house_id, squares, 2)
 			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"]:
 				for neighbor in neighbors:
@@ -245,7 +260,13 @@ func highlight(grid_point, exclude=null, force=false):
 			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			
+			var isCreated = false
+			if len(squares) == 0:
+				isCreated = true
 			squares.append(house_id)
+			if isCreated:
+				isCreated = false
+				scene.n_drawn_districts += 1
 				
 			if house_count == max_size and scene.filled_squares < scene.population:
 				
@@ -272,6 +293,8 @@ func highlight(grid_point, exclude=null, force=false):
 				get_next_district()
 		
 func get_next_district():
+	if contiguous:
+		emit_signal("filled")
 	var next = null
 	#check if the button exists
 	#var scene = get_tree().get_current_scene()
@@ -390,6 +413,7 @@ func error_flash(matrix, _scene, region):
 	scene.start_input()
 					
 func erase(grid_point, force=false):
+		
 	var house_id = str(grid_point)
 	
 	var matrix = scene.matrix.vertices
@@ -443,8 +467,12 @@ func erase(grid_point, force=false):
 						house_count -= int(m_vert_house_id["voters"])
 						party_tallies[m_vert_house_id["allegiance"]] -= m_vert_house_id["voters"]
 					else:
+						if house_count == max_size:
+							emit_signal("unfilled")
 						house_count -= 1
 						party_tallies[m_vert_house_id["allegiance"]] -= 1
+						if house_count == 0:
+							scene.n_drawn_districts -= 1
 					
 				var other_point = get_random_point()
 				if other_point:
@@ -692,5 +720,7 @@ func check_contiguity(gp):
 	contiguous = contiguityChecker.isContiguous(gp)
 	if not contiguous && previous_contiguous:
 		button.break_animation()
+		emit_signal("broken")
 	elif contiguous && not previous_contiguous:
 		button.close_animation()
+		emit_signal("unbroken")

@@ -38,19 +38,15 @@ Because math.
 		#state = 2
 	else:
 		dialog_array = [
-		"""
-		Good job. Now, to the largest state and 
+		"""Good job. Now, to the largest state and 
 		capitol of Tutoria: Tutopolis.
 		""",
-		"""
-		Some spaces have more people than others.
+		"""Some spaces have more people than others.
 		""",
-		"""
-		In this next area, pay special attention to the 
+		"""In this next area, pay special attention to the 
 		number of voters on each square.
 		""",
-		"""
-		Oh, yeah. Also there is a third party... mere
+		"""Oh, yeah. Also there is a third party... mere
 		pawns in our game of thrones.
 		"""]
 		read_text_array(dialog_index)

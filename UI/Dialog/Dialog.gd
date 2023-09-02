@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 class_name Dialog
 
@@ -18,7 +18,7 @@ func _ready():
 	pass
 
 func set_text(text):
-	$Dialog.set_text(text)
+	$DialogBox.set_text(text)
 	
 func read_text_array(i):
 	set_text(dialog_array[i])
@@ -32,16 +32,11 @@ func read_text_array(i):
 		
 func _input(event):
 	if not event_based: #no event has to happen, just click to update text
-		if (event is InputEventKey or event is InputEventScreenTouch) and (dialog_index+1 < len(dialog_array) or not $Dialog.text_complete):
+		if (event is InputEventKey or event is InputEventScreenTouch) and (dialog_index+1 < len(dialog_array)):
 			
-			if $Dialog.text_complete:
-				if event.pressed:
-					dialog_index+=1
-					read_text_array(dialog_index)
-			else:
-				if mouse_down:
-					if len(dialog_array) > dialog_index:
-						$Dialog.set_text_now(dialog_array[dialog_index])
+			if event.pressed:
+				dialog_index+=1
+				read_text_array(dialog_index)
 					
 			if mouse_down:
 				mouse_down = false

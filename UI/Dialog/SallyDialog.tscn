@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
 
-[node name="Dialog" parent="." instance=ExtResource( 1 )]
+[node name="DialogBox" parent="." instance=ExtResource( 1 )]
 position = Vector2( 220, 804 )
 
 [node name="Sally" parent="." instance=ExtResource( 2 )]

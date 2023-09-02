@@ -7,6 +7,7 @@
 [node name="Tutorial1" type="Node2D"]
 
 [node name="Tutorial1Dialog" parent="." instance=ExtResource( 1 )]
+mouse_filter = 2
 
 [node name="FlashingArrow" parent="." instance=ExtResource( 3 )]
 visible = false
