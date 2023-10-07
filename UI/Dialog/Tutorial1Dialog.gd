@@ -20,9 +20,7 @@ a district to place.
 Click on a house and you will declare it as part of
 a district.
 		""",
-		"""Awesome! Now draw a contiguous shape. That's
-a fancy word for a shape that is less than 2 shapes. 
-(Consult manual if still confused.)
+		"""Right click to erase a piece of your district.
 		""",
 		"""Good job! You filled in a district. See if you can
 fill in the whole state!""",
@@ -89,7 +87,12 @@ func unbroken():
 again! You can do this by erasing or reconnecting
 to consolidate disparate components."""
 	$DialogBox.set_text(current_text)
-	
+
+func erased():
+	current_text = """Good job! See if you can draw a contiguous (that's 
+a big word for for unbroken) shape."""
+	$DialogBox.set_text(current_text)
+
 func new_district():
 	if dialog_index == 1:
 		next()

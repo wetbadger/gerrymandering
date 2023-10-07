@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -31,6 +31,10 @@
 [ext_resource path="res://UI/VoterIndicatorUI.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Effects/VotersIndicator.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Game/PlayAs.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Objects/Tiles/tileset.tres" type="TileSet" id=32]
+[ext_resource path="res://Game/GroundTiles.gd" type="Script" id=33]
+[ext_resource path="res://Game/TabContainer.gd" type="Script" id=34]
+[ext_resource path="res://UI/SceneryButton.tscn" type="PackedScene" id=35]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -111,15 +115,46 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scroll2" type="ScrollContainer" parent="UI"]
-margin_left = 1650.0
-margin_right = 2055.0
-margin_bottom = 1069.0
+[node name="TabContainer" type="TabContainer" parent="UI"]
+margin_left = 1548.0
+margin_right = 1931.0
+margin_bottom = 1060.0
+script = ExtResource( 34 )
+
+[node name="Houses" type="ScrollContainer" parent="UI/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 mouse_filter = 2
 
-[node name="HouseButtons" type="VBoxContainer" parent="UI/Scroll2"]
-visible = false
+[node name="HouseButtons" type="VBoxContainer" parent="UI/TabContainer/Houses"]
 script = ExtResource( 23 )
+
+[node name="Scenery" type="ScrollContainer" parent="UI/TabContainer"]
+visible = false
+margin_right = 12.0
+margin_bottom = 12.0
+
+[node name="SceneryButtons" type="VBoxContainer" parent="UI/TabContainer/Scenery"]
+margin_right = 12.0
+margin_bottom = 116.0
+
+[node name="Ground" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+
+[node name="River" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+
+[node name="Road" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+
+[node name="Tree" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Rock" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+margin_right = 12.0
+margin_bottom = 20.0
 
 [node name="DebugButton" parent="UI" instance=ExtResource( 9 )]
 visible = false
@@ -244,6 +279,14 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="GroundTiles" type="TileMap" parent="State"]
+position = Vector2( 8, 7 )
+z_index = -99
+tile_set = ExtResource( 32 )
+cell_size = Vector2( 18, 18 )
+format = 1
+script = ExtResource( 33 )
+
 [node name="Camera2D" type="Camera2D" parent="State"]
 script = ExtResource( 1 )
 __meta__ = {
@@ -296,6 +339,7 @@ volume_db = -80.0
 autoplay = true
 script = ExtResource( 22 )
 
+[connection signal="tab_changed" from="UI/TabContainer" to="UI/TabContainer" method="_on_TabContainer_tab_changed"]
 [connection signal="button_down" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_button_down"]
 [connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
 [connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]

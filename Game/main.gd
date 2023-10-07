@@ -55,9 +55,10 @@ onready var victory_node = get_node("UI/Victory")
 onready var error_screen = get_node("UI/ErrorScreen")
 onready var camera = get_node("State/Camera2D")
 onready var scroll = get_node("UI/Scroll")
-onready var scroll2 = get_node("UI/Scroll2")
+onready var creative_tabs = get_node("UI/TabContainer")
+onready var houses = get_node("UI/TabContainer/Houses")
 onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
-onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
+onready var house_buttons = get_node("UI/TabContainer/Houses/HouseButtons")
 onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
@@ -72,6 +73,8 @@ var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
 var t1
 var t2
 var t3
+
+var hasErased = false
 
 #
 # Statistics
@@ -225,7 +228,7 @@ func _ready():
 				Globals.current_settings["name"],
 				false)
 	else:
-		
+		creative_tabs.queue_free()
 		population = matrix.generate_houses(population, parties, 
 			settings["advanced"]["House Placement"]["gaps"], 
 			settings["advanced"]["House Placement"]["algorithm"], 
@@ -699,10 +702,11 @@ func get_district_selected(exclude=null, temp=null):
 		var district = district_object.instance()
 		district.starting_vertex = grid_point
 		if t1 and is_instance_valid(t1):
-			district.connect("filled", t1.get_node("Tutorial1Dialog"), "next")
+			district.connect("filled", t1.get_node("Tutorial1Dialog"), "set_to", [n_drawn_districts + 3])
 			district.connect("broken", t1.get_node("Tutorial1Dialog"), "broken")
 			district.connect("unbroken", t1.get_node("Tutorial1Dialog"), "unbroken")
 			district.connect("unfilled", t1.get_node("Tutorial1Dialog"), "set_to", [n_drawn_districts + 2])
+			district.connect("erased", t1.get_node("Tutorial1Dialog"), "erased")
 		
 		if selected_district == "Flood":
 			district.max_size = settings["districts"][temp]["max"]
@@ -896,6 +900,7 @@ func already_district():
 func submit_current_layout():
 	#remove the house buttons
 	house_buttons.clear()
+	creative_tabs.queue_free()
 	#save the vertices
 	matrix.save_matrix(settings["name"])
 	#generate district buttons

@@ -49,6 +49,7 @@ func _on_Button_button_up():
 			b.disconnect("clicked", scene.t1.get_node("Tutorial1Dialog"), "next")
 			
 	scene.selected_district = self.name
+	self.pressed = true
 
 func _input(event):
 	if event is InputEventScreenTouch and disabled and mouse_in and event.is_pressed():

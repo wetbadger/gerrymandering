@@ -4,7 +4,7 @@ var deselect = false
 var last_button
 onready var scene = get_tree().get_current_scene()
 onready var district_buttons = get_tree().get_current_scene().get_node("UI/Scroll/DistrictButtons")
-onready var house_buttons = get_tree().get_current_scene().get_node("UI/Scroll2/HouseButtons")
+onready var house_buttons = get_tree().get_current_scene().get_node("UI/TabContainer/Houses/HouseButtons")
 
 func _ready():
 	pass

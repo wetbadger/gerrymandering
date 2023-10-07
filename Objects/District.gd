@@ -51,6 +51,7 @@ signal unfilled
 signal broken
 signal unbroken
 signal created
+signal erased
 
 func _ready():
 	scene = get_tree().get_current_scene()
@@ -473,6 +474,9 @@ func erase(grid_point, force=false):
 						party_tallies[m_vert_house_id["allegiance"]] -= 1
 						if house_count == 0:
 							scene.n_drawn_districts -= 1
+						if not scene.hasErased:
+							emit_signal("erased")
+							scene.hasErased = true
 					
 				var other_point = get_random_point()
 				if other_point:
