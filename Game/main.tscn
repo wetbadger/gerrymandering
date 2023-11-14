@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -35,6 +35,9 @@
 [ext_resource path="res://Game/GroundTiles.gd" type="Script" id=33]
 [ext_resource path="res://Game/TabContainer.gd" type="Script" id=34]
 [ext_resource path="res://UI/SceneryButton.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Objects/Tiles/dirt.tres" type="TileSet" id=36]
+[ext_resource path="res://UI/SceneryButtons/TerrainButton.tscn" type="PackedScene" id=37]
+[ext_resource path="res://UI/SceneryButtons/TerrainButton2.tscn" type="PackedScene" id=38]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -139,10 +142,18 @@ margin_right = 12.0
 margin_bottom = 12.0
 
 [node name="SceneryButtons" type="VBoxContainer" parent="UI/TabContainer/Scenery"]
-margin_right = 12.0
-margin_bottom = 116.0
+margin_right = 300.0
+margin_bottom = 560.0
 
-[node name="Ground" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+[node name="SceneryButton" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 38 )]
+margin_right = 300.0
+margin_bottom = 90.0
+
+[node name="TerrainButton" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 37 )]
+margin_right = 300.0
+margin_bottom = 90.0
+color = Color( 0.588235, 0.588235, 0.454902, 1 )
+layer = 1
 
 [node name="River" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
 
@@ -279,13 +290,22 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="GroundTiles" type="TileMap" parent="State"]
-position = Vector2( 8, 7 )
+[node name="TerrainLayer1" type="TileMap" parent="State"]
+position = Vector2( -10, -9 )
 z_index = -99
 tile_set = ExtResource( 32 )
 cell_size = Vector2( 18, 18 )
 format = 1
 script = ExtResource( 33 )
+
+[node name="TerrainLayer2" type="TileMap" parent="State"]
+position = Vector2( -10, -9 )
+z_index = -98
+tile_set = ExtResource( 36 )
+cell_size = Vector2( 18, 18 )
+format = 1
+script = ExtResource( 33 )
+color = Color( 0.568627, 0.54902, 0.462745, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="State"]
 script = ExtResource( 1 )

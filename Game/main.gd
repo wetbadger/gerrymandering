@@ -88,8 +88,11 @@ var min_size
 var short_number #how many districts need to be short
 
 var can_recheck = true #can determine drawmode
-enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE}
+enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE, TERRAIN}
 var draw_mode = DRAW_MODES.ADD
+onready var terrain_layer = get_node("State/TerrainLayer1")
+onready var terrain_layers = [get_node("State/TerrainLayer1"), get_node("State/TerrainLayer2")]
+var terrain_file
 
 var just_pressed = false
 
@@ -150,10 +153,6 @@ func _ready():
 	
 	district_object = load("res://Objects/District.tscn")
 	
-	#if true:#settings["advanced"]["District Rules"]["fog"]:
-		
-		#fog.create(reference_rect.rect_size.x*10, reference_rect.rect_size.y*10)
-	
 	get_node("State").add_child(shape)
 	shape.set_name("Shape")
 	var _size = get_viewport_rect().size
@@ -164,7 +163,6 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	
 	parties = settings["parties"]
-	
 	players = parties.keys()
 	
 	if _multiplayer:
@@ -227,6 +225,7 @@ func _ready():
 				settings["advanced"]["House Placement"]["algorithm"], 
 				Globals.current_settings["name"],
 				false)
+
 	else:
 		creative_tabs.queue_free()
 		population = matrix.generate_houses(population, parties, 
@@ -242,6 +241,13 @@ func _ready():
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
 			initiate_tutorial(settings["tutorial"])
+	if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+		var f = File.new()
+		f.open("user://"+Globals.current_settings["name"]+"/terrain.json",File.READ)
+		terrain_file = parse_json(f.get_as_text())
+		f.close()
+		for l in terrain_layers:
+			l.initialize()
 
 func initiate_tutorial(n):
 	#initiate tutorial 1
@@ -446,6 +452,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				set_touch_members(event)
 				place_house(event)
+		elif draw_mode == DRAW_MODES.TERRAIN:
+			if event is InputEventScreenTouch or event is InputEventScreenDrag:
+				set_touch_members(event)
+				lay_terrain(event)
 
 ###################
 #
@@ -907,6 +917,29 @@ func submit_current_layout():
 	create_district_buttons(population)
 	#enter draw_mode: ADD
 	draw_mode = DRAW_MODES.ADD
+	
+	#save terrain as is
+	save_terrain()
+
+func save_terrain():
+	var deco_data = {}
+	
+	#this is ridiculuous because hashmap
+	for layer in terrain_layers:
+		#iterate through keys, convert if true/on
+		var points = []
+		for key in layer.map.keys():
+			if layer.map[key] == true:
+				var pair = key.split(",")
+				points.append([int(pair[0]),int(pair[1])])
+
+		#add data to scenery info dict
+		deco_data[layer.name] = points
+
+	var deco_file = File.new()
+	deco_file.open("user://"+map_name+"/terrain.json", File.WRITE)
+	deco_file.store_string(JSON.print(deco_data))
+	deco_file.close()
 
 func submit():
 	#print("Submitted")
@@ -1083,3 +1116,12 @@ func readjust_state(anchor):
 	var coords = anchor.coords
 	shape.set_global_position(Vector2(coords.x * matrix.GRID_SIZE,
 									 coords.y * matrix.GRID_SIZE))
+
+##################
+#
+# Terrain Art
+#
+##################
+
+func lay_terrain(event):
+	terrain_layer.set_point(grid_point)

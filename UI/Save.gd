@@ -98,13 +98,9 @@ func _on_Save_button_up():
 	game_settings["districts"]=options["districts"]
 	game_settings["advanced"]=options["advanced"]
 	
-	#Globals.map_name = scene.game_name #.text
-	
 	var new_dict = game_settings.duplicate()
-	#new_dict["advanced"]["House Placement"] = scene.settings["advanced"]["House Placement"]
 		
 	new_game_folder(game_settings, scene.game_name)
-	#new_dict["advanced"]["House Placement"] = Globals.default_settings["advanced"]["House Placement"]
 	var file = File.new()
 	var game_settings_to_save = new_dict.duplicate(true)
 	
