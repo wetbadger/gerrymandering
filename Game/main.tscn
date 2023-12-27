@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -38,6 +38,7 @@
 [ext_resource path="res://Objects/Tiles/dirt.tres" type="TileSet" id=36]
 [ext_resource path="res://UI/SceneryButtons/TerrainButton.tscn" type="PackedScene" id=37]
 [ext_resource path="res://UI/SceneryButtons/TerrainButton2.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Game/ClearTerrain.gd" type="Script" id=39]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -125,6 +126,7 @@ margin_bottom = 1060.0
 script = ExtResource( 34 )
 
 [node name="Houses" type="ScrollContainer" parent="UI/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -137,33 +139,50 @@ mouse_filter = 2
 script = ExtResource( 23 )
 
 [node name="Scenery" type="ScrollContainer" parent="UI/TabContainer"]
-visible = false
-margin_right = 12.0
-margin_bottom = 12.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 
 [node name="SceneryButtons" type="VBoxContainer" parent="UI/TabContainer/Scenery"]
 margin_right = 300.0
-margin_bottom = 560.0
+margin_bottom = 228.0
 
-[node name="SceneryButton" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 38 )]
+[node name="ClearTerrain" type="Button" parent="UI/TabContainer/Scenery/SceneryButtons"]
 margin_right = 300.0
-margin_bottom = 90.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+toggle_mode = true
+text = "Clear Terrain"
+script = ExtResource( 39 )
 
-[node name="TerrainButton" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 37 )]
+[node name="TerrainButton1" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 38 )]
+margin_top = 44.0
 margin_right = 300.0
-margin_bottom = 90.0
+margin_bottom = 134.0
+
+[node name="TerrainButton2" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 37 )]
+margin_top = 138.0
+margin_right = 300.0
+margin_bottom = 228.0
 color = Color( 0.588235, 0.588235, 0.454902, 1 )
 layer = 1
 
 [node name="River" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
 
 [node name="Road" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
 
 [node name="Tree" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
 margin_right = 12.0
 margin_bottom = 20.0
 
 [node name="Rock" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
 margin_right = 12.0
 margin_bottom = 20.0
 
@@ -360,6 +379,7 @@ autoplay = true
 script = ExtResource( 22 )
 
 [connection signal="tab_changed" from="UI/TabContainer" to="UI/TabContainer" method="_on_TabContainer_tab_changed"]
+[connection signal="button_up" from="UI/TabContainer/Scenery/SceneryButtons/ClearTerrain" to="UI/TabContainer/Scenery/SceneryButtons/ClearTerrain" method="_on_ClearTerrain_button_up"]
 [connection signal="button_down" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_button_down"]
 [connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
 [connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]

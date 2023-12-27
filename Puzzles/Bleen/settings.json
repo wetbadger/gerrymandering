@@ -1,77 +1,67 @@
 {
+	"name": "Bleen",
     "camera" : {
-	    "zoom":0.5,
-	    "position": [900,600]
+	    "zoom":0.2,
+	    "position": [980,550]
     },
-	"name": "NewPuzzle",
 	"pointer": null,
-    "player": "You",
-    "difficulty": 2,
+    "difficulty": 1,
 	"parties": {
 		"You": {
-			"voters": 61,
+			"voters": 10,
 			"asset": 2,
-			"color": "orange"
+			"color": "red"
 		},
-		"Opponent": {
-			"voters": 115,
-			"asset": 3,
-			"color": "purple"
+		"Opponents": {
+			"voters": 15,
+			"asset": 1,
+			"color": "blue"
 		}
 	},
 	"districts": {
 		"A": {
-			"max": 30,
-			"min": 29,
+			"max": 5,
+			"min": 5,
 			"color": "blue",
 			"party": [
 				"You",
-				"Opponent"
+				"Opponents"
 			]
 		},
 		"B": {
-			"max": 30,
-			"min": 29,
+			"max": 5,
+			"min": 5,
 			"color": "red",
 			"party": [
-				"Opponent",
+				"Opponents",
 				"You"
 			]
 		},
 		"C": {
-			"max": 30,
-			"min": 29,
+			"max": 5,
+			"min": 5,
 			"color": "orange",
 			"party": [
 				"You",
-				"Opponent"
+				"Opponents"
 			]
 		},
 		"D": {
-			"max": 30,
-			"min": 29,
+			"max": 5,
+			"min": 5,
 			"color": "purple",
 			"party": [
-				"Opponent",
+				"Opponents",
 				"You"
 			]
 		},
 		"E": {
-			"max": 30,
-			"min": 29,
+			"max": 5,
+			"min": 5,
 			"color": "yellow",
 			"party": [
 				"You",
-				"Opponent"
-			]
-		},
-		"F": {
-			"max": 30,
-			"min": 29,
-			"color": "brown",
-			"party": [
-				"Opponent",
-				"You"
+				"Opponents"
 			]
 		}
 	},
@@ -84,7 +74,7 @@
 			"multiplayer": false
 		},
 		"House Placement": {
-			"gaps": true,
+			"gaps": false,
 			"randomize positions": false,
 			"layout": "random",
 			"algorithm": "load from file"

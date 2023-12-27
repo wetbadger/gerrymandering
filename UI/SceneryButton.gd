@@ -24,6 +24,7 @@ func _ready():
 
 func _on_SceneryButton_button_up():
 	scene.terrain_layer = scene.terrain_layers[layer]
+	scene.draw_mode = scene.DRAW_MODES.TERRAIN
 	var buttons = self.get_parent().get_children()
 	for b in buttons:
 		if b != self:
@@ -32,6 +33,7 @@ func _on_SceneryButton_button_up():
 
 
 func _on_ColorPickerButton_color_changed(c):
-	sprite.modulate = c
-	scene.terrain_layers[layer].modulate = c
+	sprite.modulate = c #set terrain icon color
+	scene.terrain_layers[layer].modulate = c #change color of ground
+	scene.terrain_layers[layer].color = c #change value of color to be saved
 	color = c

@@ -88,7 +88,7 @@ var min_size
 var short_number #how many districts need to be short
 
 var can_recheck = true #can determine drawmode
-enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE, TERRAIN}
+enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE, TERRAIN, CLEAR}
 var draw_mode = DRAW_MODES.ADD
 onready var terrain_layer = get_node("State/TerrainLayer1")
 onready var terrain_layers = [get_node("State/TerrainLayer1"), get_node("State/TerrainLayer2")]
@@ -241,6 +241,7 @@ func _ready():
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
 			initiate_tutorial(settings["tutorial"])
+			
 	if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
 		var f = File.new()
 		f.open("user://"+Globals.current_settings["name"]+"/terrain.json",File.READ)
@@ -248,6 +249,8 @@ func _ready():
 		f.close()
 		for l in terrain_layers:
 			l.initialize()
+			
+	Globals.current_terrain = terrain_file
 
 func initiate_tutorial(n):
 	#initiate tutorial 1
@@ -456,7 +459,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				set_touch_members(event)
 				lay_terrain(event)
-
+		elif draw_mode == DRAW_MODES.CLEAR:
+			if event is InputEventScreenTouch or event is InputEventScreenDrag:
+				set_touch_members(event)
+				remove_terrain(event)
 ###################
 #
 # House Placement
@@ -934,7 +940,9 @@ func save_terrain():
 				points.append([int(pair[0]),int(pair[1])])
 
 		#add data to scenery info dict
-		deco_data[layer.name] = points
+		deco_data[layer.name] = {}
+		deco_data[layer.name]["points"] = points
+		deco_data[layer.name]["color"] = layer.color
 
 	var deco_file = File.new()
 	deco_file.open("user://"+map_name+"/terrain.json", File.WRITE)
@@ -1125,3 +1133,7 @@ func readjust_state(anchor):
 
 func lay_terrain(event):
 	terrain_layer.set_point(grid_point)
+	
+func remove_terrain(event):
+	for layer in terrain_layers:
+		layer.remove_point(grid_point)

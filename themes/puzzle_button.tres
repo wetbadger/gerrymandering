@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 0.937255, 0, 1 )
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id=2]
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+
+[resource]
+Button/styles/hover = SubResource( 1 )
+Button/styles/normal = SubResource( 2 )

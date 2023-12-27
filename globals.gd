@@ -238,3 +238,8 @@ var current_map = {
 	"name" : "",
 	"scene": ""
 }
+
+var current_terrain = {
+	
+	
+}

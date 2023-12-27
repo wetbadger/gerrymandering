@@ -11,6 +11,8 @@ func _on_TabContainer_tab_changed(tab):
 		scene.draw_mode = scene.DRAW_MODES.TERRAIN
 		if save_selected:
 			save_selected.pressed = true
+			if save_selected.name == "ClearTerrain":
+				scene.draw_mode = scene.DRAW_MODES.CLEAR
 		#unselect house buttons
 		for btn in house_buttons.get_children():
 			if btn.pressed:
