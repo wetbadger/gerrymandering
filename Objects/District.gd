@@ -45,6 +45,7 @@ var turn_ended = false #when true avoid this district until endgame
 
 #custom cpp module
 var contiguityChecker = Contiguity.new()
+# contiguityChecker = null if build does not include cpp module
 
 signal filled
 signal unfilled
@@ -54,6 +55,10 @@ signal created
 signal erased
 
 func _ready():
+	if contiguityChecker == null:
+		print("Contiguity checker was null")
+		contiguityChecker = load("res://Algorithms/Contiguity.gd").new()
+	
 	scene = get_tree().get_current_scene()
 	
 	if scene.t1 and is_instance_valid(scene.t1):
@@ -721,7 +726,11 @@ func to_string():
 	
 func check_contiguity(gp):
 	var previous_contiguous = contiguous
+	var time_start = OS.get_unix_time()
 	contiguous = contiguityChecker.isContiguous(gp)
+	var time_now = OS.get_unix_time()
+	var time_elapsed = time_now - time_start
+	print("Time elapsed: "+str(time_elapsed))
 	if not contiguous && previous_contiguous:
 		button.break_animation()
 		emit_signal("broken")

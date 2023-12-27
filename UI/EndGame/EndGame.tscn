@@ -1,12 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://pics/chamber/logo.png" type="Texture" id=1]
 [ext_resource path="res://UI/EndGame/Seats/Seats.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/GotoMenu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/EndGame/EndGame.gd" type="Script" id=4]
+[ext_resource path="res://pics/chamber/paper.png" type="Texture" id=5]
 
 [node name="EndGame" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 996, 200 )
