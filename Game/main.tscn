@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -39,6 +39,14 @@
 [ext_resource path="res://UI/SceneryButtons/TerrainButton.tscn" type="PackedScene" id=37]
 [ext_resource path="res://UI/SceneryButtons/TerrainButton2.tscn" type="PackedScene" id=38]
 [ext_resource path="res://Game/ClearTerrain.gd" type="Script" id=39]
+[ext_resource path="res://pics/menu.png" type="Texture" id=40]
+[ext_resource path="res://Game/InGameMenuBtn.gd" type="Script" id=41]
+[ext_resource path="res://UI/Widgets/BTheme1.tres" type="Theme" id=42]
+[ext_resource path="res://Game/MinTicker.gd" type="Script" id=43]
+
+[sub_resource type="DynamicFont" id=17]
+size = 24
+font_data = ExtResource( 15 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -84,6 +92,23 @@ Button/styles/pressed = SubResource( 8 )
 flags = 4
 load_path = "res://.import/house.png-374bde3374c8a2b242fef7ee7357fb2e.stex"
 
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="Theme" id=12]
+Button/styles/disabled = SubResource( 15 )
+Button/styles/focus = SubResource( 16 )
+Button/styles/hover = SubResource( 13 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 14 )
+
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
 show_grid = true
@@ -119,6 +144,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="MinTicker" type="Label" parent="UI"]
+visible = false
+margin_left = 1650.0
+margin_top = 15.0
+margin_right = 1683.0
+margin_bottom = 83.0
+theme = ExtResource( 42 )
+custom_fonts/font = SubResource( 17 )
+text = "2"
+script = ExtResource( 43 )
+
 [node name="TabContainer" type="TabContainer" parent="UI"]
 margin_left = 1548.0
 margin_right = 1931.0
@@ -126,7 +162,6 @@ margin_bottom = 1060.0
 script = ExtResource( 34 )
 
 [node name="Houses" type="ScrollContainer" parent="UI/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -139,6 +174,7 @@ mouse_filter = 2
 script = ExtResource( 23 )
 
 [node name="Scenery" type="ScrollContainer" parent="UI/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -271,6 +307,12 @@ margin_bottom = -1038.0
 custom_fonts/font = SubResource( 2 )
 text = "..."
 
+[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
+position = Vector2( 339, 71 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Deselect" type="Button" parent="UI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -302,7 +344,14 @@ texture = SubResource( 9 )
 margin_top = 23.0
 margin_bottom = 23.0
 
-[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
+[node name="InGameMenuBtn" type="Button" parent="UI"]
+margin_left = 2010.0
+margin_top = 20.0
+margin_right = 2074.0
+margin_bottom = 75.0
+theme = SubResource( 12 )
+icon = ExtResource( 40 )
+script = ExtResource( 41 )
 
 [node name="State" type="Node2D" parent="."]
 __meta__ = {
@@ -384,3 +433,4 @@ script = ExtResource( 22 )
 [connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
 [connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]
 [connection signal="toggled" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_toggled"]
+[connection signal="button_up" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_button_up"]

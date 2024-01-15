@@ -13,7 +13,9 @@ func _ready():
 		for btn in get_children():
 			
 			btn.add_font_override("font", load("res://font/sans_big.tres"))
-	get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	var error = get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	if error:
+		print("There was an error in MenuItems.gd")
 
 func _on_Custom_button_up():
 	var cg = custom_game.instance()

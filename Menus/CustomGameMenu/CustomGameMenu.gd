@@ -41,7 +41,9 @@ onready var other_container = get_node("TabContainer2")
 
 func _ready():
 	
-	get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	var error = get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	if error:
+		print("There was an error in StartStory.gd")
 
 	state_shape = default_state
 	settings = load_settings()
@@ -164,8 +166,8 @@ func reposition():
 	
 func _on_orientation_changed(portrait):
 	reposition()
+	print("Screen orientation: " +str(portrait))
 	#TODO: reload as one column for portrait mode
-	pass
 #	if portrait:
 #		get_node("TabContainer").set_size(Vector2(793, 1457))
 #		current_container.rect_size = (Vector2(92, 631))
@@ -174,8 +176,6 @@ func _on_orientation_changed(portrait):
 #		get_node("TabContainer").set_size(Vector2(457, 793))
 #		current_container.rect_size = (Vector2(631, 92))
 		
-
-
 func _on_Close_button_up():
 	for w in windows_open:
 		w.close_window()

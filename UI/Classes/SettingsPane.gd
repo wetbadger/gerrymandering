@@ -16,7 +16,7 @@ func display_changeable_settings(settings, boxes, index = 0, rect_size = 65):
 			collections.append(boxes[i])
 			if typeof(s) == TYPE_STRING:
 				boxes[i].add_line(s)
-				rect_min_size.y += rect_size
+				rect_min_size.y += rect_size + 7
 			if boxes[i].is_read_only == true:
 				boxes[i].set_read_only(true)
 
@@ -40,6 +40,11 @@ func display_changeable_settings(settings, boxes, index = 0, rect_size = 65):
 				elif typeof(settings[s][key]) == TYPE_REAL:
 					#Will be used for sound
 					boxes[i].add_slider(key, settings[s][key])
+					
+				elif typeof(settings[s][key]) == TYPE_STRING:
+					#TODO: Try to associate the string with its array
+					#Alternatively don't let this happen
+					print("Error: String " + settings[s][key] + " should be an array.")
 				
 		i += 1
 

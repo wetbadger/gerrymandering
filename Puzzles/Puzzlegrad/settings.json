@@ -1,78 +1,61 @@
 {
-    "camera" : {
-	    "zoom":0.5,
-	    "position": [900,600]
-    },
-	"name": "Arvrunstrhuit",
+	"name": "Puzzlegrad",
 	"pointer": null,
-    "player": "You",
     "difficulty": 2,
 	"parties": {
-		"You": {
-			"voters": 61,
+		"Flipialists": {
+			"voters": 55,
+			"asset": 1,
+			"color": "blue"
+		},
+		"Fluffalists": {
+			"voters": 126,
 			"asset": 2,
 			"color": "orange"
-		},
-		"Opponent": {
-			"voters": 115,
-			"asset": 3,
-			"color": "purple"
 		}
 	},
 	"districts": {
 		"A": {
-			"max": 30,
-			"min": 29,
-			"color": "blue",
-			"party": [
-				"You",
-				"Opponent"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "white",
+			"party": "Flipialists"
 		},
 		"B": {
-			"max": 30,
-			"min": 29,
-			"color": "red",
-			"party": [
-				"Opponent",
-				"You"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "gray",
+			"party": "Fluffalists"
 		},
 		"C": {
-			"max": 30,
-			"min": 29,
-			"color": "orange",
-			"party": [
-				"You",
-				"Opponent"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "teal",
+			"party": "Flipialists"
 		},
 		"D": {
-			"max": 30,
-			"min": 29,
-			"color": "purple",
-			"party": [
-				"Opponent",
-				"You"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "pink",
+			"party": "Fluffalists"
 		},
 		"E": {
-			"max": 30,
-			"min": 29,
-			"color": "yellow",
-			"party": [
-				"You",
-				"Opponent"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "black",
+			"party": "Flipialists"
 		},
 		"F": {
-			"max": 30,
-			"min": 29,
-			"color": "brown",
-			"party": [
-				"Opponent",
-				"You"
-			]
+			"max": 26,
+			"min": 25,
+			"color": "blue",
+			"party": "Fluffalists"
+		},
+		"G": {
+			"max": 26,
+			"min": 25,
+			"color": "red",
+			"party": "Flipialists"
 		}
 	},
 	"advanced": {
@@ -178,5 +161,13 @@
 		"Yellow House Apartments": 18,
 		"Green House Apartments": 19,
 		"Weird House Apartments": 20
+	},
+	"player": "Flipialists",
+	"camera": {
+		"zoom": 0.3,
+		"position": [
+			1113.579346,
+			597.157166
+		]
 	}
 }

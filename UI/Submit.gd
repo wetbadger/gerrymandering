@@ -57,7 +57,7 @@ func _on_Submit_button_up():
 		MODES.MULTIPLAYER:
 			disabled = true
 			for btn in district_buttons.get_children():
-				if btn.pressed:
+				if btn.get_class() != "Control" and btn.pressed:
 					btn.turn_ended = true
 					print("button "+btn.name+" turn ended")
 			scene.increment_player()

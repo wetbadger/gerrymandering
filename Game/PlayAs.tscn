@@ -20,8 +20,10 @@ modulate = Color( 1, 1, 1, 0 )
 script = ExtResource( 5 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -598.0
+margin_top = -272.0
 margin_right = 2215.0
-margin_bottom = 1082.0
+margin_bottom = 1397.0
 color = Color( 0.0666667, 0.0666667, 0.0666667, 0.533333 )
 
 [node name="Button" type="Button" parent="."]
@@ -35,9 +37,9 @@ disabled = true
 text = "Okay!"
 
 [node name="Control" type="Control" parent="."]
-margin_left = 933.0
+margin_left = 833.0
 margin_top = 486.0
-margin_right = 1231.0
+margin_right = 1131.0
 margin_bottom = 626.0
 rect_scale = Vector2( 0.1, 0.1 )
 
@@ -46,6 +48,9 @@ position = Vector2( -4, -3 )
 scale = Vector2( 10, 10 )
 tile_set = ExtResource( 1 )
 tile_data = PoolIntArray( 2, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Label" type="Label" parent="Control"]
 margin_left = -690.0
@@ -54,5 +59,15 @@ margin_right = 276.0
 margin_bottom = 130.0
 theme = SubResource( 2 )
 text = "You are: "
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = 860.0
+margin_top = -130.0
+margin_right = 1140.0
+margin_bottom = 100.0
+color = Color( 0.411765, 0.623529, 0.266667, 1 )
 
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/States/oregon.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Classes/StateShape.gd" type="Script" id=2]
+
+[node name="Oregon" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2( 7, 7 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+scale = Vector2( 0.21, 0.21 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -267.513, -167.048 )
+scale = Vector2( 0.286641, 0.286641 )
+polygon = PoolVector2Array( 830.602, 256.337, 1350.91, 264.809, 1361.88, 909.219, 487.215, 929.653, 531.571, 218.958 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = -944.0
+margin_top = -676.0
+margin_right = 953.0
+margin_bottom = 723.0
+mouse_filter = 2

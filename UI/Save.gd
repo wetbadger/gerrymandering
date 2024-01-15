@@ -116,12 +116,12 @@ func _on_Save_button_up():
 	game_settings_to_save["advanced"]["House Placement"]["algorithm"] = array_algorithm
 	
 	
-	for d in game_settings_to_save["districts"]:
-		var parties = game_settings_to_save["parties"].keys()
-		var p = game_settings_to_save["districts"][d]["party"]
-		parties.erase(p)
-		parties.push_front(p)
-		game_settings_to_save["districts"][d]["party"] = parties
+#	for d in game_settings_to_save["districts"]:
+#		var parties = game_settings_to_save["parties"].keys()
+#		var p = game_settings_to_save["districts"][d]["party"]
+#		parties.erase(p)
+#		parties.push_front(p)
+#		game_settings_to_save["districts"][d]["party"] = parties
 	
 	file.open("user://"+game_settings["name"]+"/settings.json", File.WRITE)
 	file.store_string(JSON.print(game_settings_to_save, "\t"))

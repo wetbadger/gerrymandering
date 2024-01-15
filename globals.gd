@@ -71,11 +71,11 @@ const default_settings = {
 			"yellow" : [0.8,0.8,0.0],
 			"brown" : [0.3,0.2,0.0],
 			"green" : [0.2,0.8,0.1],
-			"white" : [1,1,1],
+			"white" : [.9,.9,.9],
 			"gray" : [0.5,0.5,0.5],
 			"teal" : [0.1,0.8,0.8],
 			"pink" : [0.8,0.1,0.7],
-			"black" : [0,0,0]
+			"black" : [.1,.1,.1]
 		},
 		"assets" : {
 			"Red House" : 0,

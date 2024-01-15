@@ -64,6 +64,8 @@ onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/Erro
 onready var player_label = get_node("UI/PlayerMove")
 onready var voter_indicator = get_node("UI/VoterIndicatorUI")
 onready var play_as = get_node("UI/PlayAs")
+onready var in_game_menu_button = get_node("UI/InGameMenuBtn")
+onready var min_ticker = get_node("UI/MinTicker")
 #
 # Tutorials
 #
@@ -145,7 +147,10 @@ func _ready():
 	if settings.has("player"):
 		enable_next_if_winner_is = settings["player"]
 		
+	if _multiplayer:
+		play_as.visible = false
 	play_as.set_player(settings["parties"][enable_next_if_winner_is]["asset"])
+	play_as.set_color(Globals.word2color(settings["parties"][enable_next_if_winner_is]["color"]))
 
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
@@ -234,9 +239,9 @@ func _ready():
 			Globals.current_settings["name"])
 		create_district_buttons(expected_population)
 		
-		if settings.has("camera"):
-			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
-			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
+	if settings.has("camera"):
+		camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+		camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
 
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
@@ -251,7 +256,30 @@ func _ready():
 			l.initialize()
 			
 	Globals.current_terrain = terrain_file
+	show_min_ticker(settings, population)
 
+#if districts are all the same but min is different than max, show the ticker
+func show_min_ticker(settings, population):
+	#verify that all districts are the same
+	#get number of min districts that need to be drawn
+	#show the ticker
+	var ma = -1
+	var mi = -1
+	for d in settings["districts"]:
+		if ma == -1:
+			ma = settings["districts"][d]["max"]
+			mi = settings["districts"][d]["min"]
+			if ma == mi:
+				return
+			continue
+		if settings["districts"][d]["max"] != ma or settings["districts"][d]["min"] != mi:
+			return
+	#The number of min districts
+	var min_dists = settings["districts"].size() - int(population) % int(mi)
+	min_ticker.text = str(min_dists)
+	min_ticker.visible = true
+	
+		
 func initiate_tutorial(n):
 	#initiate tutorial 1
 	if n == 1:
@@ -319,13 +347,14 @@ func create_district_buttons(expected_population):
 
 		var i = 0
 		for btn in district_buttons.get_children():
-			if btn.name != selected_district:
-				btn.disabled = true
-			else:
-				btn.disabled = false
-				#first district goes first
-				current_player = players.find(settings["districts"][btn.name]["party"])
-				player_label.set_party(players[current_player], parties[players[current_player]])
+			if btn.get_class() != "Control":
+				if btn.name != selected_district:
+					btn.disabled = true
+				else:
+					btn.disabled = false
+					#first district goes first
+					current_player = players.find(settings["districts"][btn.name]["party"])
+					player_label.set_party(players[current_player], parties[players[current_player]])
 			i+=1
 	
 	
@@ -754,6 +783,10 @@ func get_district_selected(exclude=null, temp=null):
 				t1.get_node("Tutorial1Dialog").next()
 			districts.append(district)
 
+		district.connect("minimum", min_ticker, "minimum")
+		district.connect("not_minimum", min_ticker, "not_minimum")
+		district.check_min()
+
 		return false
 	else:
 		var district = get_node(selected_district)
@@ -945,7 +978,7 @@ func save_terrain():
 		deco_data[layer.name]["color"] = layer.color
 
 	var deco_file = File.new()
-	deco_file.open("user://"+map_name+"/terrain.json", File.WRITE)
+	deco_file.open("user://"+settings["name"]+"/terrain.json", File.WRITE)
 	deco_file.store_string(JSON.print(deco_data))
 	deco_file.close()
 
@@ -1104,10 +1137,11 @@ func increment_player():
 	var district_btn = get_node(selected_district).get_next_district()
 	
 	for btn in district_buttons.get_children():
-		if btn != district_btn:
-			btn.disabled = true
-		else:
-			btn.disabled = false
+		if btn.get_class() != "Control":
+			if btn != district_btn:
+				btn.disabled = true
+			else:
+				btn.disabled = false
 			
 func enable_selected_district():
 	for btn in district_buttons.get_children():

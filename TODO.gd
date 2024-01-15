@@ -3,12 +3,17 @@ extends Node
 
 """
 
-What I was doing:
-	Working on the tutotial
-Issue I was having:
-	After player loses (or selects try again) tutorial starts at ...
+What was I doing:
+	...
 
 TODO:
+	
+	Ticker for minimum sized districts. 
+		[done] Ticks down when the min is reached.
+		[done] Ticks up when max is reached or less than min
+		Symbol for district button when min is reached
+	Overall progress meter
+	
 	[done] load saved settings
 	
 	CPP module for:
@@ -49,7 +54,7 @@ TODO:
 	
 	[done] fireworks: one for each house that won only in viewport
 	ability to explore / screenshot after victory screen
-	menu to quit to main menu in game
+	[done] menu to quit to main menu in game
 	adjust screen layout for devices
 
 	draw original houses (fix copyright infringement)
@@ -98,7 +103,7 @@ TODO:
 			(bronze silver gold) 
 		[done] Create a map screen
 		Tutorial:
-			Sally the Salamander teaches you how to play.
+			[done] Sally the Salamander teaches you how to play.
 			
 		Legislative vs Commitee:
 			Legislative mode: player controls all districts

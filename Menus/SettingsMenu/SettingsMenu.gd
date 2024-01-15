@@ -13,13 +13,16 @@ var windows_open = []
 var settings
 
 func _ready():
-	get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	var error = get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
+	if error:
+		print("There was an error in StartStory.gd")
+	
 	uxsp = usrexp_settings_pane.instance()
 	add_pane("General", null, uxsp, "VBoxContainer/Grid")
 	
 	settings = scene.settings
 
-func add_pane(tab_name, lbl_name, pane, container_name="Grid", size=Vector2(700,450)):
+func add_pane(tab_name, _lbl_name, pane, container_name="Grid", size=Vector2(700,450)):
 	var grid = get_node("TabContainer").get_node(tab_name).get_node("HBoxContainer").get_node(container_name)
 
 	var scrollbox = BScrollContainer.instance()
@@ -40,6 +43,7 @@ func reposition():
 
 func _on_orientation_changed(portrait):
 	reposition()
+	print(str(portrait))
 
 func _on_Close_button_up():
 	for w in windows_open:

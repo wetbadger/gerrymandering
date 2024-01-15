@@ -1,0 +1,1177 @@
+{
+	"(62, 27)": {
+		"type": "Gap",
+		"coords": "(62, 27)",
+		"visited": false
+	},
+	"(61, 27)": {
+		"type": "Gap",
+		"coords": "(61, 27)",
+		"visited": false
+	},
+	"(60, 27)": {
+		"type": "Gap",
+		"coords": "(60, 27)",
+		"visited": false
+	},
+	"(59, 27)": {
+		"type": "House",
+		"coords": "(59, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(58, 27)": {
+		"type": "Gap",
+		"coords": "(58, 27)",
+		"visited": false
+	},
+	"(57, 27)": {
+		"type": "Gap",
+		"coords": "(57, 27)",
+		"visited": false
+	},
+	"(56, 27)": {
+		"type": "House",
+		"coords": "(56, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 27)": {
+		"type": "House",
+		"coords": "(55, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(54, 27)": {
+		"type": "House",
+		"coords": "(54, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(53, 27)": {
+		"type": "Gap",
+		"coords": "(53, 27)",
+		"visited": false
+	},
+	"(53, 28)": {
+		"type": "House",
+		"coords": "(53, 28)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 2
+	},
+	"(54, 28)": {
+		"type": "House",
+		"coords": "(54, 28)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(55, 28)": {
+		"type": "House",
+		"coords": "(55, 28)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 28)": {
+		"type": "House",
+		"coords": "(56, 28)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 28)": {
+		"type": "Gap",
+		"coords": "(57, 28)",
+		"visited": false
+	},
+	"(58, 28)": {
+		"type": "Gap",
+		"coords": "(58, 28)",
+		"visited": false
+	},
+	"(59, 28)": {
+		"type": "Gap",
+		"coords": "(59, 28)",
+		"visited": false
+	},
+	"(60, 28)": {
+		"type": "Gap",
+		"coords": "(60, 28)",
+		"visited": false
+	},
+	"(61, 28)": {
+		"type": "Gap",
+		"coords": "(61, 28)",
+		"visited": false
+	},
+	"(62, 28)": {
+		"type": "House",
+		"coords": "(62, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(62, 29)": {
+		"type": "House",
+		"coords": "(62, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(61, 29)": {
+		"type": "Gap",
+		"coords": "(61, 29)",
+		"visited": false
+	},
+	"(60, 29)": {
+		"type": "House",
+		"coords": "(60, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(59, 29)": {
+		"type": "Gap",
+		"coords": "(59, 29)",
+		"visited": false
+	},
+	"(58, 29)": {
+		"type": "Gap",
+		"coords": "(58, 29)",
+		"visited": false
+	},
+	"(57, 29)": {
+		"type": "Gap",
+		"coords": "(57, 29)",
+		"visited": false
+	},
+	"(56, 29)": {
+		"type": "House",
+		"coords": "(56, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 29)": {
+		"type": "House",
+		"coords": "(55, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(54, 29)": {
+		"type": "House",
+		"coords": "(54, 29)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(53, 29)": {
+		"type": "House",
+		"coords": "(53, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(53, 30)": {
+		"type": "House",
+		"coords": "(53, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(54, 30)": {
+		"type": "House",
+		"coords": "(54, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(55, 30)": {
+		"type": "House",
+		"coords": "(55, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 30)": {
+		"type": "House",
+		"coords": "(56, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(57, 30)": {
+		"type": "Gap",
+		"coords": "(57, 30)",
+		"visited": false
+	},
+	"(58, 30)": {
+		"type": "Gap",
+		"coords": "(58, 30)",
+		"visited": false
+	},
+	"(59, 30)": {
+		"type": "House",
+		"coords": "(59, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(60, 30)": {
+		"type": "House",
+		"coords": "(60, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(61, 30)": {
+		"type": "House",
+		"coords": "(61, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(62, 30)": {
+		"type": "House",
+		"coords": "(62, 30)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(62, 31)": {
+		"type": "House",
+		"coords": "(62, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(61, 31)": {
+		"type": "House",
+		"coords": "(61, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(60, 31)": {
+		"type": "House",
+		"coords": "(60, 31)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(59, 31)": {
+		"type": "House",
+		"coords": "(59, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(58, 31)": {
+		"type": "House",
+		"coords": "(58, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 31)": {
+		"type": "House",
+		"coords": "(57, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 31)": {
+		"type": "House",
+		"coords": "(56, 31)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 31)": {
+		"type": "Gap",
+		"coords": "(55, 31)",
+		"visited": false
+	},
+	"(54, 31)": {
+		"type": "House",
+		"coords": "(54, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(53, 31)": {
+		"type": "Gap",
+		"coords": "(53, 31)",
+		"visited": false
+	},
+	"(53, 32)": {
+		"type": "House",
+		"coords": "(53, 32)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(54, 32)": {
+		"type": "Gap",
+		"coords": "(54, 32)",
+		"visited": false
+	},
+	"(55, 32)": {
+		"type": "House",
+		"coords": "(55, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 32)": {
+		"type": "House",
+		"coords": "(56, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 32)": {
+		"type": "Gap",
+		"coords": "(57, 32)",
+		"visited": false
+	},
+	"(58, 32)": {
+		"type": "House",
+		"coords": "(58, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(59, 32)": {
+		"type": "House",
+		"coords": "(59, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(60, 32)": {
+		"type": "House",
+		"coords": "(60, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 5
+	},
+	"(61, 32)": {
+		"type": "House",
+		"coords": "(61, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 4
+	},
+	"(62, 32)": {
+		"type": "House",
+		"coords": "(62, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(62, 33)": {
+		"type": "House",
+		"coords": "(62, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(61, 33)": {
+		"type": "House",
+		"coords": "(61, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 4
+	},
+	"(60, 33)": {
+		"type": "House",
+		"coords": "(60, 33)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 4
+	},
+	"(59, 33)": {
+		"type": "House",
+		"coords": "(59, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(55, 33)": {
+		"type": "House",
+		"coords": "(55, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(54, 33)": {
+		"type": "House",
+		"coords": "(54, 33)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(53, 33)": {
+		"type": "Gap",
+		"coords": "(53, 33)",
+		"visited": false
+	},
+	"(55, 34)": {
+		"type": "House",
+		"coords": "(55, 34)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(59, 34)": {
+		"type": "House",
+		"coords": "(59, 34)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(60, 34)": {
+		"type": "House",
+		"coords": "(60, 34)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(61, 34)": {
+		"type": "House",
+		"coords": "(61, 34)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(62, 34)": {
+		"type": "House",
+		"coords": "(62, 34)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(54, 25)": {
+		"type": "Gap",
+		"coords": "(54, 25)",
+		"visited": false
+	},
+	"(55, 25)": {
+		"type": "House",
+		"coords": "(55, 25)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(56, 25)": {
+		"type": "House",
+		"coords": "(56, 25)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(57, 25)": {
+		"type": "House",
+		"coords": "(57, 25)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(55, 26)": {
+		"type": "House",
+		"coords": "(55, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(54, 26)": {
+		"type": "Gap",
+		"coords": "(54, 26)",
+		"visited": false
+	},
+	"(53, 26)": {
+		"type": "Gap",
+		"coords": "(53, 26)",
+		"visited": false
+	},
+	"(53, 25)": {
+		"type": "House",
+		"coords": "(53, 25)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 25)": {
+		"type": "House",
+		"coords": "(58, 25)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(56, 26)": {
+		"type": "House",
+		"coords": "(56, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 26)": {
+		"type": "House",
+		"coords": "(57, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(58, 26)": {
+		"type": "House",
+		"coords": "(58, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(59, 26)": {
+		"type": "House",
+		"coords": "(59, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(60, 26)": {
+		"type": "House",
+		"coords": "(60, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(61, 26)": {
+		"type": "Gap",
+		"coords": "(61, 26)",
+		"visited": false
+	},
+	"(62, 26)": {
+		"type": "House",
+		"coords": "(62, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(63, 26)": {
+		"type": "Gap",
+		"coords": "(63, 26)",
+		"visited": false
+	},
+	"(64, 26)": {
+		"type": "House",
+		"coords": "(64, 26)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 35)": {
+		"type": "House",
+		"coords": "(55, 35)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 36)": {
+		"type": "House",
+		"coords": "(55, 36)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 37)": {
+		"type": "House",
+		"coords": "(55, 37)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 37)": {
+		"type": "House",
+		"coords": "(56, 37)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 37)": {
+		"type": "House",
+		"coords": "(57, 37)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 38)": {
+		"type": "House",
+		"coords": "(55, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 38)": {
+		"type": "House",
+		"coords": "(56, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(57, 38)": {
+		"type": "House",
+		"coords": "(57, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(63, 27)": {
+		"type": "House",
+		"coords": "(63, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(64, 27)": {
+		"type": "Gap",
+		"coords": "(64, 27)",
+		"visited": false
+	},
+	"(65, 27)": {
+		"type": "Gap",
+		"coords": "(65, 27)",
+		"visited": false
+	},
+	"(66, 27)": {
+		"type": "Gap",
+		"coords": "(66, 27)",
+		"visited": false
+	},
+	"(66, 28)": {
+		"type": "Gap",
+		"coords": "(66, 28)",
+		"visited": false
+	},
+	"(66, 29)": {
+		"type": "Gap",
+		"coords": "(66, 29)",
+		"visited": false
+	},
+	"(66, 30)": {
+		"type": "Gap",
+		"coords": "(66, 30)",
+		"visited": false
+	},
+	"(66, 31)": {
+		"type": "Gap",
+		"coords": "(66, 31)",
+		"visited": false
+	},
+	"(66, 32)": {
+		"type": "House",
+		"coords": "(66, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(66, 33)": {
+		"type": "House",
+		"coords": "(66, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(66, 34)": {
+		"type": "Gap",
+		"coords": "(66, 34)",
+		"visited": false
+	},
+	"(65, 34)": {
+		"type": "House",
+		"coords": "(65, 34)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(64, 34)": {
+		"type": "House",
+		"coords": "(64, 34)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(63, 34)": {
+		"type": "House",
+		"coords": "(63, 34)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(63, 33)": {
+		"type": "House",
+		"coords": "(63, 33)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(64, 33)": {
+		"type": "Gap",
+		"coords": "(64, 33)",
+		"visited": false
+	},
+	"(65, 33)": {
+		"type": "House",
+		"coords": "(65, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(63, 28)": {
+		"type": "Gap",
+		"coords": "(63, 28)",
+		"visited": false
+	},
+	"(63, 29)": {
+		"type": "Gap",
+		"coords": "(63, 29)",
+		"visited": false
+	},
+	"(63, 30)": {
+		"type": "Gap",
+		"coords": "(63, 30)",
+		"visited": false
+	},
+	"(63, 31)": {
+		"type": "Gap",
+		"coords": "(63, 31)",
+		"visited": false
+	},
+	"(63, 32)": {
+		"type": "House",
+		"coords": "(63, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(64, 32)": {
+		"type": "House",
+		"coords": "(64, 32)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(65, 32)": {
+		"type": "Gap",
+		"coords": "(65, 32)",
+		"visited": false
+	},
+	"(65, 31)": {
+		"type": "Gap",
+		"coords": "(65, 31)",
+		"visited": false
+	},
+	"(64, 31)": {
+		"type": "House",
+		"coords": "(64, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(64, 30)": {
+		"type": "Gap",
+		"coords": "(64, 30)",
+		"visited": false
+	},
+	"(64, 29)": {
+		"type": "Gap",
+		"coords": "(64, 29)",
+		"visited": false
+	},
+	"(64, 28)": {
+		"type": "House",
+		"coords": "(64, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(65, 28)": {
+		"type": "Gap",
+		"coords": "(65, 28)",
+		"visited": false
+	},
+	"(65, 29)": {
+		"type": "House",
+		"coords": "(65, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(65, 30)": {
+		"type": "Gap",
+		"coords": "(65, 30)",
+		"visited": false
+	},
+	"(64, 35)": {
+		"type": "House",
+		"coords": "(64, 35)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(64, 36)": {
+		"type": "House",
+		"coords": "(64, 36)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(65, 36)": {
+		"type": "House",
+		"coords": "(65, 36)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(66, 36)": {
+		"type": "Gap",
+		"coords": "(66, 36)",
+		"visited": false
+	},
+	"(66, 35)": {
+		"type": "Gap",
+		"coords": "(66, 35)",
+		"visited": false
+	},
+	"(65, 35)": {
+		"type": "Gap",
+		"coords": "(65, 35)",
+		"visited": false
+	},
+	"(66, 37)": {
+		"type": "Gap",
+		"coords": "(66, 37)",
+		"visited": false
+	},
+	"(65, 37)": {
+		"type": "House",
+		"coords": "(65, 37)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(64, 37)": {
+		"type": "Gap",
+		"coords": "(64, 37)",
+		"visited": false
+	},
+	"(63, 37)": {
+		"type": "Gap",
+		"coords": "(63, 37)",
+		"visited": false
+	},
+	"(62, 37)": {
+		"type": "Gap",
+		"coords": "(62, 37)",
+		"visited": false
+	},
+	"(62, 38)": {
+		"type": "Gap",
+		"coords": "(62, 38)",
+		"visited": false
+	},
+	"(63, 38)": {
+		"type": "House",
+		"coords": "(63, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(64, 38)": {
+		"type": "House",
+		"coords": "(64, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(65, 38)": {
+		"type": "House",
+		"coords": "(65, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(66, 38)": {
+		"type": "House",
+		"coords": "(66, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(61, 35)": {
+		"type": "House",
+		"coords": "(61, 35)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(59, 38)": {
+		"type": "House",
+		"coords": "(59, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(62, 35)": {
+		"type": "Gap",
+		"coords": "(62, 35)",
+		"visited": false
+	},
+	"(63, 35)": {
+		"type": "Gap",
+		"coords": "(63, 35)",
+		"visited": false
+	},
+	"(63, 36)": {
+		"type": "Gap",
+		"coords": "(63, 36)",
+		"visited": false
+	},
+	"(62, 36)": {
+		"type": "Gap",
+		"coords": "(62, 36)",
+		"visited": false
+	},
+	"(61, 36)": {
+		"type": "Gap",
+		"coords": "(61, 36)",
+		"visited": false
+	},
+	"(61, 37)": {
+		"type": "Gap",
+		"coords": "(61, 37)",
+		"visited": false
+	},
+	"(61, 38)": {
+		"type": "Gap",
+		"coords": "(61, 38)",
+		"visited": false
+	},
+	"(60, 38)": {
+		"type": "Gap",
+		"coords": "(60, 38)",
+		"visited": false
+	},
+	"(60, 35)": {
+		"type": "House",
+		"coords": "(60, 35)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 2
+	},
+	"(60, 37)": {
+		"type": "House",
+		"coords": "(60, 37)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 37)": {
+		"type": "House",
+		"coords": "(59, 37)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 36)": {
+		"type": "House",
+		"coords": "(59, 36)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 37)": {
+		"type": "House",
+		"coords": "(58, 37)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 38)": {
+		"type": "House",
+		"coords": "(58, 38)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 39)": {
+		"type": "House",
+		"coords": "(59, 39)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(60, 39)": {
+		"type": "House",
+		"coords": "(60, 39)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(62, 39)": {
+		"type": "Gap",
+		"coords": "(62, 39)",
+		"visited": false
+	},
+	"(65, 39)": {
+		"type": "House",
+		"coords": "(65, 39)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(64, 39)": {
+		"type": "Gap",
+		"coords": "(64, 39)",
+		"visited": false
+	},
+	"(63, 39)": {
+		"type": "Gap",
+		"coords": "(63, 39)",
+		"visited": false
+	},
+	"(61, 39)": {
+		"type": "Gap",
+		"coords": "(61, 39)",
+		"visited": false
+	},
+	"(58, 39)": {
+		"type": "Gap",
+		"coords": "(58, 39)",
+		"visited": false
+	},
+	"(60, 36)": {
+		"type": "House",
+		"coords": "(60, 36)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(59, 35)": {
+		"type": "House",
+		"coords": "(59, 35)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(67, 26)": {
+		"type": "House",
+		"coords": "(67, 26)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(68, 27)": {
+		"type": "House",
+		"coords": "(68, 27)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(67, 28)": {
+		"type": "House",
+		"coords": "(67, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(69, 32)": {
+		"type": "House",
+		"coords": "(69, 32)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(69, 33)": {
+		"type": "House",
+		"coords": "(69, 33)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(67, 33)": {
+		"type": "House",
+		"coords": "(67, 33)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 4
+	},
+	"(67, 34)": {
+		"type": "House",
+		"coords": "(67, 34)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 2
+	},
+	"(67, 35)": {
+		"type": "House",
+		"coords": "(67, 35)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(68, 35)": {
+		"type": "House",
+		"coords": "(68, 35)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(67, 36)": {
+		"type": "House",
+		"coords": "(67, 36)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(68, 36)": {
+		"type": "House",
+		"coords": "(68, 36)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(66, 39)": {
+		"type": "House",
+		"coords": "(66, 39)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(67, 38)": {
+		"type": "House",
+		"coords": "(67, 38)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(68, 39)": {
+		"type": "House",
+		"coords": "(68, 39)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(68, 34)": {
+		"type": "House",
+		"coords": "(68, 34)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(68, 33)": {
+		"type": "House",
+		"coords": "(68, 33)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 5
+	},
+	"(65, 26)": {
+		"type": "Gap",
+		"coords": "(65, 26)",
+		"visited": false
+	},
+	"(66, 26)": {
+		"type": "Gap",
+		"coords": "(66, 26)",
+		"visited": false
+	},
+	"(68, 26)": {
+		"type": "Gap",
+		"coords": "(68, 26)",
+		"visited": false
+	},
+	"(69, 26)": {
+		"type": "Gap",
+		"coords": "(69, 26)",
+		"visited": false
+	},
+	"(67, 27)": {
+		"type": "Gap",
+		"coords": "(67, 27)",
+		"visited": false
+	},
+	"(68, 28)": {
+		"type": "Gap",
+		"coords": "(68, 28)",
+		"visited": false
+	},
+	"(69, 27)": {
+		"type": "Gap",
+		"coords": "(69, 27)",
+		"visited": false
+	},
+	"(69, 28)": {
+		"type": "Gap",
+		"coords": "(69, 28)",
+		"visited": false
+	},
+	"(69, 29)": {
+		"type": "Gap",
+		"coords": "(69, 29)",
+		"visited": false
+	},
+	"(69, 30)": {
+		"type": "Gap",
+		"coords": "(69, 30)",
+		"visited": false
+	},
+	"(69, 31)": {
+		"type": "Gap",
+		"coords": "(69, 31)",
+		"visited": false
+	},
+	"(67, 37)": {
+		"type": "Gap",
+		"coords": "(67, 37)",
+		"visited": false
+	},
+	"(68, 37)": {
+		"type": "Gap",
+		"coords": "(68, 37)",
+		"visited": false
+	},
+	"(68, 38)": {
+		"type": "Gap",
+		"coords": "(68, 38)",
+		"visited": false
+	},
+	"(67, 39)": {
+		"type": "Gap",
+		"coords": "(67, 39)",
+		"visited": false
+	},
+	"anchor": {
+		"type": "Anchor",
+		"coords": "(58, 30)"
+	}
+}

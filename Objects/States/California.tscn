@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://pics/States/California2022.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Classes/StateShape.gd" type="Script" id=2]
+
+[node name="California" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( 111.5, 134.192 )
+scale = Vector2( 0.998737, 0.998737 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2( -838, -458 )
+scale = Vector2( 1.01765, 1.01765 )
+polygon = PoolVector2Array( 900.081, 436.086, 1249.59, 761.844, 1248.95, 774.488, 1259.41, 795.42, 1283.84, 819.841, 1259.42, 843.785, 1259.42, 879.823, 1245.46, 889.615, 1245.46, 917.524, 1259.41, 921.013, 1259.41, 938.456, 1095.45, 962.877, 962.877, 938.456, 882.637, 875.66, 865.194, 812.863, 854.728, 795.42, 851.239, 750.067, 837.284, 750.067, 833.795, 725.646, 805.886, 704.714, 774.488, 662.85, 770.999, 631.452, 777.977, 620.986, 770.999, 610.52, 736.112, 589.588, 729.135, 537.257, 708.203, 509.348, 648.895, 436.086, 645.407, 369.801, 607.031, 317.47, 617.497, 170.946, 900.081, 174.434 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = -241.0
+margin_top = -345.0
+margin_right = 497.0
+margin_bottom = 562.0
+mouse_filter = 2

@@ -13,6 +13,8 @@ var max_size = 0
 var min_size = 0
 var house_count = 0
 
+var at_min = false
+
 var visited = []
 var button
 onready var settings = get_tree().get_current_scene().settings
@@ -47,12 +49,17 @@ var turn_ended = false #when true avoid this district until endgame
 var contiguityChecker = Contiguity.new()
 # contiguityChecker = null if build does not include cpp module
 
+# Tutorial signals
 signal filled
 signal unfilled
 signal broken
 signal unbroken
 signal created
 signal erased
+
+# signal for min ticker
+signal minimum #least number of allowed houses is in district
+signal not_minimum
 
 func _ready():
 	if contiguityChecker == null:
@@ -98,6 +105,15 @@ func free_flood():
 	for s in flood.squares:
 		matrix[s].erase("district")
 	flood.queue_free()
+	
+func check_min():
+	if house_count == min_size and house_count != max_size:
+		at_min = true
+		emit_signal("minimum")
+	elif at_min:
+		emit_signal("not_minimum")
+		at_min = false
+		
 	
 func highlight(grid_point, exclude=null, force=false):
 	
@@ -257,6 +273,7 @@ func highlight(grid_point, exclude=null, force=false):
 				else:
 					house_count += 1
 					party_tallies[m_vert_house_id["allegiance"]] += 1
+				check_min()
 				
 #					if not ["Error", "Flood"].has(name):
 #						scene.filled_squares += 1
@@ -482,6 +499,7 @@ func erase(grid_point, force=false):
 						if not scene.hasErased:
 							emit_signal("erased")
 							scene.hasErased = true
+					check_min()
 					
 				var other_point = get_random_point()
 				if other_point:
@@ -726,11 +744,9 @@ func to_string():
 	
 func check_contiguity(gp):
 	var previous_contiguous = contiguous
-	var time_start = OS.get_unix_time()
+
 	contiguous = contiguityChecker.isContiguous(gp)
-	var time_now = OS.get_unix_time()
-	var time_elapsed = time_now - time_start
-	print("Time elapsed: "+str(time_elapsed))
+
 	if not contiguous && previous_contiguous:
 		button.break_animation()
 		emit_signal("broken")
