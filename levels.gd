@@ -160,6 +160,7 @@ var settings = {
 			"zoom":0.2,
 			"position": [1050,550]
 		},
+		"tutorial": 2,
 		"name": "lvl2",
 		"pointer": ["lvl3"],
 		"parties": {

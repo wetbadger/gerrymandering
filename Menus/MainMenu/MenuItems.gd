@@ -16,6 +16,18 @@ func _ready():
 	var error = get_node("/root/MainMenu").connect("orientation_changed", self, "_on_orientation_changed")
 	if error:
 		print("There was an error in MenuItems.gd")
+		
+	connect_cursor_signals()
+		
+func connect_cursor_signals():
+	for btn in get_children():
+		if btn.disabled == true:
+			continue
+		#connect mouseover signals
+		if btn.connect('mouse_entered', self, '_on_mouse_entered') != OK:
+			print("Error: mouse enter signal not connected")
+		if btn.connect('mouse_exited', self, '_on_mouse_exited') != OK:
+			print("Error: mouse exit signal not connected")
 
 func _on_Custom_button_up():
 	var cg = custom_game.instance()
@@ -58,3 +70,10 @@ func _on_Puzzles_button_up():
 
 func _on_About_button_up():
 	main_menu.open_about_page()
+
+
+func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+	
+func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

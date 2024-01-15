@@ -45,10 +45,17 @@ var mouse_over #what point is the mouse over
 var m = 0 #modulation for voter indicator number
 
 func _ready():
+	pass
+	
+func ready():
 	
 	rng.randomize()
 	
-	var dimensions = rect.size
+	var dimensions
+	if typeof(scene.fog_size) == TYPE_INT:
+		dimensions = rect.size
+	else:
+		dimensions = scene.fog_size
 
 	size = dimensions / GRID_SIZE
 	size.x = floor(size.x)

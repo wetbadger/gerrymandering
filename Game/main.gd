@@ -71,6 +71,7 @@ onready var min_ticker = get_node("UI/MinTicker")
 #
 
 var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+var tutorial2 = load("res://Tutorials/Tutorial2.tscn")
 
 var t1
 var t2
@@ -89,12 +90,23 @@ var max_size
 var min_size
 var short_number #how many districts need to be short
 
+#
+#	Draw modes
+#
+
 var can_recheck = true #can determine drawmode
 enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE, TERRAIN, CLEAR}
 var draw_mode = DRAW_MODES.ADD
 onready var terrain_layer = get_node("State/TerrainLayer1")
 onready var terrain_layers = [get_node("State/TerrainLayer1"), get_node("State/TerrainLayer2")]
 var terrain_file
+
+#
+#	Cursor
+#
+
+var crosshairs = false
+var drawing = false
 
 var just_pressed = false
 
@@ -133,10 +145,16 @@ var firework_object = load("res://Effects/Firework.tscn")
 var FIREWORK_LIMIT =25
 var firework_limit = 25
 
+var fog_size = -1
+
 func _ready():
-	
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	set_process_unhandled_input (true)
 	settings = load_settings()
+	if settings.has("fog_size"):
+		fog_size = Vector2(settings["fog_size"][0], settings["fog_size"][1])
+	matrix.ready()
+	
 	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
 	
@@ -146,6 +164,7 @@ func _ready():
 	
 	if settings.has("player"):
 		enable_next_if_winner_is = settings["player"]
+
 		
 	if _multiplayer:
 		play_as.visible = false
@@ -276,7 +295,7 @@ func show_min_ticker(settings, population):
 			return
 	#The number of min districts
 	var min_dists = settings["districts"].size() - int(population) % int(mi)
-	min_ticker.text = str(min_dists)
+	min_ticker.label.text = str(min_dists)
 	min_ticker.visible = true
 	
 		
@@ -293,6 +312,13 @@ func initiate_tutorial(n):
 			if btn.name != "Blank":
 				btn.connect("clicked", t1dialog, "next")
 				btn.tutorial_click = true
+	if n == 2:
+		t2 = tutorial2.instance()
+		var t2dialog = t2.get_node("Tutorial2Dialog")
+		play_as.connect("finished", t2dialog, "next")
+		ui.add_child(t2)
+		disable_draw = true
+		can_move = false
 
 # # # # # # # # #
 #
@@ -448,8 +474,12 @@ func _unhandled_input(event: InputEvent) -> void:
 					if event.is_pressed():
 						if touches == 0:
 							just_pressed = true
+							if !disable_draw:
+								drawing = true
+
 						else:
 							just_pressed = false
+							
 						mobile__press_type = true
 						touches = 0
 						for getTouch in range(event.index+1):
@@ -458,6 +488,7 @@ func _unhandled_input(event: InputEvent) -> void:
 							call_deferred("set_draw_mode_add")
 					else:
 						touches-=1
+						drawing = false
 						
 						mobile__press_type = false
 						if touches <= 0:
@@ -478,7 +509,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	#
 			if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 				set_mouse_members(event)
-
+				Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
 				_remove_district()
 		elif draw_mode == DRAW_MODES.PLACE or draw_mode == DRAW_MODES.REMOVE:
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
@@ -688,6 +719,23 @@ func _process(_delta):
 	if ambience.volume <= usrexp_settings["Audio"]["Sound"]:
 		ambience.volume += 0.001
 
+	var mouspos = get_grid_position(get_global_mouse_position())
+	if drawing:
+		if draw_mode == DRAW_MODES.ERASE:
+			Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
+		else:
+			Input.set_custom_mouse_cursor(Globals.point, 0, Vector2(32, 40))
+	elif !disable_draw:
+		if draw_mode == DRAW_MODES.ERASE or Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
+		elif matrix.vertices.has(str(mouspos)):
+			crosshairs = true
+			Input.set_custom_mouse_cursor(Globals.crosshairs, 0, Vector2(32, 40))
+		else:
+			if crosshairs:
+				Input.set_custom_mouse_cursor(Globals.pointer)
+				crosshairs = false
+	
 ########################
 #
 # Setters

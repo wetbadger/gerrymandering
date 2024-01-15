@@ -54,6 +54,8 @@ func _ready():
 	#reset global variables
 	Globals.current_vertices = {}
 	Globals.current_settings = {}
+	
+	Input.set_custom_mouse_cursor(Globals.beam, Input.CURSOR_IBEAM)
 		
 	
 		

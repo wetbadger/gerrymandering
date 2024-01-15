@@ -38,3 +38,5 @@ texture_normal = ExtResource( 3 )
 texture_hover = ExtResource( 1 )
 
 [connection signal="button_up" from="ColorRect/Close" to="." method="_on_Close_button_up"]
+[connection signal="mouse_entered" from="ColorRect/Close" to="." method="_on_Close_mouse_entered"]
+[connection signal="mouse_exited" from="ColorRect/Close" to="." method="_on_Close_mouse_exited"]

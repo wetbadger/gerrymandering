@@ -11,3 +11,11 @@ func _on_InGameMenuBtn_button_up():
 	m.set_position(Vector2(650,300))
 	disabled = true
 	scene.disable_draw = true
+
+
+func _on_InGameMenuBtn_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_InGameMenuBtn_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

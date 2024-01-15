@@ -62,3 +62,11 @@ func _on_Button_button_up():
 		Globals.current_terrain = parse_json(file.get_as_text())
 		file.close()
 	set_process(true)
+
+
+func _on_Button_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Button_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

@@ -8,6 +8,16 @@ What was I doing:
 
 TODO:
 	
+	Cursor:
+		Drawing:
+			Over filled square
+			Over empty square
+		Moving:
+			Grabbing Hand
+		Menus:
+			Pointing Hand
+		
+	
 	Ticker for minimum sized districts. 
 		[done] Ticks down when the min is reached.
 		[done] Ticks up when max is reached or less than min

@@ -74,6 +74,7 @@ settings/gdscript/max_call_stack=2048
 window/size/width=1920
 window/size/height=1080
 window/handheld/orientation="sensor"
+mouse_cursor/custom_image="res://pics/mouse/pointer.png"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 

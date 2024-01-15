@@ -1,5 +1,15 @@
 extends Node
 
+#cursor icons
+var pointer = load("res://pics/mouse/pointer.png")
+var hand = load("res://pics/mouse/hand.png")
+var beam = load("res://pics/mouse/beam.png")
+var crosshairs = load("res://pics/mouse/crosshairs.png")
+var closedhand = load("res://pics/mouse/closedhand.png")
+var openhand = load("res://pics/mouse/openhand.png")
+var eraser = load("res://pics/mouse/eraser.png")
+var point = load("res://pics/mouse/point.png")
+
 var map_name
 
 #TODO: make sure these values are taken from the JSON, 

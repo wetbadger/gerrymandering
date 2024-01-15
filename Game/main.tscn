@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Game/InGameMenuBtn.gd" type="Script" id=41]
 [ext_resource path="res://UI/Widgets/BTheme1.tres" type="Theme" id=42]
 [ext_resource path="res://Game/MinTicker.gd" type="Script" id=43]
+[ext_resource path="res://pics/symbol.png" type="Texture" id=44]
 
 [sub_resource type="DynamicFont" id=17]
 size = 24
@@ -144,8 +145,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="MinTicker" type="Label" parent="UI"]
+[node name="MinTicker" type="Control" parent="UI"]
 visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 43 )
+
+[node name="MinTickerLabel" type="Label" parent="UI/MinTicker"]
 margin_left = 1650.0
 margin_top = 15.0
 margin_right = 1683.0
@@ -153,7 +159,10 @@ margin_bottom = 83.0
 theme = ExtResource( 42 )
 custom_fonts/font = SubResource( 17 )
 text = "2"
-script = ExtResource( 43 )
+
+[node name="MinSymbol" type="Sprite" parent="UI/MinTicker"]
+position = Vector2( 1625, 30 )
+texture = ExtResource( 44 )
 
 [node name="TabContainer" type="TabContainer" parent="UI"]
 margin_left = 1548.0
@@ -292,7 +301,7 @@ visible = false
 visible = false
 
 [node name="HouseIcon" type="Sprite" parent="UI"]
-position = Vector2( 26, 26 )
+position = Vector2( 158, 26 )
 scale = Vector2( 2.11111, 2.11111 )
 texture = ExtResource( 28 )
 
@@ -300,15 +309,14 @@ texture = ExtResource( 28 )
 visible = false
 
 [node name="Progress" parent="UI" instance=ExtResource( 14 )]
-margin_left = 57.0
-margin_top = 12.0
-margin_right = -1645.0
-margin_bottom = -1038.0
+margin_left = 194.0
+margin_top = 11.0
+margin_right = -1508.0
+margin_bottom = -1039.0
 custom_fonts/font = SubResource( 2 )
 text = "..."
 
 [node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
-position = Vector2( 339, 71 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -345,10 +353,10 @@ margin_top = 23.0
 margin_bottom = 23.0
 
 [node name="InGameMenuBtn" type="Button" parent="UI"]
-margin_left = 2010.0
-margin_top = 20.0
-margin_right = 2074.0
-margin_bottom = 75.0
+margin_left = 31.0
+margin_top = 13.0
+margin_right = 95.0
+margin_bottom = 68.0
 theme = SubResource( 12 )
 icon = ExtResource( 40 )
 script = ExtResource( 41 )
@@ -432,5 +440,9 @@ script = ExtResource( 22 )
 [connection signal="button_down" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_button_down"]
 [connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
 [connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]
+[connection signal="mouse_entered" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_mouse_exited"]
 [connection signal="toggled" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_toggled"]
 [connection signal="button_up" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_button_up"]
+[connection signal="mouse_entered" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_mouse_entered"]
+[connection signal="mouse_exited" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_mouse_exited"]

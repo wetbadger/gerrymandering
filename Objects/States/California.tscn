@@ -22,5 +22,5 @@ polygon = PoolVector2Array( 900.081, 436.086, 1249.59, 761.844, 1248.95, 774.488
 margin_left = -241.0
 margin_top = -345.0
 margin_right = 497.0
-margin_bottom = 562.0
+margin_bottom = 1703.0
 mouse_filter = 2

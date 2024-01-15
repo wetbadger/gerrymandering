@@ -84,8 +84,10 @@ func pretend_multi_touch(event):
 				event.pressed = true
 				
 			_touches[_debug_cur_touch] = {"start":event, "current":event}
+			Input.set_custom_mouse_cursor(Globals.closedhand)
 		else:
-			_touches.erase(_debug_cur_touch)		
+			_touches.erase(_debug_cur_touch)
+			Input.set_custom_mouse_cursor(Globals.openhand)
 	if event is InputEventMouseMotion:
 		if _debug_cur_touch in _touches:
 			_touches[_debug_cur_touch]["current"] = event

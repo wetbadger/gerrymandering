@@ -4,6 +4,9 @@ onready var scene = get_tree().get_current_scene()
 onready var ui = scene.get_node("UI")
 var alert = load("res://Menus/SavedAlert.tscn")
 
+func _ready():
+	connect_cursor_signals()
+
 func remove_save():
 	$Panel/VBoxContainer/Save.queue_free()
 
@@ -81,3 +84,19 @@ func fix_arrays(settings):
 	settings["advanced"]["House Placement"]["algorithm"] = algorithm_arr
 	settings["advanced"]["House Placement"]["layout"] = layout_arr
 	return settings
+
+func connect_cursor_signals():
+	for btn in get_node("Panel/VBoxContainer").get_children():
+		if btn.disabled == true:
+			continue
+		#connect mouseover signals
+		if btn.connect('mouse_entered', self, '_on_mouse_entered') != OK:
+			print("Error: mouse enter signal not connected")
+		if btn.connect('mouse_exited', self, '_on_mouse_exited') != OK:
+			print("Error: mouse exit signal not connected")
+			
+func _on_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+	
+func _on_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

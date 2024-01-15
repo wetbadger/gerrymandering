@@ -97,4 +97,13 @@ func merge(left, right):
 	return result
 
 func _on_Close_button_up():
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	queue_free()
+
+
+func _on_Close_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Close_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

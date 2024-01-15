@@ -18,6 +18,7 @@ func _on_Deselect_toggled(button_pressed):
 			
 func toggle_buttons(button_container):
 	if !deselect:
+		Input.set_custom_mouse_cursor(Globals.openhand)
 		scene.disable_draw = true
 		for btn in button_container.get_children():
 			if btn.pressed == true:
@@ -28,6 +29,7 @@ func toggle_buttons(button_container):
 		if last_button == null:
 			last_button = house_buttons.get_children()[0]
 		last_button.pressed = true
+		Input.set_custom_mouse_cursor(Globals.pointer)
 		scene.disable_draw = false
 		if scene.draw_mode != scene.DRAW_MODES.PLACE and scene.draw_mode != scene.DRAW_MODES.REMOVE:
 			scene.matrix.voter_indicators.visible = false
@@ -51,3 +53,14 @@ func toggle_buttons(button_container):
 
 func _on_Deselect_button_down():
 	toggle_mode = true
+
+
+func _on_Deselect_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Deselect_mouse_exited():
+	if scene.disable_draw:
+		Input.set_custom_mouse_cursor(Globals.openhand)
+	else:
+		Input.set_custom_mouse_cursor(Globals.pointer)
