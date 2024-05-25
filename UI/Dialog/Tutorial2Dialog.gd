@@ -20,8 +20,8 @@ voters have been placed in a district.
 		"""This tells us who we're playing as, in case you 
 forget whose side you're on...
 		""",
-		"""This tells us how many districts need to be the
-minimum size. Here, we can see that two districts 
+		"""This tells us how many districts cannot be the
+maximum size. Here, we can see that 2 districts 
 should have one less voter than the others.""",
 		"""The menu is over here is case you want to quit.""",
 		"""I'll let you figure out the rest!"""]

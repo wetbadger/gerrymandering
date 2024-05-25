@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/Winner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI/Winner.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/Next.tscn" type="PackedScene" id=7]
 [ext_resource path="res://UI/Victory.gd" type="Script" id=8]
 [ext_resource path="res://UI/Next.gd" type="Script" id=9]
+[ext_resource path="res://themes/ui.tres" type="Theme" id=10]
 
 [node name="Victory" type="Control"]
 margin_right = 1932.0
@@ -27,6 +28,20 @@ margin_top = 114.0
 margin_right = 1920.0
 margin_bottom = 372.0
 script = ExtResource( 2 )
+
+[node name="ByEnough" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -409.0
+margin_top = -239.5
+margin_right = 409.0
+margin_bottom = -165.5
+theme = ExtResource( 10 )
+text = "(You needed to win by x)"
+align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_left = 291.0
@@ -63,9 +78,6 @@ margin_right = 1600.0
 margin_bottom = 1053.0
 custom_constants/separation = 80
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TryAgain" parent="Buttons" instance=ExtResource( 5 )]
 margin_left = 9.0
@@ -87,4 +99,10 @@ margin_right = 1219.0
 margin_bottom = 181.0
 rect_min_size = Vector2( 400, 0 )
 
+[connection signal="mouse_entered" from="Buttons/TryAgain" to="Buttons/TryAgain" method="_on_TryAgain_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/TryAgain" to="Buttons/TryAgain" method="_on_TryAgain_mouse_exited"]
 [connection signal="button_up" from="Buttons/NewPuzzle" to="Buttons/NewPuzzle" method="_on_NewPuzzle_button_up"]
+[connection signal="mouse_entered" from="Buttons/NewPuzzle" to="Buttons/NewPuzzle" method="_on_NewPuzzle_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/NewPuzzle" to="Buttons/NewPuzzle" method="_on_NewPuzzle_mouse_exited"]
+[connection signal="mouse_entered" from="Buttons/GotoMenu" to="Buttons/GotoMenu" method="_on_GotoMenu_mouse_entered"]
+[connection signal="mouse_exited" from="Buttons/GotoMenu" to="Buttons/GotoMenu" method="_on_GotoMenu_mouse_exited"]

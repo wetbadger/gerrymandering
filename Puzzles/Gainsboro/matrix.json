@@ -1,0 +1,339 @@
+{
+	"(62, 27)": {
+		"type": "House",
+		"coords": "(62, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 5
+	},
+	"(61, 27)": {
+		"type": "House",
+		"coords": "(61, 27)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(60, 27)": {
+		"type": "House",
+		"coords": "(60, 27)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 27)": {
+		"type": "House",
+		"coords": "(59, 27)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 27)": {
+		"type": "House",
+		"coords": "(58, 27)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(57, 27)": {
+		"type": "House",
+		"coords": "(57, 27)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 5
+	},
+	"(56, 27)": {
+		"type": "House",
+		"coords": "(56, 27)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 5
+	},
+	"(53, 28)": {
+		"type": "House",
+		"coords": "(53, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(54, 28)": {
+		"type": "House",
+		"coords": "(54, 28)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(55, 28)": {
+		"type": "House",
+		"coords": "(55, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(56, 28)": {
+		"type": "House",
+		"coords": "(56, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(57, 28)": {
+		"type": "House",
+		"coords": "(57, 28)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(58, 28)": {
+		"type": "House",
+		"coords": "(58, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 28)": {
+		"type": "House",
+		"coords": "(59, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(60, 28)": {
+		"type": "House",
+		"coords": "(60, 28)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(61, 28)": {
+		"type": "House",
+		"coords": "(61, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(62, 28)": {
+		"type": "House",
+		"coords": "(62, 28)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 2
+	},
+	"(62, 29)": {
+		"type": "House",
+		"coords": "(62, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(61, 29)": {
+		"type": "House",
+		"coords": "(61, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(60, 29)": {
+		"type": "House",
+		"coords": "(60, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 29)": {
+		"type": "House",
+		"coords": "(59, 29)",
+		"visited": false,
+		"allegiance": "Nerpists",
+		"voters": 2
+	},
+	"(58, 29)": {
+		"type": "House",
+		"coords": "(58, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(57, 29)": {
+		"type": "House",
+		"coords": "(57, 29)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(56, 29)": {
+		"type": "House",
+		"coords": "(56, 29)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(55, 29)": {
+		"type": "House",
+		"coords": "(55, 29)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(55, 30)": {
+		"type": "House",
+		"coords": "(55, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(56, 30)": {
+		"type": "House",
+		"coords": "(56, 30)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(57, 30)": {
+		"type": "House",
+		"coords": "(57, 30)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(58, 30)": {
+		"type": "House",
+		"coords": "(58, 30)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 3
+	},
+	"(59, 30)": {
+		"type": "House",
+		"coords": "(59, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(60, 30)": {
+		"type": "House",
+		"coords": "(60, 30)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 2
+	},
+	"(61, 30)": {
+		"type": "House",
+		"coords": "(61, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(62, 30)": {
+		"type": "House",
+		"coords": "(62, 30)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(61, 31)": {
+		"type": "House",
+		"coords": "(61, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(60, 31)": {
+		"type": "House",
+		"coords": "(60, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(59, 31)": {
+		"type": "House",
+		"coords": "(59, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 31)": {
+		"type": "House",
+		"coords": "(58, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(55, 31)": {
+		"type": "House",
+		"coords": "(55, 31)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(54, 31)": {
+		"type": "House",
+		"coords": "(54, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(58, 32)": {
+		"type": "House",
+		"coords": "(58, 32)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(63, 30)": {
+		"type": "House",
+		"coords": "(63, 30)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(63, 29)": {
+		"type": "House",
+		"coords": "(63, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 3
+	},
+	"(63, 28)": {
+		"type": "Gap",
+		"coords": "(63, 28)",
+		"visited": false
+	},
+	"(63, 27)": {
+		"type": "House",
+		"coords": "(63, 27)",
+		"visited": false,
+		"allegiance": "Flipialists",
+		"voters": 5
+	},
+	"(64, 28)": {
+		"type": "House",
+		"coords": "(64, 28)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(66, 28)": {
+		"type": "House",
+		"coords": "(66, 28)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(65, 28)": {
+		"type": "House",
+		"coords": "(65, 28)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(65, 29)": {
+		"type": "House",
+		"coords": "(65, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists"
+	},
+	"(65, 30)": {
+		"type": "House",
+		"coords": "(65, 30)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(65, 31)": {
+		"type": "House",
+		"coords": "(65, 31)",
+		"visited": false,
+		"allegiance": "Flipialists"
+	},
+	"(64, 30)": {
+		"type": "House",
+		"coords": "(64, 30)",
+		"visited": false,
+		"allegiance": "Nerpists"
+	},
+	"(64, 29)": {
+		"type": "House",
+		"coords": "(64, 29)",
+		"visited": false,
+		"allegiance": "Fluffalists",
+		"voters": 2
+	},
+	"(58, 26)": {
+		"type": "House",
+		"coords": "(58, 26)",
+		"visited": false,
+		"allegiance": "Nerpists",
+		"voters": 5
+	},
+	"anchor": {
+		"type": "Anchor",
+		"coords": "(58, 30)"
+	}
+}

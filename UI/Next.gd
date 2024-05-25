@@ -27,6 +27,7 @@ func _on_NewPuzzle_button_up():
 	#TODO: cool animation
 	button_up = true
 	set_process(true)
+	Input.set_custom_mouse_cursor(Globals.pointer)
 
 func _process(_delta):
 	
@@ -42,3 +43,13 @@ func _process(_delta):
 			var error = get_tree().change_scene(Globals.current_map["scene"])
 			if error:
 				print("Could not load map scene")
+
+
+func _on_NewPuzzle_mouse_entered():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_NewPuzzle_mouse_exited():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.pointer)

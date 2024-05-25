@@ -44,6 +44,7 @@ func get_reason():
 	return reason
 
 func _on_Submit_button_up():
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	match mode:
 		MODES.DISTRICT:
 			scene.submit()
@@ -70,3 +71,13 @@ func _on_Submit_button_up():
 func show_tip():
 	tooltip.text = reason
 	tooltip.visible = true
+
+
+func _on_Submit_mouse_entered():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Submit_mouse_exited():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.pointer)

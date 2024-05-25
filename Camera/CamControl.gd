@@ -44,7 +44,7 @@ func do_multitouch_pan():
 	_touches_info.target = _touches_info.cur_pos
 
 func _unhandled_input(event):
-	if scene.disable_draw and scene.can_move:
+	if scene.disable_draw and scene.can_move or scene.middle_mouse_held:
 		#handle multi-touch from capapable devices
 		if event is InputEventScreenTouch and event.pressed == true:
 			_touches[event.index] = {"start": event, "current": event}
@@ -52,6 +52,9 @@ func _unhandled_input(event):
 			_touches.erase(event.index)
 		if event is InputEventScreenDrag:
 			_touches[event.index]["current"] = event
+		if InputEventMouseMotion and scene.middle_mouse_held:
+			if event is InputEventMouseMotion:
+				camera.position -= event.relative * camera.zoom
 			
 		pretend_multi_touch(event)
 	

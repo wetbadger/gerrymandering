@@ -1,0 +1,1070 @@
+
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Puzzles/map.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )            
+settings = {
+    "name": "Contryvania",
+    "camera": {
+        "zoom": 0.35,
+        "position": [
+            910.782837,
+            423.88913
+        ]
+    },
+    "pointer": null,
+    "difficulty": 2,
+    "player": "Contraritarians",
+    "parties": {
+        "Contraritarians": {
+            "voters": 48,
+            "asset": 6,
+            "color": "brown"
+        },
+        "Glips": {
+            "voters": 111,
+            "asset": 3,
+            "color": "pink"
+        },
+        "Cryptoglipists": {
+            "voters": 11,
+            "asset": 2,
+            "color": "orange"
+        }
+    },
+    "districts": {
+        "A": {
+            "max": 34,
+            "min": 34,
+            "color": "blue",
+            "party": [
+                "Contraritarians",
+                "Glips",
+                "Cryptoglipists"
+            ]
+        },
+        "B": {
+            "max": 34,
+            "min": 34,
+            "color": "red",
+            "party": [
+                "Glips",
+                "Contraritarians",
+                "Cryptoglipists"
+            ]
+        },
+        "C": {
+            "max": 34,
+            "min": 34,
+            "color": "orange",
+            "party": [
+                "Cryptoglipists",
+                "Contraritarians",
+                "Glips"
+            ]
+        },
+        "D": {
+            "max": 34,
+            "min": 34,
+            "color": "purple",
+            "party": [
+                "Contraritarians",
+                "Glips",
+                "Cryptoglipists"
+            ]
+        },
+        "E": {
+            "max": 34,
+            "min": 34,
+            "color": "yellow",
+            "party": [
+                "Glips",
+                "Contraritarians",
+                "Cryptoglipists"
+            ]
+        }
+    },
+    "advanced": {
+        "District Rules": {
+            "contiguous": true,
+            "runtime contiguity enforcement": false,
+            "diagonals": false,
+            "show grid": false,
+            "multiplayer": false
+        },
+        "House Placement": {
+            "gaps": true,
+            "randomize positions": false,
+            "layout": "random",
+            "algorithm": "load from file"
+        },
+        "Other": {
+            "debug": false
+        }
+    },
+    "shape": "Empty",
+    "colors": {
+        "blue": [
+            0.25,
+            0.25,
+            1
+        ],
+        "red": [
+            0.8,
+            0.1,
+            0.1
+        ],
+        "orange": [
+            0.8,
+            0.4,
+            0.1
+        ],
+        "purple": [
+            0.5,
+            0.2,
+            0.8
+        ],
+        "yellow": [
+            0.8,
+            0.8,
+            0
+        ],
+        "brown": [
+            0.3,
+            0.2,
+            0
+        ],
+        "green": [
+            0.2,
+            0.8,
+            0.1
+        ],
+        "white": [
+            1,
+            1,
+            1
+        ],
+        "gray": [
+            0.5,
+            0.5,
+            0.5
+        ],
+        "teal": [
+            0.1,
+            0.8,
+            0.8
+        ],
+        "pink": [
+            0.8,
+            0.1,
+            0.7
+        ],
+        "black": [
+            0,
+            0,
+            0
+        ]
+    },
+    "assets": {
+        "Red House": 0,
+        "Blue House": 1,
+        "Orange House": 2,
+        "Purple House": 3,
+        "Yellow House": 4,
+        "Green House": 5,
+        "Weird House": 6,
+        "Red House Medium": 7,
+        "Blue House Medium": 8,
+        "Orange House Medium": 9,
+        "Purple House Medium": 10,
+        "Yellow House Medium": 11,
+        "Green House Medium": 12,
+        "Weird House Medium": 13,
+        "Red House Apartments": 14,
+        "Blue House Apartments": 15,
+        "Orange House Apartments": 16,
+        "Purple House Apartments": 17,
+        "Yellow House Apartments": 18,
+        "Green House Apartments": 19,
+        "Weird House Apartments": 20
+    },
+    "disable_save": true
+}
+matrix = {
+	"(52, 24)": {
+		"type": "Gap",
+		"coords": "(52, 24)",
+		"visited": false
+	},
+	"(51, 24)": {
+		"type": "Gap",
+		"coords": "(51, 24)",
+		"visited": false
+	},
+	"(53, 24)": {
+		"type": "Gap",
+		"coords": "(53, 24)",
+		"visited": false
+	},
+	"(50, 24)": {
+		"type": "House",
+		"coords": "(50, 24)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(54, 24)": {
+		"type": "House",
+		"coords": "(54, 24)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(49, 24)": {
+		"type": "House",
+		"coords": "(49, 24)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(55, 24)": {
+		"type": "House",
+		"coords": "(55, 24)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(48, 24)": {
+		"type": "House",
+		"coords": "(48, 24)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 3
+	},
+	"(56, 24)": {
+		"type": "House",
+		"coords": "(56, 24)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 3
+	},
+	"(47, 24)": {
+		"type": "House",
+		"coords": "(47, 24)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 25)": {
+		"type": "House",
+		"coords": "(47, 25)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 26)": {
+		"type": "House",
+		"coords": "(47, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 27)": {
+		"type": "House",
+		"coords": "(47, 27)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(47, 23)": {
+		"type": "House",
+		"coords": "(47, 23)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 22)": {
+		"type": "House",
+		"coords": "(47, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 21)": {
+		"type": "House",
+		"coords": "(47, 21)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(47, 28)": {
+		"type": "House",
+		"coords": "(47, 28)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(47, 20)": {
+		"type": "House",
+		"coords": "(47, 20)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(47, 29)": {
+		"type": "House",
+		"coords": "(47, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 19)": {
+		"type": "House",
+		"coords": "(47, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(47, 30)": {
+		"type": "House",
+		"coords": "(47, 30)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(47, 18)": {
+		"type": "House",
+		"coords": "(47, 18)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(48, 18)": {
+		"type": "House",
+		"coords": "(48, 18)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 18)": {
+		"type": "House",
+		"coords": "(49, 18)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 18)": {
+		"type": "House",
+		"coords": "(50, 18)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(51, 18)": {
+		"type": "House",
+		"coords": "(51, 18)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(52, 18)": {
+		"type": "Gap",
+		"coords": "(52, 18)",
+		"visited": false
+	},
+	"(53, 18)": {
+		"type": "House",
+		"coords": "(53, 18)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(54, 18)": {
+		"type": "House",
+		"coords": "(54, 18)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(55, 18)": {
+		"type": "House",
+		"coords": "(55, 18)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 18)": {
+		"type": "House",
+		"coords": "(56, 18)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 18)": {
+		"type": "House",
+		"coords": "(57, 18)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(57, 19)": {
+		"type": "House",
+		"coords": "(57, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 20)": {
+		"type": "House",
+		"coords": "(57, 20)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(57, 21)": {
+		"type": "House",
+		"coords": "(57, 21)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(57, 22)": {
+		"type": "House",
+		"coords": "(57, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 23)": {
+		"type": "House",
+		"coords": "(57, 23)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 25)": {
+		"type": "House",
+		"coords": "(57, 25)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 26)": {
+		"type": "House",
+		"coords": "(57, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 27)": {
+		"type": "House",
+		"coords": "(57, 27)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(57, 28)": {
+		"type": "House",
+		"coords": "(57, 28)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(57, 29)": {
+		"type": "House",
+		"coords": "(57, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(57, 30)": {
+		"type": "House",
+		"coords": "(57, 30)",
+		"visited": false,
+		"allegiance": "Contraritarians"
+	},
+	"(56, 30)": {
+		"type": "House",
+		"coords": "(56, 30)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 30)": {
+		"type": "House",
+		"coords": "(55, 30)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 30)": {
+		"type": "House",
+		"coords": "(54, 30)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(53, 30)": {
+		"type": "House",
+		"coords": "(53, 30)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(52, 30)": {
+		"type": "Gap",
+		"coords": "(52, 30)",
+		"visited": false
+	},
+	"(51, 30)": {
+		"type": "House",
+		"coords": "(51, 30)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(50, 30)": {
+		"type": "House",
+		"coords": "(50, 30)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(49, 30)": {
+		"type": "House",
+		"coords": "(49, 30)",
+		"visited": false,
+		"allegiance": "Cryptoglipists"
+	},
+	"(48, 30)": {
+		"type": "House",
+		"coords": "(48, 30)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 29)": {
+		"type": "House",
+		"coords": "(48, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 29)": {
+		"type": "House",
+		"coords": "(49, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 29)": {
+		"type": "House",
+		"coords": "(50, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(51, 29)": {
+		"type": "House",
+		"coords": "(51, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(52, 29)": {
+		"type": "Gap",
+		"coords": "(52, 29)",
+		"visited": false
+	},
+	"(53, 29)": {
+		"type": "House",
+		"coords": "(53, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 29)": {
+		"type": "House",
+		"coords": "(54, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 29)": {
+		"type": "House",
+		"coords": "(55, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 29)": {
+		"type": "House",
+		"coords": "(56, 29)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 28)": {
+		"type": "House",
+		"coords": "(56, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 28)": {
+		"type": "House",
+		"coords": "(55, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 28)": {
+		"type": "House",
+		"coords": "(54, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(53, 28)": {
+		"type": "House",
+		"coords": "(53, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(52, 28)": {
+		"type": "Gap",
+		"coords": "(52, 28)",
+		"visited": false
+	},
+	"(51, 28)": {
+		"type": "House",
+		"coords": "(51, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 28)": {
+		"type": "House",
+		"coords": "(50, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 28)": {
+		"type": "House",
+		"coords": "(49, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 28)": {
+		"type": "House",
+		"coords": "(48, 28)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 27)": {
+		"type": "House",
+		"coords": "(48, 27)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 27)": {
+		"type": "House",
+		"coords": "(49, 27)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 27)": {
+		"type": "Gap",
+		"coords": "(50, 27)",
+		"visited": false
+	},
+	"(51, 27)": {
+		"type": "House",
+		"coords": "(51, 27)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 4
+	},
+	"(52, 27)": {
+		"type": "Gap",
+		"coords": "(52, 27)",
+		"visited": false
+	},
+	"(53, 27)": {
+		"type": "House",
+		"coords": "(53, 27)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 4
+	},
+	"(54, 27)": {
+		"type": "Gap",
+		"coords": "(54, 27)",
+		"visited": false
+	},
+	"(55, 27)": {
+		"type": "House",
+		"coords": "(55, 27)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 27)": {
+		"type": "House",
+		"coords": "(56, 27)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 26)": {
+		"type": "House",
+		"coords": "(56, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 25)": {
+		"type": "House",
+		"coords": "(56, 25)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(51, 25)": {
+		"type": "House",
+		"coords": "(51, 25)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(50, 25)": {
+		"type": "House",
+		"coords": "(50, 25)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(49, 25)": {
+		"type": "House",
+		"coords": "(49, 25)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(48, 25)": {
+		"type": "House",
+		"coords": "(48, 25)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(52, 25)": {
+		"type": "Gap",
+		"coords": "(52, 25)",
+		"visited": false
+	},
+	"(53, 25)": {
+		"type": "House",
+		"coords": "(53, 25)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(54, 25)": {
+		"type": "House",
+		"coords": "(54, 25)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(55, 25)": {
+		"type": "House",
+		"coords": "(55, 25)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(55, 26)": {
+		"type": "House",
+		"coords": "(55, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 26)": {
+		"type": "House",
+		"coords": "(54, 26)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(53, 26)": {
+		"type": "House",
+		"coords": "(53, 26)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(52, 26)": {
+		"type": "Gap",
+		"coords": "(52, 26)",
+		"visited": false
+	},
+	"(51, 26)": {
+		"type": "House",
+		"coords": "(51, 26)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(50, 26)": {
+		"type": "House",
+		"coords": "(50, 26)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(49, 26)": {
+		"type": "House",
+		"coords": "(49, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 26)": {
+		"type": "House",
+		"coords": "(48, 26)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 23)": {
+		"type": "House",
+		"coords": "(48, 23)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 23)": {
+		"type": "House",
+		"coords": "(49, 23)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(50, 23)": {
+		"type": "House",
+		"coords": "(50, 23)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(51, 23)": {
+		"type": "House",
+		"coords": "(51, 23)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(52, 23)": {
+		"type": "Gap",
+		"coords": "(52, 23)",
+		"visited": false
+	},
+	"(53, 23)": {
+		"type": "House",
+		"coords": "(53, 23)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(54, 23)": {
+		"type": "House",
+		"coords": "(54, 23)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 2
+	},
+	"(55, 23)": {
+		"type": "House",
+		"coords": "(55, 23)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(56, 23)": {
+		"type": "House",
+		"coords": "(56, 23)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 22)": {
+		"type": "House",
+		"coords": "(56, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 21)": {
+		"type": "House",
+		"coords": "(56, 21)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 20)": {
+		"type": "House",
+		"coords": "(56, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(56, 19)": {
+		"type": "House",
+		"coords": "(56, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 19)": {
+		"type": "House",
+		"coords": "(55, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 19)": {
+		"type": "House",
+		"coords": "(54, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(53, 19)": {
+		"type": "House",
+		"coords": "(53, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(52, 19)": {
+		"type": "Gap",
+		"coords": "(52, 19)",
+		"visited": false
+	},
+	"(51, 19)": {
+		"type": "House",
+		"coords": "(51, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 19)": {
+		"type": "House",
+		"coords": "(50, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 19)": {
+		"type": "House",
+		"coords": "(49, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 19)": {
+		"type": "House",
+		"coords": "(48, 19)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 20)": {
+		"type": "House",
+		"coords": "(48, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 20)": {
+		"type": "House",
+		"coords": "(49, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 20)": {
+		"type": "House",
+		"coords": "(50, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(51, 20)": {
+		"type": "House",
+		"coords": "(51, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(52, 20)": {
+		"type": "Gap",
+		"coords": "(52, 20)",
+		"visited": false
+	},
+	"(53, 20)": {
+		"type": "House",
+		"coords": "(53, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 20)": {
+		"type": "House",
+		"coords": "(54, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 20)": {
+		"type": "House",
+		"coords": "(55, 20)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 21)": {
+		"type": "House",
+		"coords": "(55, 21)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(55, 22)": {
+		"type": "House",
+		"coords": "(55, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(54, 22)": {
+		"type": "House",
+		"coords": "(54, 22)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(53, 22)": {
+		"type": "House",
+		"coords": "(53, 22)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(52, 22)": {
+		"type": "Gap",
+		"coords": "(52, 22)",
+		"visited": false
+	},
+	"(51, 22)": {
+		"type": "House",
+		"coords": "(51, 22)",
+		"visited": false,
+		"allegiance": "Contraritarians",
+		"voters": 3
+	},
+	"(49, 22)": {
+		"type": "House",
+		"coords": "(49, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 22)": {
+		"type": "House",
+		"coords": "(48, 22)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(48, 21)": {
+		"type": "House",
+		"coords": "(48, 21)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(49, 21)": {
+		"type": "House",
+		"coords": "(49, 21)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"(50, 21)": {
+		"type": "Gap",
+		"coords": "(50, 21)",
+		"visited": false
+	},
+	"(51, 21)": {
+		"type": "House",
+		"coords": "(51, 21)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 4
+	},
+	"(52, 21)": {
+		"type": "Gap",
+		"coords": "(52, 21)",
+		"visited": false
+	},
+	"(53, 21)": {
+		"type": "House",
+		"coords": "(53, 21)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 4
+	},
+	"(54, 21)": {
+		"type": "Gap",
+		"coords": "(54, 21)",
+		"visited": false
+	},
+	"(50, 22)": {
+		"type": "House",
+		"coords": "(50, 22)",
+		"visited": false,
+		"allegiance": "Glips",
+		"voters": 2
+	},
+	"(57, 24)": {
+		"type": "House",
+		"coords": "(57, 24)",
+		"visited": false,
+		"allegiance": "Glips"
+	},
+	"anchor": {
+		"type": "Anchor",
+		"coords": "(55, 30)"
+	}
+}
+
+terrain = {"TerrainLayer1":{"points":[[47,18],[48,18],[49,18],[50,18],[51,18],[52,18],[53,18],[54,18],[55,18],[56,18],[57,18],[57,19],[56,19],[55,19],[54,19],[53,19],[52,19],[51,19],[50,19],[49,19],[47,19],[48,19],[47,20],[48,20],[49,20],[50,20],[51,20],[52,20],[52,21],[53,21],[54,21],[54,20],[55,20],[56,20],[57,20],[53,20],[51,21],[50,21],[49,21],[48,21],[47,21],[49,22],[48,22],[47,22],[50,22],[51,22],[52,22],[53,22],[54,22],[55,22],[55,21],[56,21],[57,21],[57,22],[56,22],[49,23],[48,23],[47,23],[50,23],[51,23],[52,23],[53,23],[54,23],[55,23],[56,23],[57,23],[57,24],[56,24],[55,24],[54,24],[53,24],[52,24],[51,24],[50,24],[49,24],[48,24],[47,24],[47,25],[48,25],[49,25],[50,25],[51,25],[52,25],[53,25],[54,25],[55,25],[56,25],[57,25],[57,26],[56,26],[55,26],[54,26],[53,26],[52,26],[51,26],[50,26],[49,26],[48,26],[47,26],[47,27],[48,27],[49,27],[50,27],[51,27],[52,27],[53,27],[54,27],[55,27],[56,27],[57,27],[57,28],[56,28],[55,28],[54,28],[53,28],[52,28],[51,28],[50,28],[49,28],[48,28],[47,28],[47,29],[47,30],[48,30],[49,30],[50,30],[51,30],[52,30],[53,30],[54,30],[55,30],[56,30],[57,30],[57,29],[56,29],[55,29],[54,29],[53,29],[52,29],[51,29],[50,29],[49,29],[48,29]],"color":"0.1,0.5,0.2,1"},"TerrainLayer2":{"points":[[51,24],[52,24],[53,24],[52,18],[52,19],[52,20],[52,21],[52,22],[52,23],[52,25],[52,26],[52,27],[52,28],[52,29],[52,30]],"color":"0.568627,0.54902,0.462745,1"}}
+

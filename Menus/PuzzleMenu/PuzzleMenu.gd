@@ -25,34 +25,31 @@ func _ready():
 		var file = dir.get_next()
 		if file == "":
 			break
-		elif not file.begins_with("."):
-
+		elif not "." in file:
+			
 			var pb = puzzle_button.instance()
 			buttons.append(pb)
 			pb.set_name(file)
 			
-			#load difficulty from json
-			var settings = File.new()
-			if not settings.file_exists("res://Puzzles/"+file+"/settings.json"):
-				return
-			settings.open("res://Puzzles/"+file+"/settings.json", File.READ)
-			var data = parse_json(settings.get_as_text())
+			var script = load("res://Puzzles/"+file+"/map.tres")
+			var data = script.settings
 			if data.has("difficulty"):
 				pb.set_difficulty(data["difficulty"])
 			else:
 				pb.difficulty = 0
 				print("Error: " + file + " has no setting for diffuclty")
 				
-			
+			if file in Globals.puzzles_won:
+				pb.show_won()
 				
 	var sorted_buttons = merge_sort(buttons)
 	for b in sorted_buttons:
 		grid.add_child(b)
 		#load thumbnail
-		var image = Image.new()
-		var error = image.load("res://"+b.path+"/thumbnail.png")
-		if error != OK:
-			print("Failed to load image:", error)
+		var image = load("res://"+b.path+"/thumbnail.png")
+		var c = image.get_class()
+		if c != "Image":
+			print("Failed to load image res://"+b.path+"/thumbnail.png")
 		else:
 			var texture = ImageTexture.new()
 			texture.create_from_image(image)

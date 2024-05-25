@@ -12,6 +12,8 @@ var point = load("res://pics/mouse/point.png")
 
 var map_name
 
+var puzzles_won = [] #TODO: load this from file for PC users
+
 #TODO: make sure these values are taken from the JSON, 
 #(the variable here should only be used to CREATE the JSON)
 const default_settings = {

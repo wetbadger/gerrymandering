@@ -37,32 +37,16 @@ func set_difficulty(d):
 		i+=1
 	difficulty = d
 
-func _on_Button_button_up():
-	var file = File.new()
-	if not file.file_exists("res://"+path+"/settings.json"):
-		print("res://"+path+" does not exist.")
-		return
-	file.open("res://"+path+"/settings.json", File.READ)
-	var settings = parse_json(file.get_as_text())
-	Globals.current_settings = settings
-	file.close()
-	
-	file = File.new()
-	if not file.file_exists("res://"+path+"/matrix.json"):
-		print("res://"+path+" does not exist.")
-		return
-	file.open("res://"+path+"/matrix.json", File.READ)
-	var matrix = parse_json(file.get_as_text())
-	Globals.current_vertices = matrix
-	file.close()
-	
-	file = File.new()
-	if file.file_exists("res://"+path+"/terrain.json"):
-		file.open("res://"+path+"/terrain.json", File.READ)
-		Globals.current_terrain = parse_json(file.get_as_text())
-		file.close()
-	set_process(true)
+func show_won():
+	get_node("Won").visible = true
 
+func _on_Button_button_up():
+	var map = load("res://"+path+"/map.tres")
+	Globals.current_settings = map.settings
+	Globals.current_vertices = map.matrix
+	Globals.current_terrain = map.terrain
+	Globals.current_map["name"] = map.settings["name"]
+	set_process(true)
 
 func _on_Button_mouse_entered():
 	Input.set_custom_mouse_cursor(Globals.hand)

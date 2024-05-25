@@ -30,7 +30,7 @@ func processNextSignal():
 			textbox.text += c
 			yield(get_tree().create_timer(speed), "timeout")
 		writing = false
-		print("Processing signal:", signal_data)	
+
 		signalQueue.remove(0)  # Remove the processed signal
 		# Continue to the next signal
 		if signalQueue.size() > 0:

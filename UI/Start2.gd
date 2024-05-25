@@ -36,3 +36,12 @@ func _on_Start2_button_up():
 	if typeof(Globals.current_settings["advanced"]["House Placement"]["algorithm"]) == TYPE_ARRAY:
 		Globals.current_settings["advanced"]["House Placement"]["algorithm"] = scene.current_selection.settings["advanced"]["House Placement"]["algorithm"][0]
 	button_up = true
+	Input.set_custom_mouse_cursor(Globals.pointer)
+
+
+func _on_Start2_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Start2_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

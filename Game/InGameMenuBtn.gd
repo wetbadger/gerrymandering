@@ -11,6 +11,9 @@ func _on_InGameMenuBtn_button_up():
 	m.set_position(Vector2(650,300))
 	disabled = true
 	scene.disable_draw = true
+	if scene.settings.has("disable_save"):
+		if scene.settings["disable_save"] == true:
+			m.get_node("Panel/VBoxContainer/Save").visible = false
 
 
 func _on_InGameMenuBtn_mouse_entered():

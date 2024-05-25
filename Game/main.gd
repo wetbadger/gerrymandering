@@ -66,6 +66,8 @@ onready var voter_indicator = get_node("UI/VoterIndicatorUI")
 onready var play_as = get_node("UI/PlayAs")
 onready var in_game_menu_button = get_node("UI/InGameMenuBtn")
 onready var min_ticker = get_node("UI/MinTicker")
+onready var message = get_node("UI/Message")
+onready var deselect = get_node("UI/Deselect")
 #
 # Tutorials
 #
@@ -111,6 +113,12 @@ var drawing = false
 var just_pressed = false
 
 var recieve_input = true
+
+var middle_mouse_held = false
+
+#
+#   Other
+#
 
 var district_colors = []
 
@@ -265,17 +273,23 @@ func _ready():
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
 			initiate_tutorial(settings["tutorial"])
-			
-	if settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+	
+	if Globals.current_terrain:
+		for l in terrain_layers:
+			l.initialize()
+		terrain_file = Globals.current_terrain	
+	elif settings["advanced"]["House Placement"]["algorithm"] == "load from file":
 		var f = File.new()
 		f.open("user://"+Globals.current_settings["name"]+"/terrain.json",File.READ)
 		terrain_file = parse_json(f.get_as_text())
 		f.close()
 		for l in terrain_layers:
 			l.initialize()
-			
-	Globals.current_terrain = terrain_file
+		Globals.current_terrain = terrain_file
+		
 	show_min_ticker(settings, population)
+	
+	show_message()
 
 #if districts are all the same but min is different than max, show the ticker
 func show_min_ticker(settings, population):
@@ -465,8 +479,16 @@ func start_input():
 	recieve_input = true
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_released("middle_mouse"):
+		if matrix.voter_indicators.visible == true:
+			matrix.voter_indicators.visible = false
 	if recieve_input:
 		if (draw_mode == DRAW_MODES.ADD or draw_mode == DRAW_MODES.ERASE):
+			
+			if Input.is_action_pressed("middle_mouse"):
+				middle_mouse_held = true
+			else:
+				middle_mouse_held = false
 				
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				if event is InputEventScreenTouch:
@@ -523,6 +545,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				set_touch_members(event)
 				remove_terrain(event)
+				
 ###################
 #
 # House Placement
@@ -735,7 +758,11 @@ func _process(_delta):
 			if crosshairs:
 				Input.set_custom_mouse_cursor(Globals.pointer)
 				crosshairs = false
-	
+				
+	if middle_mouse_held:
+		Input.set_custom_mouse_cursor(Globals.closedhand)
+		matrix.voter_indicators.visible = true
+		
 ########################
 #
 # Setters
@@ -1092,11 +1119,29 @@ func submit():
 	recieve_input = false
 	submit_button.visible = false
 	
-	if winner.keys()[0] == enable_next_if_winner_is:
+	var must_meet_requirment = false
+	var requirement_met = true
+	if settings.has("requirement"):
+		must_meet_requirment = true
+		requirement_met = false
+		var tally = 0
+		for elem in results:
+			if elem.keys()[0] == enable_next_if_winner_is:
+				tally += 1
+		if tally >= settings["requirement"]:
+			requirement_met = true
+		else:
+			var by_enough = victory_node.get_node("ByEnough")
+			by_enough.text = "(You needed to win by "+str(settings["requirement"])+")"
+			by_enough.visible = true
+	
+	if winner.keys()[0] == enable_next_if_winner_is and not must_meet_requirment or must_meet_requirment and requirement_met:
 		if settings["pointer"]:
 			for node in settings["pointer"]:
 				Globals.map_progress[Globals.current_map["name"]][node] = true
 		victory_node.next.disabled = false
+		if not Globals.current_map["name"] in Globals.puzzles_won:
+			Globals.puzzles_won.append(Globals.current_map["name"])
 		
 	#shoot off up to LIMIT fireworks
 	var grid_list = matrix.vertices.keys()
@@ -1219,3 +1264,9 @@ func lay_terrain(event):
 func remove_terrain(event):
 	for layer in terrain_layers:
 		layer.remove_point(grid_point)
+		
+func show_message():
+	if settings.has("message"):
+		message.visible = true
+		message.set_title(settings["message"]["title"])
+		message.set_text(settings["message"]["content"])

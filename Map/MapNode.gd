@@ -48,8 +48,17 @@ func enable():
 	visible = true
 
 func _on_Button_button_up():
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	$Click.play()
 	start_btn.set_process(true)
 	scene.current_selection = self
 	if is_instance_valid(dialog):
 		dialog.press_start()
+
+
+func _on_Button_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Button_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

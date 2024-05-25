@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menus/PuzzleMenu/Star.tscn" type="PackedScene" id=1]
 [ext_resource path="res://pics/puzzles/missing.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/Widgets/BLabel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/PuzzleMenu/Panel.gd" type="Script" id=5]
 [ext_resource path="res://themes/puzzle_button.tres" type="Theme" id=6]
+[ext_resource path="res://pics/gerrymandered.png" type="Texture" id=7]
 
 [node name="PuzzleButton" type="VBoxContainer"]
 theme = ExtResource( 6 )
@@ -48,6 +49,11 @@ visible = false
 margin_left = 208.0
 margin_right = 308.0
 margin_bottom = 96.0
+
+[node name="Won" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 7 )
+centered = false
 
 [connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
 [connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]

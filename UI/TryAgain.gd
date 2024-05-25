@@ -13,7 +13,7 @@ func _on_TryAgain_button_up():
 	if scene.settings["advanced"]["District Rules"]["multiplayer"]:
 		scene.submit_button.set_mode_multiplayer()
 	scene.firework_limit = scene.FIREWORK_LIMIT
-	if scene.settings.has("tutorial"):
+	if scene.settings.has("tutorial") and scene.settings["tutorial"] == 1:
 		var nxt_btn = scene.victory_node.next
 		if nxt_btn.disabled == true:
 			scene.initiate_tutorial(scene.settings["tutorial"])
@@ -22,3 +22,14 @@ func _on_TryAgain_button_up():
 none of us 5 of them.
 """
 			scene.t1.get_node("Tutorial1Dialog").next()
+
+	Input.set_custom_mouse_cursor(Globals.pointer)
+
+func _on_TryAgain_mouse_entered():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_TryAgain_mouse_exited():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.pointer)
