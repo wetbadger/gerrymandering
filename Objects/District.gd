@@ -90,9 +90,7 @@ func _process(_delta):
 				button.text = str(max_size-house_count)
 			else:
 				button.text = str(max_size)
-	for p in party_tallies:	
-		if party_tally:
-			party_tally.set_votes(p, party_tallies[p])
+
 
 func set_starting_vertex(vertex):
 	starting_vertex = vertex
@@ -287,6 +285,10 @@ func highlight(grid_point, exclude=null, force=false):
 			if len(squares) == 0:
 				isCreated = true
 			squares.append(house_id)
+			if scene.sound_timer.is_stopped():
+				scene.sound_timer.start()
+				scene.sound.stream = load("res://audio/sfx/district_attack.mp3")
+				scene.sound.play()
 			if isCreated:
 				isCreated = false
 				scene.n_drawn_districts += 1
@@ -314,6 +316,10 @@ func highlight(grid_point, exclude=null, force=false):
 				pass
 			else:
 				get_next_district()
+				
+	for p in party_tallies:	
+		if party_tally:
+			party_tally.set_votes(p, party_tallies[p])
 		
 func get_next_district():
 	if contiguous:
@@ -485,6 +491,10 @@ func erase(grid_point, force=false):
 				squares.erase(house_id)
 				contiguityChecker.removePoint(grid_point)
 				
+				if scene.sound.stream.resource_path.get_file() != "district_erase.mp3" or not scene.sound.playing:
+					scene.sound.stream = load("res://audio/sfx/district_erase.mp3")
+					scene.sound.play()
+				
 				if m_vert_house_id["type"] == "House":
 					if m_vert_house_id.has("voters"):
 						house_count -= int(m_vert_house_id["voters"])
@@ -516,6 +526,10 @@ func erase(grid_point, force=false):
 			error_label.set_text("NO HOUSE DISTRICT")
 	else:
 		error_label.set_text("NO HOUSE TO REMOVE")
+		
+	for p in party_tallies:	
+		if party_tally:
+			party_tally.set_votes(p, party_tallies[p])
 
 func is_house(id, has_district=1): #TODO: make this an enum before showin ppl your code
 		

@@ -1,67 +1,107 @@
 {
-	"name": "South Carolina",
+	"name": "Ohio",
 	"pointer": null,
-    "difficulty": 1,
-    "requirement": 6,
-    "message": {
-        "title":"South Carolina",
-        "content":"    In 2022, Republicans Won 6 out of 7 seats in the \n    house of representatives for South Carolina. \n\n    Do you have what it takes to replicate their \n    success?"
-    },
+	"difficulty": 2,
+    "requirement": 13,
+	"message": {
+		"title": "Ohio",
+		"content": "    In 2022, Republicans won 10 seats in the \n    house of representatives for Ohio. \n\n    By some twist of fate, Democrats have gained\n    control the Ohio Redistricting Commission\n    and can draw the districts to their liking!\n\n    Redistrict Ohio so that 13 democrats win."
+	},
 	"fog_size": [
 		2090,
 		1920
 	],
 	"parties": {
-		"Republicans": {
-			"voters": 151,
-			"asset": 0,
-			"color": "red"
-		},
 		"Democrats": {
-			"voters": 153,
+			"voters": 268,
 			"asset": 1,
 			"color": "blue"
 		},
+		"Republicans": {
+			"voters": 315,
+			"asset": 0,
+			"color": "red"
+		},
 		"Third Party": {
-			"voters": 35,
+			"voters": 95,
 			"asset": 3,
 			"color": "purple"
 		}
 	},
 	"districts": {
 		"A": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "blue"
 		},
 		"B": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "red"
 		},
 		"C": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "teal"
 		},
 		"D": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "pink"
 		},
 		"E": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "black"
 		},
 		"F": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
 			"color": "yellow"
 		},
 		"G": {
-			"max": 49,
-			"min": 48,
+			"max": 46,
+			"min": 45,
+			"color": "orange"
+		},
+		"H": {
+			"max": 46,
+			"min": 45,
+			"color": "white"
+		},
+		"I": {
+			"max": 46,
+			"min": 45,
+			"color": "gray"
+		},
+		"J": {
+			"max": 46,
+			"min": 45,
+			"color": "teal"
+		},
+		"K": {
+			"max": 46,
+			"min": 45,
+			"color": "pink"
+		},
+		"L": {
+			"max": 46,
+			"min": 45,
+			"color": "teal"
+		},
+		"M": {
+			"max": 46,
+			"min": 45,
+			"color": "blue"
+		},
+		"N": {
+			"max": 46,
+			"min": 45,
+			"color": "red"
+		},
+		"O": {
+			"max": 46,
+			"min": 45,
 			"color": "orange"
 		}
 	},
@@ -76,14 +116,21 @@
 		"House Placement": {
 			"gaps": true,
 			"randomize positions": false,
-			"layout": "random",
-			"algorithm": "load from file"
+			"layout": [
+				"random",
+				"user placed"
+			],
+			"algorithm": [
+				"load from file",
+				"fill",
+				"spiral"
+			]
 		},
 		"Other": {
 			"debug": false
 		}
 	},
-	"shape": "SouthCarolina",
+	"shape": "Ohio",
 	"colors": {
 		"blue": [
 			0.25,
@@ -169,12 +216,12 @@
 		"Green House Apartments": 19,
 		"Weird House Apartments": 20
 	},
-	"player": "Republicans",
+	"player": "Democrats",
 	"camera": {
-		"zoom": 0.55,
+		"zoom": 0.8,
 		"position": [
-			1094.730591,
-			498.851532
+			1186.770386,
+			679.140869
 		]
 	}
 }

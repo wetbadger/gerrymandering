@@ -24,25 +24,32 @@ margin_right = 632.0
 margin_bottom = 88.0
 text = "Resume"
 
-[node name="Save" type="Button" parent="Panel/VBoxContainer"]
+[node name="Info" type="Button" parent="Panel/VBoxContainer"]
 margin_top = 92.0
 margin_right = 632.0
 margin_bottom = 180.0
-text = "Save"
+text = "Info"
 
-[node name="QuitToMainMenu" type="Button" parent="Panel/VBoxContainer"]
+[node name="Save" type="Button" parent="Panel/VBoxContainer"]
 margin_top = 184.0
 margin_right = 632.0
 margin_bottom = 272.0
-text = "Quit To Main Menu"
+text = "Save"
 
-[node name="QuitToDesktop" type="Button" parent="Panel/VBoxContainer"]
+[node name="QuitToMainMenu" type="Button" parent="Panel/VBoxContainer"]
 margin_top = 276.0
 margin_right = 632.0
 margin_bottom = 364.0
+text = "Quit To Main Menu"
+
+[node name="QuitToDesktop" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 368.0
+margin_right = 632.0
+margin_bottom = 456.0
 text = "Quit To Desktop"
 
 [connection signal="button_up" from="Panel/VBoxContainer/Resume" to="." method="_on_Resume_button_up"]
+[connection signal="button_up" from="Panel/VBoxContainer/Info" to="." method="_on_Info_button_up"]
 [connection signal="button_up" from="Panel/VBoxContainer/Save" to="." method="_on_Save_button_up"]
 [connection signal="button_up" from="Panel/VBoxContainer/QuitToMainMenu" to="." method="_on_QuitToMainMenu_button_up"]
 [connection signal="button_up" from="Panel/VBoxContainer/QuitToDesktop" to="." method="_on_QuitToDesktop_button_up"]

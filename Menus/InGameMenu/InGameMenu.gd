@@ -3,6 +3,8 @@ extends Control
 onready var scene = get_tree().get_current_scene()
 onready var ui = scene.get_node("UI")
 var alert = load("res://Menus/SavedAlert.tscn")
+var game_info = load("res://Menus/GameInfo.tscn")
+var window = load("res://UI/Classes/Window.tscn")
 
 func _ready():
 	connect_cursor_signals()
@@ -42,6 +44,14 @@ func _on_Save_button_up():
 		
 	var file1 = File.new()
 	file1.open("user://"+scene.settings.name+"/settings.json", File.WRITE)
+	
+	#bizzare error causes circular structure in JSON
+	#fixing it by not using a list
+	#consider going into the custom game menu and fixing the broken list box?
+	#or figuree out what is causing this...
+	new_settings["advanced"]["House Placement"]["algorithm"] = new_settings["advanced"]["House Placement"]["algorithm"][0]
+	new_settings["advanced"]["House Placement"]["layout"] = new_settings["advanced"]["House Placement"]["layout"][0]
+	
 	file1.store_line(JSON.print(new_settings, "\t"))
 	file1.close()
 	var file2 = File.new()
@@ -100,3 +110,19 @@ func _on_mouse_entered():
 	
 func _on_mouse_exited():
 	Input.set_custom_mouse_cursor(Globals.pointer)
+
+
+func _on_Info_button_up():
+	var parties = scene.settings["parties"]
+	var gi = game_info.instance()
+	for key in parties.keys():
+		var color = parties[key]["color"]
+		var voters = parties[key]["voters"]
+		gi.set_party(key, color, voters)
+		
+	var w = window.instance()
+	w.add_element(gi)
+	add_child(w)
+	#w.set_position(Vector2(300,300))
+	w.set_title("Game Info")
+	w.z_index = 99

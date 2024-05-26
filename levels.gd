@@ -4,6 +4,7 @@ var settings = {
 
 	"lvl1" : {
 		"tutorial": 1,
+		"disable_save": true,
 		"camera" : {
 			"zoom":0.2,
 			"position": [770,580]
@@ -160,6 +161,7 @@ var settings = {
 			"zoom":0.2,
 			"position": [1050,550]
 		},
+		"disable_save": true,
 		"tutorial": 2,
 		"name": "lvl2",
 		"pointer": ["lvl3"],
@@ -330,6 +332,7 @@ var settings = {
 			"position": [1100,550]
 		},
 		"name": "lvl3",
+		"disable_save": true,
 		"pointer": null,
 		"parties": {
 			"You": {

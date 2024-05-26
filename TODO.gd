@@ -8,6 +8,12 @@ What was I doing:
 
 TODO:
 	
+	sfx:
+		place district
+		erase district
+	
+	Show puzzle info, like how many from each party the game has
+	
 	Cursor:
 		Drawing:
 			Over filled square
@@ -122,7 +128,7 @@ TODO:
 				orange shape
 		
 	make puzzles:
-		10 puzzles
+		[done] 10 puzzles
 		50 puzzles
 		250 puzzles
 		1000 puzzles

@@ -12,7 +12,7 @@ settings = {
     "requirement": 6,
     "message": {
         "title": "South Carolina",
-        "content": "    In 2022, Republicans Won 6 out of 7 seats in the \n    house of representatives for South Carolina. \n    Do you have what it takes to replicate their \n    success?"
+        "content": "    In 2022, Republicans Won 6 out of 7 seats in the \n    house of representatives for South Carolina. \n\n    Do you have what it takes to replicate their \n    success?"
     },
     "fog_size": [
         2090,

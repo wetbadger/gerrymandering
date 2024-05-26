@@ -68,6 +68,9 @@ onready var in_game_menu_button = get_node("UI/InGameMenuBtn")
 onready var min_ticker = get_node("UI/MinTicker")
 onready var message = get_node("UI/Message")
 onready var deselect = get_node("UI/Deselect")
+onready var need2win = get_node("UI/NeedToWin")
+onready var sound = get_node("Sound")
+onready var sound_timer = get_node("SoundTimer")
 #
 # Tutorials
 #
@@ -115,10 +118,19 @@ var just_pressed = false
 var recieve_input = true
 
 var middle_mouse_held = false
+var mouse_is_held = false
+
+#
+#   Sound
+#
+
+var highlighting_stuff = true #if user holds mouse but doesn't draw, stop sound
 
 #
 #   Other
 #
+
+var rng = RandomNumberGenerator.new()
 
 var district_colors = []
 
@@ -156,6 +168,7 @@ var firework_limit = 25
 var fog_size = -1
 
 func _ready():
+	
 	Input.set_custom_mouse_cursor(Globals.pointer)
 	set_process_unhandled_input (true)
 	settings = load_settings()
@@ -165,6 +178,9 @@ func _ready():
 	
 	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
+	
+	# this doesnt work for some reason
+	get_node("Sound").volume_db = usrexp_settings["Audio"]["Sound"]
 	
 	contiguous = settings["advanced"]["District Rules"]["contiguous"]
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
@@ -286,6 +302,10 @@ func _ready():
 		for l in terrain_layers:
 			l.initialize()
 		Globals.current_terrain = terrain_file
+		
+	if settings.has("requirement"):
+		need2win.visible = true
+		need2win.text = "NEED " + str(settings["requirement"]) + " TO WIN"
 		
 	show_min_ticker(settings, population)
 	
@@ -508,6 +528,7 @@ func _unhandled_input(event: InputEvent) -> void:
 							touches+=1
 						if touches <= 0:
 							call_deferred("set_draw_mode_add")
+						mouse_is_held = true
 					else:
 						touches-=1
 						drawing = false
@@ -515,6 +536,8 @@ func _unhandled_input(event: InputEvent) -> void:
 						mobile__press_type = false
 						if touches <= 0:
 							call_deferred("set_draw_mode_add")
+						#mouse released
+						mouse_is_held = false
 
 						
 				#just_pressed = !just_pressed
@@ -1165,7 +1188,6 @@ func shoot_firework(coords):
 	coords.y = coords.y - 0.5
 	if firework_limit > 0:
 		firework_limit-=1
-		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var t = Timer.new()
 		t.set_wait_time(rng.randf()*4)

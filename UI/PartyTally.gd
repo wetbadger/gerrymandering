@@ -4,6 +4,7 @@ var parties = {}
 var size
 onready var colors = Globals.default_settings["colors"]
 var settings
+onready var current_winner = get_parent().get_node("CurrentWinner")
 
 func _ready():
 	size = rect_size
@@ -50,8 +51,32 @@ func set_votes(party, n):
 		add_party(party, settings["parties"][party]["color"], n)
 	parties[party]["voters"] = n
 	resize()
+	var winner_color = get_color_with_most_voters(parties)
+	if winner_color == "clear":
+		current_winner.color = Color(0,0,0,0)
+	else:
+		current_winner.color = Globals.word2color(winner_color)
 	
 func reset():
 	parties = {}
 	for child in get_children():
 		child.queue_free()
+
+func get_color_with_most_voters(data: Dictionary) -> String:
+	var max_voters = -1
+	var color = null
+	var tie = false
+
+	for key in data.keys():
+		var voters = data[key]["voters"]
+		if voters > max_voters:
+			max_voters = voters
+			color = data[key]["color"]
+			tie = false
+		elif voters == max_voters:
+			tie = true
+	
+	if tie:
+		return "clear"
+	else:
+		return color

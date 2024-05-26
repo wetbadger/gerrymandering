@@ -9,9 +9,10 @@ settings = {
     "name": "Maryland",
     "pointer": null,
     "difficulty": 3,
+    "requirement": 4,
     "message": {
         "title": "Maryland",
-        "content": "    In 2022, Republicans only won 1 seat in the \n    house of representatives for Maryland. \n\n    If we redraw the districts in a certain  way,\n    they can win 4!"
+        "content": "    In 2022, Republicans only won 1 seat in the \n    house of representatives for Maryland. \n\n    If we redraw the districts in a certain way,\n    they can win 4 out of 7!"
     },
     "fog_size": [
         2090,
@@ -19,12 +20,12 @@ settings = {
     ],
     "parties": {
         "Republicans": {
-            "voters": 215,
+            "voters": 99,
             "asset": 0,
             "color": "red"
         },
         "Democrats": {
-            "voters": 99,
+            "voters": 215,
             "asset": 1,
             "color": "blue"
         },

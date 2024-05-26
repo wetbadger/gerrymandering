@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -45,6 +45,8 @@
 [ext_resource path="res://Game/MinTicker.gd" type="Script" id=43]
 [ext_resource path="res://pics/symbol.png" type="Texture" id=44]
 [ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=45]
+[ext_resource path="res://themes/menu.tres" type="Theme" id=46]
+[ext_resource path="res://audio/sfx/district_attack.mp3" type="AudioStream" id=47]
 
 [sub_resource type="DynamicFont" id=17]
 size = 24
@@ -155,8 +157,9 @@ __meta__ = {
 
 [node name="MinTicker" type="Control" parent="UI"]
 visible = false
+margin_top = -7.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 33.0
 script = ExtResource( 43 )
 
 [node name="MinTickerLabel" type="Label" parent="UI/MinTicker"]
@@ -372,6 +375,16 @@ theme = SubResource( 12 )
 icon = ExtResource( 40 )
 script = ExtResource( 41 )
 
+[node name="NeedToWin" type="Label" parent="UI"]
+visible = false
+margin_left = 1000.0
+margin_top = 10.0
+margin_right = 1406.0
+margin_bottom = 84.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 46 )
+text = "Need X to Win"
+
 [node name="State" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -445,6 +458,14 @@ stream = ExtResource( 17 )
 volume_db = -80.0
 autoplay = true
 script = ExtResource( 22 )
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+bus = "SFX"
+
+[node name="SoundTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 
 [connection signal="mouse_entered" from="UI/Submit" to="UI/Submit" method="_on_Submit_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Submit" to="UI/Submit" method="_on_Submit_mouse_exited"]

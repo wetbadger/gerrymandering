@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/district_decay.mp3-d11b9e49e7262a693e155863b5b745a5.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/district_decay.mp3"
+dest_files=[ "res://.import/district_decay.mp3-d11b9e49e7262a693e155863b5b745a5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

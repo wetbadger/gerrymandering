@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/district_release.mp3-aa0b559fc6ccfc49ce2ed9a0faa08684.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/district_release.mp3"
+dest_files=[ "res://.import/district_release.mp3-aa0b559fc6ccfc49ce2ed9a0faa08684.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
