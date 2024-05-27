@@ -14,10 +14,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://UI/Classes/AdvSettingsPane.gd"
 }, {
-"base": "Node",
+"base": "Control",
 "class": "Dialog",
 "language": "GDScript",
 "path": "res://UI/Dialog/Dialog.gd"
+}, {
+"base": "Resource",
+"class": "Map",
+"language": "GDScript",
+"path": "res://Puzzles/map.gd"
 }, {
 "base": "Control",
 "class": "Pane",
@@ -47,6 +52,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AdvSettingsPane": "",
 "Dialog": "",
+"Map": "",
 "Pane": "",
 "Picker": "",
 "SettingsPane": "",
@@ -74,6 +80,7 @@ settings/gdscript/max_call_stack=2048
 window/size/width=1920
 window/size/height=1080
 window/handheld/orientation="sensor"
+mouse_cursor/custom_image="res://pics/mouse/pointer.png"
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 

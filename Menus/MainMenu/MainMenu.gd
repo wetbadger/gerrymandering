@@ -20,8 +20,8 @@ var default_settings = {
 #the orientations settings should only show up on mobile devices
 
 onready var main_theme = get_node("MainTheme")
-var start_story = load("res://Story/Story.tscn")
-var start_tutorial = load("res://Story/Tutorial.tscn")
+var story = load("res://Story/Story.tscn")
+var tutorial = load("res://Story/Tutorial.tscn")
 var puzzle_menu = load("res://Menus/PuzzleMenu/PuzzleMenu.tscn")
 var about_page = load("res://About/About.tscn")
 onready var scene = get_tree().get_current_scene()
@@ -54,6 +54,8 @@ func _ready():
 	#reset global variables
 	Globals.current_vertices = {}
 	Globals.current_settings = {}
+	
+	Input.set_custom_mouse_cursor(Globals.beam, Input.CURSOR_IBEAM)
 		
 	
 		
@@ -88,11 +90,11 @@ func _process(_delta):
 #				print("Could not load story scene")
 
 func start_story():
-	var ss = start_story.instance()
+	var ss = story.instance()
 	scene.add_child(ss)
 	
 func start_tutorial():
-	var st = start_tutorial.instance()
+	var st = tutorial.instance()
 	scene.add_child(st)
 	
 func open_puzzle_menu():

@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/thumbnail.png-8b3b76d6be3c260f76fd807afc40f816.image"
+
+[deps]
+
+source_file="res://Puzzles/Gainsboro/thumbnail.png"
+dest_files=[ "res://.import/thumbnail.png-8b3b76d6be3c260f76fd807afc40f816.image" ]
+
+[params]
+

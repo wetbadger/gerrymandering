@@ -108,7 +108,7 @@ func set_elements(box, icon_grid_size=2):
 						if typeof(each) == TYPE_STRING:
 							optmenu.add_item(each)
 						else:
-							print("error: Option Menu item not a string")
+							print("error: Option Menu item "+str(each)+" not a string")
 					g[3] = optmenu
 					box.get_node("VBox").add_child(optmenu)
 					g[-1] = optmenu

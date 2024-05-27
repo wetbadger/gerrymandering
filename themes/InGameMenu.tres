@@ -1,0 +1,20 @@
+[gd_resource type="Theme" load_steps=6 format=2]
+
+[ext_resource path="res://font/SpaceMono-Bold.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.223529, 0.223529, 0.223529, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+
+[resource]
+Button/fonts/font = SubResource( 1 )
+Button/styles/hover = SubResource( 2 )
+Button/styles/normal = SubResource( 3 )
+Button/styles/pressed = SubResource( 4 )

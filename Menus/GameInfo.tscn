@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menus/GameInfo.gd" type="Script" id=1]
+
+[node name="GameInfo" type="Control"]
+script = ExtResource( 1 )
+
+[node name="GridContainer" type="GridContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+custom_constants/hseparation = 25
+columns = 3
+
+[node name="Party" type="Label" parent="GridContainer"]
+margin_right = 43.0
+margin_bottom = 14.0
+text = "PARTY:"
+
+[node name="Color" type="Label" parent="GridContainer"]
+margin_left = 68.0
+margin_right = 105.0
+margin_bottom = 14.0
+text = "Color:"
+
+[node name="Label" type="Label" parent="GridContainer"]
+margin_left = 130.0
+margin_right = 175.0
+margin_bottom = 14.0
+text = "Voters:"

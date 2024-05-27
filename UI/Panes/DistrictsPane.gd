@@ -63,12 +63,12 @@ func add():
 
 	var parties 
 	
-	if len(boxes) == 0:
-		parties = scene.pp.content.keys()
-	else:
-		parties = boxes[len(boxes) - 1].groups[4][2]
-		var first_elem = parties.pop_front()
-		parties.push_back(first_elem)
+#	if len(boxes) == 0:
+#		parties = scene.pp.content.keys()
+#	else:
+#		parties = boxes[len(boxes) - 1].groups[4][2]
+#		var first_elem = parties.pop_front()
+#		parties.push_back(first_elem)
 
 	var props =  {"max": 1, "min": 1, "color" : colors[index], "party": parties}
 	boxes.append(BOX.instance())

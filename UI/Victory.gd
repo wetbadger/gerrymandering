@@ -14,9 +14,9 @@ func _on_Winner_mouse_entered():
 
 
 func _on_ColorRect_mouse_entered():
-	print("mouse_entered")
 	scene.get_node("State/Camera2D").set_can_zoom(false)
 
 
 func _on_ColorRect_mouse_exited():
 	scene.get_node("State/Camera2D").set_can_zoom(true)
+

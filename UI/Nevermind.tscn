@@ -16,7 +16,7 @@ __meta__ = {
 [node name="BLabel" parent="." instance=ExtResource( 2 )]
 margin_right = 10.0
 margin_bottom = -2.0
-text = "No Thanks, I Don't 
-Want Cookies"
+text = "I do not agree to
+these terms."
 
 [connection signal="button_up" from="." to="." method="_on_Nevermind_button_up"]

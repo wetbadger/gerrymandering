@@ -45,6 +45,7 @@ func get_options():
 
 
 func _on_Apply_button_up():
+	var options = get_options()
 	var settings = scene.settings
 	#var options = get_options()
 	var new_dict = settings.duplicate()
@@ -62,5 +63,7 @@ func _on_Apply_button_up():
 	file.open("user://settings.json", File.WRITE)
 	file.store_string(JSON.print(settings_to_save, "\t"))
 	file.close()
+	scene.settings["Audio"]["Music"] = options["UsrexpSettingsPane"]["Audio"]["Music"]
+	scene.settings["Audio"]["Sound"] = options["UsrexpSettingsPane"]["Audio"]["Sound"]
 	Globals.user_experience_settings = settings_to_save
 

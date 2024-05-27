@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Camera/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://themes/debug.tres" type="Theme" id=2]
@@ -31,6 +31,26 @@
 [ext_resource path="res://UI/VoterIndicatorUI.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Effects/VotersIndicator.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Game/PlayAs.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Objects/Tiles/tileset.tres" type="TileSet" id=32]
+[ext_resource path="res://Game/GroundTiles.gd" type="Script" id=33]
+[ext_resource path="res://Game/TabContainer.gd" type="Script" id=34]
+[ext_resource path="res://UI/SceneryButton.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Objects/Tiles/dirt.tres" type="TileSet" id=36]
+[ext_resource path="res://UI/SceneryButtons/TerrainButton.tscn" type="PackedScene" id=37]
+[ext_resource path="res://UI/SceneryButtons/TerrainButton2.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Game/ClearTerrain.gd" type="Script" id=39]
+[ext_resource path="res://pics/menu.png" type="Texture" id=40]
+[ext_resource path="res://Game/InGameMenuBtn.gd" type="Script" id=41]
+[ext_resource path="res://UI/Widgets/BTheme1.tres" type="Theme" id=42]
+[ext_resource path="res://Game/MinTicker.gd" type="Script" id=43]
+[ext_resource path="res://pics/symbol.png" type="Texture" id=44]
+[ext_resource path="res://UI/Classes/Window.tscn" type="PackedScene" id=45]
+[ext_resource path="res://themes/menu.tres" type="Theme" id=46]
+[ext_resource path="res://audio/sfx/district_attack.mp3" type="AudioStream" id=47]
+
+[sub_resource type="DynamicFont" id=17]
+size = 24
+font_data = ExtResource( 15 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 4 )
@@ -76,11 +96,32 @@ Button/styles/pressed = SubResource( 8 )
 flags = 4
 load_path = "res://.import/house.png-374bde3374c8a2b242fef7ee7357fb2e.stex"
 
+[sub_resource type="StyleBoxEmpty" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
+[sub_resource type="Theme" id=12]
+Button/styles/disabled = SubResource( 15 )
+Button/styles/focus = SubResource( 16 )
+Button/styles/hover = SubResource( 13 )
+Button/styles/normal = SubResource( 10 )
+Button/styles/pressed = SubResource( 14 )
+
 [node name="main" type="Node2D"]
 script = ExtResource( 7 )
 show_grid = true
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Message" parent="UI" instance=ExtResource( 45 )]
+visible = false
+position = Vector2( 611, 198 )
 
 [node name="Submit" parent="UI" instance=ExtResource( 10 )]
 anchor_top = 1.0
@@ -98,6 +139,9 @@ margin_right = -20.0
 margin_bottom = -30.0
 rect_min_size = Vector2( 300, 0 )
 mouse_filter = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DistrictButtons" type="VBoxContainer" parent="UI/Scroll"]
 margin_right = 200.0
@@ -111,15 +155,95 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scroll2" type="ScrollContainer" parent="UI"]
-margin_left = 1650.0
-margin_right = 2055.0
-margin_bottom = 1069.0
+[node name="MinTicker" type="Control" parent="UI"]
+visible = false
+margin_top = -7.0
+margin_right = 40.0
+margin_bottom = 33.0
+script = ExtResource( 43 )
+
+[node name="MinTickerLabel" type="Label" parent="UI/MinTicker"]
+margin_left = 1428.0
+margin_top = 21.0
+margin_right = 1461.0
+margin_bottom = 89.0
+theme = ExtResource( 42 )
+custom_fonts/font = SubResource( 17 )
+text = "2"
+
+[node name="MinSymbol" type="Sprite" parent="UI/MinTicker"]
+position = Vector2( 1398, 34 )
+texture = ExtResource( 44 )
+
+[node name="TabContainer" type="TabContainer" parent="UI"]
+margin_left = 1548.0
+margin_right = 1931.0
+margin_bottom = 1060.0
+script = ExtResource( 34 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Houses" type="ScrollContainer" parent="UI/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
 mouse_filter = 2
 
-[node name="HouseButtons" type="VBoxContainer" parent="UI/Scroll2"]
-visible = false
+[node name="HouseButtons" type="VBoxContainer" parent="UI/TabContainer/Houses"]
 script = ExtResource( 23 )
+
+[node name="Scenery" type="ScrollContainer" parent="UI/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="SceneryButtons" type="VBoxContainer" parent="UI/TabContainer/Scenery"]
+margin_right = 300.0
+margin_bottom = 228.0
+
+[node name="ClearTerrain" type="Button" parent="UI/TabContainer/Scenery/SceneryButtons"]
+margin_right = 300.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+toggle_mode = true
+text = "Clear Terrain"
+script = ExtResource( 39 )
+
+[node name="TerrainButton1" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 38 )]
+margin_top = 44.0
+margin_right = 300.0
+margin_bottom = 134.0
+
+[node name="TerrainButton2" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 37 )]
+margin_top = 138.0
+margin_right = 300.0
+margin_bottom = 228.0
+color = Color( 0.588235, 0.588235, 0.454902, 1 )
+layer = 1
+
+[node name="River" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
+
+[node name="Road" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
+
+[node name="Tree" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
+
+[node name="Rock" parent="UI/TabContainer/Scenery/SceneryButtons" instance=ExtResource( 35 )]
+visible = false
+margin_right = 12.0
+margin_bottom = 20.0
 
 [node name="DebugButton" parent="UI" instance=ExtResource( 9 )]
 visible = false
@@ -191,7 +315,7 @@ visible = false
 visible = false
 
 [node name="HouseIcon" type="Sprite" parent="UI"]
-position = Vector2( 26, 26 )
+position = Vector2( 158, 26 )
 scale = Vector2( 2.11111, 2.11111 )
 texture = ExtResource( 28 )
 
@@ -199,12 +323,17 @@ texture = ExtResource( 28 )
 visible = false
 
 [node name="Progress" parent="UI" instance=ExtResource( 14 )]
-margin_left = 57.0
-margin_top = 12.0
-margin_right = -1645.0
-margin_bottom = -1038.0
+margin_left = 194.0
+margin_top = 11.0
+margin_right = -1508.0
+margin_bottom = -1039.0
 custom_fonts/font = SubResource( 2 )
 text = "..."
+
+[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Deselect" type="Button" parent="UI"]
 anchor_top = 1.0
@@ -237,12 +366,46 @@ texture = SubResource( 9 )
 margin_top = 23.0
 margin_bottom = 23.0
 
-[node name="PlayAs" parent="UI" instance=ExtResource( 31 )]
+[node name="InGameMenuBtn" type="Button" parent="UI"]
+margin_left = 31.0
+margin_top = 13.0
+margin_right = 95.0
+margin_bottom = 68.0
+theme = SubResource( 12 )
+icon = ExtResource( 40 )
+script = ExtResource( 41 )
+
+[node name="NeedToWin" type="Label" parent="UI"]
+visible = false
+margin_left = 1000.0
+margin_top = 10.0
+margin_right = 1406.0
+margin_bottom = 84.0
+rect_scale = Vector2( 0.5, 0.5 )
+theme = ExtResource( 46 )
+text = "Need X to Win"
 
 [node name="State" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TerrainLayer1" type="TileMap" parent="State"]
+position = Vector2( -10, -9 )
+z_index = -99
+tile_set = ExtResource( 32 )
+cell_size = Vector2( 18, 18 )
+format = 1
+script = ExtResource( 33 )
+
+[node name="TerrainLayer2" type="TileMap" parent="State"]
+position = Vector2( -10, -9 )
+z_index = -98
+tile_set = ExtResource( 36 )
+cell_size = Vector2( 18, 18 )
+format = 1
+script = ExtResource( 33 )
+color = Color( 0.568627, 0.54902, 0.462745, 1 )
 
 [node name="Camera2D" type="Camera2D" parent="State"]
 script = ExtResource( 1 )
@@ -296,7 +459,24 @@ volume_db = -80.0
 autoplay = true
 script = ExtResource( 22 )
 
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 47 )
+bus = "SFX"
+
+[node name="SoundTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="mouse_entered" from="UI/Submit" to="UI/Submit" method="_on_Submit_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Submit" to="UI/Submit" method="_on_Submit_mouse_exited"]
+[connection signal="tab_changed" from="UI/TabContainer" to="UI/TabContainer" method="_on_TabContainer_tab_changed"]
+[connection signal="button_up" from="UI/TabContainer/Scenery/SceneryButtons/ClearTerrain" to="UI/TabContainer/Scenery/SceneryButtons/ClearTerrain" method="_on_ClearTerrain_button_up"]
 [connection signal="button_down" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_button_down"]
 [connection signal="focus_entered" from="UI/Deselect" to="." method="_on_Deselect_focus_entered"]
 [connection signal="focus_exited" from="UI/Deselect" to="." method="_on_Deselect_focus_exited"]
+[connection signal="mouse_entered" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_mouse_exited"]
 [connection signal="toggled" from="UI/Deselect" to="UI/Deselect" method="_on_Deselect_toggled"]
+[connection signal="button_up" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_button_up"]
+[connection signal="mouse_entered" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_mouse_entered"]
+[connection signal="mouse_exited" from="UI/InGameMenuBtn" to="UI/InGameMenuBtn" method="_on_InGameMenuBtn_mouse_exited"]

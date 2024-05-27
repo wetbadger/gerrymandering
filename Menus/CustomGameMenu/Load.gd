@@ -39,3 +39,4 @@ func _on_Load_button_up():
 	scene.add_child(w)
 	w.set_title("Load Settings")
 	w.position_window()
+	file.close()

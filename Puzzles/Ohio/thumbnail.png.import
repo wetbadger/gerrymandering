@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/thumbnail.png-80f8b035ff14e22c46d2fda21ffc4097.image"
+
+[deps]
+
+source_file="res://Puzzles/Ohio/thumbnail.png"
+dest_files=[ "res://.import/thumbnail.png-80f8b035ff14e22c46d2fda21ffc4097.image" ]
+
+[params]
+

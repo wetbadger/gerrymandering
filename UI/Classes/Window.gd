@@ -18,7 +18,8 @@ func _ready():
 				windows_open.append(self)
 
 func add_element(elem, _scale=1):
-	get_node("PanelContainer").add_child(elem)
+	var panel = get_node("PanelContainer")
+	panel.add_child(elem)
 	
 func set_title(text):
 	get_node("TitleBar").get_node("HBoxContainer/Bar/Label").set_text(text)
@@ -51,3 +52,8 @@ func set_min_height(h):
 func set_width(width):
 	get_node("PanelContainer").rect_size.x = width
 	bar.set_width(width)
+
+func set_text(text):
+	var label = Label.new()
+	label.text = text
+	add_element(label)

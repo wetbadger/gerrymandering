@@ -3,6 +3,7 @@ extends Node2D
 onready var control = $Control
 onready var tilemap = $Control/SpriteTiles3
 onready var color_rect = $ColorRect
+onready var player_color = $Control/ColorRect
 
 enum {GROW, SHRINK, DONE}
 
@@ -11,6 +12,8 @@ var i = 0
 var color_rect_freed = false
 
 var Y_POS = 30
+
+signal finished
 
 func _ready():
 	pass
@@ -49,6 +52,7 @@ func _process(_delta):
 					control.set_global_position(Vector2(pos.x, pos.y-10))
 			else:
 				mode = DONE
+				emit_signal("finished")
 				if not color_rect_freed: #race condition
 					free_color_rect()
 				set_process(false)
@@ -61,6 +65,9 @@ func free_color_rect():
 	if not color_rect_freed:
 		color_rect.queue_free()
 		color_rect_freed = true
+
+func set_color(c):
+	player_color.color = c
 
 func _on_Button_button_up():
 	queue_free()

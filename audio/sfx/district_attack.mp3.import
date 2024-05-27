@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/district_attack.mp3-509e882e96f5804214e28fad385d0c5e.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/district_attack.mp3"
+dest_files=[ "res://.import/district_attack.mp3-509e882e96f5804214e28fad385d0c5e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

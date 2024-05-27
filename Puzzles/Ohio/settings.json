@@ -1,0 +1,227 @@
+{
+	"name": "Ohio",
+	"pointer": null,
+	"difficulty": 2,
+    "requirement": 13,
+	"message": {
+		"title": "Ohio",
+		"content": "    In 2022, Republicans won 10 seats in the \n    house of representatives for Ohio. \n\n    By some twist of fate, Democrats have gained\n    control the Ohio Redistricting Commission\n    and can draw the districts to their liking!\n\n    Redistrict Ohio so that 13 democrats win."
+	},
+	"fog_size": [
+		2090,
+		1920
+	],
+	"parties": {
+		"Democrats": {
+			"voters": 268,
+			"asset": 1,
+			"color": "blue"
+		},
+		"Republicans": {
+			"voters": 315,
+			"asset": 0,
+			"color": "red"
+		},
+		"Third Party": {
+			"voters": 95,
+			"asset": 3,
+			"color": "purple"
+		}
+	},
+	"districts": {
+		"A": {
+			"max": 46,
+			"min": 45,
+			"color": "blue"
+		},
+		"B": {
+			"max": 46,
+			"min": 45,
+			"color": "red"
+		},
+		"C": {
+			"max": 46,
+			"min": 45,
+			"color": "teal"
+		},
+		"D": {
+			"max": 46,
+			"min": 45,
+			"color": "pink"
+		},
+		"E": {
+			"max": 46,
+			"min": 45,
+			"color": "black"
+		},
+		"F": {
+			"max": 46,
+			"min": 45,
+			"color": "yellow"
+		},
+		"G": {
+			"max": 46,
+			"min": 45,
+			"color": "orange"
+		},
+		"H": {
+			"max": 46,
+			"min": 45,
+			"color": "white"
+		},
+		"I": {
+			"max": 46,
+			"min": 45,
+			"color": "gray"
+		},
+		"J": {
+			"max": 46,
+			"min": 45,
+			"color": "teal"
+		},
+		"K": {
+			"max": 46,
+			"min": 45,
+			"color": "pink"
+		},
+		"L": {
+			"max": 46,
+			"min": 45,
+			"color": "teal"
+		},
+		"M": {
+			"max": 46,
+			"min": 45,
+			"color": "blue"
+		},
+		"N": {
+			"max": 46,
+			"min": 45,
+			"color": "red"
+		},
+		"O": {
+			"max": 46,
+			"min": 45,
+			"color": "orange"
+		}
+	},
+	"advanced": {
+		"District Rules": {
+			"contiguous": true,
+			"runtime contiguity enforcement": false,
+			"diagonals": false,
+			"show grid": false,
+			"multiplayer": false
+		},
+		"House Placement": {
+			"gaps": true,
+			"randomize positions": false,
+			"layout": [
+				"random",
+				"user placed"
+			],
+			"algorithm": [
+				"load from file",
+				"fill",
+				"spiral"
+			]
+		},
+		"Other": {
+			"debug": false
+		}
+	},
+	"shape": "Ohio",
+	"colors": {
+		"blue": [
+			0.25,
+			0.25,
+			1
+		],
+		"red": [
+			0.8,
+			0.1,
+			0.1
+		],
+		"orange": [
+			0.8,
+			0.4,
+			0.1
+		],
+		"purple": [
+			0.5,
+			0.2,
+			0.8
+		],
+		"yellow": [
+			0.8,
+			0.8,
+			0
+		],
+		"brown": [
+			0.3,
+			0.2,
+			0
+		],
+		"green": [
+			0.2,
+			0.8,
+			0.1
+		],
+		"white": [
+			1,
+			1,
+			1
+		],
+		"gray": [
+			0.5,
+			0.5,
+			0.5
+		],
+		"teal": [
+			0.1,
+			0.8,
+			0.8
+		],
+		"pink": [
+			0.8,
+			0.1,
+			0.7
+		],
+		"black": [
+			0,
+			0,
+			0
+		]
+	},
+	"assets": {
+		"Red House": 0,
+		"Blue House": 1,
+		"Orange House": 2,
+		"Purple House": 3,
+		"Yellow House": 4,
+		"Green House": 5,
+		"Weird House": 6,
+		"Red House Medium": 7,
+		"Blue House Medium": 8,
+		"Orange House Medium": 9,
+		"Purple House Medium": 10,
+		"Yellow House Medium": 11,
+		"Green House Medium": 12,
+		"Weird House Medium": 13,
+		"Red House Apartments": 14,
+		"Blue House Apartments": 15,
+		"Orange House Apartments": 16,
+		"Purple House Apartments": 17,
+		"Yellow House Apartments": 18,
+		"Green House Apartments": 19,
+		"Weird House Apartments": 20
+	},
+	"player": "Democrats",
+	"camera": {
+		"zoom": 0.8,
+		"position": [
+			1186.770386,
+			679.140869
+		]
+	}
+}

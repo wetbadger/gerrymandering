@@ -82,3 +82,8 @@ anchor_top = 1.0
 anchor_right = 0.0
 margin_top = -1070.0
 margin_bottom = -1070.0
+
+[connection signal="mouse_entered" from="ButtonContainer/HBox/Start2" to="ButtonContainer/HBox/Start2" method="_on_Start2_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonContainer/HBox/Start2" to="ButtonContainer/HBox/Start2" method="_on_Start2_mouse_exited"]
+[connection signal="mouse_entered" from="ButtonContainer/HBox/GotoMenu" to="ButtonContainer/HBox/GotoMenu" method="_on_GotoMenu_mouse_entered"]
+[connection signal="mouse_exited" from="ButtonContainer/HBox/GotoMenu" to="ButtonContainer/HBox/GotoMenu" method="_on_GotoMenu_mouse_exited"]

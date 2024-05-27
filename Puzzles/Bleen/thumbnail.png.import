@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/thumbnail.png-f3e3a60856d7a54a9db2e884da329aff.image"
+
+[deps]
+
+source_file="res://Puzzles/Bleen/thumbnail.png"
+dest_files=[ "res://.import/thumbnail.png-f3e3a60856d7a54a9db2e884da329aff.image" ]
+
+[params]
+

@@ -44,6 +44,7 @@ func get_reason():
 	return reason
 
 func _on_Submit_button_up():
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	match mode:
 		MODES.DISTRICT:
 			scene.submit()
@@ -57,7 +58,7 @@ func _on_Submit_button_up():
 		MODES.MULTIPLAYER:
 			disabled = true
 			for btn in district_buttons.get_children():
-				if btn.pressed:
+				if btn.get_class() != "Control" and btn.pressed:
 					btn.turn_ended = true
 					print("button "+btn.name+" turn ended")
 			scene.increment_player()
@@ -70,3 +71,13 @@ func _on_Submit_button_up():
 func show_tip():
 	tooltip.text = reason
 	tooltip.visible = true
+
+
+func _on_Submit_mouse_entered():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Submit_mouse_exited():
+	if not disabled:
+		Input.set_custom_mouse_cursor(Globals.pointer)

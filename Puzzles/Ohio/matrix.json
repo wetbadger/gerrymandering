@@ -1,0 +1,8409 @@
+{
+	"(79, 15)": {
+		"type": "House",
+		"coords": "(79, 15)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(80, 15)": {
+		"type": "House",
+		"coords": "(80, 15)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(81, 15)": {
+		"type": "Gap",
+		"coords": "(81, 15)",
+		"visited": false
+	},
+	"(81, 16)": {
+		"type": "Gap",
+		"coords": "(81, 16)",
+		"visited": false
+	},
+	"(80, 16)": {
+		"type": "Gap",
+		"coords": "(80, 16)",
+		"visited": false
+	},
+	"(79, 16)": {
+		"type": "House",
+		"coords": "(79, 16)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(78, 16)": {
+		"type": "Gap",
+		"coords": "(78, 16)",
+		"visited": false
+	},
+	"(77, 16)": {
+		"type": "Gap",
+		"coords": "(77, 16)",
+		"visited": false
+	},
+	"(76, 16)": {
+		"type": "House",
+		"coords": "(76, 16)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(75, 17)": {
+		"type": "House",
+		"coords": "(75, 17)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(76, 17)": {
+		"type": "House",
+		"coords": "(76, 17)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 17)": {
+		"type": "Gap",
+		"coords": "(77, 17)",
+		"visited": false
+	},
+	"(78, 17)": {
+		"type": "House",
+		"coords": "(78, 17)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(79, 17)": {
+		"type": "Gap",
+		"coords": "(79, 17)",
+		"visited": false
+	},
+	"(80, 17)": {
+		"type": "Gap",
+		"coords": "(80, 17)",
+		"visited": false
+	},
+	"(81, 17)": {
+		"type": "House",
+		"coords": "(81, 17)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 18)": {
+		"type": "Gap",
+		"coords": "(81, 18)",
+		"visited": false
+	},
+	"(80, 18)": {
+		"type": "Gap",
+		"coords": "(80, 18)",
+		"visited": false
+	},
+	"(79, 18)": {
+		"type": "Gap",
+		"coords": "(79, 18)",
+		"visited": false
+	},
+	"(78, 18)": {
+		"type": "Gap",
+		"coords": "(78, 18)",
+		"visited": false
+	},
+	"(77, 18)": {
+		"type": "Gap",
+		"coords": "(77, 18)",
+		"visited": false
+	},
+	"(76, 18)": {
+		"type": "Gap",
+		"coords": "(76, 18)",
+		"visited": false
+	},
+	"(75, 18)": {
+		"type": "House",
+		"coords": "(75, 18)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 18)": {
+		"type": "House",
+		"coords": "(74, 18)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(73, 18)": {
+		"type": "House",
+		"coords": "(73, 18)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(53, 18)": {
+		"type": "House",
+		"coords": "(53, 18)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(52, 18)": {
+		"type": "House",
+		"coords": "(52, 18)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(51, 18)": {
+		"type": "House",
+		"coords": "(51, 18)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(50, 18)": {
+		"type": "House",
+		"coords": "(50, 18)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(49, 18)": {
+		"type": "House",
+		"coords": "(49, 18)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(48, 18)": {
+		"type": "House",
+		"coords": "(48, 18)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(47, 18)": {
+		"type": "Gap",
+		"coords": "(47, 18)",
+		"visited": false
+	},
+	"(46, 18)": {
+		"type": "House",
+		"coords": "(46, 18)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(45, 18)": {
+		"type": "Gap",
+		"coords": "(45, 18)",
+		"visited": false
+	},
+	"(44, 18)": {
+		"type": "House",
+		"coords": "(44, 18)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(43, 18)": {
+		"type": "Gap",
+		"coords": "(43, 18)",
+		"visited": false
+	},
+	"(42, 18)": {
+		"type": "Gap",
+		"coords": "(42, 18)",
+		"visited": false
+	},
+	"(41, 18)": {
+		"type": "Gap",
+		"coords": "(41, 18)",
+		"visited": false
+	},
+	"(39, 19)": {
+		"type": "House",
+		"coords": "(39, 19)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 19)": {
+		"type": "Gap",
+		"coords": "(40, 19)",
+		"visited": false
+	},
+	"(41, 19)": {
+		"type": "Gap",
+		"coords": "(41, 19)",
+		"visited": false
+	},
+	"(42, 19)": {
+		"type": "Gap",
+		"coords": "(42, 19)",
+		"visited": false
+	},
+	"(43, 19)": {
+		"type": "House",
+		"coords": "(43, 19)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 19)": {
+		"type": "Gap",
+		"coords": "(44, 19)",
+		"visited": false
+	},
+	"(45, 19)": {
+		"type": "Gap",
+		"coords": "(45, 19)",
+		"visited": false
+	},
+	"(46, 19)": {
+		"type": "Gap",
+		"coords": "(46, 19)",
+		"visited": false
+	},
+	"(47, 19)": {
+		"type": "Gap",
+		"coords": "(47, 19)",
+		"visited": false
+	},
+	"(48, 19)": {
+		"type": "Gap",
+		"coords": "(48, 19)",
+		"visited": false
+	},
+	"(49, 19)": {
+		"type": "House",
+		"coords": "(49, 19)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 19)": {
+		"type": "House",
+		"coords": "(50, 19)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(51, 19)": {
+		"type": "House",
+		"coords": "(51, 19)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(52, 19)": {
+		"type": "House",
+		"coords": "(52, 19)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(53, 19)": {
+		"type": "Gap",
+		"coords": "(53, 19)",
+		"visited": false
+	},
+	"(54, 19)": {
+		"type": "Gap",
+		"coords": "(54, 19)",
+		"visited": false
+	},
+	"(72, 19)": {
+		"type": "House",
+		"coords": "(72, 19)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(73, 19)": {
+		"type": "House",
+		"coords": "(73, 19)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 2
+	},
+	"(74, 19)": {
+		"type": "Gap",
+		"coords": "(74, 19)",
+		"visited": false
+	},
+	"(75, 19)": {
+		"type": "Gap",
+		"coords": "(75, 19)",
+		"visited": false
+	},
+	"(76, 19)": {
+		"type": "Gap",
+		"coords": "(76, 19)",
+		"visited": false
+	},
+	"(77, 19)": {
+		"type": "Gap",
+		"coords": "(77, 19)",
+		"visited": false
+	},
+	"(78, 19)": {
+		"type": "Gap",
+		"coords": "(78, 19)",
+		"visited": false
+	},
+	"(79, 19)": {
+		"type": "House",
+		"coords": "(79, 19)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(80, 19)": {
+		"type": "Gap",
+		"coords": "(80, 19)",
+		"visited": false
+	},
+	"(81, 19)": {
+		"type": "Gap",
+		"coords": "(81, 19)",
+		"visited": false
+	},
+	"(81, 20)": {
+		"type": "Gap",
+		"coords": "(81, 20)",
+		"visited": false
+	},
+	"(80, 20)": {
+		"type": "Gap",
+		"coords": "(80, 20)",
+		"visited": false
+	},
+	"(79, 20)": {
+		"type": "Gap",
+		"coords": "(79, 20)",
+		"visited": false
+	},
+	"(78, 20)": {
+		"type": "Gap",
+		"coords": "(78, 20)",
+		"visited": false
+	},
+	"(77, 20)": {
+		"type": "Gap",
+		"coords": "(77, 20)",
+		"visited": false
+	},
+	"(76, 20)": {
+		"type": "Gap",
+		"coords": "(76, 20)",
+		"visited": false
+	},
+	"(75, 20)": {
+		"type": "House",
+		"coords": "(75, 20)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 20)": {
+		"type": "House",
+		"coords": "(74, 20)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 2
+	},
+	"(73, 20)": {
+		"type": "House",
+		"coords": "(73, 20)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(72, 20)": {
+		"type": "House",
+		"coords": "(72, 20)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(71, 20)": {
+		"type": "House",
+		"coords": "(71, 20)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(58, 20)": {
+		"type": "House",
+		"coords": "(58, 20)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(56, 20)": {
+		"type": "Gap",
+		"coords": "(56, 20)",
+		"visited": false
+	},
+	"(55, 20)": {
+		"type": "Gap",
+		"coords": "(55, 20)",
+		"visited": false
+	},
+	"(54, 20)": {
+		"type": "Gap",
+		"coords": "(54, 20)",
+		"visited": false
+	},
+	"(53, 20)": {
+		"type": "House",
+		"coords": "(53, 20)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 20)": {
+		"type": "House",
+		"coords": "(52, 20)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(51, 20)": {
+		"type": "House",
+		"coords": "(51, 20)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 20)": {
+		"type": "House",
+		"coords": "(50, 20)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 20)": {
+		"type": "Gap",
+		"coords": "(49, 20)",
+		"visited": false
+	},
+	"(48, 20)": {
+		"type": "House",
+		"coords": "(48, 20)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(47, 20)": {
+		"type": "House",
+		"coords": "(47, 20)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(46, 20)": {
+		"type": "Gap",
+		"coords": "(46, 20)",
+		"visited": false
+	},
+	"(45, 20)": {
+		"type": "Gap",
+		"coords": "(45, 20)",
+		"visited": false
+	},
+	"(44, 20)": {
+		"type": "Gap",
+		"coords": "(44, 20)",
+		"visited": false
+	},
+	"(43, 20)": {
+		"type": "Gap",
+		"coords": "(43, 20)",
+		"visited": false
+	},
+	"(42, 20)": {
+		"type": "Gap",
+		"coords": "(42, 20)",
+		"visited": false
+	},
+	"(41, 20)": {
+		"type": "Gap",
+		"coords": "(41, 20)",
+		"visited": false
+	},
+	"(40, 20)": {
+		"type": "Gap",
+		"coords": "(40, 20)",
+		"visited": false
+	},
+	"(39, 20)": {
+		"type": "Gap",
+		"coords": "(39, 20)",
+		"visited": false
+	},
+	"(39, 21)": {
+		"type": "Gap",
+		"coords": "(39, 21)",
+		"visited": false
+	},
+	"(40, 21)": {
+		"type": "Gap",
+		"coords": "(40, 21)",
+		"visited": false
+	},
+	"(41, 21)": {
+		"type": "Gap",
+		"coords": "(41, 21)",
+		"visited": false
+	},
+	"(42, 21)": {
+		"type": "Gap",
+		"coords": "(42, 21)",
+		"visited": false
+	},
+	"(43, 21)": {
+		"type": "Gap",
+		"coords": "(43, 21)",
+		"visited": false
+	},
+	"(44, 21)": {
+		"type": "House",
+		"coords": "(44, 21)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(45, 21)": {
+		"type": "Gap",
+		"coords": "(45, 21)",
+		"visited": false
+	},
+	"(46, 21)": {
+		"type": "Gap",
+		"coords": "(46, 21)",
+		"visited": false
+	},
+	"(47, 21)": {
+		"type": "Gap",
+		"coords": "(47, 21)",
+		"visited": false
+	},
+	"(48, 21)": {
+		"type": "Gap",
+		"coords": "(48, 21)",
+		"visited": false
+	},
+	"(49, 21)": {
+		"type": "House",
+		"coords": "(49, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 21)": {
+		"type": "House",
+		"coords": "(50, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(51, 21)": {
+		"type": "Gap",
+		"coords": "(51, 21)",
+		"visited": false
+	},
+	"(52, 21)": {
+		"type": "Gap",
+		"coords": "(52, 21)",
+		"visited": false
+	},
+	"(53, 21)": {
+		"type": "Gap",
+		"coords": "(53, 21)",
+		"visited": false
+	},
+	"(54, 21)": {
+		"type": "House",
+		"coords": "(54, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 21)": {
+		"type": "House",
+		"coords": "(55, 21)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(56, 21)": {
+		"type": "Gap",
+		"coords": "(56, 21)",
+		"visited": false
+	},
+	"(57, 21)": {
+		"type": "Gap",
+		"coords": "(57, 21)",
+		"visited": false
+	},
+	"(58, 21)": {
+		"type": "House",
+		"coords": "(58, 21)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(59, 21)": {
+		"type": "Gap",
+		"coords": "(59, 21)",
+		"visited": false
+	},
+	"(65, 21)": {
+		"type": "House",
+		"coords": "(65, 21)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(66, 21)": {
+		"type": "House",
+		"coords": "(66, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(67, 21)": {
+		"type": "House",
+		"coords": "(67, 21)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(68, 21)": {
+		"type": "House",
+		"coords": "(68, 21)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(69, 21)": {
+		"type": "House",
+		"coords": "(69, 21)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(70, 21)": {
+		"type": "House",
+		"coords": "(70, 21)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(71, 21)": {
+		"type": "House",
+		"coords": "(71, 21)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(72, 21)": {
+		"type": "House",
+		"coords": "(72, 21)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(73, 21)": {
+		"type": "House",
+		"coords": "(73, 21)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(74, 21)": {
+		"type": "House",
+		"coords": "(74, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 21)": {
+		"type": "Gap",
+		"coords": "(75, 21)",
+		"visited": false
+	},
+	"(76, 21)": {
+		"type": "House",
+		"coords": "(76, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 21)": {
+		"type": "Gap",
+		"coords": "(77, 21)",
+		"visited": false
+	},
+	"(78, 21)": {
+		"type": "Gap",
+		"coords": "(78, 21)",
+		"visited": false
+	},
+	"(79, 21)": {
+		"type": "House",
+		"coords": "(79, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(80, 21)": {
+		"type": "House",
+		"coords": "(80, 21)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 21)": {
+		"type": "Gap",
+		"coords": "(81, 21)",
+		"visited": false
+	},
+	"(81, 22)": {
+		"type": "House",
+		"coords": "(81, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(80, 22)": {
+		"type": "Gap",
+		"coords": "(80, 22)",
+		"visited": false
+	},
+	"(79, 22)": {
+		"type": "Gap",
+		"coords": "(79, 22)",
+		"visited": false
+	},
+	"(78, 22)": {
+		"type": "House",
+		"coords": "(78, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 22)": {
+		"type": "Gap",
+		"coords": "(77, 22)",
+		"visited": false
+	},
+	"(76, 22)": {
+		"type": "Gap",
+		"coords": "(76, 22)",
+		"visited": false
+	},
+	"(75, 22)": {
+		"type": "Gap",
+		"coords": "(75, 22)",
+		"visited": false
+	},
+	"(74, 22)": {
+		"type": "Gap",
+		"coords": "(74, 22)",
+		"visited": false
+	},
+	"(73, 22)": {
+		"type": "House",
+		"coords": "(73, 22)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(72, 22)": {
+		"type": "House",
+		"coords": "(72, 22)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(71, 22)": {
+		"type": "House",
+		"coords": "(71, 22)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(70, 22)": {
+		"type": "House",
+		"coords": "(70, 22)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(69, 22)": {
+		"type": "House",
+		"coords": "(69, 22)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(68, 22)": {
+		"type": "House",
+		"coords": "(68, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(67, 22)": {
+		"type": "House",
+		"coords": "(67, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(66, 22)": {
+		"type": "House",
+		"coords": "(66, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 22)": {
+		"type": "House",
+		"coords": "(65, 22)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(64, 22)": {
+		"type": "House",
+		"coords": "(64, 22)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(63, 22)": {
+		"type": "Gap",
+		"coords": "(63, 22)",
+		"visited": false
+	},
+	"(62, 22)": {
+		"type": "Gap",
+		"coords": "(62, 22)",
+		"visited": false
+	},
+	"(61, 22)": {
+		"type": "House",
+		"coords": "(61, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(60, 22)": {
+		"type": "House",
+		"coords": "(60, 22)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(59, 22)": {
+		"type": "Gap",
+		"coords": "(59, 22)",
+		"visited": false
+	},
+	"(58, 22)": {
+		"type": "House",
+		"coords": "(58, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(57, 22)": {
+		"type": "Gap",
+		"coords": "(57, 22)",
+		"visited": false
+	},
+	"(56, 22)": {
+		"type": "Gap",
+		"coords": "(56, 22)",
+		"visited": false
+	},
+	"(55, 22)": {
+		"type": "House",
+		"coords": "(55, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(54, 22)": {
+		"type": "Gap",
+		"coords": "(54, 22)",
+		"visited": false
+	},
+	"(53, 22)": {
+		"type": "House",
+		"coords": "(53, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 22)": {
+		"type": "Gap",
+		"coords": "(52, 22)",
+		"visited": false
+	},
+	"(51, 22)": {
+		"type": "Gap",
+		"coords": "(51, 22)",
+		"visited": false
+	},
+	"(50, 22)": {
+		"type": "House",
+		"coords": "(50, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(49, 22)": {
+		"type": "House",
+		"coords": "(49, 22)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(48, 22)": {
+		"type": "Gap",
+		"coords": "(48, 22)",
+		"visited": false
+	},
+	"(47, 22)": {
+		"type": "Gap",
+		"coords": "(47, 22)",
+		"visited": false
+	},
+	"(46, 22)": {
+		"type": "House",
+		"coords": "(46, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 22)": {
+		"type": "Gap",
+		"coords": "(45, 22)",
+		"visited": false
+	},
+	"(44, 22)": {
+		"type": "Gap",
+		"coords": "(44, 22)",
+		"visited": false
+	},
+	"(43, 22)": {
+		"type": "Gap",
+		"coords": "(43, 22)",
+		"visited": false
+	},
+	"(42, 22)": {
+		"type": "Gap",
+		"coords": "(42, 22)",
+		"visited": false
+	},
+	"(41, 22)": {
+		"type": "Gap",
+		"coords": "(41, 22)",
+		"visited": false
+	},
+	"(40, 22)": {
+		"type": "Gap",
+		"coords": "(40, 22)",
+		"visited": false
+	},
+	"(39, 22)": {
+		"type": "House",
+		"coords": "(39, 22)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(39, 23)": {
+		"type": "Gap",
+		"coords": "(39, 23)",
+		"visited": false
+	},
+	"(40, 23)": {
+		"type": "Gap",
+		"coords": "(40, 23)",
+		"visited": false
+	},
+	"(41, 23)": {
+		"type": "Gap",
+		"coords": "(41, 23)",
+		"visited": false
+	},
+	"(42, 23)": {
+		"type": "House",
+		"coords": "(42, 23)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(43, 23)": {
+		"type": "Gap",
+		"coords": "(43, 23)",
+		"visited": false
+	},
+	"(44, 23)": {
+		"type": "Gap",
+		"coords": "(44, 23)",
+		"visited": false
+	},
+	"(45, 23)": {
+		"type": "Gap",
+		"coords": "(45, 23)",
+		"visited": false
+	},
+	"(46, 23)": {
+		"type": "Gap",
+		"coords": "(46, 23)",
+		"visited": false
+	},
+	"(47, 23)": {
+		"type": "Gap",
+		"coords": "(47, 23)",
+		"visited": false
+	},
+	"(48, 23)": {
+		"type": "Gap",
+		"coords": "(48, 23)",
+		"visited": false
+	},
+	"(49, 23)": {
+		"type": "Gap",
+		"coords": "(49, 23)",
+		"visited": false
+	},
+	"(50, 23)": {
+		"type": "House",
+		"coords": "(50, 23)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 23)": {
+		"type": "Gap",
+		"coords": "(51, 23)",
+		"visited": false
+	},
+	"(52, 23)": {
+		"type": "Gap",
+		"coords": "(52, 23)",
+		"visited": false
+	},
+	"(53, 23)": {
+		"type": "Gap",
+		"coords": "(53, 23)",
+		"visited": false
+	},
+	"(54, 23)": {
+		"type": "Gap",
+		"coords": "(54, 23)",
+		"visited": false
+	},
+	"(55, 23)": {
+		"type": "Gap",
+		"coords": "(55, 23)",
+		"visited": false
+	},
+	"(56, 23)": {
+		"type": "Gap",
+		"coords": "(56, 23)",
+		"visited": false
+	},
+	"(57, 23)": {
+		"type": "Gap",
+		"coords": "(57, 23)",
+		"visited": false
+	},
+	"(58, 23)": {
+		"type": "Gap",
+		"coords": "(58, 23)",
+		"visited": false
+	},
+	"(59, 23)": {
+		"type": "Gap",
+		"coords": "(59, 23)",
+		"visited": false
+	},
+	"(60, 23)": {
+		"type": "House",
+		"coords": "(60, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(61, 23)": {
+		"type": "Gap",
+		"coords": "(61, 23)",
+		"visited": false
+	},
+	"(62, 23)": {
+		"type": "Gap",
+		"coords": "(62, 23)",
+		"visited": false
+	},
+	"(63, 23)": {
+		"type": "Gap",
+		"coords": "(63, 23)",
+		"visited": false
+	},
+	"(64, 23)": {
+		"type": "House",
+		"coords": "(64, 23)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(65, 23)": {
+		"type": "House",
+		"coords": "(65, 23)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(66, 23)": {
+		"type": "Gap",
+		"coords": "(66, 23)",
+		"visited": false
+	},
+	"(67, 23)": {
+		"type": "House",
+		"coords": "(67, 23)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(68, 23)": {
+		"type": "House",
+		"coords": "(68, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 23)": {
+		"type": "House",
+		"coords": "(69, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 23)": {
+		"type": "House",
+		"coords": "(70, 23)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(71, 23)": {
+		"type": "House",
+		"coords": "(71, 23)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(72, 23)": {
+		"type": "House",
+		"coords": "(72, 23)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(73, 23)": {
+		"type": "Gap",
+		"coords": "(73, 23)",
+		"visited": false
+	},
+	"(74, 23)": {
+		"type": "House",
+		"coords": "(74, 23)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(75, 23)": {
+		"type": "House",
+		"coords": "(75, 23)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(76, 23)": {
+		"type": "House",
+		"coords": "(76, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 23)": {
+		"type": "Gap",
+		"coords": "(77, 23)",
+		"visited": false
+	},
+	"(78, 23)": {
+		"type": "House",
+		"coords": "(78, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(79, 23)": {
+		"type": "Gap",
+		"coords": "(79, 23)",
+		"visited": false
+	},
+	"(80, 23)": {
+		"type": "House",
+		"coords": "(80, 23)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 23)": {
+		"type": "Gap",
+		"coords": "(81, 23)",
+		"visited": false
+	},
+	"(81, 24)": {
+		"type": "Gap",
+		"coords": "(81, 24)",
+		"visited": false
+	},
+	"(80, 24)": {
+		"type": "Gap",
+		"coords": "(80, 24)",
+		"visited": false
+	},
+	"(79, 24)": {
+		"type": "House",
+		"coords": "(79, 24)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(78, 24)": {
+		"type": "Gap",
+		"coords": "(78, 24)",
+		"visited": false
+	},
+	"(77, 24)": {
+		"type": "Gap",
+		"coords": "(77, 24)",
+		"visited": false
+	},
+	"(76, 24)": {
+		"type": "Gap",
+		"coords": "(76, 24)",
+		"visited": false
+	},
+	"(75, 24)": {
+		"type": "House",
+		"coords": "(75, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 24)": {
+		"type": "Gap",
+		"coords": "(74, 24)",
+		"visited": false
+	},
+	"(73, 24)": {
+		"type": "House",
+		"coords": "(73, 24)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(72, 24)": {
+		"type": "Gap",
+		"coords": "(72, 24)",
+		"visited": false
+	},
+	"(71, 24)": {
+		"type": "House",
+		"coords": "(71, 24)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(70, 24)": {
+		"type": "Gap",
+		"coords": "(70, 24)",
+		"visited": false
+	},
+	"(69, 24)": {
+		"type": "House",
+		"coords": "(69, 24)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(68, 24)": {
+		"type": "House",
+		"coords": "(68, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(67, 24)": {
+		"type": "House",
+		"coords": "(67, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(66, 24)": {
+		"type": "House",
+		"coords": "(66, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 24)": {
+		"type": "House",
+		"coords": "(65, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 24)": {
+		"type": "Gap",
+		"coords": "(64, 24)",
+		"visited": false
+	},
+	"(63, 24)": {
+		"type": "House",
+		"coords": "(63, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 24)": {
+		"type": "Gap",
+		"coords": "(62, 24)",
+		"visited": false
+	},
+	"(61, 24)": {
+		"type": "Gap",
+		"coords": "(61, 24)",
+		"visited": false
+	},
+	"(60, 24)": {
+		"type": "House",
+		"coords": "(60, 24)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(59, 24)": {
+		"type": "Gap",
+		"coords": "(59, 24)",
+		"visited": false
+	},
+	"(58, 24)": {
+		"type": "Gap",
+		"coords": "(58, 24)",
+		"visited": false
+	},
+	"(57, 24)": {
+		"type": "Gap",
+		"coords": "(57, 24)",
+		"visited": false
+	},
+	"(56, 24)": {
+		"type": "House",
+		"coords": "(56, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 24)": {
+		"type": "Gap",
+		"coords": "(55, 24)",
+		"visited": false
+	},
+	"(54, 24)": {
+		"type": "Gap",
+		"coords": "(54, 24)",
+		"visited": false
+	},
+	"(53, 24)": {
+		"type": "Gap",
+		"coords": "(53, 24)",
+		"visited": false
+	},
+	"(52, 24)": {
+		"type": "Gap",
+		"coords": "(52, 24)",
+		"visited": false
+	},
+	"(51, 24)": {
+		"type": "Gap",
+		"coords": "(51, 24)",
+		"visited": false
+	},
+	"(50, 24)": {
+		"type": "House",
+		"coords": "(50, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 24)": {
+		"type": "Gap",
+		"coords": "(49, 24)",
+		"visited": false
+	},
+	"(48, 24)": {
+		"type": "House",
+		"coords": "(48, 24)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(47, 24)": {
+		"type": "Gap",
+		"coords": "(47, 24)",
+		"visited": false
+	},
+	"(46, 24)": {
+		"type": "Gap",
+		"coords": "(46, 24)",
+		"visited": false
+	},
+	"(45, 24)": {
+		"type": "Gap",
+		"coords": "(45, 24)",
+		"visited": false
+	},
+	"(44, 24)": {
+		"type": "Gap",
+		"coords": "(44, 24)",
+		"visited": false
+	},
+	"(43, 24)": {
+		"type": "Gap",
+		"coords": "(43, 24)",
+		"visited": false
+	},
+	"(42, 24)": {
+		"type": "Gap",
+		"coords": "(42, 24)",
+		"visited": false
+	},
+	"(41, 24)": {
+		"type": "Gap",
+		"coords": "(41, 24)",
+		"visited": false
+	},
+	"(40, 24)": {
+		"type": "Gap",
+		"coords": "(40, 24)",
+		"visited": false
+	},
+	"(39, 24)": {
+		"type": "Gap",
+		"coords": "(39, 24)",
+		"visited": false
+	},
+	"(39, 25)": {
+		"type": "Gap",
+		"coords": "(39, 25)",
+		"visited": false
+	},
+	"(40, 25)": {
+		"type": "House",
+		"coords": "(40, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(41, 25)": {
+		"type": "Gap",
+		"coords": "(41, 25)",
+		"visited": false
+	},
+	"(42, 25)": {
+		"type": "Gap",
+		"coords": "(42, 25)",
+		"visited": false
+	},
+	"(43, 25)": {
+		"type": "Gap",
+		"coords": "(43, 25)",
+		"visited": false
+	},
+	"(44, 25)": {
+		"type": "Gap",
+		"coords": "(44, 25)",
+		"visited": false
+	},
+	"(45, 25)": {
+		"type": "Gap",
+		"coords": "(45, 25)",
+		"visited": false
+	},
+	"(46, 25)": {
+		"type": "Gap",
+		"coords": "(46, 25)",
+		"visited": false
+	},
+	"(47, 25)": {
+		"type": "Gap",
+		"coords": "(47, 25)",
+		"visited": false
+	},
+	"(48, 25)": {
+		"type": "Gap",
+		"coords": "(48, 25)",
+		"visited": false
+	},
+	"(49, 25)": {
+		"type": "Gap",
+		"coords": "(49, 25)",
+		"visited": false
+	},
+	"(50, 25)": {
+		"type": "Gap",
+		"coords": "(50, 25)",
+		"visited": false
+	},
+	"(51, 25)": {
+		"type": "Gap",
+		"coords": "(51, 25)",
+		"visited": false
+	},
+	"(52, 25)": {
+		"type": "House",
+		"coords": "(52, 25)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(53, 25)": {
+		"type": "Gap",
+		"coords": "(53, 25)",
+		"visited": false
+	},
+	"(54, 25)": {
+		"type": "Gap",
+		"coords": "(54, 25)",
+		"visited": false
+	},
+	"(55, 25)": {
+		"type": "Gap",
+		"coords": "(55, 25)",
+		"visited": false
+	},
+	"(56, 25)": {
+		"type": "Gap",
+		"coords": "(56, 25)",
+		"visited": false
+	},
+	"(57, 25)": {
+		"type": "Gap",
+		"coords": "(57, 25)",
+		"visited": false
+	},
+	"(58, 25)": {
+		"type": "Gap",
+		"coords": "(58, 25)",
+		"visited": false
+	},
+	"(59, 25)": {
+		"type": "Gap",
+		"coords": "(59, 25)",
+		"visited": false
+	},
+	"(60, 25)": {
+		"type": "Gap",
+		"coords": "(60, 25)",
+		"visited": false
+	},
+	"(61, 25)": {
+		"type": "Gap",
+		"coords": "(61, 25)",
+		"visited": false
+	},
+	"(62, 25)": {
+		"type": "Gap",
+		"coords": "(62, 25)",
+		"visited": false
+	},
+	"(63, 25)": {
+		"type": "House",
+		"coords": "(63, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 25)": {
+		"type": "Gap",
+		"coords": "(64, 25)",
+		"visited": false
+	},
+	"(65, 25)": {
+		"type": "Gap",
+		"coords": "(65, 25)",
+		"visited": false
+	},
+	"(66, 25)": {
+		"type": "Gap",
+		"coords": "(66, 25)",
+		"visited": false
+	},
+	"(67, 25)": {
+		"type": "Gap",
+		"coords": "(67, 25)",
+		"visited": false
+	},
+	"(68, 25)": {
+		"type": "House",
+		"coords": "(68, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 25)": {
+		"type": "Gap",
+		"coords": "(69, 25)",
+		"visited": false
+	},
+	"(70, 25)": {
+		"type": "House",
+		"coords": "(70, 25)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(71, 25)": {
+		"type": "House",
+		"coords": "(71, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(72, 25)": {
+		"type": "House",
+		"coords": "(72, 25)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(73, 25)": {
+		"type": "House",
+		"coords": "(73, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 25)": {
+		"type": "House",
+		"coords": "(74, 25)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(75, 25)": {
+		"type": "House",
+		"coords": "(75, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 25)": {
+		"type": "Gap",
+		"coords": "(76, 25)",
+		"visited": false
+	},
+	"(77, 25)": {
+		"type": "House",
+		"coords": "(77, 25)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(78, 25)": {
+		"type": "House",
+		"coords": "(78, 25)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 2
+	},
+	"(79, 25)": {
+		"type": "Gap",
+		"coords": "(79, 25)",
+		"visited": false
+	},
+	"(80, 25)": {
+		"type": "House",
+		"coords": "(80, 25)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(81, 25)": {
+		"type": "House",
+		"coords": "(81, 25)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(81, 26)": {
+		"type": "House",
+		"coords": "(81, 26)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(80, 26)": {
+		"type": "House",
+		"coords": "(80, 26)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(79, 26)": {
+		"type": "House",
+		"coords": "(79, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(78, 26)": {
+		"type": "Gap",
+		"coords": "(78, 26)",
+		"visited": false
+	},
+	"(77, 26)": {
+		"type": "Gap",
+		"coords": "(77, 26)",
+		"visited": false
+	},
+	"(76, 26)": {
+		"type": "House",
+		"coords": "(76, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 26)": {
+		"type": "Gap",
+		"coords": "(75, 26)",
+		"visited": false
+	},
+	"(74, 26)": {
+		"type": "Gap",
+		"coords": "(74, 26)",
+		"visited": false
+	},
+	"(73, 26)": {
+		"type": "House",
+		"coords": "(73, 26)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(72, 26)": {
+		"type": "House",
+		"coords": "(72, 26)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(71, 26)": {
+		"type": "House",
+		"coords": "(71, 26)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(70, 26)": {
+		"type": "House",
+		"coords": "(70, 26)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(69, 26)": {
+		"type": "Gap",
+		"coords": "(69, 26)",
+		"visited": false
+	},
+	"(68, 26)": {
+		"type": "House",
+		"coords": "(68, 26)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(67, 26)": {
+		"type": "Gap",
+		"coords": "(67, 26)",
+		"visited": false
+	},
+	"(66, 26)": {
+		"type": "House",
+		"coords": "(66, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 26)": {
+		"type": "Gap",
+		"coords": "(65, 26)",
+		"visited": false
+	},
+	"(64, 26)": {
+		"type": "House",
+		"coords": "(64, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(63, 26)": {
+		"type": "Gap",
+		"coords": "(63, 26)",
+		"visited": false
+	},
+	"(62, 26)": {
+		"type": "Gap",
+		"coords": "(62, 26)",
+		"visited": false
+	},
+	"(61, 26)": {
+		"type": "Gap",
+		"coords": "(61, 26)",
+		"visited": false
+	},
+	"(60, 26)": {
+		"type": "Gap",
+		"coords": "(60, 26)",
+		"visited": false
+	},
+	"(59, 26)": {
+		"type": "Gap",
+		"coords": "(59, 26)",
+		"visited": false
+	},
+	"(58, 26)": {
+		"type": "Gap",
+		"coords": "(58, 26)",
+		"visited": false
+	},
+	"(57, 26)": {
+		"type": "Gap",
+		"coords": "(57, 26)",
+		"visited": false
+	},
+	"(56, 26)": {
+		"type": "House",
+		"coords": "(56, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 26)": {
+		"type": "Gap",
+		"coords": "(55, 26)",
+		"visited": false
+	},
+	"(54, 26)": {
+		"type": "House",
+		"coords": "(54, 26)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(53, 26)": {
+		"type": "Gap",
+		"coords": "(53, 26)",
+		"visited": false
+	},
+	"(52, 26)": {
+		"type": "Gap",
+		"coords": "(52, 26)",
+		"visited": false
+	},
+	"(51, 26)": {
+		"type": "Gap",
+		"coords": "(51, 26)",
+		"visited": false
+	},
+	"(50, 26)": {
+		"type": "House",
+		"coords": "(50, 26)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 26)": {
+		"type": "Gap",
+		"coords": "(49, 26)",
+		"visited": false
+	},
+	"(48, 26)": {
+		"type": "Gap",
+		"coords": "(48, 26)",
+		"visited": false
+	},
+	"(47, 26)": {
+		"type": "Gap",
+		"coords": "(47, 26)",
+		"visited": false
+	},
+	"(46, 26)": {
+		"type": "Gap",
+		"coords": "(46, 26)",
+		"visited": false
+	},
+	"(45, 26)": {
+		"type": "Gap",
+		"coords": "(45, 26)",
+		"visited": false
+	},
+	"(44, 26)": {
+		"type": "Gap",
+		"coords": "(44, 26)",
+		"visited": false
+	},
+	"(43, 26)": {
+		"type": "Gap",
+		"coords": "(43, 26)",
+		"visited": false
+	},
+	"(42, 26)": {
+		"type": "House",
+		"coords": "(42, 26)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(41, 26)": {
+		"type": "Gap",
+		"coords": "(41, 26)",
+		"visited": false
+	},
+	"(40, 26)": {
+		"type": "Gap",
+		"coords": "(40, 26)",
+		"visited": false
+	},
+	"(39, 26)": {
+		"type": "Gap",
+		"coords": "(39, 26)",
+		"visited": false
+	},
+	"(39, 27)": {
+		"type": "Gap",
+		"coords": "(39, 27)",
+		"visited": false
+	},
+	"(40, 27)": {
+		"type": "Gap",
+		"coords": "(40, 27)",
+		"visited": false
+	},
+	"(41, 27)": {
+		"type": "Gap",
+		"coords": "(41, 27)",
+		"visited": false
+	},
+	"(42, 27)": {
+		"type": "Gap",
+		"coords": "(42, 27)",
+		"visited": false
+	},
+	"(43, 27)": {
+		"type": "Gap",
+		"coords": "(43, 27)",
+		"visited": false
+	},
+	"(44, 27)": {
+		"type": "House",
+		"coords": "(44, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 27)": {
+		"type": "Gap",
+		"coords": "(45, 27)",
+		"visited": false
+	},
+	"(46, 27)": {
+		"type": "Gap",
+		"coords": "(46, 27)",
+		"visited": false
+	},
+	"(47, 27)": {
+		"type": "Gap",
+		"coords": "(47, 27)",
+		"visited": false
+	},
+	"(48, 27)": {
+		"type": "House",
+		"coords": "(48, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 27)": {
+		"type": "House",
+		"coords": "(49, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 27)": {
+		"type": "House",
+		"coords": "(50, 27)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 27)": {
+		"type": "Gap",
+		"coords": "(51, 27)",
+		"visited": false
+	},
+	"(52, 27)": {
+		"type": "Gap",
+		"coords": "(52, 27)",
+		"visited": false
+	},
+	"(53, 27)": {
+		"type": "House",
+		"coords": "(53, 27)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(54, 27)": {
+		"type": "Gap",
+		"coords": "(54, 27)",
+		"visited": false
+	},
+	"(55, 27)": {
+		"type": "Gap",
+		"coords": "(55, 27)",
+		"visited": false
+	},
+	"(56, 27)": {
+		"type": "Gap",
+		"coords": "(56, 27)",
+		"visited": false
+	},
+	"(57, 27)": {
+		"type": "Gap",
+		"coords": "(57, 27)",
+		"visited": false
+	},
+	"(58, 27)": {
+		"type": "House",
+		"coords": "(58, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(59, 27)": {
+		"type": "Gap",
+		"coords": "(59, 27)",
+		"visited": false
+	},
+	"(60, 27)": {
+		"type": "Gap",
+		"coords": "(60, 27)",
+		"visited": false
+	},
+	"(61, 27)": {
+		"type": "House",
+		"coords": "(61, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 27)": {
+		"type": "Gap",
+		"coords": "(62, 27)",
+		"visited": false
+	},
+	"(63, 27)": {
+		"type": "Gap",
+		"coords": "(63, 27)",
+		"visited": false
+	},
+	"(64, 27)": {
+		"type": "Gap",
+		"coords": "(64, 27)",
+		"visited": false
+	},
+	"(65, 27)": {
+		"type": "House",
+		"coords": "(65, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(66, 27)": {
+		"type": "House",
+		"coords": "(66, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(67, 27)": {
+		"type": "Gap",
+		"coords": "(67, 27)",
+		"visited": false
+	},
+	"(68, 27)": {
+		"type": "House",
+		"coords": "(68, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 27)": {
+		"type": "House",
+		"coords": "(69, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 27)": {
+		"type": "House",
+		"coords": "(70, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(71, 27)": {
+		"type": "House",
+		"coords": "(71, 27)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(72, 27)": {
+		"type": "House",
+		"coords": "(72, 27)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(73, 27)": {
+		"type": "House",
+		"coords": "(73, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 27)": {
+		"type": "Gap",
+		"coords": "(74, 27)",
+		"visited": false
+	},
+	"(75, 27)": {
+		"type": "Gap",
+		"coords": "(75, 27)",
+		"visited": false
+	},
+	"(76, 27)": {
+		"type": "Gap",
+		"coords": "(76, 27)",
+		"visited": false
+	},
+	"(77, 27)": {
+		"type": "Gap",
+		"coords": "(77, 27)",
+		"visited": false
+	},
+	"(78, 27)": {
+		"type": "House",
+		"coords": "(78, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(79, 27)": {
+		"type": "Gap",
+		"coords": "(79, 27)",
+		"visited": false
+	},
+	"(80, 27)": {
+		"type": "House",
+		"coords": "(80, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 27)": {
+		"type": "House",
+		"coords": "(81, 27)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 28)": {
+		"type": "Gap",
+		"coords": "(81, 28)",
+		"visited": false
+	},
+	"(80, 28)": {
+		"type": "Gap",
+		"coords": "(80, 28)",
+		"visited": false
+	},
+	"(79, 28)": {
+		"type": "House",
+		"coords": "(79, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(78, 28)": {
+		"type": "Gap",
+		"coords": "(78, 28)",
+		"visited": false
+	},
+	"(77, 28)": {
+		"type": "House",
+		"coords": "(77, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 28)": {
+		"type": "House",
+		"coords": "(76, 28)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(75, 28)": {
+		"type": "Gap",
+		"coords": "(75, 28)",
+		"visited": false
+	},
+	"(74, 28)": {
+		"type": "Gap",
+		"coords": "(74, 28)",
+		"visited": false
+	},
+	"(73, 28)": {
+		"type": "Gap",
+		"coords": "(73, 28)",
+		"visited": false
+	},
+	"(72, 28)": {
+		"type": "House",
+		"coords": "(72, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(71, 28)": {
+		"type": "House",
+		"coords": "(71, 28)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(70, 28)": {
+		"type": "Gap",
+		"coords": "(70, 28)",
+		"visited": false
+	},
+	"(69, 28)": {
+		"type": "Gap",
+		"coords": "(69, 28)",
+		"visited": false
+	},
+	"(68, 28)": {
+		"type": "Gap",
+		"coords": "(68, 28)",
+		"visited": false
+	},
+	"(67, 28)": {
+		"type": "Gap",
+		"coords": "(67, 28)",
+		"visited": false
+	},
+	"(66, 28)": {
+		"type": "Gap",
+		"coords": "(66, 28)",
+		"visited": false
+	},
+	"(65, 28)": {
+		"type": "Gap",
+		"coords": "(65, 28)",
+		"visited": false
+	},
+	"(64, 28)": {
+		"type": "Gap",
+		"coords": "(64, 28)",
+		"visited": false
+	},
+	"(63, 28)": {
+		"type": "Gap",
+		"coords": "(63, 28)",
+		"visited": false
+	},
+	"(62, 28)": {
+		"type": "Gap",
+		"coords": "(62, 28)",
+		"visited": false
+	},
+	"(61, 28)": {
+		"type": "Gap",
+		"coords": "(61, 28)",
+		"visited": false
+	},
+	"(60, 28)": {
+		"type": "Gap",
+		"coords": "(60, 28)",
+		"visited": false
+	},
+	"(59, 28)": {
+		"type": "Gap",
+		"coords": "(59, 28)",
+		"visited": false
+	},
+	"(58, 28)": {
+		"type": "Gap",
+		"coords": "(58, 28)",
+		"visited": false
+	},
+	"(57, 28)": {
+		"type": "Gap",
+		"coords": "(57, 28)",
+		"visited": false
+	},
+	"(56, 28)": {
+		"type": "House",
+		"coords": "(56, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 28)": {
+		"type": "Gap",
+		"coords": "(55, 28)",
+		"visited": false
+	},
+	"(54, 28)": {
+		"type": "Gap",
+		"coords": "(54, 28)",
+		"visited": false
+	},
+	"(53, 28)": {
+		"type": "Gap",
+		"coords": "(53, 28)",
+		"visited": false
+	},
+	"(52, 28)": {
+		"type": "Gap",
+		"coords": "(52, 28)",
+		"visited": false
+	},
+	"(51, 28)": {
+		"type": "Gap",
+		"coords": "(51, 28)",
+		"visited": false
+	},
+	"(50, 28)": {
+		"type": "Gap",
+		"coords": "(50, 28)",
+		"visited": false
+	},
+	"(49, 28)": {
+		"type": "Gap",
+		"coords": "(49, 28)",
+		"visited": false
+	},
+	"(48, 28)": {
+		"type": "Gap",
+		"coords": "(48, 28)",
+		"visited": false
+	},
+	"(47, 28)": {
+		"type": "Gap",
+		"coords": "(47, 28)",
+		"visited": false
+	},
+	"(46, 28)": {
+		"type": "Gap",
+		"coords": "(46, 28)",
+		"visited": false
+	},
+	"(45, 28)": {
+		"type": "House",
+		"coords": "(45, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 28)": {
+		"type": "Gap",
+		"coords": "(44, 28)",
+		"visited": false
+	},
+	"(43, 28)": {
+		"type": "House",
+		"coords": "(43, 28)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(42, 28)": {
+		"type": "Gap",
+		"coords": "(42, 28)",
+		"visited": false
+	},
+	"(41, 28)": {
+		"type": "Gap",
+		"coords": "(41, 28)",
+		"visited": false
+	},
+	"(40, 28)": {
+		"type": "Gap",
+		"coords": "(40, 28)",
+		"visited": false
+	},
+	"(39, 28)": {
+		"type": "Gap",
+		"coords": "(39, 28)",
+		"visited": false
+	},
+	"(39, 29)": {
+		"type": "Gap",
+		"coords": "(39, 29)",
+		"visited": false
+	},
+	"(40, 29)": {
+		"type": "House",
+		"coords": "(40, 29)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(41, 29)": {
+		"type": "Gap",
+		"coords": "(41, 29)",
+		"visited": false
+	},
+	"(42, 29)": {
+		"type": "Gap",
+		"coords": "(42, 29)",
+		"visited": false
+	},
+	"(43, 29)": {
+		"type": "Gap",
+		"coords": "(43, 29)",
+		"visited": false
+	},
+	"(44, 29)": {
+		"type": "Gap",
+		"coords": "(44, 29)",
+		"visited": false
+	},
+	"(45, 29)": {
+		"type": "Gap",
+		"coords": "(45, 29)",
+		"visited": false
+	},
+	"(46, 29)": {
+		"type": "Gap",
+		"coords": "(46, 29)",
+		"visited": false
+	},
+	"(47, 29)": {
+		"type": "Gap",
+		"coords": "(47, 29)",
+		"visited": false
+	},
+	"(48, 29)": {
+		"type": "Gap",
+		"coords": "(48, 29)",
+		"visited": false
+	},
+	"(49, 29)": {
+		"type": "Gap",
+		"coords": "(49, 29)",
+		"visited": false
+	},
+	"(50, 29)": {
+		"type": "House",
+		"coords": "(50, 29)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 29)": {
+		"type": "Gap",
+		"coords": "(51, 29)",
+		"visited": false
+	},
+	"(52, 29)": {
+		"type": "Gap",
+		"coords": "(52, 29)",
+		"visited": false
+	},
+	"(53, 29)": {
+		"type": "Gap",
+		"coords": "(53, 29)",
+		"visited": false
+	},
+	"(54, 29)": {
+		"type": "Gap",
+		"coords": "(54, 29)",
+		"visited": false
+	},
+	"(55, 29)": {
+		"type": "Gap",
+		"coords": "(55, 29)",
+		"visited": false
+	},
+	"(56, 29)": {
+		"type": "Gap",
+		"coords": "(56, 29)",
+		"visited": false
+	},
+	"(57, 29)": {
+		"type": "House",
+		"coords": "(57, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 29)": {
+		"type": "Gap",
+		"coords": "(58, 29)",
+		"visited": false
+	},
+	"(59, 29)": {
+		"type": "Gap",
+		"coords": "(59, 29)",
+		"visited": false
+	},
+	"(60, 29)": {
+		"type": "Gap",
+		"coords": "(60, 29)",
+		"visited": false
+	},
+	"(61, 29)": {
+		"type": "House",
+		"coords": "(61, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 29)": {
+		"type": "Gap",
+		"coords": "(62, 29)",
+		"visited": false
+	},
+	"(63, 29)": {
+		"type": "House",
+		"coords": "(63, 29)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(64, 29)": {
+		"type": "House",
+		"coords": "(64, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 29)": {
+		"type": "Gap",
+		"coords": "(65, 29)",
+		"visited": false
+	},
+	"(66, 29)": {
+		"type": "Gap",
+		"coords": "(66, 29)",
+		"visited": false
+	},
+	"(67, 29)": {
+		"type": "House",
+		"coords": "(67, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(68, 29)": {
+		"type": "Gap",
+		"coords": "(68, 29)",
+		"visited": false
+	},
+	"(69, 29)": {
+		"type": "House",
+		"coords": "(69, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 29)": {
+		"type": "Gap",
+		"coords": "(70, 29)",
+		"visited": false
+	},
+	"(71, 29)": {
+		"type": "Gap",
+		"coords": "(71, 29)",
+		"visited": false
+	},
+	"(72, 29)": {
+		"type": "House",
+		"coords": "(72, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(73, 29)": {
+		"type": "House",
+		"coords": "(73, 29)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(74, 29)": {
+		"type": "House",
+		"coords": "(74, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 29)": {
+		"type": "House",
+		"coords": "(75, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 29)": {
+		"type": "Gap",
+		"coords": "(76, 29)",
+		"visited": false
+	},
+	"(77, 29)": {
+		"type": "Gap",
+		"coords": "(77, 29)",
+		"visited": false
+	},
+	"(78, 29)": {
+		"type": "Gap",
+		"coords": "(78, 29)",
+		"visited": false
+	},
+	"(79, 29)": {
+		"type": "Gap",
+		"coords": "(79, 29)",
+		"visited": false
+	},
+	"(80, 29)": {
+		"type": "House",
+		"coords": "(80, 29)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 29)": {
+		"type": "Gap",
+		"coords": "(81, 29)",
+		"visited": false
+	},
+	"(81, 30)": {
+		"type": "Gap",
+		"coords": "(81, 30)",
+		"visited": false
+	},
+	"(80, 30)": {
+		"type": "Gap",
+		"coords": "(80, 30)",
+		"visited": false
+	},
+	"(79, 30)": {
+		"type": "House",
+		"coords": "(79, 30)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(78, 30)": {
+		"type": "Gap",
+		"coords": "(78, 30)",
+		"visited": false
+	},
+	"(77, 30)": {
+		"type": "House",
+		"coords": "(77, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 30)": {
+		"type": "Gap",
+		"coords": "(76, 30)",
+		"visited": false
+	},
+	"(75, 30)": {
+		"type": "House",
+		"coords": "(75, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 30)": {
+		"type": "House",
+		"coords": "(74, 30)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(73, 30)": {
+		"type": "House",
+		"coords": "(73, 30)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(72, 30)": {
+		"type": "House",
+		"coords": "(72, 30)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(71, 30)": {
+		"type": "House",
+		"coords": "(71, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 30)": {
+		"type": "Gap",
+		"coords": "(70, 30)",
+		"visited": false
+	},
+	"(69, 30)": {
+		"type": "Gap",
+		"coords": "(69, 30)",
+		"visited": false
+	},
+	"(68, 30)": {
+		"type": "House",
+		"coords": "(68, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(67, 30)": {
+		"type": "House",
+		"coords": "(67, 30)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(66, 30)": {
+		"type": "House",
+		"coords": "(66, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 30)": {
+		"type": "Gap",
+		"coords": "(65, 30)",
+		"visited": false
+	},
+	"(64, 30)": {
+		"type": "Gap",
+		"coords": "(64, 30)",
+		"visited": false
+	},
+	"(63, 30)": {
+		"type": "Gap",
+		"coords": "(63, 30)",
+		"visited": false
+	},
+	"(62, 30)": {
+		"type": "Gap",
+		"coords": "(62, 30)",
+		"visited": false
+	},
+	"(61, 30)": {
+		"type": "Gap",
+		"coords": "(61, 30)",
+		"visited": false
+	},
+	"(60, 30)": {
+		"type": "House",
+		"coords": "(60, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(59, 30)": {
+		"type": "Gap",
+		"coords": "(59, 30)",
+		"visited": false
+	},
+	"(58, 30)": {
+		"type": "Gap",
+		"coords": "(58, 30)",
+		"visited": false
+	},
+	"(57, 30)": {
+		"type": "Gap",
+		"coords": "(57, 30)",
+		"visited": false
+	},
+	"(56, 30)": {
+		"type": "Gap",
+		"coords": "(56, 30)",
+		"visited": false
+	},
+	"(55, 30)": {
+		"type": "Gap",
+		"coords": "(55, 30)",
+		"visited": false
+	},
+	"(54, 30)": {
+		"type": "Gap",
+		"coords": "(54, 30)",
+		"visited": false
+	},
+	"(53, 30)": {
+		"type": "House",
+		"coords": "(53, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 30)": {
+		"type": "Gap",
+		"coords": "(52, 30)",
+		"visited": false
+	},
+	"(51, 30)": {
+		"type": "Gap",
+		"coords": "(51, 30)",
+		"visited": false
+	},
+	"(50, 30)": {
+		"type": "Gap",
+		"coords": "(50, 30)",
+		"visited": false
+	},
+	"(49, 30)": {
+		"type": "Gap",
+		"coords": "(49, 30)",
+		"visited": false
+	},
+	"(48, 30)": {
+		"type": "House",
+		"coords": "(48, 30)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(47, 30)": {
+		"type": "Gap",
+		"coords": "(47, 30)",
+		"visited": false
+	},
+	"(46, 30)": {
+		"type": "House",
+		"coords": "(46, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 30)": {
+		"type": "House",
+		"coords": "(45, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 30)": {
+		"type": "Gap",
+		"coords": "(44, 30)",
+		"visited": false
+	},
+	"(43, 30)": {
+		"type": "Gap",
+		"coords": "(43, 30)",
+		"visited": false
+	},
+	"(42, 30)": {
+		"type": "Gap",
+		"coords": "(42, 30)",
+		"visited": false
+	},
+	"(41, 30)": {
+		"type": "House",
+		"coords": "(41, 30)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 30)": {
+		"type": "Gap",
+		"coords": "(40, 30)",
+		"visited": false
+	},
+	"(39, 30)": {
+		"type": "Gap",
+		"coords": "(39, 30)",
+		"visited": false
+	},
+	"(38, 30)": {
+		"type": "Gap",
+		"coords": "(38, 30)",
+		"visited": false
+	},
+	"(38, 31)": {
+		"type": "Gap",
+		"coords": "(38, 31)",
+		"visited": false
+	},
+	"(39, 31)": {
+		"type": "Gap",
+		"coords": "(39, 31)",
+		"visited": false
+	},
+	"(40, 31)": {
+		"type": "Gap",
+		"coords": "(40, 31)",
+		"visited": false
+	},
+	"(41, 31)": {
+		"type": "Gap",
+		"coords": "(41, 31)",
+		"visited": false
+	},
+	"(42, 31)": {
+		"type": "Gap",
+		"coords": "(42, 31)",
+		"visited": false
+	},
+	"(43, 31)": {
+		"type": "Gap",
+		"coords": "(43, 31)",
+		"visited": false
+	},
+	"(44, 31)": {
+		"type": "House",
+		"coords": "(44, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 31)": {
+		"type": "House",
+		"coords": "(45, 31)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(46, 31)": {
+		"type": "Gap",
+		"coords": "(46, 31)",
+		"visited": false
+	},
+	"(47, 31)": {
+		"type": "Gap",
+		"coords": "(47, 31)",
+		"visited": false
+	},
+	"(48, 31)": {
+		"type": "Gap",
+		"coords": "(48, 31)",
+		"visited": false
+	},
+	"(49, 31)": {
+		"type": "Gap",
+		"coords": "(49, 31)",
+		"visited": false
+	},
+	"(50, 31)": {
+		"type": "Gap",
+		"coords": "(50, 31)",
+		"visited": false
+	},
+	"(51, 31)": {
+		"type": "Gap",
+		"coords": "(51, 31)",
+		"visited": false
+	},
+	"(52, 31)": {
+		"type": "Gap",
+		"coords": "(52, 31)",
+		"visited": false
+	},
+	"(53, 31)": {
+		"type": "Gap",
+		"coords": "(53, 31)",
+		"visited": false
+	},
+	"(54, 31)": {
+		"type": "Gap",
+		"coords": "(54, 31)",
+		"visited": false
+	},
+	"(55, 31)": {
+		"type": "Gap",
+		"coords": "(55, 31)",
+		"visited": false
+	},
+	"(56, 31)": {
+		"type": "Gap",
+		"coords": "(56, 31)",
+		"visited": false
+	},
+	"(57, 31)": {
+		"type": "Gap",
+		"coords": "(57, 31)",
+		"visited": false
+	},
+	"(58, 31)": {
+		"type": "Gap",
+		"coords": "(58, 31)",
+		"visited": false
+	},
+	"(59, 31)": {
+		"type": "House",
+		"coords": "(59, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(60, 31)": {
+		"type": "Gap",
+		"coords": "(60, 31)",
+		"visited": false
+	},
+	"(61, 31)": {
+		"type": "House",
+		"coords": "(61, 31)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(62, 31)": {
+		"type": "Gap",
+		"coords": "(62, 31)",
+		"visited": false
+	},
+	"(63, 31)": {
+		"type": "Gap",
+		"coords": "(63, 31)",
+		"visited": false
+	},
+	"(64, 31)": {
+		"type": "House",
+		"coords": "(64, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 31)": {
+		"type": "Gap",
+		"coords": "(65, 31)",
+		"visited": false
+	},
+	"(66, 31)": {
+		"type": "Gap",
+		"coords": "(66, 31)",
+		"visited": false
+	},
+	"(67, 31)": {
+		"type": "House",
+		"coords": "(67, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(68, 31)": {
+		"type": "Gap",
+		"coords": "(68, 31)",
+		"visited": false
+	},
+	"(69, 31)": {
+		"type": "Gap",
+		"coords": "(69, 31)",
+		"visited": false
+	},
+	"(70, 31)": {
+		"type": "Gap",
+		"coords": "(70, 31)",
+		"visited": false
+	},
+	"(71, 31)": {
+		"type": "House",
+		"coords": "(71, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(72, 31)": {
+		"type": "Gap",
+		"coords": "(72, 31)",
+		"visited": false
+	},
+	"(73, 31)": {
+		"type": "House",
+		"coords": "(73, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(74, 31)": {
+		"type": "House",
+		"coords": "(74, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 31)": {
+		"type": "Gap",
+		"coords": "(75, 31)",
+		"visited": false
+	},
+	"(76, 31)": {
+		"type": "Gap",
+		"coords": "(76, 31)",
+		"visited": false
+	},
+	"(77, 31)": {
+		"type": "Gap",
+		"coords": "(77, 31)",
+		"visited": false
+	},
+	"(78, 31)": {
+		"type": "House",
+		"coords": "(78, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(79, 31)": {
+		"type": "Gap",
+		"coords": "(79, 31)",
+		"visited": false
+	},
+	"(80, 31)": {
+		"type": "Gap",
+		"coords": "(80, 31)",
+		"visited": false
+	},
+	"(81, 31)": {
+		"type": "House",
+		"coords": "(81, 31)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(81, 32)": {
+		"type": "Gap",
+		"coords": "(81, 32)",
+		"visited": false
+	},
+	"(80, 32)": {
+		"type": "Gap",
+		"coords": "(80, 32)",
+		"visited": false
+	},
+	"(79, 32)": {
+		"type": "Gap",
+		"coords": "(79, 32)",
+		"visited": false
+	},
+	"(78, 32)": {
+		"type": "Gap",
+		"coords": "(78, 32)",
+		"visited": false
+	},
+	"(77, 32)": {
+		"type": "Gap",
+		"coords": "(77, 32)",
+		"visited": false
+	},
+	"(76, 32)": {
+		"type": "Gap",
+		"coords": "(76, 32)",
+		"visited": false
+	},
+	"(75, 32)": {
+		"type": "Gap",
+		"coords": "(75, 32)",
+		"visited": false
+	},
+	"(74, 32)": {
+		"type": "Gap",
+		"coords": "(74, 32)",
+		"visited": false
+	},
+	"(73, 32)": {
+		"type": "Gap",
+		"coords": "(73, 32)",
+		"visited": false
+	},
+	"(72, 32)": {
+		"type": "House",
+		"coords": "(72, 32)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(71, 32)": {
+		"type": "Gap",
+		"coords": "(71, 32)",
+		"visited": false
+	},
+	"(70, 32)": {
+		"type": "Gap",
+		"coords": "(70, 32)",
+		"visited": false
+	},
+	"(69, 32)": {
+		"type": "Gap",
+		"coords": "(69, 32)",
+		"visited": false
+	},
+	"(68, 32)": {
+		"type": "Gap",
+		"coords": "(68, 32)",
+		"visited": false
+	},
+	"(67, 32)": {
+		"type": "Gap",
+		"coords": "(67, 32)",
+		"visited": false
+	},
+	"(66, 32)": {
+		"type": "Gap",
+		"coords": "(66, 32)",
+		"visited": false
+	},
+	"(65, 32)": {
+		"type": "Gap",
+		"coords": "(65, 32)",
+		"visited": false
+	},
+	"(64, 32)": {
+		"type": "Gap",
+		"coords": "(64, 32)",
+		"visited": false
+	},
+	"(63, 32)": {
+		"type": "Gap",
+		"coords": "(63, 32)",
+		"visited": false
+	},
+	"(62, 32)": {
+		"type": "House",
+		"coords": "(62, 32)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(61, 32)": {
+		"type": "Gap",
+		"coords": "(61, 32)",
+		"visited": false
+	},
+	"(60, 32)": {
+		"type": "Gap",
+		"coords": "(60, 32)",
+		"visited": false
+	},
+	"(59, 32)": {
+		"type": "Gap",
+		"coords": "(59, 32)",
+		"visited": false
+	},
+	"(58, 32)": {
+		"type": "Gap",
+		"coords": "(58, 32)",
+		"visited": false
+	},
+	"(57, 32)": {
+		"type": "Gap",
+		"coords": "(57, 32)",
+		"visited": false
+	},
+	"(56, 32)": {
+		"type": "Gap",
+		"coords": "(56, 32)",
+		"visited": false
+	},
+	"(55, 32)": {
+		"type": "Gap",
+		"coords": "(55, 32)",
+		"visited": false
+	},
+	"(54, 32)": {
+		"type": "Gap",
+		"coords": "(54, 32)",
+		"visited": false
+	},
+	"(53, 32)": {
+		"type": "Gap",
+		"coords": "(53, 32)",
+		"visited": false
+	},
+	"(52, 32)": {
+		"type": "Gap",
+		"coords": "(52, 32)",
+		"visited": false
+	},
+	"(51, 32)": {
+		"type": "Gap",
+		"coords": "(51, 32)",
+		"visited": false
+	},
+	"(50, 32)": {
+		"type": "House",
+		"coords": "(50, 32)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 32)": {
+		"type": "Gap",
+		"coords": "(49, 32)",
+		"visited": false
+	},
+	"(48, 32)": {
+		"type": "Gap",
+		"coords": "(48, 32)",
+		"visited": false
+	},
+	"(47, 32)": {
+		"type": "Gap",
+		"coords": "(47, 32)",
+		"visited": false
+	},
+	"(46, 32)": {
+		"type": "Gap",
+		"coords": "(46, 32)",
+		"visited": false
+	},
+	"(45, 32)": {
+		"type": "Gap",
+		"coords": "(45, 32)",
+		"visited": false
+	},
+	"(44, 32)": {
+		"type": "Gap",
+		"coords": "(44, 32)",
+		"visited": false
+	},
+	"(43, 32)": {
+		"type": "Gap",
+		"coords": "(43, 32)",
+		"visited": false
+	},
+	"(42, 32)": {
+		"type": "House",
+		"coords": "(42, 32)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(41, 32)": {
+		"type": "Gap",
+		"coords": "(41, 32)",
+		"visited": false
+	},
+	"(40, 32)": {
+		"type": "Gap",
+		"coords": "(40, 32)",
+		"visited": false
+	},
+	"(39, 32)": {
+		"type": "Gap",
+		"coords": "(39, 32)",
+		"visited": false
+	},
+	"(38, 32)": {
+		"type": "Gap",
+		"coords": "(38, 32)",
+		"visited": false
+	},
+	"(38, 33)": {
+		"type": "Gap",
+		"coords": "(38, 33)",
+		"visited": false
+	},
+	"(39, 33)": {
+		"type": "Gap",
+		"coords": "(39, 33)",
+		"visited": false
+	},
+	"(40, 33)": {
+		"type": "Gap",
+		"coords": "(40, 33)",
+		"visited": false
+	},
+	"(41, 33)": {
+		"type": "Gap",
+		"coords": "(41, 33)",
+		"visited": false
+	},
+	"(42, 33)": {
+		"type": "Gap",
+		"coords": "(42, 33)",
+		"visited": false
+	},
+	"(43, 33)": {
+		"type": "Gap",
+		"coords": "(43, 33)",
+		"visited": false
+	},
+	"(44, 33)": {
+		"type": "Gap",
+		"coords": "(44, 33)",
+		"visited": false
+	},
+	"(45, 33)": {
+		"type": "Gap",
+		"coords": "(45, 33)",
+		"visited": false
+	},
+	"(46, 33)": {
+		"type": "Gap",
+		"coords": "(46, 33)",
+		"visited": false
+	},
+	"(47, 33)": {
+		"type": "Gap",
+		"coords": "(47, 33)",
+		"visited": false
+	},
+	"(48, 33)": {
+		"type": "Gap",
+		"coords": "(48, 33)",
+		"visited": false
+	},
+	"(49, 33)": {
+		"type": "Gap",
+		"coords": "(49, 33)",
+		"visited": false
+	},
+	"(50, 33)": {
+		"type": "Gap",
+		"coords": "(50, 33)",
+		"visited": false
+	},
+	"(51, 33)": {
+		"type": "Gap",
+		"coords": "(51, 33)",
+		"visited": false
+	},
+	"(52, 33)": {
+		"type": "Gap",
+		"coords": "(52, 33)",
+		"visited": false
+	},
+	"(53, 33)": {
+		"type": "Gap",
+		"coords": "(53, 33)",
+		"visited": false
+	},
+	"(54, 33)": {
+		"type": "Gap",
+		"coords": "(54, 33)",
+		"visited": false
+	},
+	"(55, 33)": {
+		"type": "House",
+		"coords": "(55, 33)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(56, 33)": {
+		"type": "Gap",
+		"coords": "(56, 33)",
+		"visited": false
+	},
+	"(57, 33)": {
+		"type": "House",
+		"coords": "(57, 33)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 33)": {
+		"type": "Gap",
+		"coords": "(58, 33)",
+		"visited": false
+	},
+	"(59, 33)": {
+		"type": "House",
+		"coords": "(59, 33)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(60, 33)": {
+		"type": "Gap",
+		"coords": "(60, 33)",
+		"visited": false
+	},
+	"(61, 33)": {
+		"type": "Gap",
+		"coords": "(61, 33)",
+		"visited": false
+	},
+	"(62, 33)": {
+		"type": "Gap",
+		"coords": "(62, 33)",
+		"visited": false
+	},
+	"(63, 33)": {
+		"type": "Gap",
+		"coords": "(63, 33)",
+		"visited": false
+	},
+	"(64, 33)": {
+		"type": "House",
+		"coords": "(64, 33)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(65, 33)": {
+		"type": "Gap",
+		"coords": "(65, 33)",
+		"visited": false
+	},
+	"(66, 33)": {
+		"type": "Gap",
+		"coords": "(66, 33)",
+		"visited": false
+	},
+	"(67, 33)": {
+		"type": "Gap",
+		"coords": "(67, 33)",
+		"visited": false
+	},
+	"(68, 33)": {
+		"type": "House",
+		"coords": "(68, 33)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 33)": {
+		"type": "Gap",
+		"coords": "(69, 33)",
+		"visited": false
+	},
+	"(70, 33)": {
+		"type": "Gap",
+		"coords": "(70, 33)",
+		"visited": false
+	},
+	"(71, 33)": {
+		"type": "Gap",
+		"coords": "(71, 33)",
+		"visited": false
+	},
+	"(72, 33)": {
+		"type": "Gap",
+		"coords": "(72, 33)",
+		"visited": false
+	},
+	"(73, 33)": {
+		"type": "Gap",
+		"coords": "(73, 33)",
+		"visited": false
+	},
+	"(74, 33)": {
+		"type": "Gap",
+		"coords": "(74, 33)",
+		"visited": false
+	},
+	"(75, 33)": {
+		"type": "Gap",
+		"coords": "(75, 33)",
+		"visited": false
+	},
+	"(76, 33)": {
+		"type": "House",
+		"coords": "(76, 33)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 33)": {
+		"type": "Gap",
+		"coords": "(77, 33)",
+		"visited": false
+	},
+	"(78, 33)": {
+		"type": "Gap",
+		"coords": "(78, 33)",
+		"visited": false
+	},
+	"(79, 33)": {
+		"type": "Gap",
+		"coords": "(79, 33)",
+		"visited": false
+	},
+	"(80, 33)": {
+		"type": "House",
+		"coords": "(80, 33)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(80, 34)": {
+		"type": "Gap",
+		"coords": "(80, 34)",
+		"visited": false
+	},
+	"(79, 34)": {
+		"type": "House",
+		"coords": "(79, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(78, 34)": {
+		"type": "Gap",
+		"coords": "(78, 34)",
+		"visited": false
+	},
+	"(77, 34)": {
+		"type": "Gap",
+		"coords": "(77, 34)",
+		"visited": false
+	},
+	"(76, 34)": {
+		"type": "Gap",
+		"coords": "(76, 34)",
+		"visited": false
+	},
+	"(75, 34)": {
+		"type": "Gap",
+		"coords": "(75, 34)",
+		"visited": false
+	},
+	"(74, 34)": {
+		"type": "House",
+		"coords": "(74, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(73, 34)": {
+		"type": "Gap",
+		"coords": "(73, 34)",
+		"visited": false
+	},
+	"(72, 34)": {
+		"type": "House",
+		"coords": "(72, 34)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(71, 34)": {
+		"type": "House",
+		"coords": "(71, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 34)": {
+		"type": "Gap",
+		"coords": "(70, 34)",
+		"visited": false
+	},
+	"(69, 34)": {
+		"type": "Gap",
+		"coords": "(69, 34)",
+		"visited": false
+	},
+	"(68, 34)": {
+		"type": "Gap",
+		"coords": "(68, 34)",
+		"visited": false
+	},
+	"(67, 34)": {
+		"type": "Gap",
+		"coords": "(67, 34)",
+		"visited": false
+	},
+	"(66, 34)": {
+		"type": "Gap",
+		"coords": "(66, 34)",
+		"visited": false
+	},
+	"(65, 34)": {
+		"type": "Gap",
+		"coords": "(65, 34)",
+		"visited": false
+	},
+	"(64, 34)": {
+		"type": "Gap",
+		"coords": "(64, 34)",
+		"visited": false
+	},
+	"(63, 34)": {
+		"type": "Gap",
+		"coords": "(63, 34)",
+		"visited": false
+	},
+	"(62, 34)": {
+		"type": "Gap",
+		"coords": "(62, 34)",
+		"visited": false
+	},
+	"(61, 34)": {
+		"type": "Gap",
+		"coords": "(61, 34)",
+		"visited": false
+	},
+	"(60, 34)": {
+		"type": "Gap",
+		"coords": "(60, 34)",
+		"visited": false
+	},
+	"(59, 34)": {
+		"type": "Gap",
+		"coords": "(59, 34)",
+		"visited": false
+	},
+	"(58, 34)": {
+		"type": "Gap",
+		"coords": "(58, 34)",
+		"visited": false
+	},
+	"(57, 34)": {
+		"type": "Gap",
+		"coords": "(57, 34)",
+		"visited": false
+	},
+	"(56, 34)": {
+		"type": "Gap",
+		"coords": "(56, 34)",
+		"visited": false
+	},
+	"(55, 34)": {
+		"type": "House",
+		"coords": "(55, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(54, 34)": {
+		"type": "Gap",
+		"coords": "(54, 34)",
+		"visited": false
+	},
+	"(53, 34)": {
+		"type": "Gap",
+		"coords": "(53, 34)",
+		"visited": false
+	},
+	"(52, 34)": {
+		"type": "House",
+		"coords": "(52, 34)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(51, 34)": {
+		"type": "Gap",
+		"coords": "(51, 34)",
+		"visited": false
+	},
+	"(50, 34)": {
+		"type": "Gap",
+		"coords": "(50, 34)",
+		"visited": false
+	},
+	"(49, 34)": {
+		"type": "House",
+		"coords": "(49, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(48, 34)": {
+		"type": "Gap",
+		"coords": "(48, 34)",
+		"visited": false
+	},
+	"(47, 34)": {
+		"type": "Gap",
+		"coords": "(47, 34)",
+		"visited": false
+	},
+	"(46, 34)": {
+		"type": "Gap",
+		"coords": "(46, 34)",
+		"visited": false
+	},
+	"(45, 34)": {
+		"type": "Gap",
+		"coords": "(45, 34)",
+		"visited": false
+	},
+	"(44, 34)": {
+		"type": "Gap",
+		"coords": "(44, 34)",
+		"visited": false
+	},
+	"(43, 34)": {
+		"type": "House",
+		"coords": "(43, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(42, 34)": {
+		"type": "Gap",
+		"coords": "(42, 34)",
+		"visited": false
+	},
+	"(41, 34)": {
+		"type": "Gap",
+		"coords": "(41, 34)",
+		"visited": false
+	},
+	"(40, 34)": {
+		"type": "Gap",
+		"coords": "(40, 34)",
+		"visited": false
+	},
+	"(39, 34)": {
+		"type": "House",
+		"coords": "(39, 34)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(38, 34)": {
+		"type": "Gap",
+		"coords": "(38, 34)",
+		"visited": false
+	},
+	"(38, 35)": {
+		"type": "Gap",
+		"coords": "(38, 35)",
+		"visited": false
+	},
+	"(39, 35)": {
+		"type": "Gap",
+		"coords": "(39, 35)",
+		"visited": false
+	},
+	"(40, 35)": {
+		"type": "Gap",
+		"coords": "(40, 35)",
+		"visited": false
+	},
+	"(41, 35)": {
+		"type": "House",
+		"coords": "(41, 35)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(42, 35)": {
+		"type": "Gap",
+		"coords": "(42, 35)",
+		"visited": false
+	},
+	"(43, 35)": {
+		"type": "Gap",
+		"coords": "(43, 35)",
+		"visited": false
+	},
+	"(44, 35)": {
+		"type": "Gap",
+		"coords": "(44, 35)",
+		"visited": false
+	},
+	"(45, 35)": {
+		"type": "House",
+		"coords": "(45, 35)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 35)": {
+		"type": "Gap",
+		"coords": "(46, 35)",
+		"visited": false
+	},
+	"(47, 35)": {
+		"type": "Gap",
+		"coords": "(47, 35)",
+		"visited": false
+	},
+	"(48, 35)": {
+		"type": "Gap",
+		"coords": "(48, 35)",
+		"visited": false
+	},
+	"(49, 35)": {
+		"type": "Gap",
+		"coords": "(49, 35)",
+		"visited": false
+	},
+	"(50, 35)": {
+		"type": "Gap",
+		"coords": "(50, 35)",
+		"visited": false
+	},
+	"(51, 35)": {
+		"type": "Gap",
+		"coords": "(51, 35)",
+		"visited": false
+	},
+	"(52, 35)": {
+		"type": "Gap",
+		"coords": "(52, 35)",
+		"visited": false
+	},
+	"(53, 35)": {
+		"type": "Gap",
+		"coords": "(53, 35)",
+		"visited": false
+	},
+	"(54, 35)": {
+		"type": "Gap",
+		"coords": "(54, 35)",
+		"visited": false
+	},
+	"(55, 35)": {
+		"type": "Gap",
+		"coords": "(55, 35)",
+		"visited": false
+	},
+	"(56, 35)": {
+		"type": "Gap",
+		"coords": "(56, 35)",
+		"visited": false
+	},
+	"(57, 35)": {
+		"type": "Gap",
+		"coords": "(57, 35)",
+		"visited": false
+	},
+	"(58, 35)": {
+		"type": "Gap",
+		"coords": "(58, 35)",
+		"visited": false
+	},
+	"(59, 35)": {
+		"type": "Gap",
+		"coords": "(59, 35)",
+		"visited": false
+	},
+	"(60, 35)": {
+		"type": "Gap",
+		"coords": "(60, 35)",
+		"visited": false
+	},
+	"(61, 35)": {
+		"type": "Gap",
+		"coords": "(61, 35)",
+		"visited": false
+	},
+	"(62, 35)": {
+		"type": "Gap",
+		"coords": "(62, 35)",
+		"visited": false
+	},
+	"(63, 35)": {
+		"type": "House",
+		"coords": "(63, 35)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 35)": {
+		"type": "Gap",
+		"coords": "(64, 35)",
+		"visited": false
+	},
+	"(65, 35)": {
+		"type": "Gap",
+		"coords": "(65, 35)",
+		"visited": false
+	},
+	"(66, 35)": {
+		"type": "Gap",
+		"coords": "(66, 35)",
+		"visited": false
+	},
+	"(67, 35)": {
+		"type": "Gap",
+		"coords": "(67, 35)",
+		"visited": false
+	},
+	"(68, 35)": {
+		"type": "Gap",
+		"coords": "(68, 35)",
+		"visited": false
+	},
+	"(69, 35)": {
+		"type": "Gap",
+		"coords": "(69, 35)",
+		"visited": false
+	},
+	"(70, 35)": {
+		"type": "Gap",
+		"coords": "(70, 35)",
+		"visited": false
+	},
+	"(71, 35)": {
+		"type": "Gap",
+		"coords": "(71, 35)",
+		"visited": false
+	},
+	"(72, 35)": {
+		"type": "Gap",
+		"coords": "(72, 35)",
+		"visited": false
+	},
+	"(73, 35)": {
+		"type": "Gap",
+		"coords": "(73, 35)",
+		"visited": false
+	},
+	"(74, 35)": {
+		"type": "Gap",
+		"coords": "(74, 35)",
+		"visited": false
+	},
+	"(75, 35)": {
+		"type": "Gap",
+		"coords": "(75, 35)",
+		"visited": false
+	},
+	"(76, 35)": {
+		"type": "Gap",
+		"coords": "(76, 35)",
+		"visited": false
+	},
+	"(77, 35)": {
+		"type": "Gap",
+		"coords": "(77, 35)",
+		"visited": false
+	},
+	"(78, 35)": {
+		"type": "Gap",
+		"coords": "(78, 35)",
+		"visited": false
+	},
+	"(79, 35)": {
+		"type": "Gap",
+		"coords": "(79, 35)",
+		"visited": false
+	},
+	"(80, 35)": {
+		"type": "Gap",
+		"coords": "(80, 35)",
+		"visited": false
+	},
+	"(80, 36)": {
+		"type": "Gap",
+		"coords": "(80, 36)",
+		"visited": false
+	},
+	"(79, 36)": {
+		"type": "Gap",
+		"coords": "(79, 36)",
+		"visited": false
+	},
+	"(78, 36)": {
+		"type": "House",
+		"coords": "(78, 36)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 36)": {
+		"type": "Gap",
+		"coords": "(77, 36)",
+		"visited": false
+	},
+	"(76, 36)": {
+		"type": "Gap",
+		"coords": "(76, 36)",
+		"visited": false
+	},
+	"(75, 36)": {
+		"type": "Gap",
+		"coords": "(75, 36)",
+		"visited": false
+	},
+	"(74, 36)": {
+		"type": "Gap",
+		"coords": "(74, 36)",
+		"visited": false
+	},
+	"(73, 36)": {
+		"type": "Gap",
+		"coords": "(73, 36)",
+		"visited": false
+	},
+	"(72, 36)": {
+		"type": "House",
+		"coords": "(72, 36)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(71, 36)": {
+		"type": "Gap",
+		"coords": "(71, 36)",
+		"visited": false
+	},
+	"(70, 36)": {
+		"type": "Gap",
+		"coords": "(70, 36)",
+		"visited": false
+	},
+	"(69, 36)": {
+		"type": "Gap",
+		"coords": "(69, 36)",
+		"visited": false
+	},
+	"(68, 36)": {
+		"type": "Gap",
+		"coords": "(68, 36)",
+		"visited": false
+	},
+	"(67, 36)": {
+		"type": "Gap",
+		"coords": "(67, 36)",
+		"visited": false
+	},
+	"(66, 36)": {
+		"type": "Gap",
+		"coords": "(66, 36)",
+		"visited": false
+	},
+	"(65, 36)": {
+		"type": "Gap",
+		"coords": "(65, 36)",
+		"visited": false
+	},
+	"(64, 36)": {
+		"type": "Gap",
+		"coords": "(64, 36)",
+		"visited": false
+	},
+	"(63, 36)": {
+		"type": "Gap",
+		"coords": "(63, 36)",
+		"visited": false
+	},
+	"(62, 36)": {
+		"type": "House",
+		"coords": "(62, 36)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(61, 36)": {
+		"type": "Gap",
+		"coords": "(61, 36)",
+		"visited": false
+	},
+	"(60, 36)": {
+		"type": "Gap",
+		"coords": "(60, 36)",
+		"visited": false
+	},
+	"(59, 36)": {
+		"type": "Gap",
+		"coords": "(59, 36)",
+		"visited": false
+	},
+	"(58, 36)": {
+		"type": "Gap",
+		"coords": "(58, 36)",
+		"visited": false
+	},
+	"(57, 36)": {
+		"type": "Gap",
+		"coords": "(57, 36)",
+		"visited": false
+	},
+	"(56, 36)": {
+		"type": "Gap",
+		"coords": "(56, 36)",
+		"visited": false
+	},
+	"(55, 36)": {
+		"type": "Gap",
+		"coords": "(55, 36)",
+		"visited": false
+	},
+	"(54, 36)": {
+		"type": "Gap",
+		"coords": "(54, 36)",
+		"visited": false
+	},
+	"(53, 36)": {
+		"type": "Gap",
+		"coords": "(53, 36)",
+		"visited": false
+	},
+	"(52, 36)": {
+		"type": "House",
+		"coords": "(52, 36)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 36)": {
+		"type": "Gap",
+		"coords": "(51, 36)",
+		"visited": false
+	},
+	"(50, 36)": {
+		"type": "Gap",
+		"coords": "(50, 36)",
+		"visited": false
+	},
+	"(49, 36)": {
+		"type": "House",
+		"coords": "(49, 36)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(48, 36)": {
+		"type": "Gap",
+		"coords": "(48, 36)",
+		"visited": false
+	},
+	"(47, 36)": {
+		"type": "House",
+		"coords": "(47, 36)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 36)": {
+		"type": "Gap",
+		"coords": "(46, 36)",
+		"visited": false
+	},
+	"(45, 36)": {
+		"type": "Gap",
+		"coords": "(45, 36)",
+		"visited": false
+	},
+	"(44, 36)": {
+		"type": "Gap",
+		"coords": "(44, 36)",
+		"visited": false
+	},
+	"(43, 36)": {
+		"type": "House",
+		"coords": "(43, 36)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(42, 36)": {
+		"type": "Gap",
+		"coords": "(42, 36)",
+		"visited": false
+	},
+	"(41, 36)": {
+		"type": "Gap",
+		"coords": "(41, 36)",
+		"visited": false
+	},
+	"(40, 36)": {
+		"type": "Gap",
+		"coords": "(40, 36)",
+		"visited": false
+	},
+	"(39, 36)": {
+		"type": "Gap",
+		"coords": "(39, 36)",
+		"visited": false
+	},
+	"(38, 36)": {
+		"type": "Gap",
+		"coords": "(38, 36)",
+		"visited": false
+	},
+	"(38, 37)": {
+		"type": "Gap",
+		"coords": "(38, 37)",
+		"visited": false
+	},
+	"(39, 37)": {
+		"type": "House",
+		"coords": "(39, 37)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 37)": {
+		"type": "Gap",
+		"coords": "(40, 37)",
+		"visited": false
+	},
+	"(41, 37)": {
+		"type": "Gap",
+		"coords": "(41, 37)",
+		"visited": false
+	},
+	"(42, 37)": {
+		"type": "Gap",
+		"coords": "(42, 37)",
+		"visited": false
+	},
+	"(43, 37)": {
+		"type": "House",
+		"coords": "(43, 37)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 37)": {
+		"type": "Gap",
+		"coords": "(44, 37)",
+		"visited": false
+	},
+	"(45, 37)": {
+		"type": "Gap",
+		"coords": "(45, 37)",
+		"visited": false
+	},
+	"(46, 37)": {
+		"type": "Gap",
+		"coords": "(46, 37)",
+		"visited": false
+	},
+	"(47, 37)": {
+		"type": "Gap",
+		"coords": "(47, 37)",
+		"visited": false
+	},
+	"(48, 37)": {
+		"type": "House",
+		"coords": "(48, 37)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(49, 37)": {
+		"type": "Gap",
+		"coords": "(49, 37)",
+		"visited": false
+	},
+	"(50, 37)": {
+		"type": "Gap",
+		"coords": "(50, 37)",
+		"visited": false
+	},
+	"(51, 37)": {
+		"type": "Gap",
+		"coords": "(51, 37)",
+		"visited": false
+	},
+	"(52, 37)": {
+		"type": "Gap",
+		"coords": "(52, 37)",
+		"visited": false
+	},
+	"(53, 37)": {
+		"type": "Gap",
+		"coords": "(53, 37)",
+		"visited": false
+	},
+	"(54, 37)": {
+		"type": "Gap",
+		"coords": "(54, 37)",
+		"visited": false
+	},
+	"(55, 37)": {
+		"type": "House",
+		"coords": "(55, 37)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(56, 37)": {
+		"type": "House",
+		"coords": "(56, 37)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(57, 37)": {
+		"type": "House",
+		"coords": "(57, 37)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(58, 37)": {
+		"type": "Gap",
+		"coords": "(58, 37)",
+		"visited": false
+	},
+	"(59, 37)": {
+		"type": "Gap",
+		"coords": "(59, 37)",
+		"visited": false
+	},
+	"(60, 37)": {
+		"type": "Gap",
+		"coords": "(60, 37)",
+		"visited": false
+	},
+	"(61, 37)": {
+		"type": "Gap",
+		"coords": "(61, 37)",
+		"visited": false
+	},
+	"(62, 37)": {
+		"type": "Gap",
+		"coords": "(62, 37)",
+		"visited": false
+	},
+	"(63, 37)": {
+		"type": "Gap",
+		"coords": "(63, 37)",
+		"visited": false
+	},
+	"(64, 37)": {
+		"type": "House",
+		"coords": "(64, 37)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 37)": {
+		"type": "Gap",
+		"coords": "(65, 37)",
+		"visited": false
+	},
+	"(66, 37)": {
+		"type": "Gap",
+		"coords": "(66, 37)",
+		"visited": false
+	},
+	"(67, 37)": {
+		"type": "Gap",
+		"coords": "(67, 37)",
+		"visited": false
+	},
+	"(68, 37)": {
+		"type": "House",
+		"coords": "(68, 37)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 37)": {
+		"type": "Gap",
+		"coords": "(69, 37)",
+		"visited": false
+	},
+	"(70, 37)": {
+		"type": "Gap",
+		"coords": "(70, 37)",
+		"visited": false
+	},
+	"(71, 37)": {
+		"type": "Gap",
+		"coords": "(71, 37)",
+		"visited": false
+	},
+	"(72, 37)": {
+		"type": "Gap",
+		"coords": "(72, 37)",
+		"visited": false
+	},
+	"(73, 37)": {
+		"type": "House",
+		"coords": "(73, 37)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(74, 37)": {
+		"type": "Gap",
+		"coords": "(74, 37)",
+		"visited": false
+	},
+	"(75, 37)": {
+		"type": "Gap",
+		"coords": "(75, 37)",
+		"visited": false
+	},
+	"(76, 37)": {
+		"type": "House",
+		"coords": "(76, 37)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(77, 37)": {
+		"type": "Gap",
+		"coords": "(77, 37)",
+		"visited": false
+	},
+	"(78, 37)": {
+		"type": "House",
+		"coords": "(78, 37)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(79, 37)": {
+		"type": "Gap",
+		"coords": "(79, 37)",
+		"visited": false
+	},
+	"(80, 37)": {
+		"type": "Gap",
+		"coords": "(80, 37)",
+		"visited": false
+	},
+	"(80, 38)": {
+		"type": "Gap",
+		"coords": "(80, 38)",
+		"visited": false
+	},
+	"(79, 38)": {
+		"type": "House",
+		"coords": "(79, 38)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(78, 38)": {
+		"type": "Gap",
+		"coords": "(78, 38)",
+		"visited": false
+	},
+	"(77, 38)": {
+		"type": "Gap",
+		"coords": "(77, 38)",
+		"visited": false
+	},
+	"(76, 38)": {
+		"type": "House",
+		"coords": "(76, 38)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(75, 38)": {
+		"type": "Gap",
+		"coords": "(75, 38)",
+		"visited": false
+	},
+	"(74, 38)": {
+		"type": "Gap",
+		"coords": "(74, 38)",
+		"visited": false
+	},
+	"(73, 38)": {
+		"type": "Gap",
+		"coords": "(73, 38)",
+		"visited": false
+	},
+	"(72, 38)": {
+		"type": "Gap",
+		"coords": "(72, 38)",
+		"visited": false
+	},
+	"(71, 38)": {
+		"type": "Gap",
+		"coords": "(71, 38)",
+		"visited": false
+	},
+	"(70, 38)": {
+		"type": "Gap",
+		"coords": "(70, 38)",
+		"visited": false
+	},
+	"(69, 38)": {
+		"type": "Gap",
+		"coords": "(69, 38)",
+		"visited": false
+	},
+	"(68, 38)": {
+		"type": "Gap",
+		"coords": "(68, 38)",
+		"visited": false
+	},
+	"(67, 38)": {
+		"type": "Gap",
+		"coords": "(67, 38)",
+		"visited": false
+	},
+	"(66, 38)": {
+		"type": "Gap",
+		"coords": "(66, 38)",
+		"visited": false
+	},
+	"(65, 38)": {
+		"type": "Gap",
+		"coords": "(65, 38)",
+		"visited": false
+	},
+	"(64, 38)": {
+		"type": "Gap",
+		"coords": "(64, 38)",
+		"visited": false
+	},
+	"(63, 38)": {
+		"type": "Gap",
+		"coords": "(63, 38)",
+		"visited": false
+	},
+	"(62, 38)": {
+		"type": "Gap",
+		"coords": "(62, 38)",
+		"visited": false
+	},
+	"(61, 38)": {
+		"type": "Gap",
+		"coords": "(61, 38)",
+		"visited": false
+	},
+	"(60, 38)": {
+		"type": "Gap",
+		"coords": "(60, 38)",
+		"visited": false
+	},
+	"(59, 38)": {
+		"type": "House",
+		"coords": "(59, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 38)": {
+		"type": "House",
+		"coords": "(58, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(57, 38)": {
+		"type": "House",
+		"coords": "(57, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(56, 38)": {
+		"type": "House",
+		"coords": "(56, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 38)": {
+		"type": "House",
+		"coords": "(55, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(54, 38)": {
+		"type": "House",
+		"coords": "(54, 38)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(53, 38)": {
+		"type": "House",
+		"coords": "(53, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 38)": {
+		"type": "Gap",
+		"coords": "(52, 38)",
+		"visited": false
+	},
+	"(51, 38)": {
+		"type": "House",
+		"coords": "(51, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 38)": {
+		"type": "Gap",
+		"coords": "(50, 38)",
+		"visited": false
+	},
+	"(49, 38)": {
+		"type": "Gap",
+		"coords": "(49, 38)",
+		"visited": false
+	},
+	"(48, 38)": {
+		"type": "Gap",
+		"coords": "(48, 38)",
+		"visited": false
+	},
+	"(47, 38)": {
+		"type": "Gap",
+		"coords": "(47, 38)",
+		"visited": false
+	},
+	"(46, 38)": {
+		"type": "House",
+		"coords": "(46, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 38)": {
+		"type": "Gap",
+		"coords": "(45, 38)",
+		"visited": false
+	},
+	"(44, 38)": {
+		"type": "House",
+		"coords": "(44, 38)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(43, 38)": {
+		"type": "Gap",
+		"coords": "(43, 38)",
+		"visited": false
+	},
+	"(42, 38)": {
+		"type": "Gap",
+		"coords": "(42, 38)",
+		"visited": false
+	},
+	"(41, 38)": {
+		"type": "Gap",
+		"coords": "(41, 38)",
+		"visited": false
+	},
+	"(40, 38)": {
+		"type": "Gap",
+		"coords": "(40, 38)",
+		"visited": false
+	},
+	"(39, 38)": {
+		"type": "Gap",
+		"coords": "(39, 38)",
+		"visited": false
+	},
+	"(38, 38)": {
+		"type": "Gap",
+		"coords": "(38, 38)",
+		"visited": false
+	},
+	"(38, 39)": {
+		"type": "Gap",
+		"coords": "(38, 39)",
+		"visited": false
+	},
+	"(39, 39)": {
+		"type": "Gap",
+		"coords": "(39, 39)",
+		"visited": false
+	},
+	"(40, 39)": {
+		"type": "Gap",
+		"coords": "(40, 39)",
+		"visited": false
+	},
+	"(41, 39)": {
+		"type": "Gap",
+		"coords": "(41, 39)",
+		"visited": false
+	},
+	"(42, 39)": {
+		"type": "Gap",
+		"coords": "(42, 39)",
+		"visited": false
+	},
+	"(43, 39)": {
+		"type": "Gap",
+		"coords": "(43, 39)",
+		"visited": false
+	},
+	"(44, 39)": {
+		"type": "Gap",
+		"coords": "(44, 39)",
+		"visited": false
+	},
+	"(45, 39)": {
+		"type": "Gap",
+		"coords": "(45, 39)",
+		"visited": false
+	},
+	"(46, 39)": {
+		"type": "Gap",
+		"coords": "(46, 39)",
+		"visited": false
+	},
+	"(47, 39)": {
+		"type": "Gap",
+		"coords": "(47, 39)",
+		"visited": false
+	},
+	"(48, 39)": {
+		"type": "Gap",
+		"coords": "(48, 39)",
+		"visited": false
+	},
+	"(49, 39)": {
+		"type": "Gap",
+		"coords": "(49, 39)",
+		"visited": false
+	},
+	"(50, 39)": {
+		"type": "Gap",
+		"coords": "(50, 39)",
+		"visited": false
+	},
+	"(51, 39)": {
+		"type": "Gap",
+		"coords": "(51, 39)",
+		"visited": false
+	},
+	"(52, 39)": {
+		"type": "Gap",
+		"coords": "(52, 39)",
+		"visited": false
+	},
+	"(53, 39)": {
+		"type": "Gap",
+		"coords": "(53, 39)",
+		"visited": false
+	},
+	"(54, 39)": {
+		"type": "House",
+		"coords": "(54, 39)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 39)": {
+		"type": "House",
+		"coords": "(55, 39)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(56, 39)": {
+		"type": "House",
+		"coords": "(56, 39)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(57, 39)": {
+		"type": "House",
+		"coords": "(57, 39)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(58, 39)": {
+		"type": "House",
+		"coords": "(58, 39)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(59, 39)": {
+		"type": "House",
+		"coords": "(59, 39)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(60, 39)": {
+		"type": "House",
+		"coords": "(60, 39)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(61, 39)": {
+		"type": "Gap",
+		"coords": "(61, 39)",
+		"visited": false
+	},
+	"(62, 39)": {
+		"type": "House",
+		"coords": "(62, 39)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(63, 39)": {
+		"type": "Gap",
+		"coords": "(63, 39)",
+		"visited": false
+	},
+	"(64, 39)": {
+		"type": "Gap",
+		"coords": "(64, 39)",
+		"visited": false
+	},
+	"(65, 39)": {
+		"type": "Gap",
+		"coords": "(65, 39)",
+		"visited": false
+	},
+	"(66, 39)": {
+		"type": "Gap",
+		"coords": "(66, 39)",
+		"visited": false
+	},
+	"(67, 39)": {
+		"type": "Gap",
+		"coords": "(67, 39)",
+		"visited": false
+	},
+	"(68, 39)": {
+		"type": "Gap",
+		"coords": "(68, 39)",
+		"visited": false
+	},
+	"(69, 39)": {
+		"type": "Gap",
+		"coords": "(69, 39)",
+		"visited": false
+	},
+	"(70, 39)": {
+		"type": "Gap",
+		"coords": "(70, 39)",
+		"visited": false
+	},
+	"(71, 39)": {
+		"type": "Gap",
+		"coords": "(71, 39)",
+		"visited": false
+	},
+	"(72, 39)": {
+		"type": "Gap",
+		"coords": "(72, 39)",
+		"visited": false
+	},
+	"(73, 39)": {
+		"type": "Gap",
+		"coords": "(73, 39)",
+		"visited": false
+	},
+	"(74, 39)": {
+		"type": "Gap",
+		"coords": "(74, 39)",
+		"visited": false
+	},
+	"(75, 39)": {
+		"type": "Gap",
+		"coords": "(75, 39)",
+		"visited": false
+	},
+	"(76, 39)": {
+		"type": "Gap",
+		"coords": "(76, 39)",
+		"visited": false
+	},
+	"(77, 39)": {
+		"type": "Gap",
+		"coords": "(77, 39)",
+		"visited": false
+	},
+	"(78, 39)": {
+		"type": "House",
+		"coords": "(78, 39)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(79, 39)": {
+		"type": "Gap",
+		"coords": "(79, 39)",
+		"visited": false
+	},
+	"(79, 40)": {
+		"type": "House",
+		"coords": "(79, 40)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(78, 40)": {
+		"type": "Gap",
+		"coords": "(78, 40)",
+		"visited": false
+	},
+	"(77, 40)": {
+		"type": "House",
+		"coords": "(77, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 40)": {
+		"type": "Gap",
+		"coords": "(76, 40)",
+		"visited": false
+	},
+	"(75, 40)": {
+		"type": "Gap",
+		"coords": "(75, 40)",
+		"visited": false
+	},
+	"(74, 40)": {
+		"type": "Gap",
+		"coords": "(74, 40)",
+		"visited": false
+	},
+	"(73, 40)": {
+		"type": "Gap",
+		"coords": "(73, 40)",
+		"visited": false
+	},
+	"(72, 40)": {
+		"type": "Gap",
+		"coords": "(72, 40)",
+		"visited": false
+	},
+	"(71, 40)": {
+		"type": "Gap",
+		"coords": "(71, 40)",
+		"visited": false
+	},
+	"(70, 40)": {
+		"type": "Gap",
+		"coords": "(70, 40)",
+		"visited": false
+	},
+	"(69, 40)": {
+		"type": "Gap",
+		"coords": "(69, 40)",
+		"visited": false
+	},
+	"(68, 40)": {
+		"type": "Gap",
+		"coords": "(68, 40)",
+		"visited": false
+	},
+	"(67, 40)": {
+		"type": "Gap",
+		"coords": "(67, 40)",
+		"visited": false
+	},
+	"(66, 40)": {
+		"type": "House",
+		"coords": "(66, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 40)": {
+		"type": "Gap",
+		"coords": "(65, 40)",
+		"visited": false
+	},
+	"(64, 40)": {
+		"type": "Gap",
+		"coords": "(64, 40)",
+		"visited": false
+	},
+	"(63, 40)": {
+		"type": "House",
+		"coords": "(63, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 40)": {
+		"type": "House",
+		"coords": "(62, 40)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(61, 40)": {
+		"type": "House",
+		"coords": "(61, 40)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(60, 40)": {
+		"type": "House",
+		"coords": "(60, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(59, 40)": {
+		"type": "House",
+		"coords": "(59, 40)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 2
+	},
+	"(58, 40)": {
+		"type": "House",
+		"coords": "(58, 40)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(57, 40)": {
+		"type": "House",
+		"coords": "(57, 40)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(56, 40)": {
+		"type": "House",
+		"coords": "(56, 40)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(55, 40)": {
+		"type": "House",
+		"coords": "(55, 40)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(54, 40)": {
+		"type": "House",
+		"coords": "(54, 40)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(53, 40)": {
+		"type": "Gap",
+		"coords": "(53, 40)",
+		"visited": false
+	},
+	"(52, 40)": {
+		"type": "Gap",
+		"coords": "(52, 40)",
+		"visited": false
+	},
+	"(51, 40)": {
+		"type": "Gap",
+		"coords": "(51, 40)",
+		"visited": false
+	},
+	"(50, 40)": {
+		"type": "Gap",
+		"coords": "(50, 40)",
+		"visited": false
+	},
+	"(49, 40)": {
+		"type": "Gap",
+		"coords": "(49, 40)",
+		"visited": false
+	},
+	"(48, 40)": {
+		"type": "Gap",
+		"coords": "(48, 40)",
+		"visited": false
+	},
+	"(47, 40)": {
+		"type": "Gap",
+		"coords": "(47, 40)",
+		"visited": false
+	},
+	"(46, 40)": {
+		"type": "Gap",
+		"coords": "(46, 40)",
+		"visited": false
+	},
+	"(45, 40)": {
+		"type": "House",
+		"coords": "(45, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 40)": {
+		"type": "House",
+		"coords": "(44, 40)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(43, 40)": {
+		"type": "House",
+		"coords": "(43, 40)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(42, 40)": {
+		"type": "Gap",
+		"coords": "(42, 40)",
+		"visited": false
+	},
+	"(41, 40)": {
+		"type": "Gap",
+		"coords": "(41, 40)",
+		"visited": false
+	},
+	"(40, 40)": {
+		"type": "Gap",
+		"coords": "(40, 40)",
+		"visited": false
+	},
+	"(39, 40)": {
+		"type": "Gap",
+		"coords": "(39, 40)",
+		"visited": false
+	},
+	"(38, 40)": {
+		"type": "Gap",
+		"coords": "(38, 40)",
+		"visited": false
+	},
+	"(38, 41)": {
+		"type": "Gap",
+		"coords": "(38, 41)",
+		"visited": false
+	},
+	"(39, 41)": {
+		"type": "House",
+		"coords": "(39, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 41)": {
+		"type": "Gap",
+		"coords": "(40, 41)",
+		"visited": false
+	},
+	"(41, 41)": {
+		"type": "House",
+		"coords": "(41, 41)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(42, 41)": {
+		"type": "Gap",
+		"coords": "(42, 41)",
+		"visited": false
+	},
+	"(43, 41)": {
+		"type": "Gap",
+		"coords": "(43, 41)",
+		"visited": false
+	},
+	"(44, 41)": {
+		"type": "Gap",
+		"coords": "(44, 41)",
+		"visited": false
+	},
+	"(45, 41)": {
+		"type": "Gap",
+		"coords": "(45, 41)",
+		"visited": false
+	},
+	"(46, 41)": {
+		"type": "Gap",
+		"coords": "(46, 41)",
+		"visited": false
+	},
+	"(47, 41)": {
+		"type": "Gap",
+		"coords": "(47, 41)",
+		"visited": false
+	},
+	"(48, 41)": {
+		"type": "House",
+		"coords": "(48, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 41)": {
+		"type": "House",
+		"coords": "(49, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(50, 41)": {
+		"type": "Gap",
+		"coords": "(50, 41)",
+		"visited": false
+	},
+	"(51, 41)": {
+		"type": "House",
+		"coords": "(51, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 41)": {
+		"type": "Gap",
+		"coords": "(52, 41)",
+		"visited": false
+	},
+	"(53, 41)": {
+		"type": "Gap",
+		"coords": "(53, 41)",
+		"visited": false
+	},
+	"(54, 41)": {
+		"type": "House",
+		"coords": "(54, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(55, 41)": {
+		"type": "House",
+		"coords": "(55, 41)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(56, 41)": {
+		"type": "House",
+		"coords": "(56, 41)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 5
+	},
+	"(57, 41)": {
+		"type": "House",
+		"coords": "(57, 41)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(58, 41)": {
+		"type": "House",
+		"coords": "(58, 41)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(59, 41)": {
+		"type": "House",
+		"coords": "(59, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(60, 41)": {
+		"type": "House",
+		"coords": "(60, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(61, 41)": {
+		"type": "House",
+		"coords": "(61, 41)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(62, 41)": {
+		"type": "House",
+		"coords": "(62, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(63, 41)": {
+		"type": "Gap",
+		"coords": "(63, 41)",
+		"visited": false
+	},
+	"(64, 41)": {
+		"type": "Gap",
+		"coords": "(64, 41)",
+		"visited": false
+	},
+	"(65, 41)": {
+		"type": "Gap",
+		"coords": "(65, 41)",
+		"visited": false
+	},
+	"(66, 41)": {
+		"type": "House",
+		"coords": "(66, 41)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(67, 41)": {
+		"type": "Gap",
+		"coords": "(67, 41)",
+		"visited": false
+	},
+	"(68, 41)": {
+		"type": "Gap",
+		"coords": "(68, 41)",
+		"visited": false
+	},
+	"(69, 41)": {
+		"type": "Gap",
+		"coords": "(69, 41)",
+		"visited": false
+	},
+	"(70, 41)": {
+		"type": "Gap",
+		"coords": "(70, 41)",
+		"visited": false
+	},
+	"(71, 41)": {
+		"type": "House",
+		"coords": "(71, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(72, 41)": {
+		"type": "Gap",
+		"coords": "(72, 41)",
+		"visited": false
+	},
+	"(73, 41)": {
+		"type": "Gap",
+		"coords": "(73, 41)",
+		"visited": false
+	},
+	"(74, 41)": {
+		"type": "Gap",
+		"coords": "(74, 41)",
+		"visited": false
+	},
+	"(75, 41)": {
+		"type": "House",
+		"coords": "(75, 41)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(76, 41)": {
+		"type": "Gap",
+		"coords": "(76, 41)",
+		"visited": false
+	},
+	"(77, 41)": {
+		"type": "Gap",
+		"coords": "(77, 41)",
+		"visited": false
+	},
+	"(78, 41)": {
+		"type": "House",
+		"coords": "(78, 41)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(79, 41)": {
+		"type": "Gap",
+		"coords": "(79, 41)",
+		"visited": false
+	},
+	"(79, 42)": {
+		"type": "Gap",
+		"coords": "(79, 42)",
+		"visited": false
+	},
+	"(78, 42)": {
+		"type": "Gap",
+		"coords": "(78, 42)",
+		"visited": false
+	},
+	"(77, 42)": {
+		"type": "Gap",
+		"coords": "(77, 42)",
+		"visited": false
+	},
+	"(76, 42)": {
+		"type": "Gap",
+		"coords": "(76, 42)",
+		"visited": false
+	},
+	"(75, 42)": {
+		"type": "Gap",
+		"coords": "(75, 42)",
+		"visited": false
+	},
+	"(74, 42)": {
+		"type": "Gap",
+		"coords": "(74, 42)",
+		"visited": false
+	},
+	"(73, 42)": {
+		"type": "House",
+		"coords": "(73, 42)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(72, 42)": {
+		"type": "Gap",
+		"coords": "(72, 42)",
+		"visited": false
+	},
+	"(71, 42)": {
+		"type": "House",
+		"coords": "(71, 42)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(70, 42)": {
+		"type": "Gap",
+		"coords": "(70, 42)",
+		"visited": false
+	},
+	"(69, 42)": {
+		"type": "Gap",
+		"coords": "(69, 42)",
+		"visited": false
+	},
+	"(68, 42)": {
+		"type": "Gap",
+		"coords": "(68, 42)",
+		"visited": false
+	},
+	"(67, 42)": {
+		"type": "House",
+		"coords": "(67, 42)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(66, 42)": {
+		"type": "Gap",
+		"coords": "(66, 42)",
+		"visited": false
+	},
+	"(65, 42)": {
+		"type": "House",
+		"coords": "(65, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 42)": {
+		"type": "Gap",
+		"coords": "(64, 42)",
+		"visited": false
+	},
+	"(63, 42)": {
+		"type": "Gap",
+		"coords": "(63, 42)",
+		"visited": false
+	},
+	"(62, 42)": {
+		"type": "Gap",
+		"coords": "(62, 42)",
+		"visited": false
+	},
+	"(61, 42)": {
+		"type": "House",
+		"coords": "(61, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(60, 42)": {
+		"type": "House",
+		"coords": "(60, 42)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(59, 42)": {
+		"type": "House",
+		"coords": "(59, 42)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 2
+	},
+	"(58, 42)": {
+		"type": "House",
+		"coords": "(58, 42)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(57, 42)": {
+		"type": "House",
+		"coords": "(57, 42)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(56, 42)": {
+		"type": "House",
+		"coords": "(56, 42)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 5
+	},
+	"(55, 42)": {
+		"type": "House",
+		"coords": "(55, 42)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(54, 42)": {
+		"type": "House",
+		"coords": "(54, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(53, 42)": {
+		"type": "Gap",
+		"coords": "(53, 42)",
+		"visited": false
+	},
+	"(52, 42)": {
+		"type": "House",
+		"coords": "(52, 42)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 42)": {
+		"type": "Gap",
+		"coords": "(51, 42)",
+		"visited": false
+	},
+	"(50, 42)": {
+		"type": "Gap",
+		"coords": "(50, 42)",
+		"visited": false
+	},
+	"(49, 42)": {
+		"type": "House",
+		"coords": "(49, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(48, 42)": {
+		"type": "House",
+		"coords": "(48, 42)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(47, 42)": {
+		"type": "House",
+		"coords": "(47, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 42)": {
+		"type": "Gap",
+		"coords": "(46, 42)",
+		"visited": false
+	},
+	"(45, 42)": {
+		"type": "Gap",
+		"coords": "(45, 42)",
+		"visited": false
+	},
+	"(44, 42)": {
+		"type": "House",
+		"coords": "(44, 42)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(43, 42)": {
+		"type": "Gap",
+		"coords": "(43, 42)",
+		"visited": false
+	},
+	"(42, 42)": {
+		"type": "Gap",
+		"coords": "(42, 42)",
+		"visited": false
+	},
+	"(41, 42)": {
+		"type": "Gap",
+		"coords": "(41, 42)",
+		"visited": false
+	},
+	"(40, 42)": {
+		"type": "Gap",
+		"coords": "(40, 42)",
+		"visited": false
+	},
+	"(39, 42)": {
+		"type": "Gap",
+		"coords": "(39, 42)",
+		"visited": false
+	},
+	"(38, 42)": {
+		"type": "Gap",
+		"coords": "(38, 42)",
+		"visited": false
+	},
+	"(38, 43)": {
+		"type": "Gap",
+		"coords": "(38, 43)",
+		"visited": false
+	},
+	"(39, 43)": {
+		"type": "Gap",
+		"coords": "(39, 43)",
+		"visited": false
+	},
+	"(40, 43)": {
+		"type": "Gap",
+		"coords": "(40, 43)",
+		"visited": false
+	},
+	"(41, 43)": {
+		"type": "Gap",
+		"coords": "(41, 43)",
+		"visited": false
+	},
+	"(42, 43)": {
+		"type": "Gap",
+		"coords": "(42, 43)",
+		"visited": false
+	},
+	"(43, 43)": {
+		"type": "House",
+		"coords": "(43, 43)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(44, 43)": {
+		"type": "House",
+		"coords": "(44, 43)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(45, 43)": {
+		"type": "House",
+		"coords": "(45, 43)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(46, 43)": {
+		"type": "House",
+		"coords": "(46, 43)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(47, 43)": {
+		"type": "House",
+		"coords": "(47, 43)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(48, 43)": {
+		"type": "House",
+		"coords": "(48, 43)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 3
+	},
+	"(49, 43)": {
+		"type": "Gap",
+		"coords": "(49, 43)",
+		"visited": false
+	},
+	"(50, 43)": {
+		"type": "Gap",
+		"coords": "(50, 43)",
+		"visited": false
+	},
+	"(51, 43)": {
+		"type": "Gap",
+		"coords": "(51, 43)",
+		"visited": false
+	},
+	"(52, 43)": {
+		"type": "Gap",
+		"coords": "(52, 43)",
+		"visited": false
+	},
+	"(53, 43)": {
+		"type": "Gap",
+		"coords": "(53, 43)",
+		"visited": false
+	},
+	"(54, 43)": {
+		"type": "Gap",
+		"coords": "(54, 43)",
+		"visited": false
+	},
+	"(55, 43)": {
+		"type": "House",
+		"coords": "(55, 43)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(56, 43)": {
+		"type": "House",
+		"coords": "(56, 43)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(57, 43)": {
+		"type": "House",
+		"coords": "(57, 43)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 43)": {
+		"type": "House",
+		"coords": "(58, 43)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(59, 43)": {
+		"type": "House",
+		"coords": "(59, 43)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(60, 43)": {
+		"type": "Gap",
+		"coords": "(60, 43)",
+		"visited": false
+	},
+	"(61, 43)": {
+		"type": "Gap",
+		"coords": "(61, 43)",
+		"visited": false
+	},
+	"(62, 43)": {
+		"type": "Gap",
+		"coords": "(62, 43)",
+		"visited": false
+	},
+	"(63, 43)": {
+		"type": "Gap",
+		"coords": "(63, 43)",
+		"visited": false
+	},
+	"(64, 43)": {
+		"type": "Gap",
+		"coords": "(64, 43)",
+		"visited": false
+	},
+	"(65, 43)": {
+		"type": "Gap",
+		"coords": "(65, 43)",
+		"visited": false
+	},
+	"(66, 43)": {
+		"type": "Gap",
+		"coords": "(66, 43)",
+		"visited": false
+	},
+	"(67, 43)": {
+		"type": "Gap",
+		"coords": "(67, 43)",
+		"visited": false
+	},
+	"(68, 43)": {
+		"type": "Gap",
+		"coords": "(68, 43)",
+		"visited": false
+	},
+	"(69, 43)": {
+		"type": "House",
+		"coords": "(69, 43)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(70, 43)": {
+		"type": "Gap",
+		"coords": "(70, 43)",
+		"visited": false
+	},
+	"(71, 43)": {
+		"type": "Gap",
+		"coords": "(71, 43)",
+		"visited": false
+	},
+	"(72, 43)": {
+		"type": "Gap",
+		"coords": "(72, 43)",
+		"visited": false
+	},
+	"(73, 43)": {
+		"type": "Gap",
+		"coords": "(73, 43)",
+		"visited": false
+	},
+	"(74, 43)": {
+		"type": "Gap",
+		"coords": "(74, 43)",
+		"visited": false
+	},
+	"(75, 43)": {
+		"type": "Gap",
+		"coords": "(75, 43)",
+		"visited": false
+	},
+	"(76, 43)": {
+		"type": "Gap",
+		"coords": "(76, 43)",
+		"visited": false
+	},
+	"(77, 43)": {
+		"type": "Gap",
+		"coords": "(77, 43)",
+		"visited": false
+	},
+	"(78, 43)": {
+		"type": "Gap",
+		"coords": "(78, 43)",
+		"visited": false
+	},
+	"(78, 44)": {
+		"type": "Gap",
+		"coords": "(78, 44)",
+		"visited": false
+	},
+	"(77, 44)": {
+		"type": "Gap",
+		"coords": "(77, 44)",
+		"visited": false
+	},
+	"(76, 44)": {
+		"type": "House",
+		"coords": "(76, 44)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 44)": {
+		"type": "Gap",
+		"coords": "(75, 44)",
+		"visited": false
+	},
+	"(74, 44)": {
+		"type": "Gap",
+		"coords": "(74, 44)",
+		"visited": false
+	},
+	"(73, 44)": {
+		"type": "Gap",
+		"coords": "(73, 44)",
+		"visited": false
+	},
+	"(72, 44)": {
+		"type": "Gap",
+		"coords": "(72, 44)",
+		"visited": false
+	},
+	"(71, 44)": {
+		"type": "Gap",
+		"coords": "(71, 44)",
+		"visited": false
+	},
+	"(70, 44)": {
+		"type": "Gap",
+		"coords": "(70, 44)",
+		"visited": false
+	},
+	"(69, 44)": {
+		"type": "Gap",
+		"coords": "(69, 44)",
+		"visited": false
+	},
+	"(68, 44)": {
+		"type": "Gap",
+		"coords": "(68, 44)",
+		"visited": false
+	},
+	"(67, 44)": {
+		"type": "Gap",
+		"coords": "(67, 44)",
+		"visited": false
+	},
+	"(66, 44)": {
+		"type": "Gap",
+		"coords": "(66, 44)",
+		"visited": false
+	},
+	"(65, 44)": {
+		"type": "Gap",
+		"coords": "(65, 44)",
+		"visited": false
+	},
+	"(64, 44)": {
+		"type": "House",
+		"coords": "(64, 44)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(63, 44)": {
+		"type": "Gap",
+		"coords": "(63, 44)",
+		"visited": false
+	},
+	"(62, 44)": {
+		"type": "Gap",
+		"coords": "(62, 44)",
+		"visited": false
+	},
+	"(61, 44)": {
+		"type": "House",
+		"coords": "(61, 44)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(60, 44)": {
+		"type": "House",
+		"coords": "(60, 44)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(59, 44)": {
+		"type": "Gap",
+		"coords": "(59, 44)",
+		"visited": false
+	},
+	"(58, 44)": {
+		"type": "House",
+		"coords": "(58, 44)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(57, 44)": {
+		"type": "Gap",
+		"coords": "(57, 44)",
+		"visited": false
+	},
+	"(56, 44)": {
+		"type": "Gap",
+		"coords": "(56, 44)",
+		"visited": false
+	},
+	"(55, 44)": {
+		"type": "Gap",
+		"coords": "(55, 44)",
+		"visited": false
+	},
+	"(54, 44)": {
+		"type": "Gap",
+		"coords": "(54, 44)",
+		"visited": false
+	},
+	"(53, 44)": {
+		"type": "Gap",
+		"coords": "(53, 44)",
+		"visited": false
+	},
+	"(52, 44)": {
+		"type": "Gap",
+		"coords": "(52, 44)",
+		"visited": false
+	},
+	"(51, 44)": {
+		"type": "Gap",
+		"coords": "(51, 44)",
+		"visited": false
+	},
+	"(50, 44)": {
+		"type": "Gap",
+		"coords": "(50, 44)",
+		"visited": false
+	},
+	"(49, 44)": {
+		"type": "Gap",
+		"coords": "(49, 44)",
+		"visited": false
+	},
+	"(48, 44)": {
+		"type": "House",
+		"coords": "(48, 44)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(47, 44)": {
+		"type": "House",
+		"coords": "(47, 44)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(46, 44)": {
+		"type": "House",
+		"coords": "(46, 44)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(45, 44)": {
+		"type": "House",
+		"coords": "(45, 44)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 5
+	},
+	"(44, 44)": {
+		"type": "House",
+		"coords": "(44, 44)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(43, 44)": {
+		"type": "House",
+		"coords": "(43, 44)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(42, 44)": {
+		"type": "Gap",
+		"coords": "(42, 44)",
+		"visited": false
+	},
+	"(41, 44)": {
+		"type": "Gap",
+		"coords": "(41, 44)",
+		"visited": false
+	},
+	"(40, 44)": {
+		"type": "House",
+		"coords": "(40, 44)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(39, 44)": {
+		"type": "Gap",
+		"coords": "(39, 44)",
+		"visited": false
+	},
+	"(38, 44)": {
+		"type": "Gap",
+		"coords": "(38, 44)",
+		"visited": false
+	},
+	"(38, 45)": {
+		"type": "Gap",
+		"coords": "(38, 45)",
+		"visited": false
+	},
+	"(39, 45)": {
+		"type": "Gap",
+		"coords": "(39, 45)",
+		"visited": false
+	},
+	"(40, 45)": {
+		"type": "Gap",
+		"coords": "(40, 45)",
+		"visited": false
+	},
+	"(41, 45)": {
+		"type": "House",
+		"coords": "(41, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(42, 45)": {
+		"type": "Gap",
+		"coords": "(42, 45)",
+		"visited": false
+	},
+	"(43, 45)": {
+		"type": "House",
+		"coords": "(43, 45)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(44, 45)": {
+		"type": "House",
+		"coords": "(44, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 45)": {
+		"type": "House",
+		"coords": "(45, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 45)": {
+		"type": "House",
+		"coords": "(46, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(47, 45)": {
+		"type": "House",
+		"coords": "(47, 45)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(48, 45)": {
+		"type": "House",
+		"coords": "(48, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 45)": {
+		"type": "Gap",
+		"coords": "(49, 45)",
+		"visited": false
+	},
+	"(50, 45)": {
+		"type": "Gap",
+		"coords": "(50, 45)",
+		"visited": false
+	},
+	"(51, 45)": {
+		"type": "House",
+		"coords": "(51, 45)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(52, 45)": {
+		"type": "Gap",
+		"coords": "(52, 45)",
+		"visited": false
+	},
+	"(53, 45)": {
+		"type": "Gap",
+		"coords": "(53, 45)",
+		"visited": false
+	},
+	"(54, 45)": {
+		"type": "Gap",
+		"coords": "(54, 45)",
+		"visited": false
+	},
+	"(55, 45)": {
+		"type": "Gap",
+		"coords": "(55, 45)",
+		"visited": false
+	},
+	"(56, 45)": {
+		"type": "House",
+		"coords": "(56, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(57, 45)": {
+		"type": "Gap",
+		"coords": "(57, 45)",
+		"visited": false
+	},
+	"(58, 45)": {
+		"type": "Gap",
+		"coords": "(58, 45)",
+		"visited": false
+	},
+	"(59, 45)": {
+		"type": "Gap",
+		"coords": "(59, 45)",
+		"visited": false
+	},
+	"(60, 45)": {
+		"type": "House",
+		"coords": "(60, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(61, 45)": {
+		"type": "House",
+		"coords": "(61, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 45)": {
+		"type": "Gap",
+		"coords": "(62, 45)",
+		"visited": false
+	},
+	"(63, 45)": {
+		"type": "Gap",
+		"coords": "(63, 45)",
+		"visited": false
+	},
+	"(64, 45)": {
+		"type": "Gap",
+		"coords": "(64, 45)",
+		"visited": false
+	},
+	"(65, 45)": {
+		"type": "Gap",
+		"coords": "(65, 45)",
+		"visited": false
+	},
+	"(66, 45)": {
+		"type": "House",
+		"coords": "(66, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(67, 45)": {
+		"type": "Gap",
+		"coords": "(67, 45)",
+		"visited": false
+	},
+	"(68, 45)": {
+		"type": "Gap",
+		"coords": "(68, 45)",
+		"visited": false
+	},
+	"(69, 45)": {
+		"type": "Gap",
+		"coords": "(69, 45)",
+		"visited": false
+	},
+	"(70, 45)": {
+		"type": "Gap",
+		"coords": "(70, 45)",
+		"visited": false
+	},
+	"(71, 45)": {
+		"type": "House",
+		"coords": "(71, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(72, 45)": {
+		"type": "Gap",
+		"coords": "(72, 45)",
+		"visited": false
+	},
+	"(73, 45)": {
+		"type": "Gap",
+		"coords": "(73, 45)",
+		"visited": false
+	},
+	"(74, 45)": {
+		"type": "House",
+		"coords": "(74, 45)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(75, 45)": {
+		"type": "Gap",
+		"coords": "(75, 45)",
+		"visited": false
+	},
+	"(76, 45)": {
+		"type": "Gap",
+		"coords": "(76, 45)",
+		"visited": false
+	},
+	"(77, 45)": {
+		"type": "Gap",
+		"coords": "(77, 45)",
+		"visited": false
+	},
+	"(78, 45)": {
+		"type": "House",
+		"coords": "(78, 45)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(77, 46)": {
+		"type": "House",
+		"coords": "(77, 46)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(76, 46)": {
+		"type": "Gap",
+		"coords": "(76, 46)",
+		"visited": false
+	},
+	"(75, 46)": {
+		"type": "Gap",
+		"coords": "(75, 46)",
+		"visited": false
+	},
+	"(74, 46)": {
+		"type": "Gap",
+		"coords": "(74, 46)",
+		"visited": false
+	},
+	"(73, 46)": {
+		"type": "Gap",
+		"coords": "(73, 46)",
+		"visited": false
+	},
+	"(72, 46)": {
+		"type": "Gap",
+		"coords": "(72, 46)",
+		"visited": false
+	},
+	"(71, 46)": {
+		"type": "Gap",
+		"coords": "(71, 46)",
+		"visited": false
+	},
+	"(70, 46)": {
+		"type": "Gap",
+		"coords": "(70, 46)",
+		"visited": false
+	},
+	"(69, 46)": {
+		"type": "Gap",
+		"coords": "(69, 46)",
+		"visited": false
+	},
+	"(68, 46)": {
+		"type": "House",
+		"coords": "(68, 46)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(67, 46)": {
+		"type": "Gap",
+		"coords": "(67, 46)",
+		"visited": false
+	},
+	"(66, 46)": {
+		"type": "Gap",
+		"coords": "(66, 46)",
+		"visited": false
+	},
+	"(65, 46)": {
+		"type": "Gap",
+		"coords": "(65, 46)",
+		"visited": false
+	},
+	"(64, 46)": {
+		"type": "Gap",
+		"coords": "(64, 46)",
+		"visited": false
+	},
+	"(63, 46)": {
+		"type": "Gap",
+		"coords": "(63, 46)",
+		"visited": false
+	},
+	"(62, 46)": {
+		"type": "Gap",
+		"coords": "(62, 46)",
+		"visited": false
+	},
+	"(61, 46)": {
+		"type": "Gap",
+		"coords": "(61, 46)",
+		"visited": false
+	},
+	"(60, 46)": {
+		"type": "Gap",
+		"coords": "(60, 46)",
+		"visited": false
+	},
+	"(59, 46)": {
+		"type": "Gap",
+		"coords": "(59, 46)",
+		"visited": false
+	},
+	"(58, 46)": {
+		"type": "Gap",
+		"coords": "(58, 46)",
+		"visited": false
+	},
+	"(57, 46)": {
+		"type": "House",
+		"coords": "(57, 46)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(56, 46)": {
+		"type": "Gap",
+		"coords": "(56, 46)",
+		"visited": false
+	},
+	"(55, 46)": {
+		"type": "Gap",
+		"coords": "(55, 46)",
+		"visited": false
+	},
+	"(54, 46)": {
+		"type": "Gap",
+		"coords": "(54, 46)",
+		"visited": false
+	},
+	"(53, 46)": {
+		"type": "Gap",
+		"coords": "(53, 46)",
+		"visited": false
+	},
+	"(52, 46)": {
+		"type": "Gap",
+		"coords": "(52, 46)",
+		"visited": false
+	},
+	"(51, 46)": {
+		"type": "Gap",
+		"coords": "(51, 46)",
+		"visited": false
+	},
+	"(50, 46)": {
+		"type": "Gap",
+		"coords": "(50, 46)",
+		"visited": false
+	},
+	"(49, 46)": {
+		"type": "Gap",
+		"coords": "(49, 46)",
+		"visited": false
+	},
+	"(48, 46)": {
+		"type": "House",
+		"coords": "(48, 46)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(47, 46)": {
+		"type": "House",
+		"coords": "(47, 46)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 46)": {
+		"type": "House",
+		"coords": "(46, 46)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(45, 46)": {
+		"type": "House",
+		"coords": "(45, 46)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(44, 46)": {
+		"type": "House",
+		"coords": "(44, 46)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(43, 46)": {
+		"type": "House",
+		"coords": "(43, 46)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(42, 46)": {
+		"type": "Gap",
+		"coords": "(42, 46)",
+		"visited": false
+	},
+	"(41, 46)": {
+		"type": "Gap",
+		"coords": "(41, 46)",
+		"visited": false
+	},
+	"(40, 46)": {
+		"type": "Gap",
+		"coords": "(40, 46)",
+		"visited": false
+	},
+	"(39, 46)": {
+		"type": "Gap",
+		"coords": "(39, 46)",
+		"visited": false
+	},
+	"(38, 46)": {
+		"type": "Gap",
+		"coords": "(38, 46)",
+		"visited": false
+	},
+	"(38, 47)": {
+		"type": "House",
+		"coords": "(38, 47)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(39, 47)": {
+		"type": "Gap",
+		"coords": "(39, 47)",
+		"visited": false
+	},
+	"(40, 47)": {
+		"type": "House",
+		"coords": "(40, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(41, 47)": {
+		"type": "Gap",
+		"coords": "(41, 47)",
+		"visited": false
+	},
+	"(42, 47)": {
+		"type": "House",
+		"coords": "(42, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(43, 47)": {
+		"type": "House",
+		"coords": "(43, 47)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(44, 47)": {
+		"type": "House",
+		"coords": "(44, 47)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(45, 47)": {
+		"type": "Gap",
+		"coords": "(45, 47)",
+		"visited": false
+	},
+	"(46, 47)": {
+		"type": "House",
+		"coords": "(46, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(47, 47)": {
+		"type": "Gap",
+		"coords": "(47, 47)",
+		"visited": false
+	},
+	"(48, 47)": {
+		"type": "Gap",
+		"coords": "(48, 47)",
+		"visited": false
+	},
+	"(49, 47)": {
+		"type": "Gap",
+		"coords": "(49, 47)",
+		"visited": false
+	},
+	"(50, 47)": {
+		"type": "Gap",
+		"coords": "(50, 47)",
+		"visited": false
+	},
+	"(51, 47)": {
+		"type": "House",
+		"coords": "(51, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(52, 47)": {
+		"type": "Gap",
+		"coords": "(52, 47)",
+		"visited": false
+	},
+	"(53, 47)": {
+		"type": "Gap",
+		"coords": "(53, 47)",
+		"visited": false
+	},
+	"(54, 47)": {
+		"type": "Gap",
+		"coords": "(54, 47)",
+		"visited": false
+	},
+	"(55, 47)": {
+		"type": "Gap",
+		"coords": "(55, 47)",
+		"visited": false
+	},
+	"(56, 47)": {
+		"type": "House",
+		"coords": "(56, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(57, 47)": {
+		"type": "Gap",
+		"coords": "(57, 47)",
+		"visited": false
+	},
+	"(58, 47)": {
+		"type": "Gap",
+		"coords": "(58, 47)",
+		"visited": false
+	},
+	"(59, 47)": {
+		"type": "Gap",
+		"coords": "(59, 47)",
+		"visited": false
+	},
+	"(60, 47)": {
+		"type": "Gap",
+		"coords": "(60, 47)",
+		"visited": false
+	},
+	"(61, 47)": {
+		"type": "Gap",
+		"coords": "(61, 47)",
+		"visited": false
+	},
+	"(62, 47)": {
+		"type": "House",
+		"coords": "(62, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(63, 47)": {
+		"type": "Gap",
+		"coords": "(63, 47)",
+		"visited": false
+	},
+	"(64, 47)": {
+		"type": "Gap",
+		"coords": "(64, 47)",
+		"visited": false
+	},
+	"(65, 47)": {
+		"type": "Gap",
+		"coords": "(65, 47)",
+		"visited": false
+	},
+	"(66, 47)": {
+		"type": "Gap",
+		"coords": "(66, 47)",
+		"visited": false
+	},
+	"(67, 47)": {
+		"type": "House",
+		"coords": "(67, 47)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(68, 47)": {
+		"type": "Gap",
+		"coords": "(68, 47)",
+		"visited": false
+	},
+	"(69, 47)": {
+		"type": "Gap",
+		"coords": "(69, 47)",
+		"visited": false
+	},
+	"(70, 47)": {
+		"type": "House",
+		"coords": "(70, 47)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(71, 47)": {
+		"type": "Gap",
+		"coords": "(71, 47)",
+		"visited": false
+	},
+	"(72, 47)": {
+		"type": "Gap",
+		"coords": "(72, 47)",
+		"visited": false
+	},
+	"(73, 47)": {
+		"type": "Gap",
+		"coords": "(73, 47)",
+		"visited": false
+	},
+	"(74, 47)": {
+		"type": "Gap",
+		"coords": "(74, 47)",
+		"visited": false
+	},
+	"(75, 47)": {
+		"type": "House",
+		"coords": "(75, 47)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(76, 47)": {
+		"type": "Gap",
+		"coords": "(76, 47)",
+		"visited": false
+	},
+	"(75, 48)": {
+		"type": "Gap",
+		"coords": "(75, 48)",
+		"visited": false
+	},
+	"(74, 48)": {
+		"type": "Gap",
+		"coords": "(74, 48)",
+		"visited": false
+	},
+	"(73, 48)": {
+		"type": "House",
+		"coords": "(73, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(72, 48)": {
+		"type": "House",
+		"coords": "(72, 48)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(71, 48)": {
+		"type": "Gap",
+		"coords": "(71, 48)",
+		"visited": false
+	},
+	"(70, 48)": {
+		"type": "House",
+		"coords": "(70, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(69, 48)": {
+		"type": "Gap",
+		"coords": "(69, 48)",
+		"visited": false
+	},
+	"(68, 48)": {
+		"type": "Gap",
+		"coords": "(68, 48)",
+		"visited": false
+	},
+	"(67, 48)": {
+		"type": "Gap",
+		"coords": "(67, 48)",
+		"visited": false
+	},
+	"(66, 48)": {
+		"type": "Gap",
+		"coords": "(66, 48)",
+		"visited": false
+	},
+	"(65, 48)": {
+		"type": "House",
+		"coords": "(65, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 48)": {
+		"type": "Gap",
+		"coords": "(64, 48)",
+		"visited": false
+	},
+	"(63, 48)": {
+		"type": "Gap",
+		"coords": "(63, 48)",
+		"visited": false
+	},
+	"(62, 48)": {
+		"type": "Gap",
+		"coords": "(62, 48)",
+		"visited": false
+	},
+	"(61, 48)": {
+		"type": "Gap",
+		"coords": "(61, 48)",
+		"visited": false
+	},
+	"(60, 48)": {
+		"type": "Gap",
+		"coords": "(60, 48)",
+		"visited": false
+	},
+	"(59, 48)": {
+		"type": "Gap",
+		"coords": "(59, 48)",
+		"visited": false
+	},
+	"(58, 48)": {
+		"type": "Gap",
+		"coords": "(58, 48)",
+		"visited": false
+	},
+	"(57, 48)": {
+		"type": "Gap",
+		"coords": "(57, 48)",
+		"visited": false
+	},
+	"(56, 48)": {
+		"type": "House",
+		"coords": "(56, 48)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(55, 48)": {
+		"type": "Gap",
+		"coords": "(55, 48)",
+		"visited": false
+	},
+	"(54, 48)": {
+		"type": "Gap",
+		"coords": "(54, 48)",
+		"visited": false
+	},
+	"(53, 48)": {
+		"type": "Gap",
+		"coords": "(53, 48)",
+		"visited": false
+	},
+	"(52, 48)": {
+		"type": "Gap",
+		"coords": "(52, 48)",
+		"visited": false
+	},
+	"(51, 48)": {
+		"type": "Gap",
+		"coords": "(51, 48)",
+		"visited": false
+	},
+	"(50, 48)": {
+		"type": "Gap",
+		"coords": "(50, 48)",
+		"visited": false
+	},
+	"(49, 48)": {
+		"type": "Gap",
+		"coords": "(49, 48)",
+		"visited": false
+	},
+	"(48, 48)": {
+		"type": "House",
+		"coords": "(48, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(47, 48)": {
+		"type": "Gap",
+		"coords": "(47, 48)",
+		"visited": false
+	},
+	"(46, 48)": {
+		"type": "House",
+		"coords": "(46, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 48)": {
+		"type": "Gap",
+		"coords": "(45, 48)",
+		"visited": false
+	},
+	"(44, 48)": {
+		"type": "House",
+		"coords": "(44, 48)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(43, 48)": {
+		"type": "House",
+		"coords": "(43, 48)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(42, 48)": {
+		"type": "House",
+		"coords": "(42, 48)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(41, 48)": {
+		"type": "House",
+		"coords": "(41, 48)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(40, 48)": {
+		"type": "Gap",
+		"coords": "(40, 48)",
+		"visited": false
+	},
+	"(39, 48)": {
+		"type": "House",
+		"coords": "(39, 48)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(38, 48)": {
+		"type": "Gap",
+		"coords": "(38, 48)",
+		"visited": false
+	},
+	"(38, 49)": {
+		"type": "Gap",
+		"coords": "(38, 49)",
+		"visited": false
+	},
+	"(39, 49)": {
+		"type": "House",
+		"coords": "(39, 49)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 49)": {
+		"type": "House",
+		"coords": "(40, 49)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(41, 49)": {
+		"type": "House",
+		"coords": "(41, 49)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(42, 49)": {
+		"type": "House",
+		"coords": "(42, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(43, 49)": {
+		"type": "House",
+		"coords": "(43, 49)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(44, 49)": {
+		"type": "House",
+		"coords": "(44, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(45, 49)": {
+		"type": "House",
+		"coords": "(45, 49)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 49)": {
+		"type": "Gap",
+		"coords": "(46, 49)",
+		"visited": false
+	},
+	"(47, 49)": {
+		"type": "Gap",
+		"coords": "(47, 49)",
+		"visited": false
+	},
+	"(48, 49)": {
+		"type": "Gap",
+		"coords": "(48, 49)",
+		"visited": false
+	},
+	"(49, 49)": {
+		"type": "Gap",
+		"coords": "(49, 49)",
+		"visited": false
+	},
+	"(50, 49)": {
+		"type": "Gap",
+		"coords": "(50, 49)",
+		"visited": false
+	},
+	"(51, 49)": {
+		"type": "Gap",
+		"coords": "(51, 49)",
+		"visited": false
+	},
+	"(52, 49)": {
+		"type": "House",
+		"coords": "(52, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(53, 49)": {
+		"type": "Gap",
+		"coords": "(53, 49)",
+		"visited": false
+	},
+	"(54, 49)": {
+		"type": "Gap",
+		"coords": "(54, 49)",
+		"visited": false
+	},
+	"(55, 49)": {
+		"type": "House",
+		"coords": "(55, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(56, 49)": {
+		"type": "Gap",
+		"coords": "(56, 49)",
+		"visited": false
+	},
+	"(57, 49)": {
+		"type": "House",
+		"coords": "(57, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(58, 49)": {
+		"type": "Gap",
+		"coords": "(58, 49)",
+		"visited": false
+	},
+	"(59, 49)": {
+		"type": "Gap",
+		"coords": "(59, 49)",
+		"visited": false
+	},
+	"(60, 49)": {
+		"type": "Gap",
+		"coords": "(60, 49)",
+		"visited": false
+	},
+	"(61, 49)": {
+		"type": "Gap",
+		"coords": "(61, 49)",
+		"visited": false
+	},
+	"(62, 49)": {
+		"type": "Gap",
+		"coords": "(62, 49)",
+		"visited": false
+	},
+	"(63, 49)": {
+		"type": "Gap",
+		"coords": "(63, 49)",
+		"visited": false
+	},
+	"(64, 49)": {
+		"type": "House",
+		"coords": "(64, 49)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(65, 49)": {
+		"type": "Gap",
+		"coords": "(65, 49)",
+		"visited": false
+	},
+	"(66, 49)": {
+		"type": "Gap",
+		"coords": "(66, 49)",
+		"visited": false
+	},
+	"(67, 49)": {
+		"type": "Gap",
+		"coords": "(67, 49)",
+		"visited": false
+	},
+	"(68, 49)": {
+		"type": "House",
+		"coords": "(68, 49)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(69, 49)": {
+		"type": "Gap",
+		"coords": "(69, 49)",
+		"visited": false
+	},
+	"(70, 49)": {
+		"type": "Gap",
+		"coords": "(70, 49)",
+		"visited": false
+	},
+	"(71, 49)": {
+		"type": "Gap",
+		"coords": "(71, 49)",
+		"visited": false
+	},
+	"(73, 49)": {
+		"type": "Gap",
+		"coords": "(73, 49)",
+		"visited": false
+	},
+	"(74, 49)": {
+		"type": "Gap",
+		"coords": "(74, 49)",
+		"visited": false
+	},
+	"(71, 50)": {
+		"type": "Gap",
+		"coords": "(71, 50)",
+		"visited": false
+	},
+	"(70, 50)": {
+		"type": "Gap",
+		"coords": "(70, 50)",
+		"visited": false
+	},
+	"(69, 50)": {
+		"type": "Gap",
+		"coords": "(69, 50)",
+		"visited": false
+	},
+	"(68, 50)": {
+		"type": "Gap",
+		"coords": "(68, 50)",
+		"visited": false
+	},
+	"(67, 50)": {
+		"type": "House",
+		"coords": "(67, 50)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(66, 50)": {
+		"type": "House",
+		"coords": "(66, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(65, 50)": {
+		"type": "House",
+		"coords": "(65, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(64, 50)": {
+		"type": "Gap",
+		"coords": "(64, 50)",
+		"visited": false
+	},
+	"(63, 50)": {
+		"type": "Gap",
+		"coords": "(63, 50)",
+		"visited": false
+	},
+	"(62, 50)": {
+		"type": "Gap",
+		"coords": "(62, 50)",
+		"visited": false
+	},
+	"(61, 50)": {
+		"type": "Gap",
+		"coords": "(61, 50)",
+		"visited": false
+	},
+	"(60, 50)": {
+		"type": "House",
+		"coords": "(60, 50)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(59, 50)": {
+		"type": "Gap",
+		"coords": "(59, 50)",
+		"visited": false
+	},
+	"(58, 50)": {
+		"type": "House",
+		"coords": "(58, 50)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(57, 50)": {
+		"type": "Gap",
+		"coords": "(57, 50)",
+		"visited": false
+	},
+	"(56, 50)": {
+		"type": "House",
+		"coords": "(56, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(55, 50)": {
+		"type": "Gap",
+		"coords": "(55, 50)",
+		"visited": false
+	},
+	"(54, 50)": {
+		"type": "House",
+		"coords": "(54, 50)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(53, 50)": {
+		"type": "Gap",
+		"coords": "(53, 50)",
+		"visited": false
+	},
+	"(52, 50)": {
+		"type": "Gap",
+		"coords": "(52, 50)",
+		"visited": false
+	},
+	"(51, 50)": {
+		"type": "Gap",
+		"coords": "(51, 50)",
+		"visited": false
+	},
+	"(50, 50)": {
+		"type": "Gap",
+		"coords": "(50, 50)",
+		"visited": false
+	},
+	"(49, 50)": {
+		"type": "Gap",
+		"coords": "(49, 50)",
+		"visited": false
+	},
+	"(48, 50)": {
+		"type": "Gap",
+		"coords": "(48, 50)",
+		"visited": false
+	},
+	"(47, 50)": {
+		"type": "House",
+		"coords": "(47, 50)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(46, 50)": {
+		"type": "Gap",
+		"coords": "(46, 50)",
+		"visited": false
+	},
+	"(45, 50)": {
+		"type": "Gap",
+		"coords": "(45, 50)",
+		"visited": false
+	},
+	"(44, 50)": {
+		"type": "Gap",
+		"coords": "(44, 50)",
+		"visited": false
+	},
+	"(43, 50)": {
+		"type": "House",
+		"coords": "(43, 50)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(42, 50)": {
+		"type": "House",
+		"coords": "(42, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(41, 50)": {
+		"type": "House",
+		"coords": "(41, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(40, 50)": {
+		"type": "House",
+		"coords": "(40, 50)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(39, 50)": {
+		"type": "House",
+		"coords": "(39, 50)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(38, 50)": {
+		"type": "House",
+		"coords": "(38, 50)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(38, 51)": {
+		"type": "House",
+		"coords": "(38, 51)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(39, 51)": {
+		"type": "House",
+		"coords": "(39, 51)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 51)": {
+		"type": "House",
+		"coords": "(40, 51)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(41, 51)": {
+		"type": "House",
+		"coords": "(41, 51)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 5
+	},
+	"(42, 51)": {
+		"type": "House",
+		"coords": "(42, 51)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 3
+	},
+	"(43, 51)": {
+		"type": "House",
+		"coords": "(43, 51)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(44, 51)": {
+		"type": "Gap",
+		"coords": "(44, 51)",
+		"visited": false
+	},
+	"(45, 51)": {
+		"type": "Gap",
+		"coords": "(45, 51)",
+		"visited": false
+	},
+	"(46, 51)": {
+		"type": "Gap",
+		"coords": "(46, 51)",
+		"visited": false
+	},
+	"(47, 51)": {
+		"type": "Gap",
+		"coords": "(47, 51)",
+		"visited": false
+	},
+	"(48, 51)": {
+		"type": "Gap",
+		"coords": "(48, 51)",
+		"visited": false
+	},
+	"(49, 51)": {
+		"type": "Gap",
+		"coords": "(49, 51)",
+		"visited": false
+	},
+	"(50, 51)": {
+		"type": "House",
+		"coords": "(50, 51)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(51, 51)": {
+		"type": "Gap",
+		"coords": "(51, 51)",
+		"visited": false
+	},
+	"(52, 51)": {
+		"type": "Gap",
+		"coords": "(52, 51)",
+		"visited": false
+	},
+	"(53, 51)": {
+		"type": "Gap",
+		"coords": "(53, 51)",
+		"visited": false
+	},
+	"(54, 51)": {
+		"type": "Gap",
+		"coords": "(54, 51)",
+		"visited": false
+	},
+	"(55, 51)": {
+		"type": "Gap",
+		"coords": "(55, 51)",
+		"visited": false
+	},
+	"(56, 51)": {
+		"type": "Gap",
+		"coords": "(56, 51)",
+		"visited": false
+	},
+	"(57, 51)": {
+		"type": "Gap",
+		"coords": "(57, 51)",
+		"visited": false
+	},
+	"(58, 51)": {
+		"type": "Gap",
+		"coords": "(58, 51)",
+		"visited": false
+	},
+	"(59, 51)": {
+		"type": "Gap",
+		"coords": "(59, 51)",
+		"visited": false
+	},
+	"(60, 51)": {
+		"type": "Gap",
+		"coords": "(60, 51)",
+		"visited": false
+	},
+	"(61, 51)": {
+		"type": "Gap",
+		"coords": "(61, 51)",
+		"visited": false
+	},
+	"(62, 51)": {
+		"type": "Gap",
+		"coords": "(62, 51)",
+		"visited": false
+	},
+	"(63, 51)": {
+		"type": "Gap",
+		"coords": "(63, 51)",
+		"visited": false
+	},
+	"(64, 51)": {
+		"type": "House",
+		"coords": "(64, 51)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(65, 51)": {
+		"type": "Gap",
+		"coords": "(65, 51)",
+		"visited": false
+	},
+	"(66, 51)": {
+		"type": "House",
+		"coords": "(66, 51)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(67, 51)": {
+		"type": "Gap",
+		"coords": "(67, 51)",
+		"visited": false
+	},
+	"(68, 51)": {
+		"type": "Gap",
+		"coords": "(68, 51)",
+		"visited": false
+	},
+	"(69, 51)": {
+		"type": "Gap",
+		"coords": "(69, 51)",
+		"visited": false
+	},
+	"(69, 52)": {
+		"type": "Gap",
+		"coords": "(69, 52)",
+		"visited": false
+	},
+	"(68, 52)": {
+		"type": "Gap",
+		"coords": "(68, 52)",
+		"visited": false
+	},
+	"(67, 52)": {
+		"type": "Gap",
+		"coords": "(67, 52)",
+		"visited": false
+	},
+	"(66, 52)": {
+		"type": "Gap",
+		"coords": "(66, 52)",
+		"visited": false
+	},
+	"(65, 52)": {
+		"type": "Gap",
+		"coords": "(65, 52)",
+		"visited": false
+	},
+	"(64, 52)": {
+		"type": "Gap",
+		"coords": "(64, 52)",
+		"visited": false
+	},
+	"(63, 52)": {
+		"type": "Gap",
+		"coords": "(63, 52)",
+		"visited": false
+	},
+	"(62, 52)": {
+		"type": "Gap",
+		"coords": "(62, 52)",
+		"visited": false
+	},
+	"(61, 52)": {
+		"type": "Gap",
+		"coords": "(61, 52)",
+		"visited": false
+	},
+	"(60, 52)": {
+		"type": "Gap",
+		"coords": "(60, 52)",
+		"visited": false
+	},
+	"(59, 52)": {
+		"type": "Gap",
+		"coords": "(59, 52)",
+		"visited": false
+	},
+	"(58, 52)": {
+		"type": "Gap",
+		"coords": "(58, 52)",
+		"visited": false
+	},
+	"(57, 52)": {
+		"type": "Gap",
+		"coords": "(57, 52)",
+		"visited": false
+	},
+	"(56, 52)": {
+		"type": "Gap",
+		"coords": "(56, 52)",
+		"visited": false
+	},
+	"(55, 52)": {
+		"type": "Gap",
+		"coords": "(55, 52)",
+		"visited": false
+	},
+	"(54, 52)": {
+		"type": "Gap",
+		"coords": "(54, 52)",
+		"visited": false
+	},
+	"(53, 52)": {
+		"type": "Gap",
+		"coords": "(53, 52)",
+		"visited": false
+	},
+	"(52, 52)": {
+		"type": "Gap",
+		"coords": "(52, 52)",
+		"visited": false
+	},
+	"(51, 52)": {
+		"type": "Gap",
+		"coords": "(51, 52)",
+		"visited": false
+	},
+	"(50, 52)": {
+		"type": "Gap",
+		"coords": "(50, 52)",
+		"visited": false
+	},
+	"(49, 52)": {
+		"type": "Gap",
+		"coords": "(49, 52)",
+		"visited": false
+	},
+	"(48, 52)": {
+		"type": "Gap",
+		"coords": "(48, 52)",
+		"visited": false
+	},
+	"(47, 52)": {
+		"type": "Gap",
+		"coords": "(47, 52)",
+		"visited": false
+	},
+	"(46, 52)": {
+		"type": "House",
+		"coords": "(46, 52)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 52)": {
+		"type": "Gap",
+		"coords": "(45, 52)",
+		"visited": false
+	},
+	"(44, 52)": {
+		"type": "House",
+		"coords": "(44, 52)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(43, 52)": {
+		"type": "House",
+		"coords": "(43, 52)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(42, 52)": {
+		"type": "House",
+		"coords": "(42, 52)",
+		"visited": false,
+		"allegiance": "Third Party",
+		"voters": 4
+	},
+	"(41, 52)": {
+		"type": "House",
+		"coords": "(41, 52)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(40, 52)": {
+		"type": "House",
+		"coords": "(40, 52)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 5
+	},
+	"(39, 52)": {
+		"type": "House",
+		"coords": "(39, 52)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(38, 52)": {
+		"type": "House",
+		"coords": "(38, 52)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(40, 53)": {
+		"type": "House",
+		"coords": "(40, 53)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 3
+	},
+	"(42, 53)": {
+		"type": "House",
+		"coords": "(42, 53)",
+		"visited": false,
+		"allegiance": "Democrats",
+		"voters": 2
+	},
+	"(43, 53)": {
+		"type": "House",
+		"coords": "(43, 53)",
+		"visited": false,
+		"allegiance": "Republicans",
+		"voters": 2
+	},
+	"(44, 53)": {
+		"type": "House",
+		"coords": "(44, 53)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 53)": {
+		"type": "House",
+		"coords": "(45, 53)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 53)": {
+		"type": "Gap",
+		"coords": "(46, 53)",
+		"visited": false
+	},
+	"(47, 53)": {
+		"type": "Gap",
+		"coords": "(47, 53)",
+		"visited": false
+	},
+	"(48, 53)": {
+		"type": "Gap",
+		"coords": "(48, 53)",
+		"visited": false
+	},
+	"(49, 53)": {
+		"type": "Gap",
+		"coords": "(49, 53)",
+		"visited": false
+	},
+	"(50, 53)": {
+		"type": "House",
+		"coords": "(50, 53)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(51, 53)": {
+		"type": "Gap",
+		"coords": "(51, 53)",
+		"visited": false
+	},
+	"(52, 53)": {
+		"type": "Gap",
+		"coords": "(52, 53)",
+		"visited": false
+	},
+	"(53, 53)": {
+		"type": "Gap",
+		"coords": "(53, 53)",
+		"visited": false
+	},
+	"(54, 53)": {
+		"type": "Gap",
+		"coords": "(54, 53)",
+		"visited": false
+	},
+	"(55, 53)": {
+		"type": "Gap",
+		"coords": "(55, 53)",
+		"visited": false
+	},
+	"(56, 53)": {
+		"type": "Gap",
+		"coords": "(56, 53)",
+		"visited": false
+	},
+	"(57, 53)": {
+		"type": "House",
+		"coords": "(57, 53)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 53)": {
+		"type": "Gap",
+		"coords": "(58, 53)",
+		"visited": false
+	},
+	"(59, 53)": {
+		"type": "Gap",
+		"coords": "(59, 53)",
+		"visited": false
+	},
+	"(60, 53)": {
+		"type": "Gap",
+		"coords": "(60, 53)",
+		"visited": false
+	},
+	"(61, 53)": {
+		"type": "Gap",
+		"coords": "(61, 53)",
+		"visited": false
+	},
+	"(62, 53)": {
+		"type": "Gap",
+		"coords": "(62, 53)",
+		"visited": false
+	},
+	"(63, 53)": {
+		"type": "Gap",
+		"coords": "(63, 53)",
+		"visited": false
+	},
+	"(64, 53)": {
+		"type": "Gap",
+		"coords": "(64, 53)",
+		"visited": false
+	},
+	"(65, 53)": {
+		"type": "Gap",
+		"coords": "(65, 53)",
+		"visited": false
+	},
+	"(66, 53)": {
+		"type": "Gap",
+		"coords": "(66, 53)",
+		"visited": false
+	},
+	"(67, 53)": {
+		"type": "Gap",
+		"coords": "(67, 53)",
+		"visited": false
+	},
+	"(68, 53)": {
+		"type": "Gap",
+		"coords": "(68, 53)",
+		"visited": false
+	},
+	"(68, 54)": {
+		"type": "Gap",
+		"coords": "(68, 54)",
+		"visited": false
+	},
+	"(66, 54)": {
+		"type": "Gap",
+		"coords": "(66, 54)",
+		"visited": false
+	},
+	"(65, 54)": {
+		"type": "Gap",
+		"coords": "(65, 54)",
+		"visited": false
+	},
+	"(64, 54)": {
+		"type": "Gap",
+		"coords": "(64, 54)",
+		"visited": false
+	},
+	"(63, 54)": {
+		"type": "Gap",
+		"coords": "(63, 54)",
+		"visited": false
+	},
+	"(62, 54)": {
+		"type": "Gap",
+		"coords": "(62, 54)",
+		"visited": false
+	},
+	"(61, 54)": {
+		"type": "Gap",
+		"coords": "(61, 54)",
+		"visited": false
+	},
+	"(60, 54)": {
+		"type": "House",
+		"coords": "(60, 54)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(59, 54)": {
+		"type": "Gap",
+		"coords": "(59, 54)",
+		"visited": false
+	},
+	"(58, 54)": {
+		"type": "Gap",
+		"coords": "(58, 54)",
+		"visited": false
+	},
+	"(57, 54)": {
+		"type": "Gap",
+		"coords": "(57, 54)",
+		"visited": false
+	},
+	"(56, 54)": {
+		"type": "Gap",
+		"coords": "(56, 54)",
+		"visited": false
+	},
+	"(55, 54)": {
+		"type": "Gap",
+		"coords": "(55, 54)",
+		"visited": false
+	},
+	"(54, 54)": {
+		"type": "Gap",
+		"coords": "(54, 54)",
+		"visited": false
+	},
+	"(53, 54)": {
+		"type": "Gap",
+		"coords": "(53, 54)",
+		"visited": false
+	},
+	"(52, 54)": {
+		"type": "Gap",
+		"coords": "(52, 54)",
+		"visited": false
+	},
+	"(51, 54)": {
+		"type": "Gap",
+		"coords": "(51, 54)",
+		"visited": false
+	},
+	"(50, 54)": {
+		"type": "Gap",
+		"coords": "(50, 54)",
+		"visited": false
+	},
+	"(49, 54)": {
+		"type": "Gap",
+		"coords": "(49, 54)",
+		"visited": false
+	},
+	"(48, 54)": {
+		"type": "Gap",
+		"coords": "(48, 54)",
+		"visited": false
+	},
+	"(47, 54)": {
+		"type": "Gap",
+		"coords": "(47, 54)",
+		"visited": false
+	},
+	"(46, 54)": {
+		"type": "Gap",
+		"coords": "(46, 54)",
+		"visited": false
+	},
+	"(45, 54)": {
+		"type": "House",
+		"coords": "(45, 54)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(44, 54)": {
+		"type": "House",
+		"coords": "(44, 54)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(43, 54)": {
+		"type": "House",
+		"coords": "(43, 54)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(44, 55)": {
+		"type": "House",
+		"coords": "(44, 55)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 55)": {
+		"type": "House",
+		"coords": "(45, 55)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(46, 55)": {
+		"type": "Gap",
+		"coords": "(46, 55)",
+		"visited": false
+	},
+	"(47, 55)": {
+		"type": "House",
+		"coords": "(47, 55)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(48, 55)": {
+		"type": "Gap",
+		"coords": "(48, 55)",
+		"visited": false
+	},
+	"(49, 55)": {
+		"type": "Gap",
+		"coords": "(49, 55)",
+		"visited": false
+	},
+	"(50, 55)": {
+		"type": "Gap",
+		"coords": "(50, 55)",
+		"visited": false
+	},
+	"(51, 55)": {
+		"type": "Gap",
+		"coords": "(51, 55)",
+		"visited": false
+	},
+	"(52, 55)": {
+		"type": "Gap",
+		"coords": "(52, 55)",
+		"visited": false
+	},
+	"(53, 55)": {
+		"type": "Gap",
+		"coords": "(53, 55)",
+		"visited": false
+	},
+	"(54, 55)": {
+		"type": "Gap",
+		"coords": "(54, 55)",
+		"visited": false
+	},
+	"(55, 55)": {
+		"type": "Gap",
+		"coords": "(55, 55)",
+		"visited": false
+	},
+	"(56, 55)": {
+		"type": "House",
+		"coords": "(56, 55)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(57, 55)": {
+		"type": "Gap",
+		"coords": "(57, 55)",
+		"visited": false
+	},
+	"(58, 55)": {
+		"type": "Gap",
+		"coords": "(58, 55)",
+		"visited": false
+	},
+	"(59, 55)": {
+		"type": "Gap",
+		"coords": "(59, 55)",
+		"visited": false
+	},
+	"(60, 55)": {
+		"type": "Gap",
+		"coords": "(60, 55)",
+		"visited": false
+	},
+	"(61, 55)": {
+		"type": "Gap",
+		"coords": "(61, 55)",
+		"visited": false
+	},
+	"(62, 55)": {
+		"type": "Gap",
+		"coords": "(62, 55)",
+		"visited": false
+	},
+	"(63, 55)": {
+		"type": "Gap",
+		"coords": "(63, 55)",
+		"visited": false
+	},
+	"(64, 55)": {
+		"type": "Gap",
+		"coords": "(64, 55)",
+		"visited": false
+	},
+	"(65, 55)": {
+		"type": "Gap",
+		"coords": "(65, 55)",
+		"visited": false
+	},
+	"(68, 55)": {
+		"type": "House",
+		"coords": "(68, 55)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(65, 56)": {
+		"type": "Gap",
+		"coords": "(65, 56)",
+		"visited": false
+	},
+	"(64, 56)": {
+		"type": "Gap",
+		"coords": "(64, 56)",
+		"visited": false
+	},
+	"(63, 56)": {
+		"type": "House",
+		"coords": "(63, 56)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 56)": {
+		"type": "Gap",
+		"coords": "(62, 56)",
+		"visited": false
+	},
+	"(61, 56)": {
+		"type": "Gap",
+		"coords": "(61, 56)",
+		"visited": false
+	},
+	"(60, 56)": {
+		"type": "Gap",
+		"coords": "(60, 56)",
+		"visited": false
+	},
+	"(59, 56)": {
+		"type": "Gap",
+		"coords": "(59, 56)",
+		"visited": false
+	},
+	"(58, 56)": {
+		"type": "Gap",
+		"coords": "(58, 56)",
+		"visited": false
+	},
+	"(57, 56)": {
+		"type": "Gap",
+		"coords": "(57, 56)",
+		"visited": false
+	},
+	"(56, 56)": {
+		"type": "Gap",
+		"coords": "(56, 56)",
+		"visited": false
+	},
+	"(55, 56)": {
+		"type": "Gap",
+		"coords": "(55, 56)",
+		"visited": false
+	},
+	"(54, 56)": {
+		"type": "Gap",
+		"coords": "(54, 56)",
+		"visited": false
+	},
+	"(53, 56)": {
+		"type": "Gap",
+		"coords": "(53, 56)",
+		"visited": false
+	},
+	"(52, 56)": {
+		"type": "Gap",
+		"coords": "(52, 56)",
+		"visited": false
+	},
+	"(51, 56)": {
+		"type": "Gap",
+		"coords": "(51, 56)",
+		"visited": false
+	},
+	"(50, 56)": {
+		"type": "House",
+		"coords": "(50, 56)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(49, 56)": {
+		"type": "Gap",
+		"coords": "(49, 56)",
+		"visited": false
+	},
+	"(48, 56)": {
+		"type": "Gap",
+		"coords": "(48, 56)",
+		"visited": false
+	},
+	"(47, 56)": {
+		"type": "Gap",
+		"coords": "(47, 56)",
+		"visited": false
+	},
+	"(46, 56)": {
+		"type": "House",
+		"coords": "(46, 56)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(45, 56)": {
+		"type": "Gap",
+		"coords": "(45, 56)",
+		"visited": false
+	},
+	"(44, 56)": {
+		"type": "House",
+		"coords": "(44, 56)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(47, 57)": {
+		"type": "House",
+		"coords": "(47, 57)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(48, 57)": {
+		"type": "Gap",
+		"coords": "(48, 57)",
+		"visited": false
+	},
+	"(49, 57)": {
+		"type": "Gap",
+		"coords": "(49, 57)",
+		"visited": false
+	},
+	"(50, 57)": {
+		"type": "Gap",
+		"coords": "(50, 57)",
+		"visited": false
+	},
+	"(51, 57)": {
+		"type": "Gap",
+		"coords": "(51, 57)",
+		"visited": false
+	},
+	"(52, 57)": {
+		"type": "Gap",
+		"coords": "(52, 57)",
+		"visited": false
+	},
+	"(53, 57)": {
+		"type": "Gap",
+		"coords": "(53, 57)",
+		"visited": false
+	},
+	"(54, 57)": {
+		"type": "Gap",
+		"coords": "(54, 57)",
+		"visited": false
+	},
+	"(55, 57)": {
+		"type": "House",
+		"coords": "(55, 57)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(56, 57)": {
+		"type": "Gap",
+		"coords": "(56, 57)",
+		"visited": false
+	},
+	"(57, 57)": {
+		"type": "House",
+		"coords": "(57, 57)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(58, 57)": {
+		"type": "Gap",
+		"coords": "(58, 57)",
+		"visited": false
+	},
+	"(59, 57)": {
+		"type": "Gap",
+		"coords": "(59, 57)",
+		"visited": false
+	},
+	"(60, 57)": {
+		"type": "House",
+		"coords": "(60, 57)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(61, 57)": {
+		"type": "Gap",
+		"coords": "(61, 57)",
+		"visited": false
+	},
+	"(62, 57)": {
+		"type": "Gap",
+		"coords": "(62, 57)",
+		"visited": false
+	},
+	"(63, 57)": {
+		"type": "Gap",
+		"coords": "(63, 57)",
+		"visited": false
+	},
+	"(64, 57)": {
+		"type": "Gap",
+		"coords": "(64, 57)",
+		"visited": false
+	},
+	"(64, 58)": {
+		"type": "Gap",
+		"coords": "(64, 58)",
+		"visited": false
+	},
+	"(63, 58)": {
+		"type": "Gap",
+		"coords": "(63, 58)",
+		"visited": false
+	},
+	"(62, 58)": {
+		"type": "Gap",
+		"coords": "(62, 58)",
+		"visited": false
+	},
+	"(61, 58)": {
+		"type": "Gap",
+		"coords": "(61, 58)",
+		"visited": false
+	},
+	"(60, 58)": {
+		"type": "Gap",
+		"coords": "(60, 58)",
+		"visited": false
+	},
+	"(59, 58)": {
+		"type": "House",
+		"coords": "(59, 58)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(58, 58)": {
+		"type": "Gap",
+		"coords": "(58, 58)",
+		"visited": false
+	},
+	"(55, 58)": {
+		"type": "Gap",
+		"coords": "(55, 58)",
+		"visited": false
+	},
+	"(54, 58)": {
+		"type": "Gap",
+		"coords": "(54, 58)",
+		"visited": false
+	},
+	"(53, 58)": {
+		"type": "Gap",
+		"coords": "(53, 58)",
+		"visited": false
+	},
+	"(52, 58)": {
+		"type": "Gap",
+		"coords": "(52, 58)",
+		"visited": false
+	},
+	"(51, 58)": {
+		"type": "Gap",
+		"coords": "(51, 58)",
+		"visited": false
+	},
+	"(50, 58)": {
+		"type": "Gap",
+		"coords": "(50, 58)",
+		"visited": false
+	},
+	"(49, 58)": {
+		"type": "Gap",
+		"coords": "(49, 58)",
+		"visited": false
+	},
+	"(59, 59)": {
+		"type": "Gap",
+		"coords": "(59, 59)",
+		"visited": false
+	},
+	"(60, 59)": {
+		"type": "Gap",
+		"coords": "(60, 59)",
+		"visited": false
+	},
+	"(61, 59)": {
+		"type": "House",
+		"coords": "(61, 59)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(62, 59)": {
+		"type": "Gap",
+		"coords": "(62, 59)",
+		"visited": false
+	},
+	"(63, 59)": {
+		"type": "House",
+		"coords": "(63, 59)",
+		"visited": false,
+		"allegiance": "Republicans"
+	},
+	"(64, 59)": {
+		"type": "Gap",
+		"coords": "(64, 59)",
+		"visited": false
+	},
+	"(65, 59)": {
+		"type": "House",
+		"coords": "(65, 59)",
+		"visited": false,
+		"allegiance": "Third Party"
+	},
+	"(64, 60)": {
+		"type": "Gap",
+		"coords": "(64, 60)",
+		"visited": false
+	},
+	"(63, 60)": {
+		"type": "Gap",
+		"coords": "(63, 60)",
+		"visited": false
+	},
+	"(62, 60)": {
+		"type": "Gap",
+		"coords": "(62, 60)",
+		"visited": false
+	},
+	"(61, 60)": {
+		"type": "Gap",
+		"coords": "(61, 60)",
+		"visited": false
+	},
+	"(60, 60)": {
+		"type": "Gap",
+		"coords": "(60, 60)",
+		"visited": false
+	},
+	"(61, 61)": {
+		"type": "Gap",
+		"coords": "(61, 61)",
+		"visited": false
+	},
+	"(62, 61)": {
+		"type": "House",
+		"coords": "(62, 61)",
+		"visited": false,
+		"allegiance": "Democrats"
+	},
+	"(63, 61)": {
+		"type": "Gap",
+		"coords": "(63, 61)",
+		"visited": false
+	},
+	"anchor": {
+		"type": "Anchor",
+		"coords": "(58, 30)"
+	},
+	"(38, 29)": {
+		"type": "Gap",
+		"coords": "(38, 29)",
+		"visited": false
+	},
+	"(38, 28)": {
+		"type": "Gap",
+		"coords": "(38, 28)",
+		"visited": false
+	},
+	"(38, 27)": {
+		"type": "Gap",
+		"coords": "(38, 27)",
+		"visited": false
+	},
+	"(38, 26)": {
+		"type": "Gap",
+		"coords": "(38, 26)",
+		"visited": false
+	},
+	"(38, 25)": {
+		"type": "Gap",
+		"coords": "(38, 25)",
+		"visited": false
+	},
+	"(38, 24)": {
+		"type": "Gap",
+		"coords": "(38, 24)",
+		"visited": false
+	},
+	"(38, 23)": {
+		"type": "Gap",
+		"coords": "(38, 23)",
+		"visited": false
+	},
+	"(38, 22)": {
+		"type": "Gap",
+		"coords": "(38, 22)",
+		"visited": false
+	},
+	"(38, 21)": {
+		"type": "Gap",
+		"coords": "(38, 21)",
+		"visited": false
+	},
+	"(38, 20)": {
+		"type": "Gap",
+		"coords": "(38, 20)",
+		"visited": false
+	},
+	"(38, 19)": {
+		"type": "Gap",
+		"coords": "(38, 19)",
+		"visited": false
+	},
+	"(40, 18)": {
+		"type": "Gap",
+		"coords": "(40, 18)",
+		"visited": false
+	},
+	"(39, 18)": {
+		"type": "Gap",
+		"coords": "(39, 18)",
+		"visited": false
+	},
+	"(38, 18)": {
+		"type": "Gap",
+		"coords": "(38, 18)",
+		"visited": false
+	}
+}

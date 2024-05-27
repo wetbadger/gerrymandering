@@ -6,9 +6,10 @@ var difficulty = 0
 var music
 onready var scene = get_tree().get_current_scene()
 onready var button = get_node("Button")
+onready var label = get_node("Panel/Name")
+onready var panel = get_node("Panel")
 
 func _ready():
-
 	set_process(false)
 	music = scene.get_node("MainTheme")
 	scene = scene.get_children()[-1]
@@ -21,7 +22,7 @@ func _process(_delta):
 			print("Could not load main scene")
 
 func set_name(name):
-	get_node("Name").text = name
+	get_node("Panel/Name").text = name
 	path = "Puzzles/" + name
 	
 func set_icon(texture):
@@ -36,20 +37,20 @@ func set_difficulty(d):
 		i+=1
 	difficulty = d
 
+func show_won():
+	get_node("Won").visible = true
+
 func _on_Button_button_up():
-	var file = File.new()
-	if not file.file_exists("res://"+path+"/settings.json"):
-		print("res://"+path+" does not exist.")
-		return
-	file.open("res://"+path+"/settings.json", File.READ)
-	var settings = parse_json(file.get_as_text())
-	Globals.current_settings = settings
-	
-	file = File.new()
-	if not file.file_exists("res://"+path+"/matrix.json"):
-		print("res://"+path+" does not exist.")
-		return
-	file.open("res://"+path+"/matrix.json", File.READ)
-	var matrix = parse_json(file.get_as_text())
-	Globals.current_vertices = matrix
+	var map = load("res://"+path+"/map.tres")
+	Globals.current_settings = map.settings
+	Globals.current_vertices = map.matrix
+	Globals.current_terrain = map.terrain
+	Globals.current_map["name"] = map.settings["name"]
 	set_process(true)
+
+func _on_Button_mouse_entered():
+	Input.set_custom_mouse_cursor(Globals.hand)
+
+
+func _on_Button_mouse_exited():
+	Input.set_custom_mouse_cursor(Globals.pointer)

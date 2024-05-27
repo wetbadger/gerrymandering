@@ -9,6 +9,7 @@
 [node name="Cookies" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_default_cursor_shape = 3
 script = ExtResource( 2 )
 
 [node name="Window" parent="." instance=ExtResource( 1 )]
@@ -19,17 +20,23 @@ margin_left = 736.0
 margin_top = 784.0
 margin_right = 837.0
 margin_bottom = 872.0
+mouse_default_cursor_shape = 2
 
 [node name="Nevermind" parent="." instance=ExtResource( 5 )]
 margin_left = 888.0
 margin_top = 752.0
 margin_right = 1373.0
 margin_bottom = 893.0
+mouse_default_cursor_shape = 2
 
 [node name="BLabel" parent="." instance=ExtResource( 6 )]
 margin_left = 624.0
 margin_top = 288.0
 margin_right = -576.0
 margin_bottom = -653.0
-text = "Enable \"accept third party
-cookies\" in your browser"
+text = "This game is intended for
+educational purposes only.
+
+By clicking 'OK' you agree
+not to use this software to 
+affect any election."

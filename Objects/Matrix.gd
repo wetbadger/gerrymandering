@@ -45,10 +45,17 @@ var mouse_over #what point is the mouse over
 var m = 0 #modulation for voter indicator number
 
 func _ready():
+	pass
+	
+func ready():
 	
 	rng.randomize()
 	
-	var dimensions = rect.size
+	var dimensions
+	if typeof(scene.fog_size) == TYPE_INT:
+		dimensions = rect.size
+	else:
+		dimensions = scene.fog_size
 
 	size = dimensions / GRID_SIZE
 	size.x = floor(size.x)
@@ -172,7 +179,8 @@ func generate_houses(n, _parties=null, _gaps=false, algo="fill", map_name="", se
 					
 				loaded_matrix[square]["coords"] = str2var("Vector2"+loaded_matrix[square]["coords"] )
 				var coord = str2var("Vector2"+square)
-			scene.readjust_state(loaded_matrix["anchor"])
+			if loaded_matrix.has("anchor"):
+				scene.readjust_state(loaded_matrix["anchor"])
 			return pop
 		"hardcoded":
 			#TODO: this logic is similar to from file

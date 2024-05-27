@@ -47,3 +47,4 @@ func _on_HouseButton_button_up():
 	get_parent().gap_button.pressed = false
 			
 	scene.selected_house = self
+	self.pressed = true

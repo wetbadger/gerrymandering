@@ -1,5 +1,12 @@
 {
-	"name": "NewPuzzle2",
+	"name": "Contryvania",
+	"camera": {
+		"zoom": 0.35,
+		"position": [
+			910.782837,
+			423.88913
+		]
+	},
 	"pointer": null,
     "difficulty":2,
     "player": "Contraritarians",

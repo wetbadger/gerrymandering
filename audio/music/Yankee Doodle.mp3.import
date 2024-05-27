@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Yankee Doodle.mp3-4a9966558c29989064905c978e8d3261.mp3str"
+
+[deps]
+
+source_file="res://audio/music/Yankee Doodle.mp3"
+dest_files=[ "res://.import/Yankee Doodle.mp3-4a9966558c29989064905c978e8d3261.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

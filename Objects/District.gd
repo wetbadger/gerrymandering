@@ -13,6 +13,8 @@ var max_size = 0
 var min_size = 0
 var house_count = 0
 
+var at_min = false
+
 var visited = []
 var button
 onready var settings = get_tree().get_current_scene().settings
@@ -45,10 +47,30 @@ var turn_ended = false #when true avoid this district until endgame
 
 #custom cpp module
 var contiguityChecker = Contiguity.new()
+# contiguityChecker = null if build does not include cpp module
+
+# Tutorial signals
+signal filled
+signal unfilled
+signal broken
+signal unbroken
+signal created
+signal erased
+
+# signal for min ticker
+signal minimum #least number of allowed houses is in district
+signal not_minimum
 
 func _ready():
-
+	if contiguityChecker == null:
+		print("Contiguity checker was null")
+		contiguityChecker = load("res://Algorithms/Contiguity.gd").new()
+	
 	scene = get_tree().get_current_scene()
+	
+	if scene.t1 and is_instance_valid(scene.t1):
+		scene.t1.get_node("Tutorial1Dialog").new_district()
+
 	district_buttons = scene.get_node("UI/Scroll/DistrictButtons")
 	for party in scene.parties:
 		party_tallies[party] = 0
@@ -68,9 +90,7 @@ func _process(_delta):
 				button.text = str(max_size-house_count)
 			else:
 				button.text = str(max_size)
-	for p in party_tallies:	
-		if party_tally:
-			party_tally.set_votes(p, party_tallies[p])
+
 
 func set_starting_vertex(vertex):
 	starting_vertex = vertex
@@ -83,6 +103,15 @@ func free_flood():
 	for s in flood.squares:
 		matrix[s].erase("district")
 	flood.queue_free()
+	
+func check_min():
+	if house_count == min_size and house_count != max_size:
+		at_min = true
+		emit_signal("minimum")
+	elif at_min:
+		emit_signal("not_minimum")
+		at_min = false
+		
 	
 func highlight(grid_point, exclude=null, force=false):
 	
@@ -100,6 +129,7 @@ func highlight(grid_point, exclude=null, force=false):
 		m_vert_house_id = matrix.vertices[house_id]
 	else:
 		error_label.set_text("NO CAN CLICK SQUARE")
+		return
 	if name == "Flood": #TODO: make Flood a class that extends District, so programemrs don't make fun of you
 		if len(squares_in_region) == 0:
 			squares_in_region.append(house_id)
@@ -133,14 +163,20 @@ func highlight(grid_point, exclude=null, force=false):
 			#tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			m_vert_house_id["visited_empty"] = true
 			m_vert_house_id["district"] = "Flood"
+			var isCreated = false
+			if len(squares) == 0:
+				isCreated = true
 			squares.append(house_id)
+			if isCreated:
+				isCreated = false
+				scene.n_drawn_districts += 1
 			var neighbors = get_neighbors(m_vert_house_id, squares, 2)
 			if settings["advanced"]["District Rules"]["runtime contiguity enforcement"]:
 				for neighbor in neighbors:
 					get_tree().get_current_scene().draw_district_flood(matrix.vertices[neighbor]["coords"], exclude)
 		return
 		
-	if max_size > house_count or force==true:
+	if max_size > house_count or (not contiguous and m_vert_house_id["type"] == "Gap") or force==true:
 		if not matrix.vertices.has(house_id):
 			error_label.set_text("NO HOUSE THERE")
 			var id_vect = str2var("Vector2"+house_id)
@@ -235,6 +271,7 @@ func highlight(grid_point, exclude=null, force=false):
 				else:
 					house_count += 1
 					party_tallies[m_vert_house_id["allegiance"]] += 1
+				check_min()
 				
 #					if not ["Error", "Flood"].has(name):
 #						scene.filled_squares += 1
@@ -244,7 +281,17 @@ func highlight(grid_point, exclude=null, force=false):
 			tm.set_cell(cell.x-1, cell.y-1, 0, false, false, false) #, Vector2(1,1))
 			tm.update_bitmask_area(Vector2(cell.x-1, cell.y-1))
 			
+			var isCreated = false
+			if len(squares) == 0:
+				isCreated = true
 			squares.append(house_id)
+			if scene.sound_timer.is_stopped():
+				scene.sound_timer.start()
+				scene.sound.stream = load("res://audio/sfx/district_attack.mp3")
+				scene.sound.play()
+			if isCreated:
+				isCreated = false
+				scene.n_drawn_districts += 1
 				
 			if house_count == max_size and scene.filled_squares < scene.population:
 				
@@ -269,8 +316,14 @@ func highlight(grid_point, exclude=null, force=false):
 				pass
 			else:
 				get_next_district()
+				
+	for p in party_tallies:	
+		if party_tally:
+			party_tally.set_votes(p, party_tallies[p])
 		
 func get_next_district():
+	if contiguous:
+		emit_signal("filled")
 	var next = null
 	#check if the button exists
 	#var scene = get_tree().get_current_scene()
@@ -355,7 +408,7 @@ func get_next_district():
 				button_name = each.name
 
 	next = district_buttons.get_node(button_name)
-	if next:
+	if next and contiguous:
 		next.pressed = true
 		next._on_Button_button_up()
 			
@@ -389,6 +442,7 @@ func error_flash(matrix, _scene, region):
 	scene.start_input()
 					
 func erase(grid_point, force=false):
+		
 	var house_id = str(grid_point)
 	
 	var matrix = scene.matrix.vertices
@@ -437,13 +491,25 @@ func erase(grid_point, force=false):
 				squares.erase(house_id)
 				contiguityChecker.removePoint(grid_point)
 				
+				if scene.sound.stream.resource_path.get_file() != "district_erase.mp3" or not scene.sound.playing:
+					scene.sound.stream = load("res://audio/sfx/district_erase.mp3")
+					scene.sound.play()
+				
 				if m_vert_house_id["type"] == "House":
 					if m_vert_house_id.has("voters"):
 						house_count -= int(m_vert_house_id["voters"])
 						party_tallies[m_vert_house_id["allegiance"]] -= m_vert_house_id["voters"]
 					else:
+						if house_count == max_size:
+							emit_signal("unfilled")
 						house_count -= 1
 						party_tallies[m_vert_house_id["allegiance"]] -= 1
+						if house_count == 0:
+							scene.n_drawn_districts -= 1
+						if not scene.hasErased:
+							emit_signal("erased")
+							scene.hasErased = true
+					check_min()
 					
 				var other_point = get_random_point()
 				if other_point:
@@ -460,6 +526,10 @@ func erase(grid_point, force=false):
 			error_label.set_text("NO HOUSE DISTRICT")
 	else:
 		error_label.set_text("NO HOUSE TO REMOVE")
+		
+	for p in party_tallies:	
+		if party_tally:
+			party_tally.set_votes(p, party_tallies[p])
 
 func is_house(id, has_district=1): #TODO: make this an enum before showin ppl your code
 		
@@ -688,8 +758,12 @@ func to_string():
 	
 func check_contiguity(gp):
 	var previous_contiguous = contiguous
+
 	contiguous = contiguityChecker.isContiguous(gp)
+
 	if not contiguous && previous_contiguous:
 		button.break_animation()
+		emit_signal("broken")
 	elif contiguous && not previous_contiguous:
 		button.close_animation()
+		emit_signal("unbroken")

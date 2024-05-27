@@ -17,7 +17,7 @@ func load_buttons(party_info):
 	
 	for party_name in party_info:
 		var btn = button.instance()
-		btn.set_sprite(party_info[party_name]["asset"], $"../../../State/SpriteTiles3")
+		btn.set_sprite(party_info[party_name]["asset"], $"../../../../State/SpriteTiles3")
 		add_child(btn)
 		var lbl = btn.get_node("Label") #label.instance()
 		lbl.set_text(party_name + "\n" + str(party_info[party_name]["voters"]))

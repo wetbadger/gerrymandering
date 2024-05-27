@@ -1,5 +1,9 @@
 {
-	"name": "NewPuzzle",
+    "camera" : {
+	    "zoom":0.5,
+	    "position": [900,600]
+    },
+	"name": "Arvrunstrhuit",
 	"pointer": null,
     "player": "You",
     "difficulty": 2,

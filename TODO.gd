@@ -3,7 +3,33 @@ extends Node
 
 """
 
+What was I doing:
+	...
+
 TODO:
+	
+	sfx:
+		place district
+		erase district
+	
+	Show puzzle info, like how many from each party the game has
+	
+	Cursor:
+		Drawing:
+			Over filled square
+			Over empty square
+		Moving:
+			Grabbing Hand
+		Menus:
+			Pointing Hand
+		
+	
+	Ticker for minimum sized districts. 
+		[done] Ticks down when the min is reached.
+		[done] Ticks up when max is reached or less than min
+		Symbol for district button when min is reached
+	Overall progress meter
+	
 	[done] load saved settings
 	
 	CPP module for:
@@ -44,7 +70,7 @@ TODO:
 	
 	[done] fireworks: one for each house that won only in viewport
 	ability to explore / screenshot after victory screen
-	menu to quit to main menu in game
+	[done] menu to quit to main menu in game
 	adjust screen layout for devices
 
 	draw original houses (fix copyright infringement)
@@ -93,7 +119,7 @@ TODO:
 			(bronze silver gold) 
 		[done] Create a map screen
 		Tutorial:
-			Sally the Salamander teaches you how to play.
+			[done] Sally the Salamander teaches you how to play.
 			
 		Legislative vs Commitee:
 			Legislative mode: player controls all districts
@@ -102,7 +128,7 @@ TODO:
 				orange shape
 		
 	make puzzles:
-		10 puzzles
+		[done] 10 puzzles
 		50 puzzles
 		250 puzzles
 		1000 puzzles

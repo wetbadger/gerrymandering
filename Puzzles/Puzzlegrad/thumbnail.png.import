@@ -1,0 +1,13 @@
+[remap]
+
+importer="image"
+type="Image"
+path="res://.import/thumbnail.png-35b8936ea8eba1cdcc283ae38e16350f.image"
+
+[deps]
+
+source_file="res://Puzzles/Puzzlegrad/thumbnail.png"
+dest_files=[ "res://.import/thumbnail.png-35b8936ea8eba1cdcc283ae38e16350f.image" ]
+
+[params]
+

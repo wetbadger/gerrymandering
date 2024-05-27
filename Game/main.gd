@@ -17,6 +17,7 @@ var previous_grid_point
 var selected_district
 var district_object
 var districts = []
+var n_drawn_districts = 0 #non empty districts
 var district_button_names
 var draw_size = 33
 
@@ -28,6 +29,7 @@ var selected_house
 
 var deselect_is_on = false
 var disable_draw= false
+var can_move = true
 var touches = 0
 var houses_unplaced = 0
 
@@ -40,6 +42,7 @@ var placement_mode__grid_indicators = {}
 export var show_last_point = false
 var texture_missing = load("res://pics/target.png")
 
+onready var ui = get_node("UI")
 onready var matrix = get_node("State").get_node("Matrix")
 onready var mode_label = get_node("UI/Debug/HBox/ModeLabel")
 onready var squares_filled_label = get_node("UI/Debug/HBox/SquaresFilledLabel")
@@ -52,19 +55,34 @@ onready var victory_node = get_node("UI/Victory")
 onready var error_screen = get_node("UI/ErrorScreen")
 onready var camera = get_node("State/Camera2D")
 onready var scroll = get_node("UI/Scroll")
-onready var scroll2 = get_node("UI/Scroll2")
+onready var creative_tabs = get_node("UI/TabContainer")
+onready var houses = get_node("UI/TabContainer/Houses")
 onready var district_buttons = get_node("UI/Scroll/DistrictButtons")
-onready var house_buttons = get_node("UI/Scroll2/HouseButtons")
+onready var house_buttons = get_node("UI/TabContainer/Houses/HouseButtons")
 onready var ambience = get_node("Ambience")
 onready var error_label = get_tree().get_current_scene().get_node("UI/Debug/ErrorLabel")
 onready var player_label = get_node("UI/PlayerMove")
 onready var voter_indicator = get_node("UI/VoterIndicatorUI")
 onready var play_as = get_node("UI/PlayAs")
+onready var in_game_menu_button = get_node("UI/InGameMenuBtn")
+onready var min_ticker = get_node("UI/MinTicker")
+onready var message = get_node("UI/Message")
+onready var deselect = get_node("UI/Deselect")
+onready var need2win = get_node("UI/NeedToWin")
+onready var sound = get_node("Sound")
+onready var sound_timer = get_node("SoundTimer")
 #
 # Tutorials
 #
 
 var tutorial1 = load("res://Tutorials/Tutorial1.tscn")
+var tutorial2 = load("res://Tutorials/Tutorial2.tscn")
+
+var t1
+var t2
+var t3
+
+var hasErased = false
 
 #
 # Statistics
@@ -75,14 +93,44 @@ var width
 var n_districts
 var max_size
 var min_size
+var short_number #how many districts need to be short
+
+#
+#	Draw modes
+#
 
 var can_recheck = true #can determine drawmode
-enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE}
+enum DRAW_MODES {ADD, ERASE, PLACE, REMOVE, TERRAIN, CLEAR}
 var draw_mode = DRAW_MODES.ADD
+onready var terrain_layer = get_node("State/TerrainLayer1")
+onready var terrain_layers = [get_node("State/TerrainLayer1"), get_node("State/TerrainLayer2")]
+var terrain_file
+
+#
+#	Cursor
+#
+
+var crosshairs = false
+var drawing = false
 
 var just_pressed = false
 
 var recieve_input = true
+
+var middle_mouse_held = false
+var mouse_is_held = false
+
+#
+#   Sound
+#
+
+var highlighting_stuff = true #if user holds mouse but doesn't draw, stop sound
+
+#
+#   Other
+#
+
+var rng = RandomNumberGenerator.new()
 
 var district_colors = []
 
@@ -117,12 +165,22 @@ var firework_object = load("res://Effects/Firework.tscn")
 var FIREWORK_LIMIT =25
 var firework_limit = 25
 
+var fog_size = -1
+
 func _ready():
 	
+	Input.set_custom_mouse_cursor(Globals.pointer)
 	set_process_unhandled_input (true)
 	settings = load_settings()
+	if settings.has("fog_size"):
+		fog_size = Vector2(settings["fog_size"][0], settings["fog_size"][1])
+	matrix.ready()
+	
 	victory_node.apply_pointer()
 	usrexp_settings = load_usrexp_settings()
+	
+	# this doesnt work for some reason
+	get_node("Sound").volume_db = usrexp_settings["Audio"]["Sound"]
 	
 	contiguous = settings["advanced"]["District Rules"]["contiguous"]
 	show_grid = settings["advanced"]["District Rules"]["show grid"]
@@ -130,18 +188,18 @@ func _ready():
 	
 	if settings.has("player"):
 		enable_next_if_winner_is = settings["player"]
+
 		
+	if _multiplayer:
+		play_as.visible = false
 	play_as.set_player(settings["parties"][enable_next_if_winner_is]["asset"])
+	play_as.set_color(Globals.word2color(settings["parties"][enable_next_if_winner_is]["color"]))
 
 	state_shape = settings["shape"]
 	shape = load("res://Objects/States/"+state_shape+".tscn").instance()
 	reference_rect = shape.get_node("ReferenceRect")
 	
 	district_object = load("res://Objects/District.tscn")
-	
-	#if true:#settings["advanced"]["District Rules"]["fog"]:
-		
-		#fog.create(reference_rect.rect_size.x*10, reference_rect.rect_size.y*10)
 	
 	get_node("State").add_child(shape)
 	shape.set_name("Shape")
@@ -153,7 +211,6 @@ func _ready():
 	yield(get_tree(), "idle_frame")
 	
 	parties = settings["parties"]
-	
 	players = parties.keys()
 	
 	if _multiplayer:
@@ -216,24 +273,86 @@ func _ready():
 				settings["advanced"]["House Placement"]["algorithm"], 
 				Globals.current_settings["name"],
 				false)
+
 	else:
-		
+		creative_tabs.queue_free()
 		population = matrix.generate_houses(population, parties, 
 			settings["advanced"]["House Placement"]["gaps"], 
 			settings["advanced"]["House Placement"]["algorithm"], 
 			Globals.current_settings["name"])
 		create_district_buttons(expected_population)
 		
-		if settings.has("camera"):
-			camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
-			camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
+	if settings.has("camera"):
+		camera.set_zoom(Vector2(settings["camera"]["zoom"],settings["camera"]["zoom"]))
+		camera.set_global_position(Vector2(settings["camera"]["position"][0],settings["camera"]["position"][1]))
 
 	if settings["advanced"]["House Placement"]["algorithm"] == "hardcoded":
 		if settings.has("tutorial"):
-			match settings["tutorial"]:
-				1:
-					#initiate tutorial 1
-					print("yeet")
+			initiate_tutorial(settings["tutorial"])
+	
+	if Globals.current_terrain:
+		for l in terrain_layers:
+			l.initialize()
+		terrain_file = Globals.current_terrain	
+	elif settings["advanced"]["House Placement"]["algorithm"] == "load from file":
+		var f = File.new()
+		f.open("user://"+Globals.current_settings["name"]+"/terrain.json",File.READ)
+		terrain_file = parse_json(f.get_as_text())
+		f.close()
+		for l in terrain_layers:
+			l.initialize()
+		Globals.current_terrain = terrain_file
+		
+	if settings.has("requirement"):
+		need2win.visible = true
+		need2win.text = "NEED " + str(settings["requirement"]) + " TO WIN"
+		
+	show_min_ticker(settings, population)
+	
+	show_message()
+
+#if districts are all the same but min is different than max, show the ticker
+func show_min_ticker(settings, population):
+	#verify that all districts are the same
+	#get number of min districts that need to be drawn
+	#show the ticker
+	var ma = -1
+	var mi = -1
+	for d in settings["districts"]:
+		if ma == -1:
+			ma = settings["districts"][d]["max"]
+			mi = settings["districts"][d]["min"]
+			if ma == mi:
+				return
+			continue
+		if settings["districts"][d]["max"] != ma or settings["districts"][d]["min"] != mi:
+			return
+	#The number of min districts
+	var min_dists = settings["districts"].size() - int(population) % int(mi)
+	min_ticker.label.text = str(min_dists)
+	min_ticker.visible = true
+	
+		
+func initiate_tutorial(n):
+	#initiate tutorial 1
+	if n == 1:
+		t1 = tutorial1.instance()
+		var t1dialog = t1.get_node("Tutorial1Dialog")
+		play_as.connect("finished", t1dialog, "next")
+		ui.add_child(t1)
+		disable_draw = true
+		can_move = false
+		for btn in district_buttons.get_children():
+			if btn.name != "Blank":
+				btn.connect("clicked", t1dialog, "next")
+				btn.tutorial_click = true
+	if n == 2:
+		t2 = tutorial2.instance()
+		var t2dialog = t2.get_node("Tutorial2Dialog")
+		play_as.connect("finished", t2dialog, "next")
+		ui.add_child(t2)
+		disable_draw = true
+		can_move = false
 
 # # # # # # # # #
 #
@@ -288,13 +407,14 @@ func create_district_buttons(expected_population):
 
 		var i = 0
 		for btn in district_buttons.get_children():
-			if btn.name != selected_district:
-				btn.disabled = true
-			else:
-				btn.disabled = false
-				#first district goes first
-				current_player = players.find(settings["districts"][btn.name]["party"])
-				player_label.set_party(players[current_player], parties[players[current_player]])
+			if btn.get_class() != "Control":
+				if btn.name != selected_district:
+					btn.disabled = true
+				else:
+					btn.disabled = false
+					#first district goes first
+					current_player = players.find(settings["districts"][btn.name]["party"])
+					player_label.set_party(players[current_player], parties[players[current_player]])
 			i+=1
 	
 	
@@ -379,8 +499,16 @@ func start_input():
 	recieve_input = true
 
 func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_released("middle_mouse"):
+		if matrix.voter_indicators.visible == true:
+			matrix.voter_indicators.visible = false
 	if recieve_input:
 		if (draw_mode == DRAW_MODES.ADD or draw_mode == DRAW_MODES.ERASE):
+			
+			if Input.is_action_pressed("middle_mouse"):
+				middle_mouse_held = true
+			else:
+				middle_mouse_held = false
 				
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				if event is InputEventScreenTouch:
@@ -388,20 +516,28 @@ func _unhandled_input(event: InputEvent) -> void:
 					if event.is_pressed():
 						if touches == 0:
 							just_pressed = true
+							if !disable_draw:
+								drawing = true
+
 						else:
 							just_pressed = false
+							
 						mobile__press_type = true
 						touches = 0
 						for getTouch in range(event.index+1):
 							touches+=1
 						if touches <= 0:
 							call_deferred("set_draw_mode_add")
+						mouse_is_held = true
 					else:
 						touches-=1
+						drawing = false
 						
 						mobile__press_type = false
 						if touches <= 0:
 							call_deferred("set_draw_mode_add")
+						#mouse released
+						mouse_is_held = false
 
 						
 				#just_pressed = !just_pressed
@@ -418,13 +554,21 @@ func _unhandled_input(event: InputEvent) -> void:
 	#
 			if Input.is_mouse_button_pressed(BUTTON_RIGHT):
 				set_mouse_members(event)
-
+				Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
 				_remove_district()
 		elif draw_mode == DRAW_MODES.PLACE or draw_mode == DRAW_MODES.REMOVE:
 			if event is InputEventScreenTouch or event is InputEventScreenDrag:
 				set_touch_members(event)
 				place_house(event)
-
+		elif draw_mode == DRAW_MODES.TERRAIN:
+			if event is InputEventScreenTouch or event is InputEventScreenDrag:
+				set_touch_members(event)
+				lay_terrain(event)
+		elif draw_mode == DRAW_MODES.CLEAR:
+			if event is InputEventScreenTouch or event is InputEventScreenDrag:
+				set_touch_members(event)
+				remove_terrain(event)
+				
 ###################
 #
 # House Placement
@@ -621,6 +765,27 @@ func _process(_delta):
 	if ambience.volume <= usrexp_settings["Audio"]["Sound"]:
 		ambience.volume += 0.001
 
+	var mouspos = get_grid_position(get_global_mouse_position())
+	if drawing:
+		if draw_mode == DRAW_MODES.ERASE:
+			Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
+		else:
+			Input.set_custom_mouse_cursor(Globals.point, 0, Vector2(32, 40))
+	elif !disable_draw:
+		if draw_mode == DRAW_MODES.ERASE or Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			Input.set_custom_mouse_cursor(Globals.eraser,0, Vector2(32, 40))
+		elif matrix.vertices.has(str(mouspos)):
+			crosshairs = true
+			Input.set_custom_mouse_cursor(Globals.crosshairs, 0, Vector2(32, 40))
+		else:
+			if crosshairs:
+				Input.set_custom_mouse_cursor(Globals.pointer)
+				crosshairs = false
+				
+	if middle_mouse_held:
+		Input.set_custom_mouse_cursor(Globals.closedhand)
+		matrix.voter_indicators.visible = true
+		
 ########################
 #
 # Setters
@@ -679,6 +844,12 @@ func get_district_selected(exclude=null, temp=null):
 		
 		var district = district_object.instance()
 		district.starting_vertex = grid_point
+		if t1 and is_instance_valid(t1):
+			district.connect("filled", t1.get_node("Tutorial1Dialog"), "set_to", [n_drawn_districts + 3])
+			district.connect("broken", t1.get_node("Tutorial1Dialog"), "broken")
+			district.connect("unbroken", t1.get_node("Tutorial1Dialog"), "unbroken")
+			district.connect("unfilled", t1.get_node("Tutorial1Dialog"), "set_to", [n_drawn_districts + 2])
+			district.connect("erased", t1.get_node("Tutorial1Dialog"), "erased")
 		
 		if selected_district == "Flood":
 			district.max_size = settings["districts"][temp]["max"]
@@ -706,7 +877,13 @@ func get_district_selected(exclude=null, temp=null):
 		add_child(district)
 		district.highlight(grid_point, exclude)
 		if not ["Flood","Error"].has(selected_district):
+			if t1 and is_instance_valid(t1) and len(districts) == 0:
+				t1.get_node("Tutorial1Dialog").next()
 			districts.append(district)
+
+		district.connect("minimum", min_ticker, "minimum")
+		district.connect("not_minimum", min_ticker, "not_minimum")
+		district.check_min()
 
 		return false
 	else:
@@ -870,12 +1047,38 @@ func already_district():
 func submit_current_layout():
 	#remove the house buttons
 	house_buttons.clear()
+	creative_tabs.queue_free()
 	#save the vertices
 	matrix.save_matrix(settings["name"])
 	#generate district buttons
 	create_district_buttons(population)
 	#enter draw_mode: ADD
 	draw_mode = DRAW_MODES.ADD
+	
+	#save terrain as is
+	save_terrain()
+
+func save_terrain():
+	var deco_data = {}
+	
+	#this is ridiculuous because hashmap
+	for layer in terrain_layers:
+		#iterate through keys, convert if true/on
+		var points = []
+		for key in layer.map.keys():
+			if layer.map[key] == true:
+				var pair = key.split(",")
+				points.append([int(pair[0]),int(pair[1])])
+
+		#add data to scenery info dict
+		deco_data[layer.name] = {}
+		deco_data[layer.name]["points"] = points
+		deco_data[layer.name]["color"] = layer.color
+
+	var deco_file = File.new()
+	deco_file.open("user://"+settings["name"]+"/terrain.json", File.WRITE)
+	deco_file.store_string(JSON.print(deco_data))
+	deco_file.close()
 
 func submit():
 	#print("Submitted")
@@ -939,11 +1142,29 @@ func submit():
 	recieve_input = false
 	submit_button.visible = false
 	
-	if winner.keys()[0] == enable_next_if_winner_is:
+	var must_meet_requirment = false
+	var requirement_met = true
+	if settings.has("requirement"):
+		must_meet_requirment = true
+		requirement_met = false
+		var tally = 0
+		for elem in results:
+			if elem.keys()[0] == enable_next_if_winner_is:
+				tally += 1
+		if tally >= settings["requirement"]:
+			requirement_met = true
+		else:
+			var by_enough = victory_node.get_node("ByEnough")
+			by_enough.text = "(You needed to win by "+str(settings["requirement"])+")"
+			by_enough.visible = true
+	
+	if winner.keys()[0] == enable_next_if_winner_is and not must_meet_requirment or must_meet_requirment and requirement_met:
 		if settings["pointer"]:
 			for node in settings["pointer"]:
 				Globals.map_progress[Globals.current_map["name"]][node] = true
 		victory_node.next.disabled = false
+		if not Globals.current_map["name"] in Globals.puzzles_won:
+			Globals.puzzles_won.append(Globals.current_map["name"])
 		
 	#shoot off up to LIMIT fireworks
 	var grid_list = matrix.vertices.keys()
@@ -967,7 +1188,6 @@ func shoot_firework(coords):
 	coords.y = coords.y - 0.5
 	if firework_limit > 0:
 		firework_limit-=1
-		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		var t = Timer.new()
 		t.set_wait_time(rng.randf()*4)
@@ -1032,10 +1252,11 @@ func increment_player():
 	var district_btn = get_node(selected_district).get_next_district()
 	
 	for btn in district_buttons.get_children():
-		if btn != district_btn:
-			btn.disabled = true
-		else:
-			btn.disabled = false
+		if btn.get_class() != "Control":
+			if btn != district_btn:
+				btn.disabled = true
+			else:
+				btn.disabled = false
 			
 func enable_selected_district():
 	for btn in district_buttons.get_children():
@@ -1052,3 +1273,22 @@ func readjust_state(anchor):
 	var coords = anchor.coords
 	shape.set_global_position(Vector2(coords.x * matrix.GRID_SIZE,
 									 coords.y * matrix.GRID_SIZE))
+
+##################
+#
+# Terrain Art
+#
+##################
+
+func lay_terrain(event):
+	terrain_layer.set_point(grid_point)
+	
+func remove_terrain(event):
+	for layer in terrain_layers:
+		layer.remove_point(grid_point)
+		
+func show_message():
+	if settings.has("message"):
+		message.visible = true
+		message.set_title(settings["message"]["title"])
+		message.set_text(settings["message"]["content"])

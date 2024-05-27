@@ -1,6 +1,18 @@
 extends Node
 
+#cursor icons
+var pointer = load("res://pics/mouse/pointer.png")
+var hand = load("res://pics/mouse/hand.png")
+var beam = load("res://pics/mouse/beam.png")
+var crosshairs = load("res://pics/mouse/crosshairs.png")
+var closedhand = load("res://pics/mouse/closedhand.png")
+var openhand = load("res://pics/mouse/openhand.png")
+var eraser = load("res://pics/mouse/eraser.png")
+var point = load("res://pics/mouse/point.png")
+
 var map_name
+
+var puzzles_won = [] #TODO: load this from file for PC users
 
 #TODO: make sure these values are taken from the JSON, 
 #(the variable here should only be used to CREATE the JSON)
@@ -71,11 +83,11 @@ const default_settings = {
 			"yellow" : [0.8,0.8,0.0],
 			"brown" : [0.3,0.2,0.0],
 			"green" : [0.2,0.8,0.1],
-			"white" : [1,1,1],
+			"white" : [.9,.9,.9],
 			"gray" : [0.5,0.5,0.5],
 			"teal" : [0.1,0.8,0.8],
 			"pink" : [0.8,0.1,0.7],
-			"black" : [0,0,0]
+			"black" : [.1,.1,.1]
 		},
 		"assets" : {
 			"Red House" : 0,
@@ -237,4 +249,9 @@ var chamber_of_legislation = {
 var current_map = {
 	"name" : "",
 	"scene": ""
+}
+
+var current_terrain = {
+	
+	
 }

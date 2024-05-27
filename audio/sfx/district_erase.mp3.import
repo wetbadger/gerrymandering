@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/district_erase.mp3-d9bf7d7527694854ac108a57dd2a62c7.mp3str"
+
+[deps]
+
+source_file="res://audio/sfx/district_erase.mp3"
+dest_files=[ "res://.import/district_erase.mp3-d9bf7d7527694854ac108a57dd2a62c7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

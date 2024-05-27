@@ -70,3 +70,5 @@ __meta__ = {
 }
 
 [connection signal="button_up" from="HBoxContainer/Close" to="." method="_on_Close_button_up"]
+[connection signal="mouse_entered" from="HBoxContainer/Close" to="." method="_on_Close_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Close" to="." method="_on_Close_mouse_exited"]
