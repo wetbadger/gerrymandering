@@ -199,6 +199,8 @@ var default_names = {
 	"affixes": [
 		"anarcho",
 		"paleo",
+		"anti",
+		"hyper",
 		"neo",
 		"proto",
 		"crypto"

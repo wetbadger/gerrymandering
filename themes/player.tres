@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=10 format=2]
+
+[ext_resource path="res://font/SpaceMono-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://font/Museo Slab 700.otf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 1 )
+
+[resource]
+Button/fonts/font = SubResource( 1 )
+Label/fonts/font = SubResource( 2 )
+LineEdit/fonts/font = SubResource( 4 )
+OptionButton/fonts/font = SubResource( 5 )
+PopupMenu/fonts/font = SubResource( 7 )
+TextEdit/fonts/font = SubResource( 3 )
+Tree/fonts/font = SubResource( 6 )
