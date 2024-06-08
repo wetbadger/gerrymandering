@@ -18,7 +18,7 @@ func new_name():
 	i = rng.randi_range(0, len(names["suffixes"]) - 1)
 	word += names["suffixes"][i]
 	rng.randomize()
-	if (rng.randf() > 0.9):
+	if (rng.randf() > 0.75):
 		rng.randomize()
 		i = rng.randi_range(0, len(names["affixes"]) - 1)
 		word = names["affixes"][i]+word
