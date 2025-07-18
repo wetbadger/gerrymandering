@@ -129,6 +129,7 @@ var default_names = {
 		"lol",
 		"lib",
 		"con",
+		"colon",
 		"wang",
 		"flip",
 		"floop",
